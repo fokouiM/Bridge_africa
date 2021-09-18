@@ -62,3 +62,5 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+####### NB
+for proper functioning challenge yourself delete the storage folder in public and typed the command "php artisan storage: link" for the images displays,

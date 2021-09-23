@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!--end::Fonts-->
 
-
+        <!--begin::Page Vendors Styles(used by this page)-->
+        <link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css"/>
+        <!--end::Page Vendors Styles-->
 
     <!--begin::Global Theme Styles(used by all pages)-->
     <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
@@ -291,7 +293,27 @@
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                         <ul class="menu-subnav">
                                             <li class="menu-item " aria-haspopup="true"><a href="home"
-                                                    class="menu-link "><span class="menu-text">Liste des voyants</span><span
+                                                    class="menu-link "><span class="menu-text">Accueil</span><span
+                                                        class="menu-desc"></span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="menu-item  menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
+                                    <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">Clients</span> <i class="menu-arrow"></i></a>
+                                    <div class="menu-submenu menu-submenu-classic menu-submenu-left">
+                                        <ul class="menu-subnav">
+                                            <li class="menu-item " aria-haspopup="true"><a href="home"
+                                                    class="menu-link "><span class="menu-text">liste des Clients</span><span
+                                                        class="menu-desc"></span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="menu-item  menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
+                                    <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">Voyants</span> <i class="menu-arrow"></i></a>
+                                    <div class="menu-submenu menu-submenu-classic menu-submenu-left">
+                                        <ul class="menu-subnav">
+                                            <li class="menu-item " aria-haspopup="true"><a href="home"
+                                                    class="menu-link "><span class="menu-text">liste des voyents</span><span
                                                         class="menu-desc"></span></a></li>
                                         </ul>
                                     </div>
@@ -366,10 +388,7 @@
 
                                     <!--begin::Button-->
                                     @if (isset(Auth::user()->id))
-                                        <a href="pack" class="btn btn-light-primary font-weight-bold btn-sm px-5 font-size-base ml-2"> Total : 80€</a>
-                                    @endif
-                                    @if (isset(Auth::user()->id))
-                                        <a href="pack" class="btn btn-light-primary font-weight-bold btn-sm px-5 font-size-base ml-2"> Credit : {{ Auth::user()->credit }}</a>
+                                        <a href="add_users" class="btn btn-light-primary font-weight-bold btn-sm px-5 font-size-base ml-2"> Ajouter un admin</a>
                                     @endif
                                     <!--end::Button-->
 
@@ -378,7 +397,7 @@
                             </div>
                         </div>
                         <div class="d-flex flex-row flex-column-fluid  container ">
-                            @yield('content')
+                            @yield('content_admin')
                         </div>
 
                         <!--end::Container-->
@@ -483,7 +502,13 @@
     <!--begin::Page Scripts(used by this page)-->
     <script src="assets/js/pages/custom/chat/chat.js"></script>
     <!--end::Page Scripts-->
+    <!--begin::Page Vendors(used by this page)-->
+    <script src="assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+    <!--end::Page Vendors-->
 
+    <!--begin::Page Scripts(used by this page)-->
+        <script src="assets/js/pages/widgets.js"></script>
+    <!--end::Page Scripts-->
 
 </body>
 <!--end::Body-->

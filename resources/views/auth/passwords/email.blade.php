@@ -5,7 +5,7 @@
 <head>
     <base href="../../../">
     <meta charset="utf-8" />
-    <title>Metronic | List 4 Columns</title>
+    <title>Voyance auraclet</title>
     <meta name="description" content="User 4 columns listing" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -33,10 +33,10 @@
 
 <body id="kt_body" class="header-fixed subheader-enabled page-loading">
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="position: relative; margin-top: 20%;">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                <div class="card-header">{{ __('Réinitialiser votre mot de passe') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -49,7 +49,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Adress E-Mail') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -65,7 +65,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
+                                    {{ __('Envoyer un lien de Réinitialiser a votre adress email') }}
                                 </button>
                             </div>
                         </div>

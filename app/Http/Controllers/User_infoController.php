@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
 use App\Models\User;
 
 class User_infoController extends Controller
@@ -28,7 +30,7 @@ class User_infoController extends Controller
      */
     public function index()
     {
-        return view('profile');
+        return view('Admin.profile');
     }
 
     /**
@@ -50,44 +52,15 @@ class User_infoController extends Controller
     public function store(Request $request)
     {
 
-        if($request->file === null){
+        $User = new User;
+        $User->name = $request->name;
+        $User->email = $request->name;
+        $User->statut = 2;
+        $User->password = Hash::make($request->password);
+        $User->save();
+        $v2 = 'l\'utilisateur a bien étè créer. nom l\'utilisateur : ' .$request->name. ' | mot de passe : '.$request->password;
 
-            User::findOrFail($request->id)->update([
-                'name' => $request->name,
-                'email' => $request->email,
-                'phone' => $request->phone,
-
-            ]);
-            $v2 = 'update of the validated profile';
-            return redirect()->route('profile', ['v2' => $v2]);
-
-        }else{
-            $filenameWithExt = $request->file->getClientOriginalName();
-
-            // Get just the filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-
-            // Get extension
-            $extension = $request->file->getClientOriginalExtension();
-
-            // Create new filename
-            $filenameToStore = $filename.'_'.time().'.'.$extension;
-
-            // Uplaod image
-            $path= $request->file->storeAs('public/assets/profil',$filenameToStore);
-
-
-            User::findOrFail($request->id)->update([
-                'name' => $request->name,
-                'email' => $request->email,
-                'phone' => $request->phone,
-                'img_profil' => $filenameToStore,
-
-            ]);
-            $v2 = 'update of the validated profile ';
-
-            return redirect()->route('profile', ['v2' => $v2]);
-        }
+            return redirect()->route('add_users', ['v2' => $v2]);
     }
 
     /**
@@ -121,7 +94,14 @@ class User_infoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        User::findOrFail($request->id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+
+        ]);
+        $v2 = 'Vos information on étè mise a jour';
+
+        return redirect()->route('profile', ['v2' => $v2]);
     }
 
     /**

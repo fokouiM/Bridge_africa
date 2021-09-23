@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Poduits;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,7 +24,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $produits = Poduits::orderBy('created_at', 'desc')->get();
-        return view('home')->with('produits', $produits);
+        if(isset(Auth::user()->id)){
+            if(Auth::user()->statut == 1){
+                return view('voyants.Home');
+
+            }elseif(Auth::user()->statut == 0){
+                return view('welcome');
+            }elseif(Auth::user()->statut == 2){
+                return view('Admin.Home');
+            }
+
+        }
     }
 }

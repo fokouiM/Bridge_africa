@@ -5,7 +5,7 @@
 <head>
     <base href="../../../../">
     <meta charset="utf-8" />
-    <title>Bridge africa</title>
+    <title>Voyance auraclet</title>
     <meta name="description" content="Login page example" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -61,15 +61,15 @@
                 <div class="d-flex flex-row-fluid flex-column justify-content-between">
                     <!--begin::Aside body-->
                     <div class="d-flex flex-column-fluid flex-column flex-center mt-5 mt-lg-0">
-                        <a href="#" class="mb-15 text-center">
-                            <img src="assets/media/logos/logo-letter-1.png" class="max-h-75px" alt="" />
+                        <a href="" class="mb-15 text-center">
+                            <img src="assets/media/logos/logo-letter-1.png" class="max-h-100px" alt="" />
                         </a>
 
                         <!--begin::Signin-->
                         <div class="login-form login-signin">
                             <div class="text-center mb-10 mb-lg-20">
-                                <h2 class="font-weight-bold">Sign In</h2>
-                                <p class="text-muted font-weight-bold">Enter your username and password</p>
+                                <h2 class="font-weight-bold">connectez-vous</h2>
+                                <p class="text-muted font-weight-bold">Entrer votre adress mail et votre mot de passe</p>
                             </div>
 
                             <!--begin::Form-->
@@ -85,7 +85,7 @@
                                             @enderror
                                     </div>
                                     <div class="form-group py-3 border-top m-0">
-                                        <input class="form-control h-auto border-0 px-0 placeholder-dark-75  @error('password') is-invalid @enderror" type="Password"  placeholder="password" name="password" required autocomplete="current-password" />
+                                        <input class="form-control h-auto border-0 px-0 placeholder-dark-75  @error('password') is-invalid @enderror" type="Password"  placeholder="Mot de passe" name="password" required autocomplete="current-password" />
                                         @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -98,20 +98,20 @@
                                             <label class="checkbox checkbox-outline m-0 text-muted">
                                                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                                 <span></span>
-                                                Remember me
+                                                ce souvenir de moi
                                             </label>
                                         </div>
-                                        <a href="{{ route('password.request') }}" id="kt_login_forgot" class="text-muted text-hover-primary">Forgot Password ?</a>
+                                        <a href="{{ route('password.request') }}"  class="text-muted text-hover-primary">Mot de passe oublier ?</a>
                                     </div>
 
                                     <div class="form-group d-flex flex-wrap justify-content-between align-items-center mt-2">
                                         <div class="my-3 mr-2">
-                                            <span class="text-muted mr-2">Don't have an account?</span>
+                                            <span class="text-muted mr-2">Vous n'aviez pas de compte ?</span>
                                             <a href="javascript:;" id="kt_login_signup" class="font-weight-bold">
-                                                Signup
+                                                Créer un compte
                                             </a>
                                         </div>
-                                        <button  class="btn btn-primary font-weight-bold px-9 py-4 my-3">Sign In</button>
+                                        <button  class="btn btn-primary font-weight-bold px-9 py-4 my-3">Connexion</button>
                                     </div>
                                 </form>
                             </div>
@@ -123,8 +123,8 @@
                         <!--begin::Signup-->
                         <div class="login-form login-signup">
                             <div class="text-center mb-10 mb-lg-20">
-                                <h3 class="">Sign Up</h3>
-                                <p class="text-muted font-weight-bold">Enter your details to create your account</p>
+                                <h3 class="">créer un compte</h3>
+                                <p class="text-muted font-weight-bold">Entrer vos informations et créer votre compte </p>
                             </div>
 
                             <!--begin::Form-->
@@ -134,7 +134,7 @@
                                 <div class="form-group py-3 m-0">
                                     <input
                                         class="form-control h-auto border-0 px-0 placeholder-dark-75 @error('fullname') is-invalid @enderror"
-                                        type="text" required placeholder="Fullname" name="fullname" autocomplete="off"
+                                        type="text" required placeholder="nom complet" name="fullname" autocomplete="off"
                                         value="{{ old('fullname') }}" />
                                     @error('fullname')
                                         <span class="invalid-feedback" role="alert">
@@ -155,19 +155,8 @@
                                 </div>
                                 <div class="form-group py-3 border-top m-0">
                                     <input
-                                        class="form-control h-auto border-0 px-0 placeholder-dark-75 @error('phone') is-invalid @enderror"
-                                        type="tel" required value="{{ old('phone') }}" placeholder="Phone"
-                                        name="phone" autocomplete="off" />
-                                    @error('phone')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                                <div class="form-group py-3 border-top m-0">
-                                    <input
                                         class="form-control h-auto border-0 px-0 placeholder-dark-75 @error('password') is-invalid @enderror"
-                                        required type="password" value="{{ old('password') }}" placeholder="Password"
+                                        required type="password" value="{{ old('password') }}" placeholder="Mot de passe"
                                         name="password" autocomplete="off" />
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -178,7 +167,7 @@
                                 <div class="form-group py-3 border-top m-0">
                                     <input
                                         class="form-control h-auto border-0 px-0 placeholder-dark-75 @error('name') is-invalid @enderror"
-                                        required type="password" placeholder="Confirm password"
+                                        required type="password" placeholder="Confirmer votre Mot de passe"
                                         name="password_confirmation" autocomplete="off" />
                                     @error('password_confirmation')
                                         <span class="invalid-feedback" role="alert">
@@ -196,9 +185,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group d-flex flex-wrap flex-center">
-                                    <button class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-2">Submit</button>
+                                    <button class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-2">Enregistré</button>
                                     <button id="kt_login_signup_cancel"
-                                        class="btn btn-outline-primary font-weight-bold px-9 py-4 my-3 mx-2">Cancel</button>
+                                        class="btn btn-outline-primary font-weight-bold px-9 py-4 my-3 mx-2">annuler</button>
                                 </div>
                             </form>
                             <!--end::Form-->
@@ -254,7 +243,7 @@
                 <!--begin::Content body-->
                 <div class="d-flex flex-column-fluid flex-lg-center">
                     <div class="d-flex flex-column justify-content-center">
-                        <h3 class="display-3 font-weight-bold my-7 text-white">Welcome to Bridge africa!</h3>
+                        <h3 class="display-3 font-weight-bold my-7 text-white">Bienvenue sur Voyance auraclet !</h3>
                     </div>
                 </div>
                 <!--end::Content body-->

@@ -1,7 +1,7 @@
 l
-@extends('layouts.app')
+@extends('layouts.app_admin')
 
-@section('content')
+@section('content_admin')
 
     <div class="content flex-column-fluid" id="kt_content">
         <!--begin::Profile Personal Information-->
@@ -18,7 +18,7 @@ l
                         <!--begin::User-->
                         <div class="d-flex align-items-center">
                             <div class="symbol symbol-60 symbol-xxl-100 mr-5 align-self-start align-self-xxl-center">
-                                <div class="symbol-label" style="background-image:url('storage/assets/profil/{{ Auth::user()->img_profil }}')">
+                                <div class="symbol-label" style="background-image:url('assets/media/users/blank.png')">
                                 </div>
                                 <i class="symbol-badge bg-success"></i>
                             </div>
@@ -35,10 +35,6 @@ l
                             <div class="d-flex align-items-center justify-content-between mb-2">
                                 <span class="font-weight-bold mr-2">Email:</span>
                                 <a href="#" class="text-muted text-hover-primary">{{ Auth::user()->email }}</a>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <span class="font-weight-bold mr-2">Phone:</span>
-                                <span class="text-muted">+237{{ Auth::user()->phone }}</span>
                             </div>
                         </div>
                         <div class="py-9">
@@ -61,9 +57,8 @@ l
                     <!--begin::Header-->
                     <div class="card-header py-3">
                         <div class="card-title align-items-start flex-column">
-                            <h3 class="card-label font-weight-bolder text-dark">Personal Information</h3>
-                            <span class="text-muted font-weight-bold font-size-sm mt-1">Update your personal
-                                informaiton</span>
+                            <h3 class="card-label font-weight-bolder text-dark">Information Personal</h3>
+                            <span class="text-muted font-weight-bold font-size-sm mt-1">Mettre a jour vos informaitons personal</span>
                         </div>
                         <div class="card-toolbar">
                         </div>
@@ -71,7 +66,7 @@ l
                     <!--end::Header-->
 
                     <!--begin::Form-->
-                    <form class="form" method="POST" action="up_profile" enctype="multipart/form-data">
+                <form class="form" method="POST" action="up_profile{{Auth::user()->id}}" enctype="multipart/form-data">
                         @csrf
                         <!--begin::Body-->
                         <div class="card-body">
@@ -79,56 +74,6 @@ l
                                 <label class="col-xl-3"></label>
                                 <div class="col-lg-9 col-xl-6">
                                     <h5 class="font-weight-bold mb-6">Customer Info</h5>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-xl-3 col-lg-3 col-form-label">Avatar</label>
-                                <div class="col-lg-9 col-xl-6">
-                                    <div class="image-input image-input-outline" id="kt_profile_avatar" style="background-image: url(storage/assets/profil/{{ Auth::user()->img_profil }})">
-                                        <div class="image-input-wrapper" style="background-image: url(storage/assets/profil/{{ Auth::user()->img_profil }})"></div>
-
-                                        <label
-                                            class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
-                                            data-action="change" data-toggle="tooltip" title=""
-                                            data-original-title="Change avatar">
-                                            <i class="fa fa-pen icon-sm text-muted"></i>
-                                            <input type="file" name="file" value="{{ Auth::user()->img_profil }}" accept=".png, .jpg, .jpeg">
-                                            <input type="hidden" name="profile_avatar_remove">
-                                        </label>
-
-                                        <span
-                                            class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
-                                            data-action="cancel" data-toggle="tooltip" title=""
-                                            data-original-title="Cancel avatar">
-                                            <i class="ki ki-bold-close icon-xs text-muted"></i>
-                                        </span>
-
-                                        <span
-                                            class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
-                                            data-action="remove" data-toggle="tooltip" title=""
-                                            data-original-title="Remove avatar">
-                                            <i class="ki ki-bold-close icon-xs text-muted"></i>
-                                        </span>
-                                    </div>
-                                    <span class="form-text text-muted">Allowed file types: png, jpg, jpeg.</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <label class="col-xl-3"></label>
-                                <div class="col-lg-9 col-xl-6">
-                                    <h5 class="font-weight-bold mt-10 mb-6">Contact Info</h5>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-xl-3 col-lg-3 col-form-label">Contact Phone</label>
-                                <div class="col-lg-9 col-xl-6">
-                                    <div class="input-group input-group-lg input-group-solid">
-                                        <div class="input-group-prepend"><span class="input-group-text"><i
-                                                    class="la la-phone"></i></span></div>
-                                        <input type="text" class="form-control form-control-lg form-control-solid"
-                                            value="{{ Auth::user()->phone }}" name="phone" placeholder="Phone">
-                                    </div>
-                                    <span class="form-text text-muted">We'll never share your email with anyone else.</span>
                                 </div>
                             </div>
                             <div class="form-group row">

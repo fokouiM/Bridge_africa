@@ -43,7 +43,7 @@
                 <div id="kt_header_mobile" class="header-mobile ">
                     <!--begin::Logo-->
                     <a href="home">
-                        <img alt="Logo" src="assets/media/logos/logo-default.png" class="max-h-85px" />
+                        <img alt="Logo" src="assets/media/logos/logo-default.png" class="max-h-100px" />
                     </a>
                     <!--end::Logo-->
 
@@ -85,7 +85,7 @@
                             <!--begin::Logo-->
                             <a href="home" class="mr-20">
                                 <img alt="Logo" src="assets/media/logos/logo-default.png"
-                                    class="logo-default max-h-85px" />
+                                    class="logo-default max-h-100px" />
                             </a>
                             <!--end::Logo-->
                         </div>
@@ -217,11 +217,11 @@
 
                                         <!--begin::Text-->
                                         @if (isset(Auth::user()->id))
-                                        <div class="text-dark m-0 flex-grow-1 mr-3 font-size-h5">
-                                            {{ Auth::user()->name }}</div>
+                                            <div class="text-dark m-0 flex-grow-1 mr-3 font-size-h5">
+                                                {{ Auth::user()->name }}</div>
                                         @else
-                                        <div class="text-dark m-0 flex-grow-1 mr-3 font-size-h5">
-                                            nom</div>
+                                            <div class="text-dark m-0 flex-grow-1 mr-3 font-size-h5">
+                                                nom</div>
                                         @endif
                                         <!--end::Text-->
                                     </div>
@@ -230,43 +230,22 @@
 
                                     <!--begin::Nav-->
                                     <div class="navi navi-spacer-x-0 pt-5">
-                                        <!--begin::Item-->
-                                        <a href="profile" class="navi-item px-8">
+                                        <!--begin::Footer-->
+                                        <div class="navi-footer  px-8 py-5">
                                             @if (isset(Auth::user()->id))
-                                                <div class="navi-link">
-                                                    <div class="navi-icon mr-2">
-                                                        <i class="flaticon2-calendar-3 text-success"></i>
-                                                    </div>
-                                                    <div class="navi-text">
-                                                        <div class="font-weight-bold">
-                                                            Mon profile
-                                                        </div>
-                                                        <div class="text-muted">
-                                                            Information de votre compte
-                                                            <span
-                                                                class="label label-light-danger label-inline font-weight-bold">mise a jour</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                             @endif
-                                            </a>
-                                            <!--end::Item-->
-                                            <!--begin::Footer-->
-                                            <div class="navi-separator mt-3"></div>
-                                            <div class="navi-footer  px-8 py-5">
-                                                @if (isset(Auth::user()->id))
-                                                    <a class="btn btn-light-primary " href="{{ route('logout') }}"
-                                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Déconnection ') }}</a>
-                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                        class="d-none">
-                                                        @csrf
-                                                    </form>
-                                                @else
-                                                <a class="btn btn-light-primary " href="login" >{{ __('connexion') }}</a>
-                                                @endif
-                                            </div>
-                                            <!--end::Footer-->
+                                                <a class="btn btn-light-primary " href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Déconnection ') }}</a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                    class="d-none">
+                                                    @csrf
+                                                </form>
+                                            @else
+                                                <a class="btn btn-light-primary "
+                                                    href="login">{{ __('connexion') }}</a>
+                                            @endif
                                         </div>
+                                        <!--end::Footer-->
+                                    </div>
                                     <!--end::Nav-->
                                 </div>
                                 <!--end::Dropdown-->
@@ -280,26 +259,6 @@
                 <!--end::Header-->
                 <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
                     <div class=" container ">
-                        <!--begin::Header Menu-->
-                        <div id="kt_header_menu"
-                            class="header-menu header-menu-left header-menu-mobile  header-menu-layout-default header-menu-root-arrow ">
-                            <!--begin::Header Nav-->
-                            <ul class="menu-nav ">
-                                <li class="menu-item  menu-item-submenu menu-item-rel" data-menu-toggle="click"
-                                    aria-haspopup="true"><a href="javascript:;" class="menu-link menu-toggle"><span
-                                            class="menu-text">Accueil</span><i class="menu-arrow"></i></a>
-                                    <div class="menu-submenu menu-submenu-classic menu-submenu-left">
-                                        <ul class="menu-subnav">
-                                            <li class="menu-item " aria-haspopup="true"><a href="home"
-                                                    class="menu-link "><span class="menu-text">Liste des voyants</span><span
-                                                        class="menu-desc"></span></a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                            <!--end::Header Nav-->
-                        </div>
-                        <!--end::Header Menu-->
                     </div>
                 </div>
                 <!--begin::Container-->
@@ -307,13 +266,14 @@
                     <div class="main d-flex flex-column flex-row-fluid">
                         <!--begin::Subheader-->
                         <div class="subheader py-2 py-lg-4 " id="kt_subheader">
-                            <div class=" w-100  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                            <div
+                                class=" w-100  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
                                 <!--begin::Details-->
                                 <div class="d-flex align-items-center flex-wrap mr-2">
 
                                     <!--begin::Title-->
                                     <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">
-                                        </h5>
+                                    </h5>
                                     <!--end::Title-->
 
                                     <!--begin::Separator-->
@@ -321,66 +281,24 @@
                                     </div>
                                     <!--end::Separator-->
 
-                                    <!--begin::Search Form-->
-                                    <div class="d-flex align-items-center" id="kt_subheader_search">
-                                        <span class="text-dark-50 font-weight-bold" id="kt_subheader_total">
-                                            </span>
-                                        <form class="ml-5">
-                                            <div class="input-group input-group-sm input-group-solid"
-                                                style="max-width: 175px">
-                                                <input type="text" class="form-control" id="kt_subheader_search_form"
-                                                    placeholder="Search..." />
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text">
-                                                        <span class="svg-icon">
-                                                            <!--begin::Svg Icon | path:assets/media/svg/icons/General/Search.svg--><svg
-                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                                                height="24px" viewBox="0 0 24 24" version="1.1">
-                                                                <g stroke="none" stroke-width="1" fill="none"
-                                                                    fill-rule="evenodd">
-                                                                    <rect x="0" y="0" width="24" height="24" />
-                                                                    <path
-                                                                        d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z"
-                                                                        fill="#000000" fill-rule="nonzero" opacity="0.3" />
-                                                                    <path
-                                                                        d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z"
-                                                                        fill="#000000" fill-rule="nonzero" />
-                                                                </g>
-                                                            </svg>
-                                                            <!--end::Svg Icon-->
-                                                        </span>
-                                                        <!--<i class="flaticon2-search-1 icon-sm"></i>-->
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </form>
+                                    <div class="d-flex align-items-center">
+                                        <!--begin::Daterange-->
+                                        <a href="#" class="btn btn-light-primary btn-sm font-weight-bold mr-2"
+                                            id="kt_dashboard_daterangepicker" data-toggle="tooltip" title=""
+                                            data-placement="left" data-original-title="Chronomètre pour le temps passé sur la plate forme">
+                                            <span class="opacity-60 font-weight-bold mr-2" id="kt_dashboard_daterangepicker_title">chrono : </span>
+                                            <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span>
+                                        </a>
+                                        <!--end::Daterange-->
                                     </div>
-                                    <!--end::Search Form-->
-
                                 </div>
                                 <!--end::Details-->
 
                                 <!--begin::Toolbar-->
-                                <div class="d-flex align-items-center">
-
-                                    <!--begin::Button-->
-                                    @if (isset(Auth::user()->id))
-                                        <a href="pack" class="btn btn-light-primary font-weight-bold btn-sm px-5 font-size-base ml-2"> Total : 80€</a>
-                                    @endif
-                                    @if (isset(Auth::user()->id))
-                                        <a href="pack" class="btn btn-light-primary font-weight-bold btn-sm px-5 font-size-base ml-2"> Credit : {{ Auth::user()->credit }}</a>
-                                    @endif
-                                    <!--end::Button-->
-
-                                </div>
                                 <!--end::Toolbar-->
                             </div>
                         </div>
-                        <div class="d-flex flex-row flex-column-fluid  container ">
-                            @yield('content')
-                        </div>
-
+                        @yield('content_agent')
                         <!--end::Container-->
                     </div>
                 </div>
@@ -478,6 +396,7 @@
     <script src="assets/plugins/global/plugins.bundle.js"></script>
     <script src="assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
     <script src="assets/js/scripts.bundle.js"></script>
+    <script src="assets/js/main.js"></script>
     <!--end::Global Theme Bundle-->
 
     <!--begin::Page Scripts(used by this page)-->

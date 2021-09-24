@@ -43,7 +43,7 @@
                 <div id="kt_header_mobile" class="header-mobile ">
                     <!--begin::Logo-->
                     <a href="home">
-                        <img alt="Logo" src="assets/media/logos/logo-default.png" class="max-h-100px" />
+                        <img alt="Logo" src="assets/media/logos/logo-default.png" class="max-h-85px" />
                     </a>
                     <!--end::Logo-->
 
@@ -85,7 +85,7 @@
                             <!--begin::Logo-->
                             <a href="home" class="mr-20">
                                 <img alt="Logo" src="assets/media/logos/logo-default.png"
-                                    class="logo-default max-h-100px" />
+                                    class="logo-default max-h-85px" />
                             </a>
                             <!--end::Logo-->
                         </div>
@@ -269,28 +269,38 @@
                             <div
                                 class=" w-100  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
                                 <!--begin::Details-->
-                                <div class="d-flex align-items-center flex-wrap mr-2">
+                                <div class="d-flex align-items-center flex-wrap">
+                                    <form action="" style="display: flex;">
+                                        <div class="d-flex align-items-center">
+                                            <!--begin::Daterange-->
+                                            <a href="#" class="btn btn-light-primary btn-sm font-weight-bold mr-2"
+                                                id="kt_dashboard_daterangepicker" data-toggle="tooltip" title=""
+                                                data-placement="left" data-original-title="Chronomètre pour le temps passé sur la plate forme">
+                                                <span class="opacity-60 font-weight-bold mr-2" id="kt_dashboard_daterangepicker_title">chrono : </span>
+                                                <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span>
+                                                <input type="hidden" name="time" value="<time>00:00:00</time> ">
 
-                                    <!--begin::Title-->
-                                    <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">
-                                    </h5>
-                                    <!--end::Title-->
-
-                                    <!--begin::Separator-->
-                                    <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-5 bg-gray-200">
-                                    </div>
-                                    <!--end::Separator-->
-
-                                    <div class="d-flex align-items-center">
-                                        <!--begin::Daterange-->
-                                        <a href="#" class="btn btn-light-primary btn-sm font-weight-bold mr-2"
-                                            id="kt_dashboard_daterangepicker" data-toggle="tooltip" title=""
-                                            data-placement="left" data-original-title="Chronomètre pour le temps passé sur la plate forme">
-                                            <span class="opacity-60 font-weight-bold mr-2" id="kt_dashboard_daterangepicker_title">chrono : </span>
-                                            <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span>
-                                        </a>
-                                        <!--end::Daterange-->
-                                    </div>
+                                            </a>
+                                            <!--end::Daterange-->
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <!--begin::Daterange-->
+                                            <a href="#" class="btn btn-light-primary btn-sm font-weight-bold mr-2" data-original-title="Chronomètre pour le temps passé sur la plate forme" style="display: flex;">
+                                                <label for="tad_selecte" style="margin-top: auto; margin-bottom: auto;">tag :&nbsp; </label>
+                                                <select id="tad_selecte" class="form-control form-control-solid" style="width: 200px;" name="tag">
+                                                    <option value="1">1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                            </a>
+                                            <!--end::Daterange-->
+                                        </div>
+                                            <button type="submit" class="btn btn-success" style="float:left">
+                                                <i class="flaticon2-pie-chart"></i> Enregistrer
+                                            </button>
+                                    </form>
                                 </div>
                                 <!--end::Details-->
 

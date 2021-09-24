@@ -32,6 +32,8 @@ class HomeController extends Controller
                 return view('welcome');
             }elseif(Auth::user()->statut == 2){
                 return view('Admin.Home');
+            }else {
+                return view('acces');
             }
 
         }

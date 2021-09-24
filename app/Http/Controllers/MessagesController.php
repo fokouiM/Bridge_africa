@@ -32,15 +32,14 @@ class MessagesController extends Controller
                 $route_style_page = "assets/js/pages/custom/chat/chat.js";
             return view('message')->with( 'name_agent', $name_agent);
 
-            }
-        }
-
-        if(isset(Auth::user()->statut)){
-            if(Auth::user()->statut == 1 ){
+            }elseif(Auth::user()->statut == 1 ){
 
                 $name_agent = $request->name_agent;
             return view('agent.message')->with('name_agent', $name_agent);
+            }else{
+                return view('acces');
             }
         }
+
     }
 }

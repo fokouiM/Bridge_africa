@@ -65,6 +65,7 @@
                                                     <!--end::Group-->
                                                     <!--begin::Group-->
                                                     <div class="form-group ">
+                                                        <input type="hidden" name="statut" value="2">
                                                         <input type="hidden" name="save" value="save">
                                                         <button type="submit"class="btn btn-success" style="float: right">Enregister</button>
                                                     </div>

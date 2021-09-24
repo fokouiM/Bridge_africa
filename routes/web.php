@@ -35,8 +35,10 @@ Route::get('/', function () {
 
 Route::get('/login', function () { return view('auth.login'); });
 Route::get('/pack', function () { return view('pack'); });
-Route::get('/add_users', function () { return view('from.add_users'); })->name('add_users');
+Route::get('/add_users', function () { if(Auth::user()->statut == 2){ return view('from.add_users');} })->name('add_users');
 Route::get('/voyants/login', function () { return view('auth.login'); })->name('voyants');
+Route::get('/clients', function () { if(Auth::user()->statut == 2){ return view('admin/clients'); } })->name('client');
+Route::get('/voyants', function () { if(Auth::user()->statut == 2){ return view('admin/voyants'); } })->name('voyants');
 
 Auth::routes();
 

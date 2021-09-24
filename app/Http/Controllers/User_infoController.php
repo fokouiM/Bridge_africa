@@ -55,7 +55,7 @@ class User_infoController extends Controller
         $User = new User;
         $User->name = $request->name;
         $User->email = $request->name;
-        $User->statut = 2;
+        $User->statut = $request->statut;
         $User->password = Hash::make($request->password);
         $User->save();
         $v2 = 'l\'utilisateur a bien étè créer. nom l\'utilisateur : ' .$request->name. ' | mot de passe : '.$request->password;

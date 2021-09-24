@@ -5,7 +5,7 @@
 <head>
     <base href="../../../">
     <meta charset="utf-8" />
-    <title>Voyance auraclet</title>
+    <title>Voyance Auracle</title>
     <meta name="description" content="User 4 columns listing" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -15,6 +15,9 @@
 
         <!--begin::Page Vendors Styles(used by this page)-->
         <link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css"/>
+        <!--end::Page Vendors Styles-->
+        <!--begin::Page Vendors Styles(used by this page)-->
+        <link href="assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
         <!--end::Page Vendors Styles-->
 
     <!--begin::Global Theme Styles(used by all pages)-->
@@ -302,7 +305,7 @@
                                     <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">Clients</span> <i class="menu-arrow"></i></a>
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                         <ul class="menu-subnav">
-                                            <li class="menu-item " aria-haspopup="true"><a href="home"
+                                            <li class="menu-item " aria-haspopup="true"><a href="clients"
                                                     class="menu-link "><span class="menu-text">liste des Clients</span><span
                                                         class="menu-desc"></span></a></li>
                                         </ul>
@@ -312,7 +315,7 @@
                                     <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">Voyants</span> <i class="menu-arrow"></i></a>
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                         <ul class="menu-subnav">
-                                            <li class="menu-item " aria-haspopup="true"><a href="home"
+                                            <li class="menu-item " aria-haspopup="true"><a href="voyants"
                                                     class="menu-link "><span class="menu-text">liste des voyents</span><span
                                                         class="menu-desc"></span></a></li>
                                         </ul>
@@ -508,6 +511,13 @@
 
     <!--begin::Page Scripts(used by this page)-->
         <script src="assets/js/pages/widgets.js"></script>
+    <!--end::Page Scripts-->
+    <!--begin::Page Vendors(used by this page)-->
+    <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <!--end::Page Vendors-->
+
+    <!--begin::Page Scripts(used by this page)-->
+    <script src="assets/js/pages/crud/datatables/basic/basic.js"></script>
     <!--end::Page Scripts-->
 
 </body>

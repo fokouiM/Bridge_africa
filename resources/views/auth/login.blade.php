@@ -243,7 +243,7 @@
                 <!--begin::Content body-->
                 <div class="d-flex flex-column-fluid flex-lg-center">
                     <div class="d-flex flex-column justify-content-center">
-                        <h3 class="display-3 font-weight-bold my-7 text-white">Bienvenue sur Voyance auraclet !</h3>
+                        <h3 class="display-3 font-weight-bold my-7 text-white">Bienvenue sur Voyance Auracle !</h3>
                     </div>
                 </div>
                 <!--end::Content body-->

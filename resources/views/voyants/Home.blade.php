@@ -46,18 +46,14 @@
 
                                     <!--begin:User-->
                                     <div class="d-flex align-items-center justify-content-between mb-5">
-                                        <div class="d-flex align-items-center">
-                                            <div class="symbol symbol-circle symbol-50 mr-3">
-                                                <img alt="Pic" src="assets/media/users/300_16.jpg">
-                                            </div>
+                                        <div class="d-flex align-items-center" style="width: 100%; background: bisque; padding: 10px; border-radius: 5px;">
                                             <div class="d-flex flex-column">
-                                                <a href="#"
+                                                <a href=""
                                                     class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Ana Torn</a>
                                                 <span class="text-muted font-weight-bold font-size-sm">Head Of Finance</span>
+                                                <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span>
+
                                             </div>
-                                        </div>
-                                        <div class="d-flex flex-column align-items-end">
-                                            {{-- <span class="text-muted font-weight-bold font-size-sm">2 days</span> --}}
                                         </div>
                                     </div>
                                     <!--end:User-->
@@ -81,7 +77,7 @@
                     <!--begin::Content-->
                     <div class="flex-row-fluid ml-lg-8" id="kt_chat_content">
                         <!--begin::Card-->
-                        <div class="card card-custom">
+                        <div class="card card-custom" style=" height: 100%;">
                             <!--begin::Header-->
                             <div class="card-header align-items-center px-4 py-3">
                                 <div class="text-left flex-grow-1">
@@ -109,10 +105,8 @@
 
                                 </div>
                                 <div class="text-center flex-grow-1">
-                                    <div class="text-dark-75 font-weight-bold font-size-h5"> <strong>Matt Pears</strong></div>
+                                    <div class="text-dark-75 font-weight-bold font-size-h5"> <strong>Matt Pears</strong> | <strong>38.€</strong> | voyants : <strong>ISABELLE</strong> | credit : <strong>3</strong> </div>
                                     <div>
-                                        <span class="label label-sm label-dot label-success"></span>
-                                        <span class="font-weight-bold text-muted font-size-sm">Active</span>
                                     </div>
                                 </div>
                                 <div class="text-right flex-grow-1">
@@ -174,26 +168,18 @@
                             <div class="card-body">
                                 <!--begin::Scroll-->
                                 <div class="scroll scroll-pull ps ps--active-y" data-mobile-height="350"
-                                    style="height: 271px; overflow: hidden;">
+                                    style="height: 295px; overflow: hidden;">
                                     <!--begin::Messages-->
                                     <div class="messages">
                                         <!--begin::Message In-->
                                         <div class="d-flex flex-column mb-5 align-items-start">
                                             <div class="d-flex align-items-center">
-                                                <div class="symbol symbol-circle symbol-40 mr-3">
-                                                    <img alt="Pic" src="assets/media/users/default.jpg">
-                                                </div>
-                                                <div>
-                                                    <a href="#"
-                                                        class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt
-                                                        Pears</a>
-                                                    <span class="text-muted font-size-sm">2 heures</span>
-                                                </div>
                                             </div>
                                             <div
                                                 class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">
                                                 How likely are you to recommend our company
-                                                to your friends and family?
+                                                to your friends and family?<br>
+                                                <span class="text-muted font-size-sm">2 heures</span>
                                             </div>
                                         </div>
                                         <!--end::Message In-->
@@ -201,19 +187,12 @@
                                         <!--begin::Message Out-->
                                         <div class="d-flex flex-column mb-5 align-items-end">
                                             <div class="d-flex align-items-center">
-                                                <div>
-                                                    <span class="text-muted font-size-sm">3 minutes</span>
-                                                    <a href="#"
-                                                        class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Vous</a>
-                                                </div>
-                                                <div class="symbol symbol-circle symbol-40 ml-3">
-                                                    <img alt="Pic" src="assets/media/users/default.jpg">
-                                                </div>
                                             </div>
                                             <div
                                                 class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
                                                 Hey there, we’re just writing to let you know
-                                                that you’ve been subscribed to a repository on GitHub.
+                                                that you’ve been subscribed to a repository on GitHub. <br>
+                                                <span class="text-muted font-size-sm">2 heures</span>
                                             </div>
                                         </div>
                                         <!--end::Message Out-->
@@ -231,20 +210,13 @@
                             <!--end::Body-->
 
                             <!--begin::Footer-->
-                            <div class="card-footer align-items-center">
+                            <div class="card-footer align-items-center" style="display: flex; padding: 10px;">
                                 <!--begin::Compose-->
                                 <textarea class="form-control border-0 p-0" rows="2"
                                     placeholder="Texte"></textarea>
                                 <div class="d-flex align-items-center justify-content-between mt-5">
-                                    <div class="mr-3">
-                                        {{-- <a href="#" class="btn btn-clean btn-icon btn-md mr-1"><i
-                                                class="flaticon2-photograph icon-lg"></i></a>
-                                        <a href="#" class="btn btn-clean btn-icon btn-md"><i
-                                                class="flaticon2-photo-camera  icon-lg"></i></a> --}}
-                                    </div>
                                     <div>
-                                        <button type="button"
-                                            class="btn btn-primary btn-md text-uppercase font-weight-bold chat-send py-2 px-6">Envoyer</button>
+                                        <button type="button" class="btn btn-primary btn-md text-uppercase font-weight-bold chat-send py-2 px-6">Envoyer</button>
                                     </div>
                                 </div>
                                 <!--begin::Compose-->
@@ -261,7 +233,7 @@
                             <div class="card-body">
 
                                 <!--begin:Users-->
-                                <div class="mt-7 scroll scroll-pull ps ps--active-y" style="height: 413px; overflow: hidden;">
+                                <div class="mt-7 scroll scroll-pull ps ps--active-y" style="height: 420px; overflow: hidden;">
 
                                     <div class="d-flex flex-column mb-5 align-items-start">
                                         <div
@@ -277,7 +249,7 @@
                                     <div class="ps__rail-y" style="top: 0px; height: 413px; right: -2px;">
                                         <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 164px;"></div>
                                     </div>
-                                    <div class="card-footer align-items-center" style="position: absolute; bottom: 0;">
+                                    <div class="card-footer align-items-center" style="position: absolute; bottom: 0; padding:10px;">
                                         <!--begin::Compose-->
                                         <textarea class="form-control border-0 p-0" rows="2"
                                             placeholder="Texte"></textarea>

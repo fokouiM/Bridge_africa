@@ -98,7 +98,7 @@
                                             <label class="checkbox checkbox-outline m-0 text-muted">
                                                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                                 <span></span>
-                                                ce souvenir de moi
+                                                se souvenir de moi
                                             </label>
                                         </div>
                                         <a href="{{ route('password.request') }}"  class="text-muted text-hover-primary">Mot de passe oublier ?</a>

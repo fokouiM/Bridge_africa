@@ -26,7 +26,7 @@
                     <div class="card-body">
                         <!--begin::Scroll-->
                         <div class="scroll scroll-pull ps ps--active-y" data-mobile-height="350"
-                            style="height: 271px; overflow: hidden;">
+                            style="height: 295px; overflow: hidden;">
                             <!--begin::Messages-->
                             <div class="messages">
 
@@ -42,19 +42,16 @@
                                 <!--begin::Message In-->
                                 <div class="d-flex flex-column mb-5 align-items-start">
                                     <div class="d-flex align-items-center">
-                                        <div class="symbol symbol-circle symbol-40 mr-3">
-                                            <img alt="Pic" src="assets/media/users/default.jpg">
-                                        </div>
-                                        <div>
+                                        {{-- <div>
                                             <a href="#"
                                                 class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">{{$name_agent}}</a>
                                             <span class="text-muted font-size-sm">2 Heures</span>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                     <div
                                         class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">
                                         How likely are you to recommend our company
-                                        to your friends and family?
+                                        to your friends and family? <br><span class="text-muted font-size-sm">3 minutes</span>
                                     </div>
                                 </div>
                                 <!--end::Message In-->
@@ -62,19 +59,11 @@
                                 <!--begin::Message Out-->
                                 <div class="d-flex flex-column mb-5 align-items-end">
                                     <div class="d-flex align-items-center">
-                                        <div>
-                                            <span class="text-muted font-size-sm">3 minutes</span>
-                                            <a href="#"
-                                                class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">vous</a>
-                                        </div>
-                                        <div class="symbol symbol-circle symbol-40 ml-3">
-                                            <img alt="Pic" src="assets/media/users/300_21.jpg">
-                                        </div>
                                     </div>
                                     <div
                                         class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
                                         Hey there, we’re just writing to let you know
-                                        that you’ve been subscribed to a repository on GitHub.
+                                        that you’ve been subscribed to a repository on GitHub. <br><span class="text-muted font-size-sm">3 minutes</span>
                                     </div>
                                 </div>
                                 <!--end::Message Out-->
@@ -94,16 +83,10 @@
                     <!--end::Body-->
 
                     <!--begin::Footer-->
-                    <div class="card-footer align-items-center">
+                    <div class="card-footer align-items-center" style="display: flex; padding: 10px;">
                         <!--begin::Compose-->
                         <textarea class="form-control border-0 p-0" rows="2" placeholder="Texte"></textarea>
                         <div class="d-flex align-items-center justify-content-between mt-5">
-                            <div class="mr-3">
-                                {{-- <a href="#" class="btn btn-clean btn-icon btn-md mr-1"><i
-                                        class="flaticon2-photograph icon-lg"></i></a>
-                                <a href="#" class="btn btn-clean btn-icon btn-md"><i
-                                        class="flaticon2-photo-camera  icon-lg"></i></a> --}}
-                            </div>
                             <div>
                                 <button type="button" class="btn btn-primary btn-md text-uppercase font-weight-bold chat-send py-2 px-6">Envoyer</button>
                             </div>

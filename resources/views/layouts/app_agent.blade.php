@@ -270,7 +270,7 @@
                                 class=" w-100  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
                                 <!--begin::Details-->
                                 <div class="d-flex align-items-center flex-wrap">
-                                    <form action="" style="display: flex;">
+                                    {{-- <form action="" style="display: flex;">
                                         <div class="d-flex align-items-center">
                                             <!--begin::Daterange-->
                                             <a href="#" class="btn btn-light-primary btn-sm font-weight-bold mr-2"
@@ -300,7 +300,18 @@
                                             <button type="submit" class="btn btn-success" style="float:left">
                                                 <i class="flaticon2-pie-chart"></i> Enregistrer
                                             </button>
-                                    </form>
+                                    </form> --}}
+                                    <div class="d-flex align-items-center">
+                                        <!--begin::Daterange-->
+                                        <a href="#" class="btn btn-light-primary btn-sm font-weight-bold mr-2"
+                                            id="kt_dashboard_daterangepicker" data-toggle="tooltip" title=""
+                                            data-placement="left" data-original-title="Chronomètre pour le temps passé sur la plate forme">
+                                            <span class="opacity-60 font-weight-bold mr-2" id="kt_dashboard_daterangepicker_title">voyant : </span>
+                                            <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"> ISABELLE</span>
+
+                                        </a>
+                                        <!--end::Daterange-->
+                                    </div>
                                 </div>
                                 <!--end::Details-->
 
@@ -313,13 +324,28 @@
                     </div>
                 </div>
                 <!--begin::Footer-->
-                <div class="footer py-4 d-flex flex-lg-column " id="kt_footer">
+                <div class="footer py-4 d-flex flex-lg-column " id="kt_footer" style="    background: black;">
                     <!--begin::Container-->
                     <div class=" container  d-flex flex-column flex-md-row align-items-center justify-content-between">
                         <!--begin::Copyright-->
                         <div class="text-dark order-2 order-md-1">
                             <span class="text-muted font-weight-bold mr-2">2021&copy;</span>
                             <a href="" target="_blank" class="text-white text-hover-primary">hunterbrightdesign</a>
+                        </div>
+                        <div class="text-dark order-2 order-md-1">
+                            <a href="" target="_blank" class="text-white text-hover-primary">CGV</a>
+                        </div>
+                        <div class="text-dark order-2 order-md-1">
+                            <a href="" target="_blank" class="text-white text-hover-primary">Blog</a>
+                        </div>
+                        <div class="text-dark order-2 order-md-1">
+                            <a href="" target="_blank" class="text-white text-hover-primary">Nous contacter</a>
+                        </div>
+                        <div class="text-dark order-2 order-md-1">
+                            <a href="" target="_blank" class="text-white text-hover-primary">Formulaire de retractation</a>
+                        </div>
+                        <div class="text-dark order-2 order-md-1">
+                            <a href="" target="_blank" class="text-white text-hover-primary"> Mentions légales</a>
                         </div>
                         <!--end::Copyright-->
 

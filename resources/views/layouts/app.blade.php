@@ -44,6 +44,7 @@
                     <!--begin::Logo-->
                     <a href="home">
                         <img alt="Logo" src="assets/media/logos/logo-default.png" class="max-h-85px" />
+                        <h6>Voyance Auracle</h6>
                     </a>
                     <!--end::Logo-->
 
@@ -83,9 +84,10 @@
                         <!--begin::Left-->
                         <div class="d-none d-lg-flex align-items-center mr-3">
                             <!--begin::Logo-->
-                            <a href="home" class="mr-20">
+                            <a href="home" class="mr-20" style="display: flex">
                                 <img alt="Logo" src="assets/media/logos/logo-default.png"
                                     class="logo-default max-h-85px" />
+                                    <h2 style="margin-top: auto; color:#fff;">Voyance Auracle</h2>
                             </a>
                             <!--end::Logo-->
                         </div>
@@ -366,9 +368,6 @@
 
                                     <!--begin::Button-->
                                     @if (isset(Auth::user()->id))
-                                        <a href="pack" class="btn btn-light-primary font-weight-bold btn-sm px-5 font-size-base ml-2"> Total : 80€</a>
-                                    @endif
-                                    @if (isset(Auth::user()->id))
                                         <a href="pack" class="btn btn-light-primary font-weight-bold btn-sm px-5 font-size-base ml-2"> Credit : {{ Auth::user()->credit }}</a>
                                     @endif
                                     <!--end::Button-->
@@ -385,13 +384,28 @@
                     </div>
                 </div>
                 <!--begin::Footer-->
-                <div class="footer py-4 d-flex flex-lg-column " id="kt_footer">
+                <div class="footer py-4 d-flex flex-lg-column " id="kt_footer" style="    background: black;">
                     <!--begin::Container-->
                     <div class=" container  d-flex flex-column flex-md-row align-items-center justify-content-between">
                         <!--begin::Copyright-->
                         <div class="text-dark order-2 order-md-1">
                             <span class="text-muted font-weight-bold mr-2">2021&copy;</span>
                             <a href="" target="_blank" class="text-white text-hover-primary">hunterbrightdesign</a>
+                        </div>
+                        <div class="text-dark order-2 order-md-1">
+                            <a href="" target="_blank" class="text-white text-hover-primary">CGV</a>
+                        </div>
+                        <div class="text-dark order-2 order-md-1">
+                            <a href="" target="_blank" class="text-white text-hover-primary">Blog</a>
+                        </div>
+                        <div class="text-dark order-2 order-md-1">
+                            <a href="" target="_blank" class="text-white text-hover-primary">Nous contacter</a>
+                        </div>
+                        <div class="text-dark order-2 order-md-1">
+                            <a href="" target="_blank" class="text-white text-hover-primary">Formulaire de retractation</a>
+                        </div>
+                        <div class="text-dark order-2 order-md-1">
+                            <a href="" target="_blank" class="text-white text-hover-primary"> Mentions légales</a>
                         </div>
                         <!--end::Copyright-->
 

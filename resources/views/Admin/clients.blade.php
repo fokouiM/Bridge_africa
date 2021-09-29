@@ -101,15 +101,17 @@
                     </thead>
 
                     <tbody>
+                        @foreach ($clients as $cl)
                         <tr>
                             <td>1</td>
-                            <td>1</td>
-                            <td>Brazil</td>
-                            <td>hunterbrightdesigne</td>
-                            <td>20</td>
-                            <td>2021-09-17 22:48:23</td>
+                            <td>{{$cl->id}}</td>
+                            <td>{{$cl->name}}</td>
+                            <td>{{$cl->email}}</td>
+                            <td>{{$cl->Credit}}</td>
+                            <td>{{$cl->created_at}}</td>
                             <td> <a href="#"><i class="flaticon2-rubbish-bin"></i></a></td>
                         </tr>
+                        @endforeach
                     </tbody>
 
                 </table>

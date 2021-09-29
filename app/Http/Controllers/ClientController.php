@@ -3,27 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
-class User_infoController extends Controller
+class ClientController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-
-            $this->middleware('verified');
-
-
-
-    }
     /**
      * Display a listing of the resource.
      *
@@ -31,15 +15,11 @@ class User_infoController extends Controller
      */
     public function index()
     {
-        if(isset(Auth::user()->id)){
-            if(Auth::user()->statut == 2){
-                return view('Admin.profile');
+        if(Auth::user()->statut == 2){
 
-            }elseif(Auth::user()->statut == 0){
-                return view('from.profile');
-            }
-        }
-
+            $clients = User::where('statut',0)->get();
+            return view('admin/clients')->with('clients', $clients);
+        }else { return view('acces'); }
     }
 
     /**
@@ -60,16 +40,7 @@ class User_infoController extends Controller
      */
     public function store(Request $request)
     {
-
-        $User = new User;
-        $User->name = $request->name;
-        $User->email = $request->name;
-        $User->statut = $request->statut;
-        $User->password = Hash::make($request->password);
-        $User->save();
-        $v2 = 'l\'utilisateur a bien étè créer. nom l\'utilisateur : ' .$request->name. ' | mot de passe : '.$request->password;
-
-            return redirect()->route('add_users', ['v2' => $v2]);
+        //
     }
 
     /**
@@ -103,14 +74,7 @@ class User_infoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        User::findOrFail($request->id)->update([
-            'name' => $request->name,
-            'email' => $request->email,
-
-        ]);
-        $v2 = 'Vos information on étè mise a jour';
-
-        return redirect()->route('profile', ['v2' => $v2]);
+        //
     }
 
     /**

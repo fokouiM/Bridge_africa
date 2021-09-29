@@ -37,34 +37,24 @@
 
                         <!--begin::Title-->
                         <div class="d-flex flex-column">
-                            <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0">ISABELLE</a>
-                            <span class="text-muted font-weight-bold">L'Amour surpasse tout</span>
+                            <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0"> Amour</a>
+                            <span class="text-muted font-weight-bold">ISABELLE</span>
                         </div>
                     </div>
                     <!--end::User-->
 
                     <!--begin::Desc-->
                     <p class="mb-7">
-                        je possède un don divin de voyance depuis ma naissance mais au fils du temps je l'ai développé afin d'apporter la stabilité sur le plan sentimental. Je suis connecté à la flamme d'amourcet je vous aide à connaitre et même retrouver votre âme sœur.
+                        je possède un don divin de voyance depuis ma naissance mais au fil du temps je l'ai développé afin d'apporter la stabilité sur le plan sentimental. Je suis connecté à la flamme d'amourcet je vous aide à connaitre et même retrouver votre âme sœur.L'Amour surpasse tout
                     </p>
+                    <div class="d-flex justify-content-between align-items-cente my-1">
+                        <span class="text-dark-75 font-weight-bolder mr-2">Avis(12)</span>
+                        <a href="" class="text-muted text-hover-primary">
+                            <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
+                             <i class="la la-star-half-alt text-warning mr-5"></i> 4.75</a>
+                    </div>
                     <!--end::Desc-->
 
-                    <!--begin::Info-->
-                    {{-- <div class="mb-7">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="text-dark-75 font-weight-bolder mr-2">Email:</span>
-                            <a href="#" class="text-muted text-hover-primary">luca@festudios.com</a>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-cente my-1">
-                            <span class="text-dark-75 font-weight-bolder mr-2">Phone:</span>
-                            <a href="#" class="text-muted text-hover-primary">44(76)34254578</a>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="text-dark-75 font-weight-bolder mr-2">Location:</span>
-                            <span class="text-muted font-weight-bold">Barcelona</span>
-                        </div>
-                    </div> --}}
-                    <!--end::Info-->
                     <form action="message" method="POST">
                         @csrf
                         <input type="hidden" name="name_agent" value="ISABELLE">
@@ -99,8 +89,8 @@
 
                         <!--begin::Title-->
                         <div class="d-flex flex-column">
-                            <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0">SUZANNE</a>
-                            <span class="text-muted font-weight-bold"></span>
+                            <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0">Travail</a>
+                            <span class="text-muted font-weight-bold">SUZANNE</span>
                         </div>
                         <!--end::Title-->
                     </div>
@@ -110,6 +100,12 @@
                     <p class="mb-7">
                         je suis connecté aux énergies et je fais usage des supports pour lire votre avenir financier et vous aider à retrouver votre plan initial de vie. L'argent est ma spécialité et pour cela je vous aide à l'attirer et à le capter comme un aimant.
                     </p>
+                    <div class="d-flex justify-content-between align-items-cente my-1">
+                        <span class="text-dark-75 font-weight-bolder mr-2">Avis(52)</span>
+                        <a href="" class="text-muted text-hover-primary">
+                            <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
+                             <i class="la la-star-half-alt text-warning mr-5"></i> 3.50</a>
+                    </div>
                     <!--end::Desc-->
                     <form action="message" method="POST">
                         @csrf
@@ -145,8 +141,8 @@
 
                         <!--begin::Title-->
                         <div class="d-flex flex-column">
-                            <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0">JACQUEMIN</a>
-                            <span class="text-muted font-weight-bold"></span>
+                            <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0"> Argent</a>
+                            <span class="text-muted font-weight-bold">JACQUEMIN</span>
                         </div>
                         <!--end::Title-->
                     </div>
@@ -156,6 +152,12 @@
                     <p class="mb-7">
                         par le pouvoir de la communion télépathique, je guide plusieurs personnes à retrouver la voie du travail. ce don est inné et j'exerce depuis 30 ans avec succès.
                     </p>
+                    <div class="d-flex justify-content-between align-items-cente my-1">
+                        <span class="text-dark-75 font-weight-bolder mr-2">Avis(20)</span>
+                        <a href="" class="text-muted text-hover-primary">
+                           <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
+                             <i class="la la-star-half-alt text-warning mr-5"></i> 3.75</a>
+                    </div>
                     <!--end::Desc-->
                         <form action="message" method="POST">
                             @csrf
@@ -190,8 +192,8 @@
 
                         <!--begin::Title-->
                         <div class="d-flex flex-column">
-                            <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0">SABINE</a>
-                            <span class="text-muted font-weight-bold"></span>
+                            <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0"> Famille</a>
+                            <span class="text-muted font-weight-bold">SABINE</span>
                         </div>
                         <!--end::Title-->
                     </div>
@@ -201,6 +203,12 @@
                     <p class="mb-7">
                         Dotée d'un pouvoir surbaturel,je traite tout probléme de famille par la méthode de claivoyance et je vous aide à retrouver la stabilité dans votre foyer.
                     </p>
+                    <div class="d-flex justify-content-between align-items-cente my-1">
+                        <span class="text-dark-75 font-weight-bolder mr-2">Avis(09)</span>
+                        <a href="" class="text-muted text-hover-primary">
+                            <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
+                             <i class="la la-star-half-alt text-warning mr-5"></i> 2.75</a>
+                    </div>
                     <!--end::Desc-->
                     <form action="message" method="POST">
                         @csrf

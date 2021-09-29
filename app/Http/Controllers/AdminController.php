@@ -3,43 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-
+use App\Models\Liste_tag;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-class User_infoController extends Controller
+
+class AdminController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-
-            $this->middleware('verified');
-
-
-
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function voyants()
     {
-        if(isset(Auth::user()->id)){
-            if(Auth::user()->statut == 2){
-                return view('Admin.profile');
+        if(Auth::user()->statut == 2){
 
-            }elseif(Auth::user()->statut == 0){
-                return view('from.profile');
-            }
-        }
-
+            $liste_voyants = Liste_tag::orderBy('created_at', 'desc')->get();
+             return view('admin/voyants')->with('liste_voyants', $liste_voyants);
+        }else { return view('acces'); }
     }
 
     /**
@@ -60,16 +42,12 @@ class User_infoController extends Controller
      */
     public function store(Request $request)
     {
+        $liste_tag = new Liste_tag;
+        $liste_tag->name_tag = $request->name;
+        $liste_tag->save();
+        $v2 = 'Le tag a bien étè créer. nom l\'utilisateur : ' .$request->name;
 
-        $User = new User;
-        $User->name = $request->name;
-        $User->email = $request->name;
-        $User->statut = $request->statut;
-        $User->password = Hash::make($request->password);
-        $User->save();
-        $v2 = 'l\'utilisateur a bien étè créer. nom l\'utilisateur : ' .$request->name. ' | mot de passe : '.$request->password;
-
-            return redirect()->route('add_users', ['v2' => $v2]);
+            return redirect()->route('add_voyants', ['v2' => $v2]);
     }
 
     /**
@@ -103,14 +81,7 @@ class User_infoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        User::findOrFail($request->id)->update([
-            'name' => $request->name,
-            'email' => $request->email,
-
-        ]);
-        $v2 = 'Vos information on étè mise a jour';
-
-        return redirect()->route('profile', ['v2' => $v2]);
+        //
     }
 
     /**

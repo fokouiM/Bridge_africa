@@ -38,9 +38,10 @@ Route::get('/', function () {
 Route::get('/login', function () { return view('auth.login'); });
 Route::get('/pack', function () { return view('pack'); });
 Route::get('/add_users', function () { if(Auth::user()->statut == 2){ return view('from.add_users');}else { return view('acces'); } })->name('add_users');
+Route::get('/add_voyants', function () { if(Auth::user()->statut == 2){ return view('from.add_voyants');}else { return view('acces'); } })->name('add_voyants');
 Route::get('/voyants/login', function () { return view('auth.login'); })->name('voyants');
-Route::get('/clients', function () { if(Auth::user()->statut == 2){ return view('admin/clients'); }else { return view('acces'); } })->name('clients');
-Route::get('/voyants', function () { if(Auth::user()->statut == 2){ return view('admin/voyants'); }else { return view('acces'); } })->name('voyants');
+Route::get('/clients', [App\Http\Controllers\ClientController::class, 'index'])->name('clients');
+Route::get('/voyants', [App\Http\Controllers\AdminController::class, 'voyants'])->name('voyants');
 
 Auth::routes();
 
@@ -50,6 +51,7 @@ Auth::routes();
     Route::get('/profile', [App\Http\Controllers\User_infoController::class, 'index'])->name('profile');
     Route::post('/up_profile{id}', [App\Http\Controllers\User_infoController::class, 'update'])->name('up_profile{id}');
     Route::post('/save_users', [App\Http\Controllers\User_infoController::class, 'store'])->name('save_users');
+    Route::post('/save_tag', [App\Http\Controllers\AdminController::class, 'store'])->name('save_tag');
     Route::get('/delete{id}', [App\Http\Controllers\ProduitsController::class, 'destroy'])->name('delete{id}');
     Route::get('/update{id}', [App\Http\Controllers\ProduitsController::class, 'show'])->name('update{id}');
 

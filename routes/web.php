@@ -46,14 +46,22 @@ Route::get('/voyants', [App\Http\Controllers\AdminController::class, 'voyants'])
 Auth::routes();
 
 
+    Route::get('/message', [App\Http\Controllers\MessagesController::class, 'index'])->name('message');
     Route::post('/message', [App\Http\Controllers\MessagesController::class, 'index'])->name('message');
+    Route::post('/save_message', [App\Http\Controllers\MessagesController::class, 'store'])->name('save_message');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/profile', [App\Http\Controllers\User_infoController::class, 'index'])->name('profile');
     Route::post('/up_profile{id}', [App\Http\Controllers\User_infoController::class, 'update'])->name('up_profile{id}');
     Route::post('/save_users', [App\Http\Controllers\User_infoController::class, 'store'])->name('save_users');
+    Route::post('/save_time', [App\Http\Controllers\User_infoController::class, 'save_time'])->name('save_time');
     Route::post('/save_tag', [App\Http\Controllers\AdminController::class, 'store'])->name('save_tag');
-    Route::get('/delete{id}', [App\Http\Controllers\ProduitsController::class, 'destroy'])->name('delete{id}');
     Route::get('/update{id}', [App\Http\Controllers\ProduitsController::class, 'show'])->name('update{id}');
+    Route::get('/finMoi{id}', [App\Http\Controllers\User_infoController::class, 'finMoi'])->name('finMoi{id}');
+    Route::get('/delete_Agent{id}', [App\Http\Controllers\User_infoController::class, 'deleteAgent'])->name('delete_Agent{id}');
+    Route::get('/delete_client{id}', [App\Http\Controllers\User_infoController::class, 'deleteClient'])->name('delete_client{id}');
+
+
+
 
 
 

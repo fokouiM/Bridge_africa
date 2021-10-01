@@ -312,11 +312,11 @@
                                     </div>
                                 </li>
                                 <li class="menu-item  menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
-                                    <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">Voyants</span> <i class="menu-arrow"></i></a>
+                                    <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">Agent</span> <i class="menu-arrow"></i></a>
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                         <ul class="menu-subnav">
                                             <li class="menu-item " aria-haspopup="true"><a href="voyants"
-                                                    class="menu-link "><span class="menu-text">liste des voyents</span><span
+                                                    class="menu-link "><span class="menu-text">liste des Agents</span><span
                                                         class="menu-desc"></span></a></li>
                                         </ul>
                                     </div>
@@ -390,9 +390,9 @@
                                 <div class="d-flex align-items-center">
 
                                     <!--begin::Button-->
-                                    @if (isset(Auth::user()->id))
+                                    {{-- @if (isset(Auth::user()->id))
                                         <a href="add_users" class="btn btn-light-primary font-weight-bold btn-sm px-5 font-size-base ml-2"> Ajouter un admin</a>
-                                    @endif
+                                    @endif --}}
                                     <!--end::Button-->
 
                                 </div>

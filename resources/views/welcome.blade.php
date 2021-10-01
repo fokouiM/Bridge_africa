@@ -55,7 +55,7 @@
                     </div>
                     <!--end::Desc-->
 
-                    <form action="message" method="POST">
+                    <form action="message" method="GET">
                         @csrf
                         <input type="hidden" name="name_agent" value="ISABELLE">
                         <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4" data-toggle="modal" data-target="#kt_chat_modal">Message</button>
@@ -107,7 +107,7 @@
                              <i class="la la-star-half-alt text-warning mr-5"></i> 3.50</a>
                     </div>
                     <!--end::Desc-->
-                    <form action="message" method="POST">
+                    <form action="message" method="GET">
                         @csrf
                         <input type="hidden" name="name_agent" value="SUZANNE">
                         <button class="btn btn-block btn-sm btn-light-danger font-weight-bolder text-uppercase py-4" data-toggle="modal" data-target="#kt_chat_modal">Message</button>
@@ -159,7 +159,7 @@
                              <i class="la la-star-half-alt text-warning mr-5"></i> 3.75</a>
                     </div>
                     <!--end::Desc-->
-                        <form action="message" method="POST">
+                        <form action="message" method="GET">
                             @csrf
                             <input type="hidden" name="name_agent" value="SUZANNE">
                             <button  class="btn btn-block btn-sm btn-light-primary font-weight-bolder text-uppercase py-4" data-toggle="modal" data-target="#kt_chat_modal">Message</button>
@@ -210,10 +210,14 @@
                              <i class="la la-star-half-alt text-warning mr-5"></i> 2.75</a>
                     </div>
                     <!--end::Desc-->
-                    <form action="message" method="POST">
+                    <form action="message" method="GET">
                         @csrf
                         <input type="hidden" name="name_agent" value="SABINE">
-                        <button href="#" class="btn btn-block btn-sm btn-light-primary font-weight-bolder text-uppercase py-4"
+                        @if (isset(Auth::user()->id))
+                        <input type="hidden" name="name_user" value=" {{Auth::user()->id}} ">
+                        <input type="hidden" name="name_user" value=" {{Auth::user()->name}} ">
+                        @endif
+                        <button href="#" class="btn btn-block btn-sm btn-light-success font-weight-bolder text-uppercase py-4"
                             data-toggle="modal" data-target="#kt_chat_modal">Message</button>
                     </form>
                 </div>

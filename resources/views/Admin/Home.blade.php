@@ -294,23 +294,19 @@
                                 <div class="row m-0">
                                     <div class="col px-8 py-6 mr-8">
                                         <div class="font-size-sm text-muted font-weight-bold">Vente total</div>
-                                        <div class="font-size-h4 font-weight-bolder">€650</div>
+                                        <div class="font-size-h4 font-weight-bolder">{{$vente}} €</div>
                                     </div>
                                     <div class="col px-8 py-6">
                                         <div class="font-size-sm text-muted font-weight-bold">Credit total</div>
-                                        <div class="font-size-h4 font-weight-bolder">233.600</div>
+                                        <div class="font-size-h4 font-weight-bolder">{{$credit}}</div>
                                     </div>
                                 </div>
                                 <!--end::Row-->
                                 <!--begin::Row-->
                                 <div class="row m-0">
-                                    <div class="col px-8 py-6 mr-8">
-                                        <div class="font-size-sm text-muted font-weight-bold">Client total</div>
-                                        <div class="font-size-h4 font-weight-bolder">29</div>
-                                    </div>
                                     <div class="col px-8 py-6">
-                                        <div class="font-size-sm text-muted font-weight-bold">Credit encore</div>
-                                        <div class="font-size-h4 font-weight-bolder">480</div>
+                                        <div class="font-size-sm text-muted font-weight-bold">Client total</div>
+                                        <div class="font-size-h4 font-weight-bolder">{{$clientT}}</div>
                                     </div>
                                 </div>
                                 <!--end::Row-->
@@ -352,7 +348,7 @@
                                             </svg>
                                             <!--end::Svg Icon-->
                                         </span>
-                                        <div class="font-weight-boldest font-size-h3 pt-2">875</div>
+                                        <div class="font-weight-boldest font-size-h3 pt-2">{{$agentT}}</div>
                                         <div class="text-muted font-weight-bold">Total agent</div>
                                     </div>
                                     <!--end::Stats-->
@@ -420,11 +416,11 @@
                                         <div class="d-flex justify-content-between align-items-center flex-wrap">
                                             <div class="mr-2">
                                                 <a href="#"
-                                                    class="text-dark-75 text-hover-primary font-weight-bolder font-size-h2">Génerer un
-                                                    Reports</a>
+                                                    class="text-dark-75 text-hover-primary font-weight-bolder font-size-h2">
+                                                    Reports du moi</a>
                                                 <div class="text-muted font-size-lg font-weight-bold pt-2"> Finances du moi encoure</div>
                                             </div>
-                                            <div class="font-weight-bolder font-size-h3 text-success">€24,500</div>
+                                            <div class="font-weight-bolder font-size-h3 text-success">{{$venteM}}€</div>
                                         </div>
                                     </div>
                                     <!--end::Stats-->
@@ -447,10 +443,10 @@
                                 <!--begin::Body-->
                                 <div class="card-body">
                                     <a href="#" class="text-dark-75 text-hover-primary font-weight-bolder font-size-h3">
-                                        Weekly Sales Stats
+                                        Finances du de la semaine encoure
                                     </a>
                                     <div class="text-dark-50 font-weight-bold font-size-lg pt-2">
-                                        890,344 Sales
+                                        {{$venteM}}€
                                     </div>
                                 </div>
                                 <!--end::Body-->

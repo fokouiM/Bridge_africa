@@ -18,7 +18,7 @@ class CreatePoduitsTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('prix');
-            $table->string('file');
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }

@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 use App\Models\User;
+use App\Models\Liste_tag;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class User_infoController extends Controller
 {
@@ -19,7 +21,7 @@ class User_infoController extends Controller
     {
         $this->middleware('auth');
 
-            $this->middleware('verified');
+        $this->middleware('verified');
 
 
 
@@ -60,16 +62,60 @@ class User_infoController extends Controller
      */
     public function store(Request $request)
     {
-
+            $date = date('Y-m-d H:i:s');
+            $name = $request->name .time();
         $User = new User;
-        $User->name = $request->name;
-        $User->email = $request->name;
-        $User->statut = $request->statut;
+        $User->name = $name;
+        $User->email = $name;
+        $User->statut = 1;
+        $User->email_verified_at = $date;
         $User->password = Hash::make($request->password);
         $User->save();
-        $v2 = 'l\'utilisateur a bien étè créer. nom l\'utilisateur : ' .$request->name. ' | mot de passe : '.$request->password;
+        $user_in = User::where('email',$name)->first();
+        $Liste_tag = new Liste_tag;
+        $Liste_tag->id_user = $user_in->name;
+        $Liste_tag->time = "00";
+        $Liste_tag->save();
+        $v2 = 'Agent a bien étè créer. nom l\'utilisateur : ' .$name. ' | mot de passe : '.$request->password;
 
             return redirect()->route('add_users', ['v2' => $v2]);
+    }
+
+
+    public function save_time(Request $request)
+    {
+        $id = $request->name;
+        $time = (int)$request->time;
+        $tag = Liste_tag::where('id_user',$id)->first();
+        $new_time = $time  + (int)$tag->time;
+            Liste_tag::where('id_user',$id)->update(['time' => $new_time,]);
+            // Liste_tag::where('id',$id)->update(['time' => 00,]);
+
+            return redirect()->route('home');
+    }
+
+
+    public function finMoi($id)
+    {
+            Liste_tag::where('id',$id)->update(['time' => 00,]);
+
+            return redirect()->route('voyants');
+    }
+
+    public function deleteAgent($id)
+    {       $user = User::where('id',$id)->first();
+            Liste_tag::where('id',$user->name)->delete();
+            User::where('id',$id)->delete();
+
+            return redirect()->route('voyants');
+    }
+
+    public function deleteClient($id)
+    {       $user = User::where('id',$id)->first();
+            Liste_tag::where('id',$user->name)->delete();
+            User::where('id',$id)->delete();
+
+            return redirect()->route('clients');
     }
 
     /**
@@ -103,6 +149,10 @@ class User_infoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users',
+        ]);
         User::findOrFail($request->id)->update([
             'name' => $request->name,
             'email' => $request->email,

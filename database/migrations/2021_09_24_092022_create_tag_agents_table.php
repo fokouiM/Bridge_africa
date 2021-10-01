@@ -15,8 +15,8 @@ class CreateTagAgentsTable extends Migration
     {
         Schema::create('tag_agents', function (Blueprint $table) {
             $table->id();
-            $table->string('tag_name');
-            $table->string('chrono');
+            $table->string('tag_name')->nullable();
+            $table->string('chrono')->nullable();
             $table->timestamps();
         });
     }

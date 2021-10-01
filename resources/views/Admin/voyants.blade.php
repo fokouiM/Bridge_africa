@@ -38,53 +38,50 @@
                     <div class="card-toolbar">
 
                         <!--begin::Button-->
-                        <a href="add_voyants" class="btn btn-primary font-weight-bolder"><i class="la la-plus"></i> Ajouter
+                        <a href="add_users" class="btn btn-primary font-weight-bolder"><i class="la la-plus"></i> Ajouter
                             un voyants </a>
                         <!--end::Button-->
                     </div>
                 </div>
             </div><br><br>
             <!--end::Card-->
-            <div class="row">
-                <!--begin::Col-->
-                @foreach ($liste_voyants as $lv)
+            <div class="card-body">
+                <!--begin: Datatable-->
+                <table class="table table-separate table-head-custom table-checkable" id="kt_datatable_2">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom</th>
+                            <th>temps</th>
+                            <th>DJT</th>
+                            <th>Date créer</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
 
-                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-                    <!--begin::Card-->
-                    <div class="card card-custom gutter-b card-stretch">
-                        <!--begin::Body-->
-                        <div class="card-body pt-4">
-                            <!--begin::Toolbar-->
-                            <div class="d-flex justify-content-end">
-                            </div>
-                            <!--end::Toolbar-->
-                            <!--begin::User-->
-                            <div class="d-flex align-items-center mb-7">
-                                <!--begin::Pic-->
-                                <div class="flex-shrink-0 mr-4 mt-lg-0 mt-3">
-                                    <div class="symbol symbol-circle symbol-lg-75 d-none">
-                                        <img src="assets/media/users/300_10.jpg" alt="image">
-                                    </div>
-                                    <div class="symbol symbol-lg-75 symbol-circle symbol-primary">
-                                        <span class="symbol-label font-size-h3 font-weight-boldest">{{$lv->name_tag[0]}}{{$lv->name_tag[1]}}</span>
-                                    </div>
-                                </div>
-                                <!--end::Pic-->
-                                <!--begin::Title-->
-                                <div class="d-flex flex-column">
-                                    <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0"> {{$lv->name_tag}} </a>
-                                </div>
-                                <!--end::Title-->
-                            </div>
-                            <!--end::User-->
-                            <a href="#" class="btn btn-block btn-sm btn-light-primary font-weight-bolder text-uppercase py-4"> Details</a>
-                        </div>
-                        <!--end::Body-->
-                    </div>
-                </div>
-                @endforeach
-                    <!--end::Card-->
-                <!--end::Col-->
+                    <tbody>
+                        @foreach ($tag as $tg)
+                        @foreach ($liste_voyants as $lv)
+                        @if ($tg->id_user === $lv->name)
+                        <tr>
+                            <td>{{$lv->id}} </td>
+                            <td>{{$lv->name}}</td>
+                            <td>{{$tg->time}} </td>
+                            <td>{{$lv->statut_client}} </td>
+                            <td>{{$tg->updated_at}}</td>
+                            <td>
+                            <a href="finMoi{{$tg->id}}" class="btn btn-icon btn-success"><i class="la la-box "></i></a>
+                            <a href="delete_Agent{{$lv->id}}" class="btn btn-icon btn-danger"><i class="flaticon2-rubbish-bin "></i></a>
+                            </td>
+                        </tr>
+                        @endif
+                        @endforeach
+                        @endforeach
+
+                    </tbody>
+
+                </table>
+                <!--end: Datatable-->
             </div>
         </div>
     </div>

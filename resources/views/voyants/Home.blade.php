@@ -48,11 +48,8 @@
                                     <div class="d-flex align-items-center justify-content-between mb-5">
                                         <div class="d-flex align-items-center" style="width: 100%; background: bisque; padding: 10px; border-radius: 5px;">
                                             <div class="d-flex flex-column">
-                                                <a href=""
-                                                    class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Ana Torn</a>
-                                                <span class="text-muted font-weight-bold font-size-sm">Head Of Finance</span>
-                                                <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span>
-
+                                                <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Ana Torn | <span id="timetime">00:00:00</span></div>
+                                                    <span class="text-muted font-weight-bold font-size-sm">Head Of Finance</span>
                                             </div>
                                         </div>
                                     </div>
@@ -107,6 +104,13 @@
                                 <div class="text-center flex-grow-1">
                                     <div class="text-dark-75 font-weight-bold font-size-h5"> <strong>Matt Pears</strong> | <strong>38.€</strong> | voyants : <strong>ISABELLE</strong> | credit : <strong>3</strong> </div>
                                     <div>
+                                        <a href="#" class="btn btn-light-primary btn-sm font-weight-bold mr-2"
+                                            id="kt_dashboard_daterangepicker" data-toggle="tooltip" title=""
+                                            data-placement="left" data-original-title="Chronomètre pour le temps passé sur la plate forme">
+                                            <span class="opacity-60 font-weight-bold mr-2" id="kt_dashboard_daterangepicker_title">voyant : </span>
+                                            <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"> ISABELLE</span>
+
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="text-right flex-grow-1">

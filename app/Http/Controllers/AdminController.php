@@ -11,6 +11,16 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('verified');
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -19,8 +29,9 @@ class AdminController extends Controller
     {
         if(Auth::user()->statut == 2){
 
-            $liste_voyants = Liste_tag::orderBy('created_at', 'desc')->get();
-             return view('admin/voyants')->with('liste_voyants', $liste_voyants);
+            $liste_voyants = User::where('statut',1)->orderBy('created_at', 'desc')->get();
+            $tag = Liste_tag::orderBy('created_at', 'desc')->get();
+             return view('admin/voyants')->with(['liste_voyants'=> $liste_voyants,'tag'=>$tag]);
         }else { return view('acces'); }
     }
 

@@ -95,6 +95,7 @@
                             <th>Nom</th>
                             <th>E-mail</th>
                             <th>Credit</th>
+                            <th>C.affaire</th>
                             <th>Date inscri</th>
                             <th>Actions</th>
                         </tr>
@@ -107,9 +108,11 @@
                             <td>{{$cl->id}}</td>
                             <td>{{$cl->name}}</td>
                             <td>{{$cl->email}}</td>
-                            <td>{{$cl->Credit}}</td>
+                            <td>{{$cl->credit}}</td>
+                            <td>{{$cl->affaire}}.€</td>
                             <td>{{$cl->created_at}}</td>
-                            <td> <a href="#"><i class="flaticon2-rubbish-bin"></i></a></td>
+                            <td> <a href="delete_client{{$cl->id}}" class="btn btn-icon btn-danger"><i class="flaticon2-rubbish-bin "></i></a></td>
+
                         </tr>
                         @endforeach
                     </tbody>

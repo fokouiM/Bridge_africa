@@ -1,3 +1,4 @@
+window.onload = function time2(){
 var h1 = document.getElementsByTagName('time')[0];
 var start = document.getElementById('strt');
 var stop = document.getElementById('stp');
@@ -30,3 +31,38 @@ function timer() {
 }
 
 timer();
+}
+
+
+
+// window.onload = function time(){
+//     var heure = document.getElementById('timetime')[0];
+//     var seconde = 0;
+//     var minute = 0;
+//     var heusec = 0;
+//     var z;
+
+//     function tick(){
+//         seconde++;
+//         if (seconde >= 60) {
+//             seconde = 0;
+//             minute++;
+//             if (minute >= 60) {
+//                 minute = 0;
+//                 heusec++;
+//             }
+//         }
+//     }
+//     function add() {
+//         tick();
+//         heure.textContent = (heusec > 9 ? heusec : "0" + heusec)
+//                  + ":" + (minute > 9 ? minute : "0" + minute)
+//                     + ":" + (seconde > 9 ? seconde : "0" + seconde);
+//         timer();
+//     }
+//     function timer() {
+//         z = setTimeout(add, 1000);
+//     }
+
+//     timer();
+//     }

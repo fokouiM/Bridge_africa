@@ -1,8 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="content flex-column-fluid" id="kt_content" style=" width: 100%;">
+        @if (isset($_GET['v2']))
+        <div class="alert alert-custom alert-success fade show" role="alert">
+            <div class="alert-icon"><i class="flaticon-warning"></i></div>
+            <div class="alert-text">{{$_GET['v2']}}</div>
+            <div class="alert-close">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true"><i class="ki ki-close"></i></span>
+                </button>
+            </div>
+        </div>
+    @endif
         <!--begin::Chat-->
         <div class="d-flex flex-row">
 
@@ -33,66 +43,56 @@
                                 <!--begin::Message welcom-->
                                 <div class="d-flex flex-column mb-5 align-items-start">
                                     <div
-                                        class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-800px ">
+                                        class="mt-2 rounded p-5 font-weight-bold  text-left max-w-800px " style="background-color: #01e303d4; color: #fff;">
                                         Bonjour {{Auth::user()->name}} et merci pour votre inscription. Déjà vous devez savoir que vous ne payez pas du temps sur le site mais des crédits. Ainsi, 1 message que vous envoyez est égal à 1 crédit, alors nous vous proposons une voyance exclusive à partir de <strong>0,80€(moins chère qu'un Sms). </strong>  Vous pouvez donc oublier les voyances hors de prix.Sur voyance-auracle.fr nous vous révélons votre avenir et les solutions pour contourner les obstacles à votre bonheur, et pour se faire, Vous avez d'ores et déjà <strong>3 crédits offerts,</strong>  en quoi puis je vous aider ?
                                     </div>
                                 </div>
                                 <!--end::Message welcom-->
 
                                 <!--begin::Message In-->
-                                <div class="d-flex flex-column mb-5 align-items-start">
-                                    <div class="d-flex align-items-center">
-                                        {{-- <div>
-                                            <a href="#"
-                                                class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">{{$name_agent}}</a>
-                                            <span class="text-muted font-size-sm">2 Heures</span>
-                                        </div> --}}
+                                @foreach ($message as $ms)
+                                    @if ($ms->id_user == Auth::user()->name )
+                                    <div class="d-flex flex-column mb-5 align-items-start">
+                                        <div class="d-flex align-items-center">
+                                        </div>
+                                        <div class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">
+                                            {{$ms->message}} <br><span class="text-muted font-size-sm">{{$ms->created_at}}</span>
+                                        </div>
                                     </div>
-                                    <div
-                                        class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">
-                                        How likely are you to recommend our company
-                                        to your friends and family? <br><span class="text-muted font-size-sm">3 minutes</span>
+                                    @else
+                                    <div class="d-flex flex-column mb-5 align-items-end">
+                                        <div class="d-flex align-items-center">
+                                        </div>
+                                        <div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
+                                            {{$ms->message}} <br><span class="text-muted font-size-sm">{{$ms->created_at}}</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <!--end::Message In-->
-
-                                <!--begin::Message Out-->
-                                <div class="d-flex flex-column mb-5 align-items-end">
-                                    <div class="d-flex align-items-center">
-                                    </div>
-                                    <div
-                                        class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                                        Hey there, we’re just writing to let you know
-                                        that you’ve been subscribed to a repository on GitHub. <br><span class="text-muted font-size-sm">3 minutes</span>
-                                    </div>
-                                </div>
-                                <!--end::Message Out-->
-
+                                    @endif
+                                @endforeach
 
                             </div>
                             <!--end::Messages-->
-                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
-                                <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
-                            </div>
-                            <div class="ps__rail-y" style="top: 0px; height: 271px; right: -2px;">
-                                <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 75px;"></div>
-                            </div>
                         </div>
                         <!--end::Scroll-->
                     </div>
                     <!--end::Body-->
 
                     <!--begin::Footer-->
-                    <div class="card-footer align-items-center" style="display: flex; padding: 10px;">
-                        <!--begin::Compose-->
-                        <textarea class="form-control border-0 p-0" rows="2" placeholder="Texte"></textarea>
-                        <div class="d-flex align-items-center justify-content-between mt-5">
-                            <div>
-                                <button type="button" class="btn btn-primary btn-md text-uppercase font-weight-bold chat-send py-2 px-6">Envoyer</button>
+                    <form action="save_message" method="POST">
+                        @csrf
+                        <div class="card-footer align-items-center" style="display: flex; padding: 10px;">
+                            <!--begin::Compose-->
+                            <div class="d-flex align-items-center justify-content-between mt-5" style="width: 100%;">
+                                <input type="text" name="message" required class="form-control"  placeholder="Texte" style="width: 90%;">
+                                <div>
+                                    <input type="hidden" name="id_user" value="{{Auth::user()->id}} ">
+                                    <input type="hidden" name="name_voyant" value="{{$name_agent}}">
+                                <button type="submit" class="btn btn-primary btn-md text-uppercase font-weight-bold  py-2 px-6">Envoyer</button>
+                                </div>
                             </div>
+                            <!--begin::Compose-->
                         </div>
-                        <!--begin::Compose-->
-                    </div>
+                    </form>
                     <!--end::Footer-->
                 </div>
                 <!--end::Card-->

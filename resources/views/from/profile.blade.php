@@ -82,8 +82,13 @@ l
                                     <div class="input-group input-group-lg input-group-solid">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="la la-at"></i></span></div>
-                                        <input type="text" class="form-control form-control-lg form-control-solid"
-                                            value="{{ Auth::user()->email }}" name="email"placeholder="Email">
+                                        <input type="text" class="form-control form-control-lg form-control-solid @error('email') is-invalid @enderror"
+                                            value="{{ Auth::user()->email }}" name="email" placeholder="Email">
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    {{ $message }}
+                                                </span>
+                                            @enderror
                                     </div>
                                 </div>
                             </div>

@@ -270,7 +270,8 @@
                                 class=" w-100  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
                                 <!--begin::Details-->
                                 <div class="d-flex align-items-center flex-wrap">
-                                    {{-- <form action="" style="display: flex;">
+                                    <form action="save_time" method="POST" style="display: flex;">
+                                        @csrf
                                         <div class="d-flex align-items-center">
                                             <!--begin::Daterange-->
                                             <a href="#" class="btn btn-light-primary btn-sm font-weight-bold mr-2"
@@ -278,30 +279,17 @@
                                                 data-placement="left" data-original-title="Chronomètre pour le temps passé sur la plate forme">
                                                 <span class="opacity-60 font-weight-bold mr-2" id="kt_dashboard_daterangepicker_title">chrono : </span>
                                                 <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span>
-                                                <input type="hidden" name="time" value="<time>00:00:00</time> ">
+                                                <input for="time" type="hidden" name="time" value="50">
+                                                <input type="hidden" name="name" value="{{ Auth::user()->name }}" id="">
 
-                                            </a>
-                                            <!--end::Daterange-->
-                                        </div>
-                                        <div class="d-flex align-items-center">
-                                            <!--begin::Daterange-->
-                                            <a href="#" class="btn btn-light-primary btn-sm font-weight-bold mr-2" data-original-title="Chronomètre pour le temps passé sur la plate forme" style="display: flex;">
-                                                <label for="tad_selecte" style="margin-top: auto; margin-bottom: auto;">tag :&nbsp; </label>
-                                                <select id="tad_selecte" class="form-control form-control-solid" style="width: 200px;" name="tag">
-                                                    <option value="1">1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                </select>
                                             </a>
                                             <!--end::Daterange-->
                                         </div>
                                             <button type="submit" class="btn btn-success" style="float:left">
                                                 <i class="flaticon2-pie-chart"></i> Enregistrer
                                             </button>
-                                    </form> --}}
-                                    <div class="d-flex align-items-center">
+                                    </form>
+                                    {{-- <div class="d-flex align-items-center">
                                         <!--begin::Daterange-->
                                         <a href="#" class="btn btn-light-primary btn-sm font-weight-bold mr-2"
                                             id="kt_dashboard_daterangepicker" data-toggle="tooltip" title=""
@@ -311,7 +299,7 @@
 
                                         </a>
                                         <!--end::Daterange-->
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <!--end::Details-->
 

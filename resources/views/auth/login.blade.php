@@ -77,7 +77,7 @@
                                 <form class="form" method="POST" action="{{ route('login') }}"  >
                                     @csrf
                                     <div class="form-group py-3 m-0">
-                                        <input class="form-control h-auto border-0 px-0 placeholder-dark-75 @error('email') is-invalid @enderror" type="Email" placeholder="Email" name="email" value="{{ old('email') }}" autocomplete="off" />
+                                        <input class="form-control h-auto border-0 px-0 placeholder-dark-75 @error('email') is-invalid @enderror" type="text" placeholder="Email" name="email" value="{{ old('email') }}" autocomplete="off" />
                                         @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

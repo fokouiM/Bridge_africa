@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\message;
+use App\Models\User;
 
 class MessagesController extends Controller
 {
@@ -16,6 +17,7 @@ class MessagesController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('verified');
     }
     /**
      * Display a listing of the resource.
@@ -29,8 +31,8 @@ class MessagesController extends Controller
             if(Auth::user()->statut == 0 ){
 
                 $name_agent = $request->name_agent;
-                $route_style_page = "assets/js/pages/custom/chat/chat.js";
-            return view('message')->with( 'name_agent', $name_agent);
+            $message = message::where('id_user',Auth::user()->id)->where('name_voyant',$request->name_agent)->orderBy('created_at')->get();
+            return view('message')->with( ['message'=> $message,'name_agent'=>$name_agent]);
 
             }elseif(Auth::user()->statut == 1 ){
 
@@ -41,5 +43,35 @@ class MessagesController extends Controller
             }
         }
 
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        if(Auth::user()->credit >= 1){
+
+            $message = new message;
+            $message->id_user = $request->id_user;
+            $message->name_voyant = $request->name_voyant;
+            $message->name_user = Auth::user()->name;
+            $message->message = $request->message;
+            $message->statut = 1;
+            $message->save();
+            $user = User::where('id',Auth::user()->id)->first();
+            $credit = $user->credit -1;
+
+            User::where('id',Auth::user()->id)->update(['credit' => $credit,]);
+
+                return redirect()->route('message',['name_agent'=>$request->name_voyant]);
+        }else{
+            $v2 = 'credit insuffisant';
+
+            return redirect()->route('message',['v2'=>$v2,'name_agent'=>$request->name_voyant]);
+        }
     }
 }

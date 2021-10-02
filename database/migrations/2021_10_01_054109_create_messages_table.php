@@ -18,6 +18,7 @@ class CreateMessagesTable extends Migration
             $table->string('id_user')->nullable();
             $table->string('name_voyant')->nullable();
             $table->string('statut')->nullable();
+            $table->string('statut_client')->nullable();
             $table->string('name_user')->nullable();
             $table->string('name_agent')->nullable();
             $table->text('message')->nullable();

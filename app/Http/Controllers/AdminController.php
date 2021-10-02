@@ -31,7 +31,7 @@ class AdminController extends Controller
 
             $liste_voyants = User::where('statut',1)->orderBy('created_at', 'desc')->get();
             $tag = Liste_tag::orderBy('created_at', 'desc')->get();
-             return view('admin/voyants')->with(['liste_voyants'=> $liste_voyants,'tag'=>$tag]);
+             return view('Admin.voyants')->with(['liste_voyants'=> $liste_voyants,'tag'=>$tag]);
         }else { return view('acces'); }
     }
 

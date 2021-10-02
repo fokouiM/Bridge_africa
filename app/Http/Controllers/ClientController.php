@@ -18,7 +18,7 @@ class ClientController extends Controller
         $this->middleware('auth');
         $this->middleware('verified');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +29,7 @@ class ClientController extends Controller
         if(Auth::user()->statut == 2){
 
             $clients = User::where('statut',0)->get();
-            return view('admin/clients')->with('clients', $clients);
+            return view('Admin.clients')->with('clients', $clients);
         }else { return view('acces'); }
     }
 

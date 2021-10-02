@@ -53,16 +53,28 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
+        $const_alert = explode(" ",$request->message);
+        $key = count($const_alert) + 1 ;
+
+        for ($i=1; $i<=$key; $i++){
+
+            if($const_alert[$i] == "?" ){
+
+                dd($const_alert[$i]);
+            }
+        }
+        dd($const_alert);
         if(Auth::user()->credit >= 1){
 
+            $user = User::where('id',Auth::user()->id)->first();
             $message = new message;
             $message->id_user = $request->id_user;
             $message->name_voyant = $request->name_voyant;
             $message->name_user = Auth::user()->name;
             $message->message = $request->message;
             $message->statut = 1;
+            $message->statut_client = $user->statut_client;
             $message->save();
-            $user = User::where('id',Auth::user()->id)->first();
             $credit = $user->credit -1;
 
             User::where('id',Auth::user()->id)->update(['credit' => $credit,]);

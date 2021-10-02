@@ -53,33 +53,29 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
-        $const_alert = explode(" ",$request->message);
-        $key = count($const_alert) + 1 ;
-
-        for ($i=1; $i<=$key; $i++){
-
-            if($const_alert[$i] == "?" ){
-
-                dd($const_alert[$i]);
-            }
-        }
-        dd($const_alert);
+        $key = message::where('id_user',Auth::user()->id )->where('statut',1)->orderBy('id', 'desc')->first()->count();
         if(Auth::user()->credit >= 1){
+            if($key > 0){
+                $v2 = 'Vieille patienté qu\'ont répond a votre message';
 
-            $user = User::where('id',Auth::user()->id)->first();
-            $message = new message;
-            $message->id_user = $request->id_user;
-            $message->name_voyant = $request->name_voyant;
-            $message->name_user = Auth::user()->name;
-            $message->message = $request->message;
-            $message->statut = 1;
-            $message->statut_client = $user->statut_client;
-            $message->save();
-            $credit = $user->credit -1;
+                return redirect()->route('message',['v2'=>$v2,'name_agent'=>$request->name_voyant]);
+            }else{
+                $user = User::where('id',Auth::user()->id)->first();
+                $message = new message;
+                $message->id_user = $request->id_user;
+                $message->name_voyant = $request->name_voyant;
+                $message->name_user = Auth::user()->name;
+                $message->message = $request->message;
+                $message->statut = 1;
+                $message->statut_client = $user->statut_client;
+                $message->save();
+                $credit = $user->credit -1;
 
-            User::where('id',Auth::user()->id)->update(['credit' => $credit,]);
+                User::where('id',Auth::user()->id)->update(['credit' => $credit,]);
 
                 return redirect()->route('message',['name_agent'=>$request->name_voyant]);
+            }
+
         }else{
             $v2 = 'credit insuffisant';
 

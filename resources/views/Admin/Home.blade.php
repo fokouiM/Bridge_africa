@@ -417,7 +417,7 @@
                                             <div class="mr-2">
                                                 <a href="#"
                                                     class="text-dark-75 text-hover-primary font-weight-bolder font-size-h2">
-                                                    Reports du moi</a>
+                                                    Rapports du mois</a>
                                                 <div class="text-muted font-size-lg font-weight-bold pt-2"> Finances du moi encoure</div>
                                             </div>
                                             <div class="font-weight-bolder font-size-h3 text-success">{{$venteM}}€</div>
@@ -446,7 +446,7 @@
                                         Finances du de la semaine encoure
                                     </a>
                                     <div class="text-dark-50 font-weight-bold font-size-lg pt-2">
-                                        {{$venteM}}€
+                                        {{$venteS}}€
                                     </div>
                                 </div>
                                 <!--end::Body-->

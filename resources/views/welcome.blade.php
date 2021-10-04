@@ -45,10 +45,10 @@
 
                     <!--begin::Desc-->
                     <p class="mb-7">
-                        je possède un don divin de voyance depuis ma naissance mais au fil du temps je l'ai développé afin d'apporter la stabilité sur le plan sentimental. Je suis connecté à la flamme d'amourcet je vous aide à connaitre et même retrouver votre âme sœur.L'Amour surpasse tout
+                        je possède un don divin de voyance depuis ma naissance mais au fil du temps je l'ai développé afin d'apporter la stabilité sur le plan sentimental. Je suis connecté à la flamme d'amour, je vous aide à connaitre et même retrouver votre âme sœur.L'Amour surpasse tout
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
-                        <span class="text-dark-75 font-weight-bolder mr-2">Avis(12)</span>
+                        <span class="text-dark-75 font-weight-bolder mr-2">Avis(90)</span>
                         <a href="" class="text-muted text-hover-primary">
                             <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
                              <i class="la la-star-half-alt text-warning mr-5"></i> 4.75</a>
@@ -103,8 +103,8 @@
                     <div class="d-flex justify-content-between align-items-cente my-1">
                         <span class="text-dark-75 font-weight-bolder mr-2">Avis(52)</span>
                         <a href="" class="text-muted text-hover-primary">
-                            <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
-                             <i class="la la-star-half-alt text-warning mr-5"></i> 3.50</a>
+                            <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
+                              4</a>
                     </div>
                     <!--end::Desc-->
                     <form action="message" method="GET">

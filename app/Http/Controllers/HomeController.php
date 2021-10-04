@@ -39,7 +39,7 @@ class HomeController extends Controller
 
             }elseif(Auth::user()->statut == 2){
                 $dateM = carbon::today()->subDays(30);
-                $dateS = carbon::today()->subDays(30);
+                $dateS = carbon::today()->subDays(7);
                 $client = User::where('statut',0)->get();
                 $clientM = User::where('statut',0)->where('updated_at','>',$dateM)->get();
                 $clientS = User::where('statut',0)->where('updated_at','>',$dateS)->get();

@@ -43,8 +43,8 @@
                 <div id="kt_header_mobile" class="header-mobile ">
                     <!--begin::Logo-->
                     <a href="home">
-                        <img alt="Logo" src="assets/media/logos/logo-default.png" class="max-h-85px" />
-                        <h6>Voyance Auracle</h6>
+                        <img alt="Logo" src="assets/media/logos/logo-default.png" class="max-h-60px" />
+                        <h6 style="float: right; margin-top: 5vh;">Voyance Auracle</h6>
                     </a>
                     <!--end::Logo-->
 

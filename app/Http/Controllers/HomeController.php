@@ -30,15 +30,13 @@ class HomeController extends Controller
     {
         if(isset(Auth::user()->id)){
             if(Auth::user()->statut == 1){
-                $message = message::where('statut',1)->get;
-                dd($message);
-                return view('voyants.Home');
-            }
-
+                $message = message::where('statut',1)->get();
+                return view('voyants.Home')->with('message', $message);
 
 
             }elseif(Auth::user()->statut == 0){
                 return view('welcome');
+
             }elseif(Auth::user()->statut == 2){
                 $dateM = carbon::today()->subDays(30);
                 $dateS = carbon::today()->subDays(30);
@@ -81,3 +79,4 @@ class HomeController extends Controller
 
         }
     }
+}

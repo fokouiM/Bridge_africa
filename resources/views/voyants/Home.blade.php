@@ -45,14 +45,22 @@
                                 <div class="mt-7 scroll scroll-pull ps ps--active-y" style="height: 413px; overflow: hidden;">
 
                                     <!--begin:User-->
-                                    <div class="d-flex align-items-center justify-content-between mb-5">
-                                        <div class="d-flex align-items-center" style="width: 100%; background: bisque; padding: 10px; border-radius: 5px;">
-                                            <div class="d-flex flex-column">
-                                                <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Ana Torn | <span id="timetime">00:00:00</span></div>
-                                                    <span class="text-muted font-weight-bold font-size-sm">Head Of Finance</span>
+                                    @foreach ($message as $ms)
+                                        <div class="d-flex align-items-center justify-content-between mb-5">
+                                            @if ($ms->statut_client == 0)
+                                                <div class="d-flex align-items-center" style="width: 100%; background: #ffc4c7; padding: 10px; border-radius: 5px;">
+                                            @elseif($ms->statut_client == 1)
+                                                <div class= "d-flex align-items-center" style="width: 100%; background: #ffedc4; padding: 10px; border-radius: 5px;">
+                                            @elseif($ms->statut_client == 2)
+                                                <div class= "d-flex align-items-center" style="width: 100%; background: #c4ffc6; padding: 10px; border-radius: 5px;">
+                                            @endif
+                                                <div class="d-flex flex-column">
+                                                    <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">{{$ms->name_user}} | <span id="timetime">00:00:00</span></div>
+                                                        <span class="text-muted font-weight-bold font-size-sm">{{$ms->name_agent}}</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endforeach
                                     <!--end:User-->
 
 

@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
 use App\Models\User;
+use App\Models\message;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,8 @@ use App\Models\User;
 Route::get('/', function () {
     if(isset(Auth::user()->id)){
         if(Auth::user()->statut == 1){
-            return route('add_users');
+            $message = message::where('statut',1)->get();
+            return view('voyants.Home')->with('message', $message);
 
         }elseif(Auth::user()->statut == 0){
             return view('welcome');

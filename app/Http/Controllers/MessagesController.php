@@ -62,12 +62,20 @@ class MessagesController extends Controller
 
                 return redirect()->route('message',['v2'=>$v2,'name_agent'=>$request->name_voyant]);
             }else{
+                $last_massage = message::where('id_user', Auth::user()->id)->orderBy('id', 'desc')->first();
+                if($last_massage === null){
+
+                    $last_massageOne = "personne";
+                }else{
+                    $last_massageOne = $last_massage->name_agent ;
+                }
                 $user = User::where('id',Auth::user()->id)->first();
                 $message = new message;
                 $message->id_user = $request->id_user;
                 $message->name_voyant = $request->name_voyant;
                 $message->name_user = Auth::user()->name;
                 $message->message = $request->message;
+                $message->name_agent = $last_massageOne;
                 $message->statut = 1;
                 $message->statut_client = $user->statut_client;
                 $message->save();

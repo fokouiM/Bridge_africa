@@ -55,16 +55,16 @@
                                     <div class="d-flex flex-column mb-5 align-items-start">
                                         <div class="d-flex align-items-center">
                                         </div>
-                                        <div class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">
-                                            {{$ms->message}} <br><span class="text-muted font-size-sm">{{$ms->created_at}}</span>
+                                        <div class="mt-2 rounded bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px" style="padding: 5px 10px 5px 10px;">
+                                            {{$ms->message}} <br><span class="text-muted font-size-sm " style="font-size: 10px;">{{$ms->created_at}}</span>
                                         </div>
                                     </div>
                                     @else
                                     <div class="d-flex flex-column mb-5 align-items-end">
                                         <div class="d-flex align-items-center">
                                         </div>
-                                        <div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                                            {{$ms->message}} <br><span class="text-muted font-size-sm">{{$ms->created_at}}</span>
+                                        <div class="mt-2 rounded bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px" style="padding: 5px 10px 5px 10px;">
+                                            {{$ms->message}} <br><span class="text-muted font-size-sm" style="font-size: 10px;">{{$ms->created_at}}</span>
                                         </div>
                                     </div>
                                     @endif

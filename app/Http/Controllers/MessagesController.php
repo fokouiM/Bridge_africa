@@ -32,7 +32,9 @@ class MessagesController extends Controller
 
                 $name_agent = $request->name_agent;
             $message = message::where('id_user',Auth::user()->id)->where('name_voyant',$request->name_agent)->orderBy('created_at')->get();
-            return view('message')->with( ['message'=> $message,'name_agent'=>$name_agent]);
+            $date = date('Y n j');
+
+            return view('message')->with( ['message'=> $message,'name_agent'=>$name_agent,'date'=>$date]);
 
             }elseif(Auth::user()->statut == 1 ){
 
@@ -53,9 +55,9 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
-        $key = message::where('id_user',Auth::user()->id )->where('statut',1)->orderBy('id', 'desc')->first()->count();
+        $key = message::where('id_user',Auth::user()->id )->where('statut',1)->orderBy('id', 'desc')->first();
         if(Auth::user()->credit >= 1){
-            if($key > 0){
+            if($key !== null){
                 $v2 = 'Vieille patienté qu\'ont répond a votre message';
 
                 return redirect()->route('message',['v2'=>$v2,'name_agent'=>$request->name_voyant]);

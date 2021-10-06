@@ -8,6 +8,7 @@
     <title>Voyance Auracle</title>
     <meta name="description" content="User 4 columns listing" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="csrf-token" content="{{csrf_token()}}"/>
 
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
@@ -44,7 +45,7 @@
                     <!--begin::Logo-->
                     <a href="home">
                         <img alt="Logo" src="assets/media/logos/logo-default.png" class="max-h-60px" />
-                        <h6 style="float: right; margin-top: 5vh;">Voyance Auracle</h6>
+                        <h6 style="float: right; margin-top: 5vh; color:#ffff;">Voyance Auracle</h6>
                     </a>
                     <!--end::Logo-->
 
@@ -497,6 +498,14 @@
     <!--begin::Page Scripts(used by this page)-->
     <script src="assets/js/pages/custom/chat/chat.js"></script>
     <!--end::Page Scripts-->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        Echo.channel('home')
+            .listen('NewMessage', function(e){
+                const line="hello word";
+                console.log(e.message);
+            })
+    </script>
 
 
 </body>

@@ -78,16 +78,17 @@
                     <!--end::Body-->
 
                     <!--begin::Footer-->
-                    <form action="save_message" method="POST">
+                    <form action="save_message" method="POST" id="message_form">
                         @csrf
                         <div class="card-footer align-items-center" style="display: flex; padding: 10px;">
                             <!--begin::Compose-->
                             <div class="d-flex align-items-center justify-content-between mt-5" style="width: 100%;">
-                                <input type="text" name="message" required class="form-control"  placeholder="Texte" style="width: 90%;">
+                                <input type="text" name="message" id="message_input" required class="form-control"  placeholder="Texte" style="width: 90%;">
                                 <div>
                                     <input type="hidden" name="id_user" value="{{Auth::user()->id}} ">
+                                    <input type="hidden" name="username" id="username" value="{{Auth::user()->name}} ">
                                     <input type="hidden" name="name_voyant" value="{{$name_agent}}">
-                                <button type="submit" class="btn btn-primary btn-md text-uppercase font-weight-bold  py-2 px-6">Envoyer</button>
+                                <button type="submit" id="message_send" class="btn btn-primary btn-md text-uppercase font-weight-bold  py-2 px-6">Envoyer</button>
                                 </div>
                             </div>
                             <!--begin::Compose-->

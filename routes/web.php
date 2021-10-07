@@ -2,10 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
 use App\Models\User;
 use App\Models\message;
+use App\Events\NewMessage;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +74,14 @@ Route::get('/', function () {
 
         return view('welcome');
     }
+});
+
+Route::post('/send_message', function (Request $request ) {
+
+        event( new Message(
+            $request->input('username'),
+            $request->input('message')
+        ));
 });
 
 Route::get('/login', function () { return view('auth.login'); });

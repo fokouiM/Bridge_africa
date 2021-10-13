@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="containt"><br>
+<div class="containt" style="margin: 0 20px 0 20px;"><br>
     <div class="alert alert-custom alert-white alert-shadow gutter-b" role="alert">
         <div class="alert-icon">
             <span class="svg-icon svg-icon-primary svg-icon-xl"><!--begin::Svg Icon | path:assets/media/svg/icons/Tools/Compass.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">

@@ -208,72 +208,19 @@
                                     </div>
                                 </div>
                                 <!--end::Toggle-->
-
-                                <!--begin::Dropdown-->
-                                <div
-                                    class="dropdown-menu p-0 m-0 dropdown-menu-right dropdown-menu-anim-up dropdown-menu-lg p-0">
-                                    <!--begin::Header-->
-                                    <div class="d-flex align-items-center p-8 rounded-top">
-                                        <!--begin::Symbol-->
-                                        <div class="symbol symbol-md bg-light-primary mr-3 flex-shrink-0">
-                                            <img src="assets/media/users/blank.png" alt="" />
-                                        </div>
-                                        <!--end::Symbol-->
-
-                                        <!--begin::Text-->
-                                        @if (isset(Auth::user()->id))
-                                        <div class="text-dark m-0 flex-grow-1 mr-3 font-size-h5">
-                                            {{ Auth::user()->name }}</div>
-                                        @else
-                                        <div class="text-dark m-0 flex-grow-1 mr-3 font-size-h5">
-                                            nom</div>
-                                        @endif
-                                        <!--end::Text-->
-                                    </div>
-                                    <div class="separator separator-solid"></div>
-                                    <!--end::Header-->
-
-                                    <!--begin::Nav-->
-                                    <div class="navi navi-spacer-x-0 pt-5">
-                                        <!--begin::Item-->
-                                        <a href="profile" class="navi-item px-8">
-                                            @if (isset(Auth::user()->id))
-                                                <div class="navi-link">
-                                                    <div class="navi-icon mr-2">
-                                                        <i class="flaticon2-calendar-3 text-success"></i>
-                                                    </div>
-                                                    <div class="navi-text">
-                                                        <div class="font-weight-bold">
-                                                            Mon profile
-                                                        </div>
-                                                        <div class="text-muted">
-                                                            Information de votre compte
-                                                            <span
-                                                                class="label label-light-danger label-inline font-weight-bold">mise a jour</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                             @endif
-                                            </a>
-                                            <!--end::Item-->
-                                            <!--begin::Footer-->
-                                            <div class="navi-separator mt-3"></div>
-                                            <div class="navi-footer  px-8 py-5">
-                                                @if (isset(Auth::user()->id))
-                                                    <a class="btn btn-light-primary " href="{{ route('logout') }}"
-                                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Déconnection ') }}</a>
-                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                        class="d-none">
-                                                        @csrf
-                                                    </form>
-                                                @else
-                                                <a class="btn btn-light-primary " href="login" >{{ __('connexion') }}</a>
-                                                @endif
-                                            </div>
-                                            <!--end::Footer-->
-                                        </div>
-                                    <!--end::Nav-->
-                                </div>
+                                @if (isset(Auth::user()->id))
+                                <button type="button" class="btn btn-danger mr-2" href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Déconnection ') }}</button>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
+                                        @csrf
+                                    </form>
+                                @else
+                                <a href="login" type="button" class="btn btn-success mr-2">{{ __('connexion') }}</a>
+                                @endif
+                                @if (isset(Auth::user()->id))
+                                    <a href="profile" class="btn btn-icon btn-primary mr-2"><i class="flaticon2-box-1"></i></a>
+                                @endif
                                 <!--end::Dropdown-->
                             </div>
                             <!--end::User-->
@@ -321,6 +268,20 @@
                                         </ul>
                                     </div>
                                 </li>
+                                <li class="menu-item  menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
+                                    <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">gestion</span> <i class="menu-arrow"></i></a>
+                                    <div class="menu-submenu menu-submenu-classic menu-submenu-left">
+                                        <ul class="menu-subnav">
+                                            <li class="menu-item " aria-haspopup="true"><a href="#"
+                                                    class="menu-link "><span class="menu-text">gestion du blog</span><span
+                                                        class="menu-desc"></span></a></li>
+                                            <li class="menu-item " aria-haspopup="true"><a href="gmail"
+                                                class="menu-link "><span class="menu-text">CMR Client</span><span
+                                                    class="menu-desc"></span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+
                             </ul>
                             <!--end::Header Nav-->
                         </div>
@@ -413,7 +374,7 @@
                         <!--begin::Copyright-->
                         <div class="text-dark order-2 order-md-1">
                             <span class="text-muted font-weight-bold mr-2">2021&copy;</span>
-                            <a href="" target="_blank" class="text-white text-hover-primary">hunterbrightdesign</a>
+                            <a href="home" target="_blank" class="text-white text-hover-primary">Voyance auracle tous droits reserver</a>
                         </div>
                         <!--end::Copyright-->
 

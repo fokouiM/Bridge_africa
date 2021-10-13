@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateChatRoomsTable extends Migration
+class CreateBlogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,22 @@ class CreateChatRoomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('chat_rooms', function (Blueprint $table) {
+        Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+            $table->text('title')->nullable();
+            $table->text('description')->nullable();
+            $table->text('image')->nullable();
             $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations.php
      *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('chat_rooms');
+        Schema::dropIfExists('blogs');
     }
 }

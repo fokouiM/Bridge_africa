@@ -19,6 +19,8 @@
     <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+
     <!--end::Global Theme Styles-->
 
     <!--begin::Layout Themes(used by all pages)-->
@@ -77,7 +79,7 @@
                 <!--end::Header Mobile-->
 
                 <!--begin::Header-->
-                <div id="kt_header" class="header  header-fixed ">
+                <div id="kt_header" class="header  header-fixed h-60px px-4">
                     <!--begin::Container-->
                     <div class=" container ">
                         <!--begin::Left-->
@@ -85,7 +87,7 @@
                             <!--begin::Logo-->
                             <a href="home" class="mr-20">
                                 <img alt="Logo" src="assets/media/logos/logo-default.png"
-                                    class="logo-default max-h-85px" />
+                                    class="logo-default max-h-50px" />
                             </a>
                             <!--end::Logo-->
                         </div>
@@ -203,52 +205,15 @@
                                     </div>
                                 </div>
                                 <!--end::Toggle-->
-
-                                <!--begin::Dropdown-->
-                                <div
-                                    class="dropdown-menu p-0 m-0 dropdown-menu-right dropdown-menu-anim-up dropdown-menu-lg p-0">
-                                    <!--begin::Header-->
-                                    <div class="d-flex align-items-center p-8 rounded-top">
-                                        <!--begin::Symbol-->
-                                        <div class="symbol symbol-md bg-light-primary mr-3 flex-shrink-0">
-                                            <img src="assets/media/users/blank.png" alt="" />
-                                        </div>
-                                        <!--end::Symbol-->
-
-                                        <!--begin::Text-->
-                                        @if (isset(Auth::user()->id))
-                                            <div class="text-dark m-0 flex-grow-1 mr-3 font-size-h5">
-                                                {{ Auth::user()->name }}</div>
-                                        @else
-                                            <div class="text-dark m-0 flex-grow-1 mr-3 font-size-h5">
-                                                nom</div>
-                                        @endif
-                                        <!--end::Text-->
-                                    </div>
-                                    <div class="separator separator-solid"></div>
-                                    <!--end::Header-->
-
-                                    <!--begin::Nav-->
-                                    <div class="navi navi-spacer-x-0 pt-5">
-                                        <!--begin::Footer-->
-                                        <div class="navi-footer  px-8 py-5">
-                                            @if (isset(Auth::user()->id))
-                                                <a class="btn btn-light-primary " href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Déconnection ') }}</a>
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                    class="d-none">
-                                                    @csrf
-                                                </form>
-                                            @else
-                                                <a class="btn btn-light-primary "
-                                                    href="login">{{ __('connexion') }}</a>
-                                            @endif
-                                        </div>
-                                        <!--end::Footer-->
-                                    </div>
-                                    <!--end::Nav-->
-                                </div>
-                                <!--end::Dropdown-->
+                                @if (isset(Auth::user()->id))
+                                    <button type="button" class="btn btn-danger mr-2" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Déconnection ') }}</button>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">  @csrf  </form>
+                                @else
+                                    <a href="login" type="button" class="btn btn-success mr-2">{{ __('connexion') }}</a>
+                                @endif
+                                @if (isset(Auth::user()->id))
+                                    <a href="profile" class="btn btn-icon btn-primary mr-2"><i class="flaticon2-box-1"></i></a>
+                                @endif
                             </div>
                             <!--end::User-->
                         </div>
@@ -257,56 +222,14 @@
                     <!--end::Container-->
                 </div>
                 <!--end::Header-->
-                <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+                {{-- <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
                     <div class=" container ">
                     </div>
-                </div>
+                </div> --}}
                 <!--begin::Container-->
-                <div class="d-flex flex-row flex-column-fluid  container ">
+                <div class="d-flex flex-row flex-column-fluid ">
                     <div class="main d-flex flex-column flex-row-fluid">
                         <!--begin::Subheader-->
-                        <div class="subheader py-2 py-lg-4 " id="kt_subheader">
-                            <div
-                                class=" w-100  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
-                                <!--begin::Details-->
-                                <div class="d-flex align-items-center flex-wrap">
-                                    <form action="save_time" method="POST" style="display: flex;">
-                                        @csrf
-                                        <div class="d-flex align-items-center">
-                                            <!--begin::Daterange-->
-                                            <a href="#" class="btn btn-light-primary btn-sm font-weight-bold mr-2"
-                                                id="kt_dashboard_daterangepicker" data-toggle="tooltip" title=""
-                                                data-placement="left" data-original-title="Chronomètre pour le temps passé sur la plate forme">
-                                                <span class="opacity-60 font-weight-bold mr-2" id="kt_dashboard_daterangepicker_title">chrono : </span>
-                                                <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span>
-                                                <input for="time" type="hidden" name="time" value="50">
-                                                <input type="hidden" name="name" value="{{ Auth::user()->name }}" id="">
-
-                                            </a>
-                                            <!--end::Daterange-->
-                                        </div>
-                                            <button type="submit" class="btn btn-success" style="float:left">
-                                                <i class="flaticon2-pie-chart"></i> Enregistrer
-                                            </button>
-                                    </form>
-                                    {{-- <div class="d-flex align-items-center">
-                                        <!--begin::Daterange-->
-                                        <a href="#" class="btn btn-light-primary btn-sm font-weight-bold mr-2"
-                                            id="kt_dashboard_daterangepicker" data-toggle="tooltip" title=""
-                                            data-placement="left" data-original-title="Chronomètre pour le temps passé sur la plate forme">
-                                            <span class="opacity-60 font-weight-bold mr-2" id="kt_dashboard_daterangepicker_title">voyant : </span>
-                                            <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"> ISABELLE</span>
-
-                                        </a>
-                                        <!--end::Daterange-->
-                                    </div> --}}
-                                </div>
-                                <!--end::Details-->
-
-                                <!--begin::Toolbar-->
-                                <!--end::Toolbar-->
-                            </div>
-                        </div>
                         @yield('content_agent')
                         <!--end::Container-->
                     </div>
@@ -318,22 +241,9 @@
                         <!--begin::Copyright-->
                         <div class="text-dark order-2 order-md-1">
                             <span class="text-muted font-weight-bold mr-2">2021&copy;</span>
-                            <a href="" target="_blank" class="text-white text-hover-primary">hunterbrightdesign</a>
+                            <a href="" target="_blank" class="text-white text-hover-primary">voyance auracle tous drois reserver</a>
                         </div>
                         <div class="text-dark order-2 order-md-1">
-                            <a href="" target="_blank" class="text-white text-hover-primary">CGV</a>
-                        </div>
-                        <div class="text-dark order-2 order-md-1">
-                            <a href="" target="_blank" class="text-white text-hover-primary">Blog</a>
-                        </div>
-                        <div class="text-dark order-2 order-md-1">
-                            <a href="" target="_blank" class="text-white text-hover-primary">Nous contacter</a>
-                        </div>
-                        <div class="text-dark order-2 order-md-1">
-                            <a href="" target="_blank" class="text-white text-hover-primary">Formulaire de retractation</a>
-                        </div>
-                        <div class="text-dark order-2 order-md-1">
-                            <a href="" target="_blank" class="text-white text-hover-primary"> Mentions légales</a>
                         </div>
                         <!--end::Copyright-->
 
@@ -426,6 +336,7 @@
     <!--begin::Page Scripts(used by this page)-->
     <script src="assets/js/pages/custom/chat/chat.js"></script>
     <!--end::Page Scripts-->
+    <script src="{{ asset('js/app.js') }}"></script>
 
 
 </body>

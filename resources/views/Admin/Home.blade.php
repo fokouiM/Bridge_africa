@@ -371,14 +371,14 @@
                                 <div class="card-body d-flex">
                                     <div class="d-flex py-5 flex-column align-items-start flex-grow-1">
                                         <div class="flex-grow-1">
-                                            <a href="" class="text-white font-weight-bolder font-size-h3">Create CRM
-                                                Reports</a>
+                                            <a href="" class="text-white font-weight-bolder font-size-h3">CRM
+                                                client</a>
                                             <p class="text-white opacity-75 font-weight-bold mt-3">
-                                                Outlines keep you and honest indulging honest.
+                                                Envoie des mails groupés
                                             </p>
                                         </div>
-                                        <a href="" class="btn btn-link btn-link-white font-weight-bold">
-                                            Read More
+                                        <a href="gmail" class="btn btn-link btn-link-white font-weight-bold">
+                                            exploré
                                             <span class="svg-icon svg-icon-lg svg-icon-white">
                                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg--><svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -443,7 +443,7 @@
                                 <!--begin::Body-->
                                 <div class="card-body">
                                     <a href="#" class="text-dark-75 text-hover-primary font-weight-bolder font-size-h3">
-                                        Finances du de la semaine encoure
+                                        Finances de la semaine encoure
                                     </a>
                                     <div class="text-dark-50 font-weight-bold font-size-lg pt-2">
                                         {{$venteS}}€

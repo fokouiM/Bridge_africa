@@ -15,8 +15,8 @@ class CreateNoteClientsTable extends Migration
     {
         Schema::create('note_clients', function (Blueprint $table) {
             $table->id();
-            $table->string('id_user');
-            $table->text('note');
+            $table->string('id_user')->nullable();
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

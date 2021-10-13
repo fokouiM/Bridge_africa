@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\message;
 use App\Models\User;
+use App\Models\Note_client;
+use App\Models\CounvClient;
 
 class MessagesController extends Controller
 {
@@ -38,8 +40,8 @@ class MessagesController extends Controller
 
             }elseif(Auth::user()->statut == 1 ){
 
-                $name_agent = $request->name_agent;
-            return view('agent.message')->with('name_agent', $name_agent);
+                $contacts = User::where('statut_m',1)->where('statut',0)->get();
+                return response()->json($contacts);
             }else{
                 return view('acces');
             }
@@ -76,7 +78,7 @@ class MessagesController extends Controller
                 $message->name_user = Auth::user()->name;
                 $message->message = $request->message;
                 $message->name_agent = $last_massageOne;
-                $message->statut = 1;
+                $message->statut = 0;
                 $message->statut_client = $user->statut_client;
                 $message->save();
                 $credit = $user->credit -1;
@@ -91,5 +93,27 @@ class MessagesController extends Controller
 
             return redirect()->route('message',['v2'=>$v2,'name_agent'=>$request->name_voyant]);
         }
+    }
+
+    public function getMessage($id){
+        $message = message::where('id_user',$id)->get();
+        $user = User::where('id',$id)->first();
+        $voyants = CounvClient::where('id_user',$id)->get();
+        $note = Note_client::where('id_user',$id)->get();
+        $yes = message::where('id_user',$id)->orderBy('created_at', 'desc')->first();
+        $Active = $yes->name_voyant;
+        return response()->json(['message'=>$message,'user'=>$user,'voyants'=>$voyants,'note'=>$note,'Active'=>$Active]);
+
+    }
+
+    public function send(Request $request){
+       $message = message::create([
+            'id_user'=>$request->id_user,
+            'id_send'=>Auth::user()->id,
+            'name_voyant'=>$request->name_voyant,
+            'name_agent'=> Auth::user()->name,
+            'message'=>$request->message
+        ]);
+        return response()->json($message);
     }
 }

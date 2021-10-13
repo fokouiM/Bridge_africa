@@ -53,7 +53,7 @@
                             <th>ID</th>
                             <th>Nom</th>
                             <th>temps</th>
-                            <th>DJT</th>
+                            <th>MY</th>
                             <th>Date créer</th>
                             <th>Actions</th>
                         </tr>
@@ -67,10 +67,11 @@
                             <td>{{$lv->id}} </td>
                             <td>{{$lv->name}}</td>
                             <td>{{$tg->time}} </td>
-                            <td>{{$lv->statut_client}} </td>
+                            <td>{{$lv->affaire}} </td>
                             <td>{{$tg->updated_at}}</td>
                             <td>
                             <a href="finMoi{{$tg->id}}" class="btn btn-icon btn-success"><i class="la la-box "></i></a>
+                            <a href="finMoi{{$tg->id}}" class="btn btn-icon btn-outline-success"> <i class="flaticon2-pie-chart"></i></a>
                             <a href="delete_Agent{{$lv->id}}" class="btn btn-icon btn-danger"><i class="flaticon2-rubbish-bin "></i></a>
                             </td>
                         </tr>

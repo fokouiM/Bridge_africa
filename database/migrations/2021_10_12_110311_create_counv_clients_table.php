@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMessagesTable extends Migration
+class CreateCounvClientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
+        Schema::create('counv_clients', function (Blueprint $table) {
             $table->id();
             $table->string('id_user')->nullable();
-            $table->string('id_send')->nullable();
-            $table->string('statut')->nullable();
-            $table->integer('chat_room_id')->nullable();
-            $table->string('name_voyant')->nullable();
-            $table->text('message')->nullable();
+            $table->text('name_voyant')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        Schema::dropIfExists('counv_clients');
     }
 }

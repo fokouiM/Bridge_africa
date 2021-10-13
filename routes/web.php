@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
 use App\Models\User;
 use App\Models\message;
+use App\Models\blog;
 use App\Events\NewMessage;
+use PhpParser\Node\Stmt\Return_;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,6 +86,39 @@ Route::post('/send_message', function (Request $request ) {
         ));
 });
 
+Route::get('/gmail', function ( ) {
+
+    return view('CGV');
+
+});
+Route::get('/CGV', function ( ) {
+
+    return view('CGV');
+
+});
+Route::get('/Mentions_legales', function ( ) {
+
+    return view('Mentions_legales');
+
+});
+Route::get('/contacter', function ( ) {
+
+    return view('contacter');
+
+});
+Route::get('/formulaire_de_retractation', function ( ) {
+
+    return view('formulaire_de_retractation');
+
+});
+Route::get('/blog', function ( ) {
+    $blog = blog::orderBy('created_at', 'desc')->first();
+
+    return view('blog')->with('blog',$blog);
+
+});
+
+
 Route::get('/login', function () { return view('auth.login'); });
 Route::get('/pack', function () { return view('pack'); });
 Route::get('/add_users', function () { if(Auth::user()->statut == 2){ return view('from.add_users');}else { return view('acces'); } })->name('add_users');
@@ -95,8 +130,14 @@ Route::get('/voyants', [App\Http\Controllers\AdminController::class, 'voyants'])
 Auth::routes();
 
 
+    // Route::get('/gmail', [App\Http\Controllers\AdminController::class, 'gmail'])->name('crm_client');
+    Route::post('/send_mail', [App\Http\Controllers\MailController::class, 'formRT'])->name('send_mail');
+    Route::post('/sendContact', [App\Http\Controllers\MailController::class, 'contact'])->name('sendContact');
+    Route::get('/contacts', [App\Http\Controllers\MessagesController::class, 'index'])->name('message');
     Route::get('/message', [App\Http\Controllers\MessagesController::class, 'index'])->name('message');
-    Route::post('/message', [App\Http\Controllers\MessagesController::class, 'index'])->name('message');
+    Route::get('/conversation/{id}/{voyant}', [App\Http\Controllers\MessagesController::class, 'getMessage'])->name('conversation');
+    Route::post('/conversation/send', [App\Http\Controllers\MessagesController::class, 'send'])->name('conversation/send');
+    // Route::post('/message', [App\Http\Controllers\MessagesController::class, 'index'])->name('message');
     Route::post('/save_message', [App\Http\Controllers\MessagesController::class, 'store'])->name('save_message');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/profile', [App\Http\Controllers\User_infoController::class, 'index'])->name('profile');

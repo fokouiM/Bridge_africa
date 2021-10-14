@@ -101,7 +101,7 @@
                         je suis connecté aux énergies et je fais usage des supports pour lire votre avenir financier et vous aider à retrouver votre plan initial de vie. L'argent est ma spécialité et pour cela je vous aide à l'attirer et à le capter comme un aimant.
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
-                        <span class="text-dark-75 font-weight-bolder mr-2">Avis(52)</span>
+                        <span class="text-dark-75 font-weight-bolder mr-2">Avis(112)</span>
                         <a href="" class="text-muted text-hover-primary">
                             <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
                               4</a>
@@ -150,18 +150,19 @@
 
                     <!--begin::Desc-->
                     <p class="mb-7">
-                        par le pouvoir de la communion télépathique, je guide plusieurs personnes à retrouver la voie du travail. ce don est inné et j'exerce depuis 30 ans avec succès.
+                        Dotée d'un pouvoir surbaturel,je traite tout probléme de famille par la méthode de claivoyance et je vous aide à retrouver la stabilité dans votre foyer.
+
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
                         <span class="text-dark-75 font-weight-bolder mr-2">Avis(20)</span>
                         <a href="" class="text-muted text-hover-primary">
-                           <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
-                             <i class="la la-star-half-alt text-warning mr-5"></i> 3.75</a>
+                           <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
+                             <i class="la la-star-half-alt text-warning mr-5"></i> 2.75</a>
                     </div>
                     <!--end::Desc-->
                         <form action="message" method="GET">
                             @csrf
-                            <input type="hidden" name="name_agent" value="SUZANNE">
+                            <input type="hidden" name="name_agent" value="JACQUEMIN">
                             <button  class="btn btn-block btn-sm btn-light-primary font-weight-bolder text-uppercase py-4" data-toggle="modal" data-target="#kt_chat_modal">Message</button>
                         </form>
                 </div>
@@ -201,22 +202,19 @@
 
                     <!--begin::Desc-->
                     <p class="mb-7">
-                        Dotée d'un pouvoir surbaturel,je traite tout probléme de famille par la méthode de claivoyance et je vous aide à retrouver la stabilité dans votre foyer.
+                        par le pouvoir de la communion télépathique, je guide plusieurs personnes à retrouver la voie du travail. ce don est inné et j'exerce depuis 30 ans avec succès.
+
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
                         <span class="text-dark-75 font-weight-bolder mr-2">Avis(09)</span>
                         <a href="" class="text-muted text-hover-primary">
-                            <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
-                             <i class="la la-star-half-alt text-warning mr-5"></i> 2.75</a>
+                            <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
+                             <i class="la la-star-half-alt text-warning mr-5"></i> 3.75</a>
                     </div>
                     <!--end::Desc-->
                     <form action="message" method="GET">
                         @csrf
                         <input type="hidden" name="name_agent" value="SABINE">
-                        @if (isset(Auth::user()->id))
-                        <input type="hidden" name="name_user" value=" {{Auth::user()->id}} ">
-                        <input type="hidden" name="name_user" value=" {{Auth::user()->name}} ">
-                        @endif
                         <button href="#" class="btn btn-block btn-sm btn-light-success font-weight-bolder text-uppercase py-4"
                             data-toggle="modal" data-target="#kt_chat_modal">Message</button>
                     </form>

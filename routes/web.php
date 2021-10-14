@@ -87,10 +87,10 @@ Route::post('/send_message', function (Request $request ) {
 });
 
 Route::get('/gmail', function ( ) {
+    $client = User::where('statut',0)->get();
+    return view('Admin.gmail')->with('client',$client);
 
-    return view('CGV');
-
-});
+})->name('gmail');
 Route::get('/CGV', function ( ) {
 
     return view('CGV');
@@ -105,16 +105,16 @@ Route::get('/contacter', function ( ) {
 
     return view('contacter');
 
-});
+})->name('contacter');
 Route::get('/formulaire_de_retractation', function ( ) {
 
     return view('formulaire_de_retractation');
 
-});
+})->name('formulaire_de_retractation') ;
 Route::get('/blog', function ( ) {
-    $blog = blog::orderBy('created_at', 'desc')->first();
+    $blogs = blog::orderBy('created_at', 'desc')->get();
 
-    return view('blog')->with('blog',$blog);
+    return view('blog')->with('blogs',$blogs);
 
 });
 
@@ -133,6 +133,8 @@ Auth::routes();
     // Route::get('/gmail', [App\Http\Controllers\AdminController::class, 'gmail'])->name('crm_client');
     Route::post('/send_mail', [App\Http\Controllers\MailController::class, 'formRT'])->name('send_mail');
     Route::post('/sendContact', [App\Http\Controllers\MailController::class, 'contact'])->name('sendContact');
+    Route::post('/oneclient', [App\Http\Controllers\MailController::class, 'one'])->name('oneclient');
+    Route::post('/allclient', [App\Http\Controllers\MailController::class, 'all'])->name('allclient');
     Route::get('/contacts', [App\Http\Controllers\MessagesController::class, 'index'])->name('message');
     Route::get('/message', [App\Http\Controllers\MessagesController::class, 'index'])->name('message');
     Route::get('/conversation/{id}/{voyant}', [App\Http\Controllers\MessagesController::class, 'getMessage'])->name('conversation');

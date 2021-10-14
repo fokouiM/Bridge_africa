@@ -2,3 +2,9 @@
 {
     width: 100%;
 }
+.non_img{
+    padding: auto 0;
+    font-size: 2em;
+    text-align: center;
+    font-family: cursive; 
+}

@@ -52,8 +52,8 @@
                         <tr>
                             <th>ID</th>
                             <th>Nom</th>
-                            <th>temps</th>
-                            <th>MY</th>
+                            <th>M_message</th>
+                            <th>Moyenne</th>
                             <th>Date créer</th>
                             <th>Actions</th>
                         </tr>
@@ -71,7 +71,7 @@
                             <td>{{$tg->updated_at}}</td>
                             <td>
                             <a href="finMoi{{$tg->id}}" class="btn btn-icon btn-success"><i class="la la-box "></i></a>
-                            <a href="finMoi{{$tg->id}}" class="btn btn-icon btn-outline-success"> <i class="flaticon2-pie-chart"></i></a>
+                            {{-- <a href="finMoi{{$tg->id}}" class="btn btn-icon btn-outline-success"> <i class="flaticon2-pie-chart"></i></a> --}}
                             <a href="delete_Agent{{$lv->id}}" class="btn btn-icon btn-danger"><i class="flaticon2-rubbish-bin "></i></a>
                             </td>
                         </tr>

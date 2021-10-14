@@ -75,11 +75,8 @@ class MessagesController extends Controller
                 $message = new message;
                 $message->id_user = $request->id_user;
                 $message->name_voyant = $request->name_voyant;
-                $message->name_user = Auth::user()->name;
                 $message->message = $request->message;
-                $message->name_agent = $last_massageOne;
                 $message->statut = 0;
-                $message->statut_client = $user->statut_client;
                 $message->save();
                 $credit = $user->credit -1;
 

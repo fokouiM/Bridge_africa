@@ -2526,6 +2526,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     messages: {
@@ -2555,7 +2561,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data(messages) {
     return {
-      text: '',
+      text: "",
       id_user: messages.user,
       name_voyant: messages.name_voyant
     };
@@ -2565,7 +2571,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       e.preventDefault();
-      axios.post('/conversation/senduser', {
+      axios.post("/conversation/senduser", {
         text: this.text,
         id_user: this.messages.user.id,
         name_voyant: this.messages.name_voyant
@@ -3249,8 +3255,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
+    reponse: false,
     contact: {
       type: Object
     },
@@ -8261,7 +8290,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n::-webkit-scrollbar {\nwidth: 5px;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\nbackground: #f1f1f1;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\nbackground: #888;\n}\n\n/* Handle on hover */\n::-webkit-scrollbar-thumb:hover {\nbackground: #555;\n}\n.flex{\n    display: flex;\n    width: -webkit-fit-content;\n    width: -moz-fit-content;\n    width: fit-content;\n    margin-left: auto;\n    margin-right: auto;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n::-webkit-scrollbar {\nwidth: 5px;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\nbackground: #f1f1f1;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\nbackground: #888;\n}\n\n/* Handle on hover */\n::-webkit-scrollbar-thumb:hover {\nbackground: #555;\n}\n.flex{\n    display: flex;\n    width: -webkit-fit-content;\n    width: -moz-fit-content;\n    width: fit-content;\n    margin-left: auto;\n    margin-right: auto;\n}\n.reponse{\n    position: fixed;\n    top: 0;\n    left: 0;\n    background: #000000b5;\n    width: 100%;\n    height: 100vh;\n    z-index: 9999999;\n    display: flex;\n}\n.wt{\n    width: 25%;\n    border: solid 1px rgb(255, 255, 255);\n    color: #fff;\n}\n.wt h2{\n    text-align: center;\n    margin: 0;\n    padding: 0;\n    border-bottom: solid 1px #fff;\n}\n.textreponse{\n    width: 100%;\n    height: auto;\n    border-radius: 5px;\n    background: #fff;\n    color: black;\n    padding: 15px;\n    margin: 0 15px 20px 15px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -46688,282 +46717,309 @@ var render = function() {
     },
     [
       _c("div", { staticClass: "card card-custom" }, [
-        _c("div", { staticClass: "card-body list" }, [
-          _c("div", { staticClass: "input-group input-group-solid" }, [
-            _c("div", { staticClass: "input-group-prepend" }, [
-              _c("span", { staticClass: "input-group-text" }, [
-                _c("span", { staticClass: "svg-icon svg-icon-lg" }, [
-                  _c(
-                    "svg",
+        _c(
+          "div",
+          { staticClass: "card-body list", staticStyle: { height: "auto" } },
+          [
+            _c("div", { staticClass: "input-group input-group-solid" }, [
+              _c("div", { staticClass: "input-group-prepend" }, [
+                _c("span", { staticClass: "input-group-text" }, [
+                  _c("span", { staticClass: "svg-icon svg-icon-lg" }, [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                          width: "24px",
+                          height: "24px",
+                          viewBox: "0 0 24 24",
+                          version: "1.1"
+                        }
+                      },
+                      [
+                        _c(
+                          "g",
+                          {
+                            attrs: {
+                              stroke: "none",
+                              "stroke-width": "1",
+                              fill: "none",
+                              "fill-rule": "evenodd"
+                            }
+                          },
+                          [
+                            _c("rect", {
+                              attrs: {
+                                x: "0",
+                                y: "0",
+                                width: "24",
+                                height: "24"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z",
+                                fill: "#000000",
+                                "fill-rule": "nonzero",
+                                opacity: "0.3"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z",
+                                fill: "#000000",
+                                "fill-rule": "nonzero"
+                              }
+                            })
+                          ]
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control py-4 h-auto",
+                attrs: { type: "text", placeholder: "Liste des clients" }
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "mt-7 scroll scroll-pull ps ps--active-y",
+                staticStyle: { height: "413px", overflow: "hidden" }
+              },
+              [
+                _vm._l(_vm.contacts, function(contact, index) {
+                  return _c(
+                    "div",
                     {
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                        width: "24px",
-                        height: "24px",
-                        viewBox: "0 0 24 24",
-                        version: "1.1"
+                      key: contact.id,
+                      class: { selected: index == _vm.selected },
+                      on: {
+                        click: function($event) {
+                          return _vm.selectContact(index, contact)
+                        }
                       }
                     },
                     [
-                      _c(
-                        "g",
-                        {
-                          attrs: {
-                            stroke: "none",
-                            "stroke-width": "1",
-                            fill: "none",
-                            "fill-rule": "evenodd"
-                          }
-                        },
-                        [
-                          _c("rect", {
-                            attrs: { x: "0", y: "0", width: "24", height: "24" }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z",
-                              fill: "#000000",
-                              "fill-rule": "nonzero",
-                              opacity: "0.3"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z",
-                              fill: "#000000",
-                              "fill-rule": "nonzero"
-                            }
-                          })
-                        ]
-                      )
+                      contact.statut_client == 0
+                        ? _c("span", [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "d-flex align-items-center justify-content-between mb-2",
+                                staticStyle: {
+                                  border: "none",
+                                  background: "none",
+                                  width: "100%"
+                                }
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "d-flex align-items-center",
+                                    staticStyle: {
+                                      width: "100%",
+                                      background: "#ffc4c7",
+                                      padding: "10px",
+                                      "border-radius": "5px"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      { staticClass: "d-flex flex-column" },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "text-dark-75 text-hover-primary font-weight-bold font-size-lg",
+                                            staticStyle: {
+                                              "font-size": "0.8em"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(contact.name) +
+                                                "|\n                                            "
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "text-muted font-weight-bold font-size-sm"
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(contact.name_agent)
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        : contact.statut_client == 1
+                        ? _c("span", [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "d-flex align-items-center justify-content-between mb-2",
+                                staticStyle: {
+                                  border: "none",
+                                  background: "none",
+                                  width: "100%"
+                                }
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "d-flex align-items-center",
+                                    staticStyle: {
+                                      width: "100%",
+                                      background: "#ffedc4",
+                                      padding: "10px",
+                                      "border-radius": "5px"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      { staticClass: "d-flex flex-column" },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "text-dark-75 text-hover-primary font-weight-bold font-size-lg",
+                                            staticStyle: {
+                                              "font-size": "0.8em"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(contact.name) +
+                                                " |\n                                            "
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "text-muted font-weight-bold font-size-sm"
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(contact.name_agent)
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        : contact.statut_client == 2
+                        ? _c("span", [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "d-flex align-items-center justify-content-between mb-2",
+                                staticStyle: {
+                                  border: "none",
+                                  background: "none",
+                                  width: "100%"
+                                }
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "d-flex align-items-center",
+                                    staticStyle: {
+                                      width: "100%",
+                                      background: "#c4ffc6",
+                                      padding: "10px",
+                                      "border-radius": "5px"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      { staticClass: "d-flex flex-column" },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "text-dark-75 text-hover-primary font-weight-bold font-size-lg",
+                                            staticStyle: {
+                                              "font-size": "0.8em"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(contact.name) +
+                                                "|\n                                            "
+                                            ),
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "text-muted font-weight-bold font-size-sm"
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(contact.name_agent)
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        : _vm._e()
                     ]
                   )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control py-4 h-auto",
-              attrs: { type: "text", placeholder: "Liste des clients" }
-            })
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "mt-7 scroll scroll-pull ps ps--active-y",
-              staticStyle: { height: "413px", overflow: "hidden" }
-            },
-            [
-              _vm._l(_vm.contacts, function(contact, index) {
-                return _c(
-                  "div",
-                  {
-                    key: contact.id,
-                    class: { selected: index == _vm.selected },
-                    on: {
-                      click: function($event) {
-                        return _vm.selectContact(index, contact)
-                      }
-                    }
-                  },
-                  [
-                    contact.statut_client == 0
-                      ? _c("span", [
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "d-flex align-items-center justify-content-between mb-2",
-                              staticStyle: {
-                                border: "none",
-                                background: "none",
-                                width: "100%"
-                              }
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "d-flex align-items-center",
-                                  staticStyle: {
-                                    width: "100%",
-                                    background: "#ffc4c7",
-                                    padding: "10px",
-                                    "border-radius": "5px"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    { staticClass: "d-flex flex-column" },
-                                    [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "text-dark-75 text-hover-primary font-weight-bold font-size-lg",
-                                          staticStyle: { "font-size": "0.8em" }
-                                        },
-                                        [
-                                          _vm._v(
-                                            _vm._s(contact.name) +
-                                              "|\n                                            "
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "text-muted font-weight-bold font-size-sm"
-                                            },
-                                            [_vm._v(_vm._s(contact.name_agent))]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]
-                          )
-                        ])
-                      : contact.statut_client == 1
-                      ? _c("span", [
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "d-flex align-items-center justify-content-between mb-2",
-                              staticStyle: {
-                                border: "none",
-                                background: "none",
-                                width: "100%"
-                              }
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "d-flex align-items-center",
-                                  staticStyle: {
-                                    width: "100%",
-                                    background: "#ffedc4",
-                                    padding: "10px",
-                                    "border-radius": "5px"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    { staticClass: "d-flex flex-column" },
-                                    [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "text-dark-75 text-hover-primary font-weight-bold font-size-lg",
-                                          staticStyle: { "font-size": "0.8em" }
-                                        },
-                                        [
-                                          _vm._v(
-                                            _vm._s(contact.name) +
-                                              " |\n                                            "
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "text-muted font-weight-bold font-size-sm"
-                                            },
-                                            [_vm._v(_vm._s(contact.name_agent))]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]
-                          )
-                        ])
-                      : contact.statut_client == 2
-                      ? _c("span", [
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "d-flex align-items-center justify-content-between mb-2",
-                              staticStyle: {
-                                border: "none",
-                                background: "none",
-                                width: "100%"
-                              }
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "d-flex align-items-center",
-                                  staticStyle: {
-                                    width: "100%",
-                                    background: "#c4ffc6",
-                                    padding: "10px",
-                                    "border-radius": "5px"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    { staticClass: "d-flex flex-column" },
-                                    [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "text-dark-75 text-hover-primary font-weight-bold font-size-lg",
-                                          staticStyle: { "font-size": "0.8em" }
-                                        },
-                                        [
-                                          _vm._v(
-                                            _vm._s(contact.name) +
-                                              "|\n                                            "
-                                          ),
-                                          _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "text-muted font-weight-bold font-size-sm"
-                                            },
-                                            [_vm._v(_vm._s(contact.name_agent))]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]
-                          )
-                        ])
-                      : _vm._e()
-                  ]
-                )
-              }),
-              _vm._v(" "),
-              _vm._m(0),
-              _vm._v(" "),
-              _vm._m(1)
-            ],
-            2
-          )
-        ])
+                }),
+                _vm._v(" "),
+                _vm._m(0),
+                _vm._v(" "),
+                _vm._m(1)
+              ],
+              2
+            )
+          ]
+        )
       ])
     ]
   )
@@ -47199,14 +47255,14 @@ var render = function() {
                                           "div",
                                           {
                                             staticClass:
-                                              "\n                            mt-2\n                            rounded\n                            p-2\n                            bg-light-success\n                            text-dark-50\n                            font-weight-bold font-size-lg\n                            text-left\n                            max-w-400px\n                          ",
+                                              "\n                          mt-2\n                          rounded\n                          p-2\n                          bg-light-success\n                          text-dark-50\n                          font-weight-bold font-size-lg\n                          text-left\n                          max-w-400px\n                        ",
                                             staticStyle: {
                                               "font-size": "0.9em"
                                             }
                                           },
                                           [
                                             _vm._v(
-                                              "\n                          " +
+                                              "\n                        " +
                                                 _vm._s(message.message)
                                             ),
                                             _c("br")
@@ -47227,16 +47283,16 @@ var render = function() {
                                           "div",
                                           {
                                             staticClass:
-                                              "\n                            mt-2\n                            rounded\n                            p-2\n                            bg-light-primary\n                            text-dark-50\n                            font-weight-bold font-size-lg\n                            text-right\n                            max-w-400px\n                          ",
+                                              "\n                          mt-2\n                          rounded\n                          p-2\n                          bg-light-primary\n                          text-dark-50\n                          font-weight-bold font-size-lg\n                          text-right\n                          max-w-400px\n                        ",
                                             staticStyle: {
                                               "font-size": "0.9em"
                                             }
                                           },
                                           [
                                             _vm._v(
-                                              "\n                          " +
+                                              "\n                        " +
                                                 _vm._s(message.message) +
-                                                "\n                        "
+                                                "\n                      "
                                             )
                                           ]
                                         )
@@ -48317,7 +48373,30 @@ var render = function() {
             on: { submit: _vm.checkForm }
           },
           [
-            _vm._m(2),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "d-flex align-items-center justify-content-between mt-5"
+              },
+              [
+                _c("div", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary ",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.reponse = true
+                        }
+                      }
+                    },
+                    [_vm._v("Reponse")]
+                  )
+                ])
+              ]
+            ),
             _vm._v(" "),
             _c("textarea", {
               directives: [
@@ -48345,11 +48424,13 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            _vm._m(3)
+            _vm._m(2)
           ]
         )
       ]
-    )
+    ),
+    _vm._v(" "),
+    _vm.reponse == true ? _c("span", [_vm._m(3)]) : _vm._e()
   ])
 }
 var staticRenderFns = [
@@ -48402,8 +48483,8 @@ var staticRenderFns = [
         _c("div", [
           _c(
             "button",
-            { staticClass: "btn btn-primary ", attrs: { type: "button" } },
-            [_vm._v("Reponce")]
+            { staticClass: "btn btn-primary ", attrs: { type: "submit" } },
+            [_vm._v("Envoyer")]
           )
         ])
       ]
@@ -48413,19 +48494,37 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "d-flex align-items-center justify-content-between mt-5" },
-      [
-        _c("div", [
-          _c(
-            "button",
-            { staticClass: "btn btn-primary ", attrs: { type: "submit" } },
-            [_vm._v("Envoyer")]
-          )
+    return _c("div", { staticClass: "reponse" }, [
+      _c("div", { staticClass: " wt" }, [
+        _c("h2", [_vm._v("Travail")]),
+        _c("hr"),
+        _vm._v(" "),
+        _c("span", { staticClass: "textreponse" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: " wt" }, [
+        _c("h2", [_vm._v("Famille")]),
+        _c("hr"),
+        _vm._v(" "),
+        _c("span", { staticClass: "textreponse" }, [
+          _vm._v("hnjdzqljskndomqjhn")
         ])
-      ]
-    )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: " wt" }, [
+        _c("h2", [_vm._v("Argent")]),
+        _c("hr"),
+        _vm._v(" "),
+        _c("span", { staticClass: "textreponse" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: " wt" }, [
+        _c("h2", [_vm._v("Amour")]),
+        _c("hr"),
+        _vm._v(" "),
+        _c("span", { staticClass: "textreponse" })
+      ])
+    ])
   }
 ]
 render._withStripped = true

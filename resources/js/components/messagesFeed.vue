@@ -83,7 +83,7 @@
             <form id="app" @submit="checkForm" action="conversation/send" method="post" class="flex" >
                 <div class="d-flex align-items-center justify-content-between mt-5">
                     <div>
-                        <button type="button" class="btn btn-primary ">Reponce</button>
+                        <button type="button" class="btn btn-primary " v-on:click=" reponse = true">Reponse</button>
                     </div>
                 </div>
                 <textarea id="message" v-model="text"  class="form-control border-0 p-0" required  placeholder="Message......"></textarea>
@@ -95,6 +95,28 @@
                 </div>
             </form>
         </div>
+        <span v-if="reponse == true">
+
+        <div class="reponse">
+            <div class=" wt">
+                <h2>Travail</h2><hr>
+                <span class="textreponse" ></span>
+            </div>
+            <div class=" wt">
+                <h2>Famille</h2><hr>
+                <span class="textreponse" >hnjdzqljskndomqjhn</span>
+            </div>
+            <div class=" wt">
+                <h2>Argent</h2><hr>
+                <span class="textreponse" ></span>
+            </div>
+            <div class=" wt">
+                <h2>Amour</h2><hr>
+                <span class="textreponse" ></span>
+            </div>
+
+        </div>
+        </span>
 
     </div>
 
@@ -102,8 +124,8 @@
 <script>
 
 export default {
-
-        props:{
+    props:{
+            reponse : false,
             contact:{
                 type:Object
             },
@@ -202,6 +224,36 @@ export default {
         width: fit-content;
         margin-left: auto;
         margin-right: auto;
+    }
+    .reponse{
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #000000b5;
+        width: 100%;
+        height: 100vh;
+        z-index: 9999999;
+        display: flex;
+    }
+    .wt{
+        width: 25%;
+        border: solid 1px rgb(255, 255, 255);
+        color: #fff;
+    }
+    .wt h2{
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        border-bottom: solid 1px #fff;
+    }
+    .textreponse{
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        background: #fff;
+        color: black;
+        padding: 15px;
+        margin: 0 15px 20px 15px;
     }
 </style>
 

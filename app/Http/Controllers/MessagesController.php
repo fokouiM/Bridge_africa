@@ -97,7 +97,7 @@ class MessagesController extends Controller
     public function getMessage($id){
         $message = message::where('id_user',$id)->get();
         $user = User::where('id',$id)->first();
-        $voyants = CounvClient::where('id_user',$id)->get();
+        $voyants = CounvClient::where('id_user',$id)->where('statut',0)->get();
         $note = Note_client::where('id_user',$id)->get();
         $yes = message::where('id_user',$id)->orderBy('created_at', 'desc')->first();
         $Active = $yes->name_voyant;

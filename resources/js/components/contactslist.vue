@@ -3,7 +3,7 @@
         <!--begin::Card-->
         <div class="card card-custom">
             <!--begin::Body-->
-            <div class="card-body list">
+            <div class="card-body list" style="height: auto;">
                 <!--begin:Search-->
                 <div class="input-group input-group-solid">
                     <div class="input-group-prepend">

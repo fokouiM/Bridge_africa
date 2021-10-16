@@ -272,7 +272,7 @@
                                     <a href="javascript:;" class="menu-link menu-toggle"><span class="menu-text">gestion</span> <i class="menu-arrow"></i></a>
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                         <ul class="menu-subnav">
-                                            <li class="menu-item " aria-haspopup="true"><a href="#"
+                                            <li class="menu-item " aria-haspopup="true"><a href="gblog"
                                                     class="menu-link "><span class="menu-text">gestion du blog</span><span
                                                         class="menu-desc"></span></a></li>
                                             <li class="menu-item " aria-haspopup="true"><a href="gmail"
@@ -479,6 +479,10 @@
 
     <!--begin::Page Scripts(used by this page)-->
     <script src="assets/js/pages/crud/datatables/basic/basic.js"></script>
+    <!--end::Page Scripts-->
+
+    <!--begin::Page Scripts(used by this page)-->
+    <script src="assets/js/pages/crud/file-upload/image-input.js"></script>
     <!--end::Page Scripts-->
 
 </body>

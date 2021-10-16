@@ -166,8 +166,8 @@ class MailController extends Controller
             $user = User::where('statut',0)->get();
             foreach($user as $us){
 
-                $to = "$us->email";
-                        $subject = "$objet";
+                $to = $us->email;
+                        $subject = $objet;
 
                         $message = "
                         <html>
@@ -218,35 +218,35 @@ class MailController extends Controller
 			$message = $request->message;
             $email = $request->email;
 
-                $to = "$email";
-                        $subject = "$objet";
+                $to = $email;
+                        $subject = $objet;
 
                         $message = "
-                        <html>
-                        <head>
-                        <title>mail de contact</title>
-                        <style>
-                            table {
-                                border-collapse: collapse
-                            }
+                            <html>
+                            <head>
+                            <title>mail de contact</title>
+                            <style>
+                                table {
+                                    border-collapse: collapse
+                                }
 
-                            p {
-                                background: #8c8b8c;
-                                color:#fff;
-                                border: 1px solid black;
-                                  padding: 10px;
-                            }
-                            td {
-                                border: 1px solid black;
-                                  padding: 10px;
-                            }
-                        </style>
-                        </head>
-                        <body>
-                        <p>Ce $message</p>
-                        </body>
-                        </html>
-                        ";
+                                p {
+                                    background: #8c8b8c;
+                                    color:#fff;
+                                    border: 1px solid black;
+                                    padding: 10px;
+                                }
+                                td {
+                                    border: 1px solid black;
+                                    padding: 10px;
+                                }
+                            </style>
+                            </head>
+                            <body>
+                            <p>Ce $message</p>
+                            </body>
+                            </html>
+                            ";
 
                         // Always set content-type when sending HTML email
                         $headers = "MIME-Version: 1.0" . "\r\n";

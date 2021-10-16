@@ -6,7 +6,7 @@
     <message></message>
 </div> --}}
 <div id="app">
-    <message ></message>
+    <messageb ></messageb>
 </div>
 
 @endsection

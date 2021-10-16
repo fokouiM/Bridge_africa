@@ -91,6 +91,25 @@ Route::get('/gmail', function ( ) {
     return view('Admin.gmail')->with('client',$client);
 
 })->name('gmail');
+
+Route::get('/messageS', function ( ) {
+
+    return view('messageS');
+
+})->name('messageS');
+
+Route::get('/messageJ', function ( ) {
+
+    return view('messageJ');
+
+})->name('messageJ');
+
+Route::get('/messageB', function ( ) {
+
+    return view('messageB');
+
+})->name('messageB');
+
 Route::get('/CGV', function ( ) {
 
     return view('CGV');
@@ -117,18 +136,24 @@ Route::get('/blog', function ( ) {
     return view('blog')->with('blogs',$blogs);
 
 });
+Route::get('/gblog', function ( ) {
+    $blogs = blog::orderBy('created_at', 'desc')->get();
+
+    return view('Admin/gblog')->with('blogs',$blogs);
+
+});
 
 
 Route::get('/login', function () { return view('auth.login'); });
 Route::get('/pack', function () { return view('pack'); });
 Route::get('/add_users', function () { if(Auth::user()->statut == 2){ return view('from.add_users');}else { return view('acces'); } })->name('add_users');
 Route::get('/add_voyants', function () { if(Auth::user()->statut == 2){ return view('from.add_voyants');}else { return view('acces'); } })->name('add_voyants');
+Route::get('/add_post', function () { if(Auth::user()->statut == 2){ return view('from.add_post');}else { return view('acces'); } })->name('add_post');
 Route::get('/voyants/login', function () { return view('auth.login'); })->name('voyants');
 Route::get('/clients', [App\Http\Controllers\ClientController::class, 'index'])->name('clients');
 Route::get('/voyants', [App\Http\Controllers\AdminController::class, 'voyants'])->name('voyants');
 
 Auth::routes();
-
 
     // Route::get('/gmail', [App\Http\Controllers\AdminController::class, 'gmail'])->name('crm_client');
     Route::post('/send_mail', [App\Http\Controllers\MailController::class, 'formRT'])->name('send_mail');
@@ -138,7 +163,12 @@ Auth::routes();
     Route::get('/contacts', [App\Http\Controllers\MessagesController::class, 'index'])->name('message');
     Route::get('/message', [App\Http\Controllers\MessagesController::class, 'index'])->name('message');
     Route::get('/conversation/{id}/{voyant}', [App\Http\Controllers\MessagesController::class, 'getMessage'])->name('conversation');
+    Route::get('/conversationuers', [App\Http\Controllers\MessagesController::class, 'getoneMessage'])->name('conversationuers');
+    Route::get('/conversationuerssi', [App\Http\Controllers\MessagesController::class, 'getoneMessagesi'])->name('conversationuerssi');
+    Route::get('/conversationuersj', [App\Http\Controllers\MessagesController::class, 'getoneMessagej'])->name('conversationuersj');
+    Route::get('/conversationuersb', [App\Http\Controllers\MessagesController::class, 'getoneMessageb'])->name('conversationuersb');
     Route::post('/conversation/send', [App\Http\Controllers\MessagesController::class, 'send'])->name('conversation/send');
+    Route::post('/conversation/senduser', [App\Http\Controllers\MessagesController::class, 'senduser'])->name('conversation/senduser');
     // Route::post('/message', [App\Http\Controllers\MessagesController::class, 'index'])->name('message');
     Route::post('/save_message', [App\Http\Controllers\MessagesController::class, 'store'])->name('save_message');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -147,9 +177,11 @@ Auth::routes();
     Route::post('/save_users', [App\Http\Controllers\User_infoController::class, 'store'])->name('save_users');
     Route::post('/save_time', [App\Http\Controllers\User_infoController::class, 'save_time'])->name('save_time');
     Route::post('/save_tag', [App\Http\Controllers\AdminController::class, 'store'])->name('save_tag');
+    Route::post('/save_post', [App\Http\Controllers\AdminController::class, 'save_post'])->name('save_post');
     Route::get('/update{id}', [App\Http\Controllers\ProduitsController::class, 'show'])->name('update{id}');
     Route::get('/finMoi{id}', [App\Http\Controllers\User_infoController::class, 'finMoi'])->name('finMoi{id}');
     Route::get('/delete_Agent{id}', [App\Http\Controllers\User_infoController::class, 'deleteAgent'])->name('delete_Agent{id}');
+    Route::get('/delete_poste{id}', [App\Http\Controllers\User_infoController::class, 'deletePoste'])->name('delete_poste{id}');
     Route::get('/delete_client{id}', [App\Http\Controllers\User_infoController::class, 'deleteClient'])->name('delete_client{id}');
 
 

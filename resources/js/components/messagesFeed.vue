@@ -81,11 +81,7 @@
             <div class="card-footer align-items-center" style="display: flex; padding: 10px;">
             <!-- <div>{{message.user.name}}</div> -->
             <form id="app" @submit="checkForm" action="conversation/send" method="post" class="flex" >
-            <span v-model="id_user"  >
-            <input type="hidden"   :value="messages.user.id" name="id_user"  >
-            </span>
-            <input type="hidden"   :value="Active" name="name_voyant">
-            
+
                 <textarea id="message" v-model="text"  class="form-control border-0 p-0" required  placeholder="Message......"></textarea>
 
                 <div class="d-flex align-items-center justify-content-between mt-5">
@@ -129,12 +125,12 @@ export default {
             }
 
         },
-        
-        data(){
+
+        data(messages ){
         return{
             text:'',
-            id_user :'',
-            name_voyant : '',
+            id_user : messages.user,
+            name_voyant : Active,
 
         }
     },
@@ -144,10 +140,10 @@ export default {
             e.preventDefault();
             axios.post('/conversation/send',{
                 text: this.text,
-                id_user: this.id_user,
-                name_voyant: this.name_voyant
+                id_user: this.messages.user.id,
+                name_voyant: this.Active
             })
-            console.log(this.id_user)
+            console.log(this.Active)
 
 
         },

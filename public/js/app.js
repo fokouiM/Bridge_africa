@@ -2459,19 +2459,110 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      messages: [],
-      contacts: []
-    };
+  props: {
+    messages: {
+      type: Array,
+      require: true
+    },
+    user: {
+      type: Object,
+      require: true
+    },
+    name_voyant: {
+      type: Object,
+      require: true
+    }
   },
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('/contacts').then(function (response) {
-      _this.contacts = response.data;
+    axios.get("/conversationuers").then(function (response) {
+      _this.messages = response.data;
     });
+    console.log(this.messages);
+  },
+  data: function data(messages) {
+    return {
+      text: '',
+      id_user: messages.user,
+      name_voyant: messages.name_voyant
+    };
+  },
+  methods: {
+    checkForm: function checkForm(e) {
+      e.preventDefault();
+      axios.post('/conversation/senduser', {
+        text: this.text,
+        id_user: this.messages.user.id,
+        name_voyant: this.messages.name_voyant
+      });
+      console.log(this.messages.name_voyant);
+    }
   }
 });
 
@@ -2541,6 +2632,441 @@ __webpack_require__.r(__webpack_exports__);
       //     this.$emit('send', this.message);
       //     this.message = '';
       // }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messageb.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messageb.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    messages: {
+      type: Array,
+      require: true
+    },
+    user: {
+      type: Object,
+      require: true
+    },
+    name_voyant: {
+      type: Object,
+      require: true
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get("/conversationuersb").then(function (response) {
+      _this.messages = response.data;
+    });
+    console.log(this.messages);
+  },
+  data: function data(messages) {
+    return {
+      text: '',
+      id_user: messages.user,
+      name_voyant: messages.name_voyant
+    };
+  },
+  methods: {
+    checkForm: function checkForm(e) {
+      e.preventDefault();
+      axios.post('/conversation/senduser', {
+        text: this.text,
+        id_user: this.messages.user.id,
+        name_voyant: this.messages.name_voyant
+      });
+      console.log(this.messages.name_voyant);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messagej.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messagej.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    messages: {
+      type: Array,
+      require: true
+    },
+    user: {
+      type: Object,
+      require: true
+    },
+    name_voyant: {
+      type: Object,
+      require: true
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get("/conversationuersj").then(function (response) {
+      _this.messages = response.data;
+    });
+    console.log(this.messages);
+  },
+  data: function data(messages) {
+    return {
+      text: '',
+      id_user: messages.user,
+      name_voyant: messages.name_voyant
+    };
+  },
+  methods: {
+    checkForm: function checkForm(e) {
+      e.preventDefault();
+      axios.post('/conversation/senduser', {
+        text: this.text,
+        id_user: this.messages.user.id,
+        name_voyant: this.messages.name_voyant
+      });
+      console.log(this.messages.name_voyant);
     }
   }
 });
@@ -2655,10 +3181,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     contact: {
@@ -2685,11 +3207,11 @@ __webpack_require__.r(__webpack_exports__);
       require: true
     }
   },
-  data: function data() {
+  data: function data(messages) {
     return {
       text: '',
-      id_user: '',
-      name_voyant: ''
+      id_user: messages.user,
+      name_voyant: Active
     };
   },
   methods: {
@@ -2697,10 +3219,236 @@ __webpack_require__.r(__webpack_exports__);
       e.preventDefault();
       axios.post('/conversation/send', {
         text: this.text,
-        id_user: this.id_user,
-        name_voyant: this.name_voyant
+        id_user: this.messages.user.id,
+        name_voyant: this.Active
       });
-      console.log(this.id_user);
+      console.log(this.Active);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messagesi.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messagesi.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    messages: {
+      type: Array,
+      require: true
+    },
+    user: {
+      type: Object,
+      require: true
+    },
+    name_voyant: {
+      type: Object,
+      require: true
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get("/conversationuerssi").then(function (response) {
+      _this.messages = response.data;
+    });
+    console.log(this.messages);
+  },
+  data: function data(messages) {
+    return {
+      text: '',
+      id_user: messages.user,
+      name_voyant: messages.name_voyant
+    };
+  },
+  methods: {
+    checkForm: function checkForm(e) {
+      e.preventDefault();
+      axios.post('/conversation/senduser', {
+        text: this.text,
+        id_user: this.messages.user.id,
+        name_voyant: this.messages.name_voyant
+      });
+      console.log(this.messages.name_voyant);
     }
   }
 });
@@ -2842,6 +3590,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js"
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('message', __webpack_require__(/*! ./components/message.vue */ "./resources/js/components/message.vue")["default"]);
+Vue.component('messagesi', __webpack_require__(/*! ./components/messagesi.vue */ "./resources/js/components/messagesi.vue")["default"]);
+Vue.component('messagej', __webpack_require__(/*! ./components/messagej.vue */ "./resources/js/components/messagej.vue")["default"]);
+Vue.component('messageb', __webpack_require__(/*! ./components/messageb.vue */ "./resources/js/components/messageb.vue")["default"]);
 Vue.component('container', __webpack_require__(/*! ./components/Agent.vue */ "./resources/js/components/Agent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -45156,6 +45907,84 @@ component.options.__file = "resources/js/components/messageComposer.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/messageb.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/messageb.vue ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _messageb_vue_vue_type_template_id_7850a5f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./messageb.vue?vue&type=template&id=7850a5f4& */ "./resources/js/components/messageb.vue?vue&type=template&id=7850a5f4&");
+/* harmony import */ var _messageb_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./messageb.vue?vue&type=script&lang=js& */ "./resources/js/components/messageb.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _messageb_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _messageb_vue_vue_type_template_id_7850a5f4___WEBPACK_IMPORTED_MODULE_0__.render,
+  _messageb_vue_vue_type_template_id_7850a5f4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/messageb.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/messagej.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/messagej.vue ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _messagej_vue_vue_type_template_id_776f2de4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./messagej.vue?vue&type=template&id=776f2de4& */ "./resources/js/components/messagej.vue?vue&type=template&id=776f2de4&");
+/* harmony import */ var _messagej_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./messagej.vue?vue&type=script&lang=js& */ "./resources/js/components/messagej.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _messagej_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _messagej_vue_vue_type_template_id_776f2de4___WEBPACK_IMPORTED_MODULE_0__.render,
+  _messagej_vue_vue_type_template_id_776f2de4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/messagej.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/messagesFeed.vue":
 /*!**************************************************!*\
   !*** ./resources/js/components/messagesFeed.vue ***!
@@ -45193,6 +46022,45 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/messagesFeed.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/messagesi.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/components/messagesi.vue ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _messagesi_vue_vue_type_template_id_5181e73c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./messagesi.vue?vue&type=template&id=5181e73c& */ "./resources/js/components/messagesi.vue?vue&type=template&id=5181e73c&");
+/* harmony import */ var _messagesi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./messagesi.vue?vue&type=script&lang=js& */ "./resources/js/components/messagesi.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _messagesi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _messagesi_vue_vue_type_template_id_5181e73c___WEBPACK_IMPORTED_MODULE_0__.render,
+  _messagesi_vue_vue_type_template_id_5181e73c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/messagesi.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -45318,6 +46186,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/messageb.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/messageb.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_messageb_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./messageb.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messageb.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_messageb_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/messagej.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/messagej.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_messagej_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./messagej.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messagej.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_messagej_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/messagesFeed.vue?vue&type=script&lang=js&":
 /*!***************************************************************************!*\
   !*** ./resources/js/components/messagesFeed.vue?vue&type=script&lang=js& ***!
@@ -45331,6 +46231,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_messagesFeed_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./messagesFeed.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messagesFeed.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_messagesFeed_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/messagesi.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/messagesi.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_messagesi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./messagesi.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messagesi.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_messagesi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -45474,6 +46390,40 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/messageb.vue?vue&type=template&id=7850a5f4&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/messageb.vue?vue&type=template&id=7850a5f4& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_messageb_vue_vue_type_template_id_7850a5f4___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_messageb_vue_vue_type_template_id_7850a5f4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_messageb_vue_vue_type_template_id_7850a5f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./messageb.vue?vue&type=template&id=7850a5f4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messageb.vue?vue&type=template&id=7850a5f4&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/messagej.vue?vue&type=template&id=776f2de4&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/messagej.vue?vue&type=template&id=776f2de4& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_messagej_vue_vue_type_template_id_776f2de4___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_messagej_vue_vue_type_template_id_776f2de4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_messagej_vue_vue_type_template_id_776f2de4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./messagej.vue?vue&type=template&id=776f2de4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messagej.vue?vue&type=template&id=776f2de4&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/messagesFeed.vue?vue&type=template&id=7da66fd5&":
 /*!*********************************************************************************!*\
   !*** ./resources/js/components/messagesFeed.vue?vue&type=template&id=7da66fd5& ***!
@@ -45487,6 +46437,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_messagesFeed_vue_vue_type_template_id_7da66fd5___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_messagesFeed_vue_vue_type_template_id_7da66fd5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./messagesFeed.vue?vue&type=template&id=7da66fd5& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messagesFeed.vue?vue&type=template&id=7da66fd5&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/messagesi.vue?vue&type=template&id=5181e73c&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/messagesi.vue?vue&type=template&id=5181e73c& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_messagesi_vue_vue_type_template_id_5181e73c___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_messagesi_vue_vue_type_template_id_5181e73c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_messagesi_vue_vue_type_template_id_5181e73c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./messagesi.vue?vue&type=template&id=5181e73c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messagesi.vue?vue&type=template&id=5181e73c&");
 
 
 /***/ }),
@@ -46041,30 +47008,29 @@ var render = function() {
         _c("div", { staticClass: "d-flex flex-row" }, [
           _c(
             "div",
-            {
-              staticClass: "flex-row-fluid ",
-              attrs: { id: "kt_chat_content" }
-            },
+            { staticClass: "flex-row-fluid", attrs: { id: "kt_chat_content" } },
             [
               _c("div", { staticClass: "card card-custom" }, [
                 _c(
                   "div",
                   { staticClass: "card-header align-items-center px-4 py-3" },
                   [
-                    _c(
-                      "div",
-                      { staticClass: "text-center flex-grow-1" },
-                      [
-                        _vm._m(1),
-                        _vm._v(" "),
-                        _c("contactslist", {
-                          attrs: { contacts: _vm.contact }
-                        }),
-                        _vm._v(" "),
-                        _vm._m(2)
-                      ],
-                      1
-                    )
+                    _c("div", { staticClass: "text-center flex-grow-1" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "text-dark-75 font-weight-bold font-size-h5"
+                        },
+                        [
+                          _c("strong", [
+                            _vm._v(_vm._s(_vm.messages.name_voyant))
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(1)
+                    ])
                   ]
                 ),
                 _vm._v(" "),
@@ -46081,24 +47047,173 @@ var render = function() {
                         "div",
                         { staticClass: "messages" },
                         [
-                          _vm._m(3),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "d-flex flex-column mb-5 align-items-start"
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "mt-2 rounded p-5 font-weight-bold text-left",
+                                  staticStyle: {
+                                    "background-color": "#01e303d4",
+                                    color: "#fff"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                    Bonjour " +
+                                      _vm._s(_vm.messages.user.name) +
+                                      " et merci pour votre\n                    inscription. Déjà vous devez savoir que vous ne payez pas\n                    du temps sur le site mais des crédits. Ainsi, 1 message\n                    que vous envoyez est égal à 1 crédit, alors nous vous\n                    proposons une voyance exclusive à partir de\n                    "
+                                  ),
+                                  _c("strong", [
+                                    _vm._v("0,80€(moins chère qu'un Sms). ")
+                                  ]),
+                                  _vm._v(
+                                    " Vous\n                    pouvez donc oublier les voyances hors de prix.Sur\n                    voyance-auracle.fr nous vous révélons votre avenir et les\n                    solutions pour contourner les obstacles à votre bonheur,\n                    et pour se faire, Vous avez d'ores et déjà\n                    "
+                                  ),
+                                  _c("strong", [_vm._v("3 crédits offerts,")]),
+                                  _vm._v(
+                                    " en quoi puis je vous\n                    aider ?\n                  "
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
                           _vm._v(" "),
-                          _c("conversation", {
-                            attrs: { messages: _vm.messages }
-                          }),
-                          _vm._v(" "),
-                          _vm._m(4),
-                          _vm._v(" "),
-                          _vm._m(5)
+                          _vm._l(_vm.messages.message, function(message) {
+                            return _c("div", { key: message.id }, [
+                              message.id_send == _vm.messages.user.id
+                                ? _c("span", [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "d-flex flex-column mb-1 align-items-start"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "\n                            mt-2\n                            rounded\n                            p-2\n                            bg-light-success\n                            text-dark-50\n                            font-weight-bold font-size-lg\n                            text-left\n                            max-w-400px\n                          ",
+                                            staticStyle: {
+                                              "font-size": "0.9em"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                          " +
+                                                _vm._s(message.message)
+                                            ),
+                                            _c("br")
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                : _c("span", [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "d-flex flex-column mb-1 align-items-end"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "\n                            mt-2\n                            rounded\n                            p-2\n                            bg-light-primary\n                            text-dark-50\n                            font-weight-bold font-size-lg\n                            text-right\n                            max-w-400px\n                          ",
+                                            staticStyle: {
+                                              "font-size": "0.9em"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                          " +
+                                                _vm._s(message.message) +
+                                                "\n                        "
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                            ])
+                          })
                         ],
-                        1
+                        2
                       )
                     ]
                   )
-                ]),
-                _vm._v(" "),
-                _vm._m(6)
-              ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  attrs: {
+                    id: "app",
+                    method: "post",
+                    action: "conversation/senduser"
+                  },
+                  on: { submit: _vm.checkForm }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card-footer align-items-center",
+                      staticStyle: { display: "flex", padding: "10px" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "d-flex align-items-center justify-content-between mt-5",
+                          staticStyle: { width: "100%" }
+                        },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.text,
+                                expression: "text"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            staticStyle: { width: "90%" },
+                            attrs: {
+                              type: "text",
+                              required: "",
+                              placeholder: "Texte"
+                            },
+                            domProps: { value: _vm.text },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.text = $event.target.value
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(2)
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              )
             ]
           )
         ])
@@ -46149,16 +47264,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "text-dark-75 font-weight-bold font-size-h5" },
-      [_c("strong", [_vm._v("name_agent")])]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", [
       _c("span", { staticClass: "label label-sm label-dot label-success" })
     ])
@@ -46167,178 +47272,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "d-flex flex-column mb-5 align-items-start" },
-      [
-        _c(
-          "div",
-          {
-            staticClass:
-              "mt-2 rounded p-5 font-weight-bold  text-left max-w-800px ",
-            staticStyle: { "background-color": "#01e303d4", color: "#fff" }
-          },
-          [
-            _vm._v("\n                                        Bonjour "),
-            _vm._v(
-              "et merci pour votre inscription. Déjà vous devez savoir que vous ne payez pas du temps sur le site mais des crédits. Ainsi, 1 message que vous envoyez est égal à 1 crédit, alors nous vous proposons une voyance exclusive à partir de "
-            ),
-            _c("strong", [_vm._v("0,80€(moins chère qu'un Sms). ")]),
-            _vm._v(
-              "  Vous pouvez donc oublier les voyances hors de prix.Sur voyance-auracle.fr nous vous révélons votre avenir et les solutions pour contourner les obstacles à votre bonheur, et pour se faire, Vous avez d'ores et déjà "
-            ),
-            _c("strong", [_vm._v("3 crédits offerts,")]),
-            _vm._v(
-              "  en quoi puis je vous aider ?\n                                    "
-            )
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "d-flex flex-column mb-5 align-items-start" },
-      [
-        _c("div", { staticClass: "d-flex align-items-center" }),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "mt-2 rounded bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px",
-            staticStyle: { padding: "5px 10px 5px 10px" }
-          },
-          [
-            _vm._v("\n                                            message "),
-            _c("br"),
-            _c(
-              "span",
-              {
-                staticClass: "text-muted font-size-sm ",
-                staticStyle: { "font-size": "10px" }
-              },
-              [_vm._v("date")]
-            )
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "d-flex flex-column mb-5 align-items-end" },
-      [
-        _c("div", { staticClass: "d-flex align-items-center" }),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "mt-2 rounded bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px",
-            staticStyle: { padding: "5px 10px 5px 10px" }
-          },
-          [
-            _vm._v("\n                                            message "),
-            _c("br"),
-            _c(
-              "span",
-              {
-                staticClass: "text-muted font-size-sm",
-                staticStyle: { "font-size": "10px" }
-              },
-              [_vm._v("date")]
-            )
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "form",
-      { attrs: { action: "save_message", method: "POST", id: "message_form" } },
-      [
-        _c(
-          "div",
-          {
-            staticClass: "card-footer align-items-center",
-            staticStyle: { display: "flex", padding: "10px" }
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "d-flex align-items-center justify-content-between mt-5",
-                staticStyle: { width: "100%" }
-              },
-              [
-                _c("input", {
-                  staticClass: "form-control",
-                  staticStyle: { width: "90%" },
-                  attrs: {
-                    type: "text",
-                    name: "message",
-                    id: "message_input",
-                    required: "",
-                    placeholder: "Texte"
-                  }
-                }),
-                _vm._v(" "),
-                _c("div", [
-                  _c("input", {
-                    attrs: {
-                      type: "hidden",
-                      name: "id_user",
-                      value: "id_user "
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: {
-                      type: "hidden",
-                      name: "username",
-                      id: "username",
-                      value: "name_user "
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: {
-                      type: "hidden",
-                      name: "name_voyant",
-                      value: "name_agnet"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "btn btn-primary btn-md text-uppercase font-weight-bold  py-2 px-6",
-                      attrs: { type: "submit", id: "message_send" }
-                    },
-                    [_vm._v("Envoyer")]
-                  )
-                ])
-              ]
-            )
-          ]
-        )
-      ]
-    )
+    return _c("div", [
+      _c(
+        "button",
+        {
+          staticClass:
+            "\n                    btn btn-primary btn-md\n                    text-uppercase\n                    font-weight-bold\n                    py-2\n                    px-6\n                  ",
+          attrs: { type: "submit", id: "message_send" }
+        },
+        [_vm._v("\n                  Envoyer\n                ")]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -46366,6 +47310,651 @@ var render = function() {
   return _c("div")
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messageb.vue?vue&type=template&id=7850a5f4&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messageb.vue?vue&type=template&id=7850a5f4& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "containt" }, [
+    _c(
+      "div",
+      {
+        staticClass: "content flex-column-fluid",
+        staticStyle: { width: "100%" },
+        attrs: { id: "kt_content" }
+      },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "d-flex flex-row" }, [
+          _c(
+            "div",
+            { staticClass: "flex-row-fluid", attrs: { id: "kt_chat_content" } },
+            [
+              _c("div", { staticClass: "card card-custom" }, [
+                _c(
+                  "div",
+                  { staticClass: "card-header align-items-center px-4 py-3" },
+                  [
+                    _c("div", { staticClass: "text-center flex-grow-1" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "text-dark-75 font-weight-bold font-size-h5"
+                        },
+                        [
+                          _c("strong", [
+                            _vm._v(_vm._s(_vm.messages.name_voyant))
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(1)
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "scroll scroll-pull ps ps--active-y",
+                      staticStyle: { height: "295px", overflow: "hidden" },
+                      attrs: { "data-mobile-height": "350" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "messages" },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "d-flex flex-column mb-5 align-items-start"
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "mt-2 rounded p-5 font-weight-bold text-left",
+                                  staticStyle: {
+                                    "background-color": "#01e303d4",
+                                    color: "#fff"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                    Bonjour " +
+                                      _vm._s(_vm.messages.user.name) +
+                                      "et merci pour votre\n                    inscription. Déjà vous devez savoir que vous ne payez pas\n                    du temps sur le site mais des crédits. Ainsi, 1 message\n                    que vous envoyez est égal à 1 crédit, alors nous vous\n                    proposons une voyance exclusive à partir de\n                    "
+                                  ),
+                                  _c("strong", [
+                                    _vm._v("0,80€(moins chère qu'un Sms). ")
+                                  ]),
+                                  _vm._v(
+                                    " Vous\n                    pouvez donc oublier les voyances hors de prix.Sur\n                    voyance-auracle.fr nous vous révélons votre avenir et les\n                    solutions pour contourner les obstacles à votre bonheur,\n                    et pour se faire, Vous avez d'ores et déjà\n                    "
+                                  ),
+                                  _c("strong", [_vm._v("3 crédits offerts,")]),
+                                  _vm._v(
+                                    " en quoi puis je vous\n                    aider ?\n                  "
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _vm._l(_vm.messages.message, function(message) {
+                            return _c("div", { key: message.id }, [
+                              message.id_send == _vm.messages.user.id
+                                ? _c("span", [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "d-flex flex-column mb-1 align-items-start"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "\n                            mt-2\n                            rounded\n                            p-2\n                            bg-light-success\n                            text-dark-50\n                            font-weight-bold font-size-lg\n                            text-left\n                            max-w-400px\n                          ",
+                                            staticStyle: {
+                                              "font-size": "0.9em"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                          " +
+                                                _vm._s(message.message)
+                                            ),
+                                            _c("br")
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                : _c("span", [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "d-flex flex-column mb-1 align-items-end"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "\n                            mt-2\n                            rounded\n                            p-2\n                            bg-light-primary\n                            text-dark-50\n                            font-weight-bold font-size-lg\n                            text-right\n                            max-w-400px\n                          ",
+                                            staticStyle: {
+                                              "font-size": "0.9em"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                          " +
+                                                _vm._s(message.message) +
+                                                "\n                        "
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                            ])
+                          })
+                        ],
+                        2
+                      )
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  attrs: {
+                    id: "app",
+                    action: "conversation/senduser",
+                    method: "post"
+                  },
+                  on: { submit: _vm.checkForm }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card-footer align-items-center",
+                      staticStyle: { display: "flex", padding: "10px" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "d-flex align-items-center justify-content-between mt-5",
+                          staticStyle: { width: "100%" }
+                        },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.text,
+                                expression: "text"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            staticStyle: { width: "90%" },
+                            attrs: {
+                              type: "text",
+                              id: "message_input",
+                              required: "",
+                              placeholder: "Texte"
+                            },
+                            domProps: { value: _vm.text },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.text = $event.target.value
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(2)
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              )
+            ]
+          )
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "alert alert-custom alert-success fade show",
+        attrs: { role: "alert" }
+      },
+      [
+        _c("div", { staticClass: "alert-icon" }, [
+          _c("i", { staticClass: "flaticon-warning" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "alert-text" }, [_vm._v("message")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "alert-close" }, [
+          _c(
+            "button",
+            {
+              staticClass: "close",
+              attrs: {
+                type: "button",
+                "data-dismiss": "alert",
+                "aria-label": "Close"
+              }
+            },
+            [
+              _c("span", { attrs: { "aria-hidden": "true" } }, [
+                _c("i", { staticClass: "ki ki-close" })
+              ])
+            ]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("span", { staticClass: "label label-sm label-dot label-success" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("input", {
+        attrs: { type: "hidden", name: "id_user", value: "id_user " }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        attrs: {
+          type: "hidden",
+          name: "username",
+          id: "username",
+          value: "name_user "
+        }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "hidden", name: "name_voyant", value: "name_agnet" }
+      }),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass:
+            " btn btn-primary btn-md text-uppercase font-weight-bold py-2 px-6 ",
+          attrs: { type: "submit", id: "message_send" }
+        },
+        [_vm._v(" Envoyer ")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messagej.vue?vue&type=template&id=776f2de4&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messagej.vue?vue&type=template&id=776f2de4& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "containt" }, [
+    _c(
+      "div",
+      {
+        staticClass: "content flex-column-fluid",
+        staticStyle: { width: "100%" },
+        attrs: { id: "kt_content" }
+      },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "d-flex flex-row" }, [
+          _c(
+            "div",
+            { staticClass: "flex-row-fluid", attrs: { id: "kt_chat_content" } },
+            [
+              _c("div", { staticClass: "card card-custom" }, [
+                _c(
+                  "div",
+                  { staticClass: "card-header align-items-center px-4 py-3" },
+                  [
+                    _c("div", { staticClass: "text-center flex-grow-1" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "text-dark-75 font-weight-bold font-size-h5"
+                        },
+                        [
+                          _c("strong", [
+                            _vm._v(_vm._s(_vm.messages.name_voyant))
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(1)
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "scroll scroll-pull ps ps--active-y",
+                      staticStyle: { height: "295px", overflow: "hidden" },
+                      attrs: { "data-mobile-height": "350" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "messages" },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "d-flex flex-column mb-5 align-items-start"
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "mt-2 rounded p-5 font-weight-bold text-left",
+                                  staticStyle: {
+                                    "background-color": "#01e303d4",
+                                    color: "#fff"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                    Bonjour " +
+                                      _vm._s(_vm.messages.user.name) +
+                                      " et merci pour votre\n                    inscription. Déjà vous devez savoir que vous ne payez pas\n                    du temps sur le site mais des crédits. Ainsi, 1 message\n                    que vous envoyez est égal à 1 crédit, alors nous vous\n                    proposons une voyance exclusive à partir de\n                    "
+                                  ),
+                                  _c("strong", [
+                                    _vm._v("0,80€(moins chère qu'un Sms). ")
+                                  ]),
+                                  _vm._v(
+                                    " Vous\n                    pouvez donc oublier les voyances hors de prix.Sur\n                    voyance-auracle.fr nous vous révélons votre avenir et les\n                    solutions pour contourner les obstacles à votre bonheur,\n                    et pour se faire, Vous avez d'ores et déjà\n                    "
+                                  ),
+                                  _c("strong", [_vm._v("3 crédits offerts,")]),
+                                  _vm._v(
+                                    " en quoi puis je vous\n                    aider ?\n                  "
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _vm._l(_vm.messages.message, function(message) {
+                            return _c("div", { key: message.id }, [
+                              message.id_send == _vm.messages.user.id
+                                ? _c("span", [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "d-flex flex-column mb-1 align-items-start"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "\n                            mt-2\n                            rounded\n                            p-2\n                            bg-light-success\n                            text-dark-50\n                            font-weight-bold font-size-lg\n                            text-left\n                            max-w-400px\n                          ",
+                                            staticStyle: {
+                                              "font-size": "0.9em"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                          " +
+                                                _vm._s(message.message)
+                                            ),
+                                            _c("br")
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                : _c("span", [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "d-flex flex-column mb-1 align-items-end"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "\n                            mt-2\n                            rounded\n                            p-2\n                            bg-light-primary\n                            text-dark-50\n                            font-weight-bold font-size-lg\n                            text-right\n                            max-w-400px\n                          ",
+                                            staticStyle: {
+                                              "font-size": "0.9em"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                          " +
+                                                _vm._s(message.message) +
+                                                "\n                        "
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                            ])
+                          })
+                        ],
+                        2
+                      )
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  attrs: {
+                    id: "app",
+                    action: "conversation/senduser",
+                    method: "post"
+                  },
+                  on: { submit: _vm.checkForm }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card-footer align-items-center",
+                      staticStyle: { display: "flex", padding: "10px" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "d-flex align-items-center justify-content-between mt-5",
+                          staticStyle: { width: "100%" }
+                        },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.text,
+                                expression: "text"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            staticStyle: { width: "90%" },
+                            attrs: {
+                              type: "text",
+                              id: "message_input",
+                              required: "",
+                              placeholder: "Texte"
+                            },
+                            domProps: { value: _vm.text },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.text = $event.target.value
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(2)
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              )
+            ]
+          )
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "alert alert-custom alert-success fade show",
+        attrs: { role: "alert" }
+      },
+      [
+        _c("div", { staticClass: "alert-icon" }, [
+          _c("i", { staticClass: "flaticon-warning" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "alert-text" }, [_vm._v("message")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "alert-close" }, [
+          _c(
+            "button",
+            {
+              staticClass: "close",
+              attrs: {
+                type: "button",
+                "data-dismiss": "alert",
+                "aria-label": "Close"
+              }
+            },
+            [
+              _c("span", { attrs: { "aria-hidden": "true" } }, [
+                _c("i", { staticClass: "ki ki-close" })
+              ])
+            ]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("span", { staticClass: "label label-sm label-dot label-success" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "button",
+        {
+          staticClass:
+            "\n                    btn btn-primary btn-md\n                    text-uppercase\n                    font-weight-bold\n                    py-2\n                    px-6\n                  ",
+          attrs: { type: "submit", id: "message_send" }
+        },
+        [_vm._v("\n                  Envoyer\n                ")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -46611,30 +48200,6 @@ var render = function() {
             on: { submit: _vm.checkForm }
           },
           [
-            _c(
-              "span",
-              {
-                model: {
-                  value: _vm.id_user,
-                  callback: function($$v) {
-                    _vm.id_user = $$v
-                  },
-                  expression: "id_user"
-                }
-              },
-              [
-                _c("input", {
-                  attrs: { type: "hidden", name: "id_user" },
-                  domProps: { value: _vm.messages.user.id }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "hidden", name: "name_voyant" },
-              domProps: { value: _vm.Active }
-            }),
-            _vm._v(" "),
             _c("textarea", {
               directives: [
                 {
@@ -46724,6 +48289,320 @@ var staticRenderFns = [
         ])
       ]
     )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messagesi.vue?vue&type=template&id=5181e73c&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/messagesi.vue?vue&type=template&id=5181e73c& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "containt" }, [
+    _c(
+      "div",
+      {
+        staticClass: "content flex-column-fluid",
+        staticStyle: { width: "100%" },
+        attrs: { id: "kt_content" }
+      },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "d-flex flex-row" }, [
+          _c(
+            "div",
+            { staticClass: "flex-row-fluid", attrs: { id: "kt_chat_content" } },
+            [
+              _c("div", { staticClass: "card card-custom" }, [
+                _c(
+                  "div",
+                  { staticClass: "card-header align-items-center px-4 py-3" },
+                  [
+                    _c("div", { staticClass: "text-center flex-grow-1" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "text-dark-75 font-weight-bold font-size-h5"
+                        },
+                        [
+                          _c("strong", [
+                            _vm._v(_vm._s(_vm.messages.name_voyant))
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(1)
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "scroll scroll-pull ps ps--active-y",
+                      staticStyle: { height: "295px", overflow: "hidden" },
+                      attrs: { "data-mobile-height": "350" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "messages" },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "d-flex flex-column mb-5 align-items-start"
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "mt-2 rounded p-5 font-weight-bold text-left",
+                                  staticStyle: {
+                                    "background-color": "#01e303d4",
+                                    color: "#fff"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                    Bonjour " +
+                                      _vm._s(_vm.messages.user.name) +
+                                      " et merci pour votre\n                    inscription. Déjà vous devez savoir que vous ne payez pas\n                    du temps sur le site mais des crédits. Ainsi, 1 message\n                    que vous envoyez est égal à 1 crédit, alors nous vous\n                    proposons une voyance exclusive à partir de\n                    "
+                                  ),
+                                  _c("strong", [
+                                    _vm._v("0,80€(moins chère qu'un Sms). ")
+                                  ]),
+                                  _vm._v(
+                                    " Vous\n                    pouvez donc oublier les voyances hors de prix.Sur\n                    voyance-auracle.fr nous vous révélons votre avenir et les\n                    solutions pour contourner les obstacles à votre bonheur,\n                    et pour se faire, Vous avez d'ores et déjà\n                    "
+                                  ),
+                                  _c("strong", [_vm._v("3 crédits offerts,")]),
+                                  _vm._v(
+                                    " en quoi puis je vous\n                    aider ?\n                  "
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _vm._l(_vm.messages.message, function(message) {
+                            return _c("div", { key: message.id }, [
+                              message.id_send == _vm.messages.user.id
+                                ? _c("span", [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "d-flex flex-column mb-1 align-items-start"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "\n                            mt-2\n                            rounded\n                            p-2\n                            bg-light-success\n                            text-dark-50\n                            font-weight-bold font-size-lg\n                            text-left\n                            max-w-400px\n                          ",
+                                            staticStyle: {
+                                              "font-size": "0.9em"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                          " +
+                                                _vm._s(message.message)
+                                            ),
+                                            _c("br")
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                : _c("span", [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "d-flex flex-column mb-1 align-items-end"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "\n                            mt-2\n                            rounded\n                            p-2\n                            bg-light-primary\n                            text-dark-50\n                            font-weight-bold font-size-lg\n                            text-right\n                            max-w-400px\n                          ",
+                                            staticStyle: {
+                                              "font-size": "0.9em"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                          " +
+                                                _vm._s(message.message) +
+                                                "\n                        "
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                            ])
+                          })
+                        ],
+                        2
+                      )
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  attrs: {
+                    id: "app",
+                    action: "conversation/senduser",
+                    method: "post"
+                  },
+                  on: { submit: _vm.checkForm }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card-footer align-items-center",
+                      staticStyle: { display: "flex", padding: "10px" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "d-flex align-items-center justify-content-between mt-5",
+                          staticStyle: { width: "100%" }
+                        },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.text,
+                                expression: "text"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            staticStyle: { width: "90%" },
+                            attrs: {
+                              type: "text",
+                              id: "message_input",
+                              required: "",
+                              placeholder: "Texte"
+                            },
+                            domProps: { value: _vm.text },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.text = $event.target.value
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(2)
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              )
+            ]
+          )
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "alert alert-custom alert-success fade show",
+        attrs: { role: "alert" }
+      },
+      [
+        _c("div", { staticClass: "alert-icon" }, [
+          _c("i", { staticClass: "flaticon-warning" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "alert-text" }, [_vm._v("message")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "alert-close" }, [
+          _c(
+            "button",
+            {
+              staticClass: "close",
+              attrs: {
+                type: "button",
+                "data-dismiss": "alert",
+                "aria-label": "Close"
+              }
+            },
+            [
+              _c("span", { attrs: { "aria-hidden": "true" } }, [
+                _c("i", { staticClass: "ki ki-close" })
+              ])
+            ]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("span", { staticClass: "label label-sm label-dot label-success" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "button",
+        {
+          staticClass:
+            "\n                    btn btn-primary btn-md\n                    text-uppercase\n                    font-weight-bold\n                    py-2\n                    px-6\n                  ",
+          attrs: { type: "submit", id: "message_send" }
+        },
+        [_vm._v("\n                  Envoyer\n                ")]
+      )
+    ])
   }
 ]
 render._withStripped = true

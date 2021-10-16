@@ -119,7 +119,8 @@
           <!--end::Body-->
 
           <!--begin::Footer-->
-          <form id="app" @submit="checkForm" method="post" action="conversation/senduser"  >
+          <form id="app" @submit="checkForm" action="conversation/senduser" method="post" >
+            <!-- @csrf -->
             <div
               class="card-footer align-items-center"
               style="display: flex; padding: 10px"
@@ -132,6 +133,7 @@
                 <input
                   type="text"
                   v-model="text"
+                  id="message_input"
                   required
                   class="form-control"
                   placeholder="Texte"
@@ -183,7 +185,7 @@ export default {
     },
   },
   mounted() {
-    axios.get("/conversationuers").then((response) => {
+    axios.get("/conversationuersj").then((response) => {
       this.messages = response.data;
     });
     console.log(this.messages);

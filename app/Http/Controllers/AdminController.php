@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\blog;
 use Illuminate\Http\Request;
 use App\Models\Liste_tag;
 use App\Models\User;
@@ -37,12 +38,50 @@ class AdminController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function save_post(Request $request)
     {
-        //
+
+             $filenameWithExt = $request->image->getClientOriginalName();
+
+            // Get just the filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            // Get extension
+            $extension =$request->image->getClientOriginalExtension();
+
+            // Create new filename
+            $filenameToStore = $filename.'_'.time().'.'.$extension;
+
+            // Uplaod image
+            $path= $request->image->storeAs('public/blog',$filenameToStore);
+
+
+
+            $filenameWithExti = $request->icone->getClientOriginalName();
+
+            // Get just the filename
+            $filenamei = pathinfo($filenameWithExti, PATHINFO_FILENAME);
+
+            // Get extension
+            $extensioni =$request->icone->getClientOriginalExtension();
+
+            // Create new filename
+            $filenameToStorei = $filenamei.'_'.time().'.'.$extensioni;
+
+            // Uplaod icone
+            $path= $request->icone->storeAs('public/blog',$filenameToStorei);
+                $poste = new blog();
+                $poste->title = $request->titre;
+                $poste->description = $request->desc;
+                $poste->image = $filenameToStore;
+                $poste->profil = $filenameToStorei;
+                $poste->save();
+                $v2="poste enregistré ";
+        return redirect()->route('add_post',['v2'=>$v2]);
+
     }
 
     /**

@@ -8,6 +8,7 @@ use App\Models\message;
 use App\Models\User;
 use App\Models\Note_client;
 use App\Models\CounvClient;
+use Illuminate\Support\Facades\Cookie;
 
 class MessagesController extends Controller
 {
@@ -49,6 +50,7 @@ class MessagesController extends Controller
 
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -80,7 +82,7 @@ class MessagesController extends Controller
                 $message->save();
                 $credit = $user->credit -1;
 
-                User::where('id',Auth::user()->id)->update(['credit' => $credit,]);
+                User::where('id',Auth::user()->id)->update(['credit' => $credit,'statut_m' => 1]);
 
                 return redirect()->route('message',['name_agent'=>$request->name_voyant]);
             }
@@ -103,14 +105,115 @@ class MessagesController extends Controller
 
     }
 
+    public function getoneMessage(Request $request){
+
+        $counv_clients = CounvClient::where('id_user',Auth::user()->id)->where('name_voyant','ISABELLE')->first();
+        if($counv_clients == null){
+            $counv_clients = new CounvClient;
+            $counv_clients->id_user = Auth::user()->id;
+            $counv_clients->name_voyant = 'ISABELLE';
+            $counv_clients->statut = 1;
+            $counv_clients->save();
+        }
+        $message = message::where('id_user',Auth::user()->id)->where('name_voyant','ISABELLE')->get();
+        $user = User::where('id',Auth::user()->id)->first();
+        $name_voyant = 'ISABELLE';
+        return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant]);
+
+    }
+
+    public function getoneMessagesi(Request $request){
+
+        $counv_clients = CounvClient::where('id_user',Auth::user()->id)->where('name_voyant','SUZANNE')->first();
+        if($counv_clients == null){
+            $counv_clients = new CounvClient;
+            $counv_clients->id_user = Auth::user()->id;
+            $counv_clients->name_voyant = 'SUZANNE';
+            $counv_clients->statut = 1;
+            $counv_clients->save();
+        }
+        $message = message::where('id_user',Auth::user()->id)->where('name_voyant','SUZANNE')->get();
+        $user = User::where('id',Auth::user()->id)->first();
+        $name_voyant = 'SUZANNE';
+        return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant]);
+
+    }
+
+    public function getoneMessagej(Request $request){
+
+        $counv_clients = CounvClient::where('id_user',Auth::user()->id)->where('name_voyant','JACQUEMIN')->first();
+        if($counv_clients == null){
+            $counv_clients = new CounvClient;
+            $counv_clients->id_user = Auth::user()->id;
+            $counv_clients->name_voyant = 'JACQUEMIN';
+            $counv_clients->statut = 1;
+            $counv_clients->save();
+        }
+        $message = message::where('id_user',Auth::user()->id)->where('name_voyant','JACQUEMIN')->get();
+        $user = User::where('id',Auth::user()->id)->first();
+        $name_voyant = 'JACQUEMIN';
+        return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant]);
+
+    }
+
+    public function getoneMessageb(Request $request){
+
+        $counv_clients = CounvClient::where('id_user',Auth::user()->id)->where('name_voyant','SABINE')->first();
+        if($counv_clients == null){
+            $counv_clients = new CounvClient;
+            $counv_clients->id_user = Auth::user()->id;
+            $counv_clients->name_voyant = 'SABINE';
+            $counv_clients->statut = 1;
+            $counv_clients->save();
+        }
+        $message = message::where('id_user',Auth::user()->id)->where('name_voyant','SABINE')->get();
+        $user = User::where('id',Auth::user()->id)->first();
+        $name_voyant = 'SABINE';
+        return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant]);
+
+    }
+
     public function send(Request $request){
-       $message = message::create([
-            'id_user'=>$request->id_user,
-            'id_send'=>Auth::user()->id,
-            'name_voyant'=>$request->name_voyant,
-            'name_agent'=> Auth::user()->name,
-            'message'=>$request->message
-        ]);
+        $message = new message;
+        $message->id_user = $request->id_user;
+        $message->id_send = Auth::user()->id;
+        $message->name_voyant = $request->name_voyant;
+        $message->message = $request->text;
+        $message->save();
+        User::where('id',$request->id_user)->update(['name_agent' => Auth::user()->name,'statut_m'=>0]);
+        CounvClient::where('id_user',$request->id_user)->where('name_voyant',$request->name_voyant)->update(['statut' => 1]);
+
         return response()->json($message);
     }
+
+    public function senduser(Request $request){
+        $counv_clients = CounvClient::where('id_user',Auth::user()->id)->where('name_voyant',$request->name_voyant)->first();
+        if(Auth::user()->credit >= 1){
+            if($counv_clients->statut == 0){
+
+                $v2 = "Vieille patiente qu\'ont repond a votre message";
+                return response()->json($v2);
+
+            }else{
+
+                $message = new message;
+                $message->id_user = Auth::user()->id;
+                $message->id_send = Auth::user()->id;
+                $message->name_voyant = $request->name_voyant;
+                $message->message = $request->text;
+                $message->save();
+                $credit = Auth::user()->credit -1;
+
+                User::where('id',Auth::user()->id)->update(['credit' => $credit]);
+                $counv_clients = CounvClient::where('id_user',Auth::user()->id)->where('name_voyant',$request->name_voyant)->update(['statut' => 0]);
+
+                 return response()->json($message);
+            }
+
+        }else{
+
+            $v2 = 'credit insuffisant';
+            return response()->json($v2);
+        }
+     }
 }

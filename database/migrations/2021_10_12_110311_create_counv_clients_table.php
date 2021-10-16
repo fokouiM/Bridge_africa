@@ -17,6 +17,7 @@ class CreateCounvClientsTable extends Migration
             $table->id();
             $table->string('id_user')->nullable();
             $table->text('name_voyant')->nullable();
+            $table->string('statut')->nullable();
             $table->timestamps();
         });
     }

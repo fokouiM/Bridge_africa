@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Liste_tag;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Models\blog;
 
 class User_infoController extends Controller
 {
@@ -114,6 +115,13 @@ class User_infoController extends Controller
     {       $user = User::where('id',$id)->first();
             Liste_tag::where('id',$user->name)->delete();
             User::where('id',$id)->delete();
+
+            return redirect()->route('clients');
+    }
+
+    public function deletePoste($id)
+    {
+             blog::where('id',$id)->delete();
 
             return redirect()->route('clients');
     }

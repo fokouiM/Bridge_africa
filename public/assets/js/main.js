@@ -31,5 +31,7 @@ function timer() {
 }
 
 timer();
+
+var avatar1 = new KTImageInput('kt_image_1');
 }
 

@@ -20,6 +20,10 @@ window.Vue = require('vue').default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('message', require('./components/message.vue').default);
+Vue.component('messagesi', require('./components/messagesi.vue').default);
+Vue.component('messagej', require('./components/messagej.vue').default);
+Vue.component('messageb', require('./components/messageb.vue').default);
+
 
 Vue.component('container', require('./components/Agent.vue').default);
 

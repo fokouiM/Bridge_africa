@@ -56,7 +56,7 @@
                     <!--end::Desc-->
 
                     <form action="message" method="GET">
-                        @csrf
+
                         <input type="hidden" name="name_agent" value="ISABELLE">
                         <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4" data-toggle="modal" data-target="#kt_chat_modal">Message</button>
                     </form>
@@ -89,7 +89,7 @@
 
                         <!--begin::Title-->
                         <div class="d-flex flex-column">
-                            <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0">Travail</a>
+                            <a  class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0">Travail</a>
                             <span class="text-muted font-weight-bold">SUZANNE</span>
                         </div>
                         <!--end::Title-->
@@ -107,11 +107,7 @@
                               4</a>
                     </div>
                     <!--end::Desc-->
-                    <form action="message" method="GET">
-                        @csrf
-                        <input type="hidden" name="name_agent" value="SUZANNE">
-                        <button class="btn btn-block btn-sm btn-light-danger font-weight-bolder text-uppercase py-4" data-toggle="modal" data-target="#kt_chat_modal">Message</button>
-                    </form>
+                        <a href="messageS" class="btn btn-block btn-sm btn-light-danger font-weight-bolder text-uppercase py-4" >Message</a>
                 </div>
                 <!--end::Body-->
             </div>
@@ -160,11 +156,7 @@
                              <i class="la la-star-half-alt text-warning mr-5"></i> 2.75</a>
                     </div>
                     <!--end::Desc-->
-                        <form action="message" method="GET">
-                            @csrf
-                            <input type="hidden" name="name_agent" value="JACQUEMIN">
-                            <button  class="btn btn-block btn-sm btn-light-primary font-weight-bolder text-uppercase py-4" data-toggle="modal" data-target="#kt_chat_modal">Message</button>
-                        </form>
+                            <a href="messageJ"  class="btn btn-block btn-sm btn-light-primary font-weight-bolder text-uppercase py-4" >Message</a>
                 </div>
                 <!--end::Body-->
             </div>
@@ -212,12 +204,7 @@
                              <i class="la la-star-half-alt text-warning mr-5"></i> 3.75</a>
                     </div>
                     <!--end::Desc-->
-                    <form action="message" method="GET">
-                        @csrf
-                        <input type="hidden" name="name_agent" value="SABINE">
-                        <button href="#" class="btn btn-block btn-sm btn-light-success font-weight-bolder text-uppercase py-4"
-                            data-toggle="modal" data-target="#kt_chat_modal">Message</button>
-                    </form>
+                        <a href="messageB"  class="btn btn-block btn-sm btn-light-success font-weight-bolder text-uppercase py-4" >Message</a>
                 </div>
                 <!--end::Body-->
             </div>

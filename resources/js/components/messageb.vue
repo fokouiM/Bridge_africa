@@ -52,7 +52,7 @@
                       class="mt-2 rounded p-5 font-weight-bold text-left"
                       style="background-color: #01e303d4; color: #fff"
                     >
-                      Bonjour {{ messages.user.name }} et merci pour votre
+                      Bonjour {{ messages.user.name }}et merci pour votre
                       inscription. Déjà vous devez savoir que vous ne payez pas
                       du temps sur le site mais des crédits. Ainsi, 1 message
                       que vous envoyez est égal à 1 crédit, alors nous vous
@@ -119,7 +119,8 @@
           <!--end::Body-->
 
           <!--begin::Footer-->
-          <form id="app" @submit="checkForm" method="post" action="conversation/senduser"  >
+          <form id="app" @submit="checkForm" action="conversation/senduser" method="post" >
+            <!-- @csrf -->
             <div
               class="card-footer align-items-center"
               style="display: flex; padding: 10px"
@@ -129,28 +130,12 @@
                 class="d-flex align-items-center justify-content-between mt-5"
                 style="width: 100%"
               >
-                <input
-                  type="text"
-                  v-model="text"
-                  required
-                  class="form-control"
-                  placeholder="Texte"
-                  style="width: 90%"
-                />
+                <input type="text" v-model="text" id="message_input" required class="form-control" placeholder="Texte" style="width: 90%" />
                 <div>
-                  <button
-                    type="submit"
-                    id="message_send"
-                    class="
-                      btn btn-primary btn-md
-                      text-uppercase
-                      font-weight-bold
-                      py-2
-                      px-6
-                    "
-                  >
-                    Envoyer
-                  </button>
+                  <input type="hidden" name="id_user" value="id_user " />
+                  <input type="hidden" name="username" id="username" value="name_user "/>
+                  <input type="hidden" name="name_voyant" value="name_agnet" />
+                  <button type="submit" id="message_send" class=" btn btn-primary btn-md text-uppercase font-weight-bold py-2 px-6 "> Envoyer </button>
                 </div>
               </div>
               <!--begin::Compose-->
@@ -183,12 +168,13 @@ export default {
     },
   },
   mounted() {
-    axios.get("/conversationuers").then((response) => {
+    axios.get("/conversationuersb").then((response) => {
       this.messages = response.data;
     });
     console.log(this.messages);
   },
-  data(messages ){
+
+ data(messages ){
         return{
             text:'',
             id_user : messages.user,

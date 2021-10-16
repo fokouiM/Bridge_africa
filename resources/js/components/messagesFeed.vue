@@ -32,7 +32,7 @@
                             <button  class="btn btn-light-primary btn-sm font-weight-bold mr-2" id="kt_dashboard_daterangepicker" data-toggle="tooltip" title=""
                                 data-placement="left" data-original-title="liste voyant" v-on:click=" Active = voyants.name_voyant"
                                 >
-                                <span class="opacity-60 font-weight-bold mr-2" id="kt_dashboard_daterangepicker_title">voyant : {{voyants.name_voyant}} </span>
+                                <span class="opacity-60 font-weight-bold mr-2" id="kt_dashboard_daterangepicker_title">{{voyants.name_voyant}} </span>
                             </button>
                         </div>
                     </div>
@@ -78,10 +78,14 @@
                 </div>
                 <!--end::Scroll-->
             </div>
-            <div class="card-footer align-items-center" style="display: flex; padding: 10px;">
+            <div class="card-footer align-items-center" style="display: flex; padding: 10px;" ref="feed">
             <!-- <div>{{message.user.name}}</div> -->
             <form id="app" @submit="checkForm" action="conversation/send" method="post" class="flex" >
-
+                <div class="d-flex align-items-center justify-content-between mt-5">
+                    <div>
+                        <button type="button" class="btn btn-primary ">Reponce</button>
+                    </div>
+                </div>
                 <textarea id="message" v-model="text"  class="form-control border-0 p-0" required  placeholder="Message......"></textarea>
 
                 <div class="d-flex align-items-center justify-content-between mt-5">
@@ -142,12 +146,36 @@ export default {
                 text: this.text,
                 id_user: this.messages.user.id,
                 name_voyant: this.Active
-            })
-            console.log(this.Active)
+            }).then((response) => {
+                this.messages = response.data;
+                this.selectedContact = contact;
+            }),
+            axios.get('/contacts')
+                .then((response) =>{
+                    this.contacts = response.data;
+                });
 
 
         },
+        scrollToBottom(){
+            setTimeout(()=>{
+
+                this.$refs.feed.scrollTop = this.$refs.feed.scrollHeight - this.$refs.feed.clientHeight;
+            },50);
+        }
     },
+
+    watch:{
+        user(user){
+            this.scrollToBottom();
+        },
+        contact(contact){
+            this.scrollToBottom();
+        },
+        messages(messages){
+            this.scrollToBottom();
+        }
+    }
     }
 </script>
 <style>

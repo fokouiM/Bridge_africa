@@ -2241,6 +2241,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     contacts: {
@@ -2523,6 +2524,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     messages: {
@@ -2530,6 +2533,10 @@ __webpack_require__.r(__webpack_exports__);
       require: true
     },
     user: {
+      type: Object,
+      require: true
+    },
+    v2: {
       type: Object,
       require: true
     },
@@ -2555,13 +2562,28 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     checkForm: function checkForm(e) {
+      var _this2 = this;
+
       e.preventDefault();
       axios.post('/conversation/senduser', {
         text: this.text,
         id_user: this.messages.user.id,
         name_voyant: this.messages.name_voyant
-      });
-      console.log(this.messages.name_voyant);
+      }).then(function (response) {
+        _this2.messages = response.data;
+      }), console.log(this.messages.name_voyant);
+    },
+    scrollToBottom: function scrollToBottom() {
+      var _this3 = this;
+
+      setTimeout(function () {
+        _this3.$refs.feed.scrollTop = _this3.$refs.feed.scrollHeight - _this3.$refs.feed.clientHeight;
+      }, 50);
+    }
+  },
+  watch: {
+    messages: function messages(_messages) {
+      this.scrollToBottom();
     }
   }
 });
@@ -2802,6 +2824,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     messages: {
@@ -2809,6 +2833,10 @@ __webpack_require__.r(__webpack_exports__);
       require: true
     },
     user: {
+      type: Object,
+      require: true
+    },
+    v2: {
       type: Object,
       require: true
     },
@@ -2834,13 +2862,28 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     checkForm: function checkForm(e) {
+      var _this2 = this;
+
       e.preventDefault();
       axios.post('/conversation/senduser', {
         text: this.text,
         id_user: this.messages.user.id,
         name_voyant: this.messages.name_voyant
-      });
-      console.log(this.messages.name_voyant);
+      }).then(function (response) {
+        _this2.messages = response.data;
+      }), console.log(this.messages.name_voyant);
+    },
+    scrollToBottom: function scrollToBottom() {
+      var _this3 = this;
+
+      setTimeout(function () {
+        _this3.$refs.feed.scrollTop = _this3.$refs.feed.scrollHeight - _this3.$refs.feed.clientHeight;
+      }, 50);
+    }
+  },
+  watch: {
+    messages: function messages(_messages) {
+      this.scrollToBottom();
     }
   }
 });
@@ -3028,6 +3071,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     messages: {
@@ -3035,6 +3080,10 @@ __webpack_require__.r(__webpack_exports__);
       require: true
     },
     user: {
+      type: Object,
+      require: true
+    },
+    v2: {
       type: Object,
       require: true
     },
@@ -3060,13 +3109,28 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     checkForm: function checkForm(e) {
+      var _this2 = this;
+
       e.preventDefault();
       axios.post('/conversation/senduser', {
         text: this.text,
         id_user: this.messages.user.id,
         name_voyant: this.messages.name_voyant
-      });
-      console.log(this.messages.name_voyant);
+      }).then(function (response) {
+        _this2.messages = response.data;
+      }), console.log(this.messages.name_voyant);
+    },
+    scrollToBottom: function scrollToBottom() {
+      var _this3 = this;
+
+      setTimeout(function () {
+        _this3.$refs.feed.scrollTop = _this3.$refs.feed.scrollHeight - _this3.$refs.feed.clientHeight;
+      }, 50);
+    }
+  },
+  watch: {
+    messages: function messages(_messages) {
+      this.scrollToBottom();
     }
   }
 });
@@ -3084,6 +3148,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
 //
 //
 //
@@ -3216,13 +3284,47 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     checkForm: function checkForm(e) {
+      var _this = this;
+
       e.preventDefault();
       axios.post('/conversation/send', {
         text: this.text,
         id_user: this.messages.user.id,
         name_voyant: this.Active
+      }).then(function (response) {
+        _this.messages = response.data;
+        _this.selectedContact = contact;
+      }), axios.get('/contacts').then(function (response) {
+        _this.contacts = response.data;
       });
-      console.log(this.Active);
+    },
+    scrollToBottom: function scrollToBottom() {
+      var _this2 = this;
+
+      setTimeout(function () {
+        _this2.$refs.feed.scrollTop = _this2.$refs.feed.scrollHeight - _this2.$refs.feed.clientHeight;
+      }, 50);
+    }
+  },
+  watch: {
+    user: function user(_user) {
+      this.scrollToBottom();
+    },
+    contact: function (_contact) {
+      function contact(_x) {
+        return _contact.apply(this, arguments);
+      }
+
+      contact.toString = function () {
+        return _contact.toString();
+      };
+
+      return contact;
+    }(function (contact) {
+      this.scrollToBottom();
+    }),
+    messages: function messages(_messages) {
+      this.scrollToBottom();
     }
   }
 });
@@ -3410,6 +3512,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     messages: {
@@ -3417,6 +3521,10 @@ __webpack_require__.r(__webpack_exports__);
       require: true
     },
     user: {
+      type: Object,
+      require: true
+    },
+    v2: {
       type: Object,
       require: true
     },
@@ -3442,13 +3550,28 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     checkForm: function checkForm(e) {
+      var _this2 = this;
+
       e.preventDefault();
       axios.post('/conversation/senduser', {
         text: this.text,
         id_user: this.messages.user.id,
         name_voyant: this.messages.name_voyant
-      });
-      console.log(this.messages.name_voyant);
+      }).then(function (response) {
+        _this2.messages = response.data;
+      }), console.log(this.messages.name_voyant);
+    },
+    scrollToBottom: function scrollToBottom() {
+      var _this3 = this;
+
+      setTimeout(function () {
+        _this3.$refs.feed.scrollTop = _this3.$refs.feed.scrollHeight - _this3.$refs.feed.clientHeight;
+      }, 50);
+    }
+  },
+  watch: {
+    messages: function messages(_messages) {
+      this.scrollToBottom();
     }
   }
 });
@@ -46692,17 +46815,16 @@ var render = function() {
                                             _vm._s(contact.name) +
                                               "|\n                                            "
                                           ),
-                                          _vm._m(0, true)
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "text-muted font-weight-bold font-size-sm"
+                                            },
+                                            [_vm._v(_vm._s(contact.name_agent))]
+                                          )
                                         ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        {
-                                          staticClass:
-                                            "text-muted font-weight-bold font-size-sm"
-                                        },
-                                        [_vm._v(_vm._s(contact.name_agent))]
                                       )
                                     ]
                                   )
@@ -46753,17 +46875,16 @@ var render = function() {
                                             _vm._s(contact.name) +
                                               " |\n                                            "
                                           ),
-                                          _vm._m(1, true)
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "text-muted font-weight-bold font-size-sm"
+                                            },
+                                            [_vm._v(_vm._s(contact.name_agent))]
+                                          )
                                         ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        {
-                                          staticClass:
-                                            "text-muted font-weight-bold font-size-sm"
-                                        },
-                                        [_vm._v(_vm._s(contact.name_agent))]
                                       )
                                     ]
                                   )
@@ -46814,17 +46935,15 @@ var render = function() {
                                             _vm._s(contact.name) +
                                               "|\n                                            "
                                           ),
-                                          _vm._m(2, true)
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "text-muted font-weight-bold font-size-sm"
+                                            },
+                                            [_vm._v(_vm._s(contact.name_agent))]
+                                          )
                                         ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        {
-                                          staticClass:
-                                            "text-muted font-weight-bold font-size-sm"
-                                        },
-                                        [_vm._v(_vm._s(contact.name_agent))]
                                       )
                                     ]
                                   )
@@ -46838,9 +46957,9 @@ var render = function() {
                 )
               }),
               _vm._v(" "),
-              _vm._m(3),
+              _vm._m(0),
               _vm._v(" "),
-              _vm._m(4)
+              _vm._m(1)
             ],
             2
           )
@@ -46850,45 +46969,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      {
-        staticClass: "font-weight-bold",
-        attrs: { id: "kt_dashboard_daterangepicker_date" }
-      },
-      [_c("time", [_vm._v("00:00:00")])]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      {
-        staticClass: "font-weight-bold",
-        attrs: { id: "kt_dashboard_daterangepicker_date" }
-      },
-      [_c("time", [_vm._v("00:00:00")])]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      {
-        staticClass: "font-weight-bold",
-        attrs: { id: "kt_dashboard_daterangepicker_date" }
-      },
-      [_c("time", [_vm._v("00:00:00")])]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -47003,7 +47083,26 @@ var render = function() {
         attrs: { id: "kt_content" }
       },
       [
-        _vm._m(0),
+        _vm.messages.v2
+          ? _c("span", [
+              _c(
+                "div",
+                {
+                  staticClass: "alert alert-custom alert-success fade show",
+                  attrs: { role: "alert" }
+                },
+                [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "alert-text" }, [
+                    _vm._v(_vm._s(_vm.messages.v2))
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(1)
+                ]
+              )
+            ])
+          : _vm._e(),
         _vm._v(" "),
         _c("div", { staticClass: "d-flex flex-row" }, [
           _c(
@@ -47029,7 +47128,7 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(1)
+                      _vm._m(2)
                     ])
                   ]
                 ),
@@ -47207,7 +47306,7 @@ var render = function() {
                             }
                           }),
                           _vm._v(" "),
-                          _vm._m(2)
+                          _vm._m(3)
                         ]
                       )
                     ]
@@ -47226,39 +47325,32 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "alert alert-custom alert-success fade show",
-        attrs: { role: "alert" }
-      },
-      [
-        _c("div", { staticClass: "alert-icon" }, [
-          _c("i", { staticClass: "flaticon-warning" })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "alert-text" }, [_vm._v("message")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "alert-close" }, [
-          _c(
-            "button",
-            {
-              staticClass: "close",
-              attrs: {
-                type: "button",
-                "data-dismiss": "alert",
-                "aria-label": "Close"
-              }
-            },
-            [
-              _c("span", { attrs: { "aria-hidden": "true" } }, [
-                _c("i", { staticClass: "ki ki-close" })
-              ])
-            ]
-          )
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "alert-icon" }, [
+      _c("i", { staticClass: "flaticon-warning" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "alert-close" }, [
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "alert",
+            "aria-label": "Close"
+          }
+        },
+        [
+          _c("span", { attrs: { "aria-hidden": "true" } }, [
+            _c("i", { staticClass: "ki ki-close" })
+          ])
+        ]
+      )
+    ])
   },
   function() {
     var _vm = this
@@ -47341,7 +47433,26 @@ var render = function() {
         attrs: { id: "kt_content" }
       },
       [
-        _vm._m(0),
+        _vm.messages.v2
+          ? _c("span", [
+              _c(
+                "div",
+                {
+                  staticClass: "alert alert-custom alert-success fade show",
+                  attrs: { role: "alert" }
+                },
+                [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "alert-text" }, [
+                    _vm._v(_vm._s(_vm.messages.v2))
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(1)
+                ]
+              )
+            ])
+          : _vm._e(),
         _vm._v(" "),
         _c("div", { staticClass: "d-flex flex-row" }, [
           _c(
@@ -47367,7 +47478,7 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(1)
+                      _vm._m(2)
                     ])
                   ]
                 ),
@@ -47546,7 +47657,7 @@ var render = function() {
                             }
                           }),
                           _vm._v(" "),
-                          _vm._m(2)
+                          _vm._m(3)
                         ]
                       )
                     ]
@@ -47565,39 +47676,32 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "alert alert-custom alert-success fade show",
-        attrs: { role: "alert" }
-      },
-      [
-        _c("div", { staticClass: "alert-icon" }, [
-          _c("i", { staticClass: "flaticon-warning" })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "alert-text" }, [_vm._v("message")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "alert-close" }, [
-          _c(
-            "button",
-            {
-              staticClass: "close",
-              attrs: {
-                type: "button",
-                "data-dismiss": "alert",
-                "aria-label": "Close"
-              }
-            },
-            [
-              _c("span", { attrs: { "aria-hidden": "true" } }, [
-                _c("i", { staticClass: "ki ki-close" })
-              ])
-            ]
-          )
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "alert-icon" }, [
+      _c("i", { staticClass: "flaticon-warning" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "alert-close" }, [
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "alert",
+            "aria-label": "Close"
+          }
+        },
+        [
+          _c("span", { attrs: { "aria-hidden": "true" } }, [
+            _c("i", { staticClass: "ki ki-close" })
+          ])
+        ]
+      )
+    ])
   },
   function() {
     var _vm = this
@@ -47672,7 +47776,26 @@ var render = function() {
         attrs: { id: "kt_content" }
       },
       [
-        _vm._m(0),
+        _vm.messages.v2
+          ? _c("span", [
+              _c(
+                "div",
+                {
+                  staticClass: "alert alert-custom alert-success fade show",
+                  attrs: { role: "alert" }
+                },
+                [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "alert-text" }, [
+                    _vm._v(_vm._s(_vm.messages.v2))
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(1)
+                ]
+              )
+            ])
+          : _vm._e(),
         _vm._v(" "),
         _c("div", { staticClass: "d-flex flex-row" }, [
           _c(
@@ -47698,7 +47821,7 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(1)
+                      _vm._m(2)
                     ])
                   ]
                 ),
@@ -47877,7 +48000,7 @@ var render = function() {
                             }
                           }),
                           _vm._v(" "),
-                          _vm._m(2)
+                          _vm._m(3)
                         ]
                       )
                     ]
@@ -47896,39 +48019,32 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "alert alert-custom alert-success fade show",
-        attrs: { role: "alert" }
-      },
-      [
-        _c("div", { staticClass: "alert-icon" }, [
-          _c("i", { staticClass: "flaticon-warning" })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "alert-text" }, [_vm._v("message")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "alert-close" }, [
-          _c(
-            "button",
-            {
-              staticClass: "close",
-              attrs: {
-                type: "button",
-                "data-dismiss": "alert",
-                "aria-label": "Close"
-              }
-            },
-            [
-              _c("span", { attrs: { "aria-hidden": "true" } }, [
-                _c("i", { staticClass: "ki ki-close" })
-              ])
-            ]
-          )
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "alert-icon" }, [
+      _c("i", { staticClass: "flaticon-warning" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "alert-close" }, [
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "alert",
+            "aria-label": "Close"
+          }
+        },
+        [
+          _c("span", { attrs: { "aria-hidden": "true" } }, [
+            _c("i", { staticClass: "ki ki-close" })
+          ])
+        ]
+      )
+    ])
   },
   function() {
     var _vm = this
@@ -48084,7 +48200,7 @@ var render = function() {
                       staticClass: "opacity-60 font-weight-bold mr-2",
                       attrs: { id: "kt_dashboard_daterangepicker_title" }
                     },
-                    [_vm._v("voyant : " + _vm._s(voyants.name_voyant) + " ")]
+                    [_vm._v(_vm._s(voyants.name_voyant) + " ")]
                   )
                 ]
               )
@@ -48188,6 +48304,7 @@ var render = function() {
     _c(
       "div",
       {
+        ref: "feed",
         staticClass: "card-footer align-items-center",
         staticStyle: { display: "flex", padding: "10px" }
       },
@@ -48200,6 +48317,8 @@ var render = function() {
             on: { submit: _vm.checkForm }
           },
           [
+            _vm._m(2),
+            _vm._v(" "),
             _c("textarea", {
               directives: [
                 {
@@ -48226,7 +48345,7 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            _vm._m(2)
+            _vm._m(3)
           ]
         )
       ]
@@ -48283,6 +48402,24 @@ var staticRenderFns = [
         _c("div", [
           _c(
             "button",
+            { staticClass: "btn btn-primary ", attrs: { type: "button" } },
+            [_vm._v("Reponce")]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "d-flex align-items-center justify-content-between mt-5" },
+      [
+        _c("div", [
+          _c(
+            "button",
             { staticClass: "btn btn-primary ", attrs: { type: "submit" } },
             [_vm._v("Envoyer")]
           )
@@ -48322,7 +48459,26 @@ var render = function() {
         attrs: { id: "kt_content" }
       },
       [
-        _vm._m(0),
+        _vm.messages.v2
+          ? _c("span", [
+              _c(
+                "div",
+                {
+                  staticClass: "alert alert-custom alert-success fade show",
+                  attrs: { role: "alert" }
+                },
+                [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "alert-text" }, [
+                    _vm._v(_vm._s(_vm.messages.v2))
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(1)
+                ]
+              )
+            ])
+          : _vm._e(),
         _vm._v(" "),
         _c("div", { staticClass: "d-flex flex-row" }, [
           _c(
@@ -48348,7 +48504,7 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(1)
+                      _vm._m(2)
                     ])
                   ]
                 ),
@@ -48527,7 +48683,7 @@ var render = function() {
                             }
                           }),
                           _vm._v(" "),
-                          _vm._m(2)
+                          _vm._m(3)
                         ]
                       )
                     ]
@@ -48546,39 +48702,32 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "alert alert-custom alert-success fade show",
-        attrs: { role: "alert" }
-      },
-      [
-        _c("div", { staticClass: "alert-icon" }, [
-          _c("i", { staticClass: "flaticon-warning" })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "alert-text" }, [_vm._v("message")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "alert-close" }, [
-          _c(
-            "button",
-            {
-              staticClass: "close",
-              attrs: {
-                type: "button",
-                "data-dismiss": "alert",
-                "aria-label": "Close"
-              }
-            },
-            [
-              _c("span", { attrs: { "aria-hidden": "true" } }, [
-                _c("i", { staticClass: "ki ki-close" })
-              ])
-            ]
-          )
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "alert-icon" }, [
+      _c("i", { staticClass: "flaticon-warning" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "alert-close" }, [
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "alert",
+            "aria-label": "Close"
+          }
+        },
+        [
+          _c("span", { attrs: { "aria-hidden": "true" } }, [
+            _c("i", { staticClass: "ki ki-close" })
+          ])
+        ]
+      )
+    ])
   },
   function() {
     var _vm = this

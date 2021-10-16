@@ -1,20 +1,22 @@
 <template>
   <div class="containt">
     <div class="content flex-column-fluid" id="kt_content" style="width: 100%">
-      <div class="alert alert-custom alert-success fade show" role="alert">
-        <div class="alert-icon"><i class="flaticon-warning"></i></div>
-        <div class="alert-text">message</div>
-        <div class="alert-close">
-          <button
-            type="button"
-            class="close"
-            data-dismiss="alert"
-            aria-label="Close"
-          >
-            <span aria-hidden="true"><i class="ki ki-close"></i></span>
-          </button>
-        </div>
-      </div>
+      <span v-if="messages.v2">
+            <div class="alert alert-custom alert-success fade show" role="alert">
+                <div class="alert-icon"><i class="flaticon-warning"></i></div>
+                <div class="alert-text">{{messages.v2}}</div>
+                <div class="alert-close">
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="alert"
+                    aria-label="Close"
+                >
+                    <span aria-hidden="true"><i class="ki ki-close"></i></span>
+                </button>
+                </div>
+            </div>
+        </span>
 
       <!--begin::Chat-->
       <div class="d-flex flex-row">
@@ -162,6 +164,10 @@ export default {
       type: Object,
       require: true,
     },
+    v2: {
+      type: Object,
+      require: true,
+    },
     name_voyant: {
       type: Object,
       require: true,
@@ -191,11 +197,25 @@ export default {
                 text: this.text,
                 id_user: this.messages.user.id,
                 name_voyant: this.messages.name_voyant
-            })
+            }).then((response) => {
+                this.messages = response.data;
+            }),
             console.log(this.messages.name_voyant)
 
 
         },
+        scrollToBottom(){
+            setTimeout(()=>{
+
+                this.$refs.feed.scrollTop = this.$refs.feed.scrollHeight - this.$refs.feed.clientHeight;
+            },50);
+        }
     },
+
+    watch:{
+        messages(messages){
+            this.scrollToBottom();
+        }
+    }
 };
 </script>

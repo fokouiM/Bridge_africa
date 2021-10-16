@@ -40,10 +40,10 @@
                                     <div class="d-flex align-items-center" style="width: 100%; background: #ffc4c7; padding: 10px; border-radius: 5px;">
                                         <div class="d-flex flex-column">
                                             <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg" style="font-size: 0.8em;">{{contact.name }}|
-                                                <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span>
+                                                <!-- <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span> -->
 
-                                            </div>
                                                 <span class="text-muted font-weight-bold font-size-sm">{{contact.name_agent}}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </button>
@@ -53,9 +53,9 @@
                                         <div class= "d-flex align-items-center" style="width: 100%; background: #ffedc4; padding: 10px; border-radius: 5px;">
                                         <div class="d-flex flex-column">
                                             <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg" style="font-size: 0.8em;">{{contact.name }} |
-                                                <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span>
-                                            </div>
+                                                <!-- <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span> -->
                                                 <span class="text-muted font-weight-bold font-size-sm">{{contact.name_agent}}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </button>
@@ -65,11 +65,12 @@
                                         <div class= "d-flex align-items-center" style="width: 100%; background: #c4ffc6; padding: 10px; border-radius: 5px;">
                                         <div class="d-flex flex-column">
                                             <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg" style="font-size: 0.8em;">{{contact.name }}|
-                                                <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span>
+                                                <span class="text-muted font-weight-bold font-size-sm">{{contact.name_agent}}</span>
+                                                <!-- <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span> -->
 
 
                                                  </div>
-                                                <span class="text-muted font-weight-bold font-size-sm">{{contact.name_agent}}</span>
+
                                         </div>
                                     </div>
                                 </button>

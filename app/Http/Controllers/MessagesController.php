@@ -183,7 +183,13 @@ class MessagesController extends Controller
         User::where('id',$request->id_user)->update(['name_agent' => Auth::user()->name,'statut_m'=>0]);
         CounvClient::where('id_user',$request->id_user)->where('name_voyant',$request->name_voyant)->update(['statut' => 1]);
 
-        return response()->json($message);
+        $message = message::where('id_user',$request->id_user)->get();
+        $user = User::where('id',$request->id_user)->first();
+        $voyants = CounvClient::where('id_user',$request->id_user)->get();
+        $note = Note_client::where('id_user',$request->id_user)->get();
+        $yes = message::where('id_user',$request->id_user)->orderBy('created_at', 'desc')->first();
+        $Active = $yes->name_voyant;
+        return response()->json(['message'=>$message,'user'=>$user,'voyants'=>$voyants,'note'=>$note,'Active'=>$Active]);
     }
 
     public function senduser(Request $request){
@@ -192,7 +198,10 @@ class MessagesController extends Controller
             if($counv_clients->statut == 0){
 
                 $v2 = "Vieille patiente qu\'ont repond a votre message";
-                return response()->json($v2);
+                $message = message::where('id_user',Auth::user()->id)->where('name_voyant',$request->name_voyant)->get();
+                $user = User::where('id',Auth::user()->id)->first();
+                $name_voyant = $request->name_voyant;
+                return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant,'v2'=>$v2]);
 
             }else{
 
@@ -204,16 +213,22 @@ class MessagesController extends Controller
                 $message->save();
                 $credit = Auth::user()->credit -1;
 
-                User::where('id',Auth::user()->id)->update(['credit' => $credit]);
+                User::where('id',Auth::user()->id)->update(['credit' => $credit,'statut_m'=> 1]);
                 $counv_clients = CounvClient::where('id_user',Auth::user()->id)->where('name_voyant',$request->name_voyant)->update(['statut' => 0]);
 
-                 return response()->json($message);
+                $message = message::where('id_user',Auth::user()->id)->where('name_voyant',$request->name_voyant)->get();
+                $user = User::where('id',Auth::user()->id)->first();
+                $name_voyant = $request->name_voyant;
+                return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant]);
             }
 
         }else{
 
             $v2 = 'credit insuffisant';
-            return response()->json($v2);
+            $message = message::where('id_user',Auth::user()->id)->where('name_voyant',$request->name_voyant)->get();
+                $user = User::where('id',Auth::user()->id)->first();
+                $name_voyant = $request->name_voyant;
+                return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant,'v2'=>$v2]);
         }
      }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewMessage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\message;
@@ -116,9 +117,20 @@ class MessagesController extends Controller
             $counv_clients->save();
         }
         $message = message::where('id_user',Auth::user()->id)->where('name_voyant','ISABELLE')->get();
+                $Idc = message::where('id_user',Auth::user()->id)->where('id_send','!=',Auth::user()->id)->orderBy('created_at', 'desc')->first();
+        if($Idc != null){
+            if($Idc->id_send != null){
+
+                $to = $Idc->id_send;
+            }else{
+                $to = 0;
+            }
+        }else{
+            $to = 0;
+        }
         $user = User::where('id',Auth::user()->id)->first();
         $name_voyant = 'ISABELLE';
-        return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant]);
+        return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant, 'to'=>$to]);
 
     }
 
@@ -134,8 +146,19 @@ class MessagesController extends Controller
         }
         $message = message::where('id_user',Auth::user()->id)->where('name_voyant','SUZANNE')->get();
         $user = User::where('id',Auth::user()->id)->first();
+                $Idc = message::where('id_user',Auth::user()->id)->where('id_send','!=',Auth::user()->id)->orderBy('created_at', 'desc')->first();
+        if($Idc != null){
+            if($Idc->id_send != null){
+
+                $to = $Idc->id_send;
+            }else{
+                $to = 0;
+            }
+        }else{
+            $to = 0;
+        }
         $name_voyant = 'SUZANNE';
-        return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant]);
+        return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant,'to'=>$to]);
 
     }
 
@@ -149,10 +172,22 @@ class MessagesController extends Controller
             $counv_clients->statut = 1;
             $counv_clients->save();
         }
+
         $message = message::where('id_user',Auth::user()->id)->where('name_voyant','JACQUEMIN')->get();
+                $Idc = message::where('id_user',Auth::user()->id)->where('id_send','!=',Auth::user()->id)->orderBy('created_at', 'desc')->first();
+        if($Idc != null){
+            if($Idc->id_send != null){
+
+                $to = $Idc->id_send;
+            }else{
+                $to = 0;
+            }
+        }else{
+            $to = 0;
+        }
         $user = User::where('id',Auth::user()->id)->first();
         $name_voyant = 'JACQUEMIN';
-        return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant]);
+        return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant, 'to'=>$to]);
 
     }
 
@@ -168,28 +203,74 @@ class MessagesController extends Controller
         }
         $message = message::where('id_user',Auth::user()->id)->where('name_voyant','SABINE')->get();
         $user = User::where('id',Auth::user()->id)->first();
+                $Idc = message::where('id_user',Auth::user()->id)->where('id_send','!=',Auth::user()->id)->orderBy('created_at', 'desc')->first();
+        if($Idc != null){
+            if($Idc->id_send != null){
+
+                $to = $Idc->id_send;
+            }else{
+                $to = 0;
+            }
+        }else{
+            $to = 0;
+        }
         $name_voyant = 'SABINE';
-        return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant]);
+        return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant,'to'=>$to]);
 
     }
 
     public function send(Request $request){
-        $message = new message;
-        $message->id_user = $request->id_user;
-        $message->id_send = Auth::user()->id;
-        $message->name_voyant = $request->name_voyant;
-        $message->message = $request->text;
-        $message->save();
-        User::where('id',$request->id_user)->update(['name_agent' => Auth::user()->name,'statut_m'=>0]);
-        CounvClient::where('id_user',$request->id_user)->where('name_voyant',$request->name_voyant)->update(['statut' => 1]);
 
-        $message = message::where('id_user',$request->id_user)->get();
-        $user = User::where('id',$request->id_user)->first();
-        $voyants = CounvClient::where('id_user',$request->id_user)->get();
+        $CounvClient = CounvClient::where('id_user',$request->id_user)->where('name_voyant',$request->name_voyant)->first();
+        if($CounvClient->statut == 0){
+
+            $message = new message;
+            $message->id_user = $request->id_user;
+            $message->id_send = Auth::user()->id;
+            $message->to = $request->id_user;
+            $message->name_voyant = $request->name_voyant;
+            $message->message = $request->text;
+            $message->save();
+            broadcast(new NewMessage($message));
+            User::where('id',$request->id_user)->update(['name_agent' => Auth::user()->name,'statut_m'=>0]);
+             CounvClient::where('id_user',$request->id_user)->where('name_voyant',$request->name_voyant)->update(['statut' => 1]);
+             $voyants = CounvClient::where('id_user',$request->id_user)->where('statut',0)->get();
+
+             if(count($voyants) > 0){
+
+                    $message = message::where('id_user',$request->id_user)->get();
+                    $user = User::where('id',$request->id_user)->first();
+                    $note = Note_client::where('id_user',$request->id_user)->get();
+                    $yes = message::where('id_user',$request->id_user)->orderBy('created_at', 'desc')->first();
+                    $Active = $yes->name_voyant;
+                    return response()->json(['message'=>$message,'user'=>$user,'voyants'=>$voyants,'note'=>$note,'Active'=>$Active]);
+             }
+        }
+            $message = 'null';
+            $user = 'null';
+            $voyants = 'null';
+            $note = 'null';
+            $yes = 'null';
+            $Active = 'null';
+            return response()->json(['message'=>$message,'user'=>$user,'voyants'=>$voyants,'note'=>$note,'Active'=>$Active]);
+
+    }
+
+    public function note(Request $request){
+        $note = new Note_client;
+        $note->id_user = $request->id_user;
+        $note->note = $request->note;
+        $note->save();
+
         $note = Note_client::where('id_user',$request->id_user)->get();
-        $yes = message::where('id_user',$request->id_user)->orderBy('created_at', 'desc')->first();
-        $Active = $yes->name_voyant;
-        return response()->json(['message'=>$message,'user'=>$user,'voyants'=>$voyants,'note'=>$note,'Active'=>$Active]);
+        return response()->json(['note'=>$note]);
+    }
+
+    public function getnote($id){
+
+        $note = Note_client::where('id_user',$id)->get();
+        dd($note);
+        return response()->json(['note'=>$note]);
     }
 
     public function senduser(Request $request){
@@ -201,34 +282,57 @@ class MessagesController extends Controller
                 $message = message::where('id_user',Auth::user()->id)->where('name_voyant',$request->name_voyant)->get();
                 $user = User::where('id',Auth::user()->id)->first();
                 $name_voyant = $request->name_voyant;
-                return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant,'v2'=>$v2]);
+                $Idc = message::where('id_user',Auth::user()->id)->where('id_send','!=',Auth::user()->id)->orderBy('created_at', 'desc')->first();
+                    if($Idc != null){
+                        if($Idc->id_send != null){
+
+                            $to = $Idc->id_send;
+                        }else{
+                            $to = 0;
+                        }
+                    }else{
+                        $to = 0;
+                    }
+                return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant,'v2'=>$v2,'to'=>$to]);
 
             }else{
-
                 $message = new message;
                 $message->id_user = Auth::user()->id;
                 $message->id_send = Auth::user()->id;
+                $message->to = $request->to;
                 $message->name_voyant = $request->name_voyant;
                 $message->message = $request->text;
                 $message->save();
                 $credit = Auth::user()->credit -1;
-
+                broadcast(new NewMessage($message));
                 User::where('id',Auth::user()->id)->update(['credit' => $credit,'statut_m'=> 1]);
                 $counv_clients = CounvClient::where('id_user',Auth::user()->id)->where('name_voyant',$request->name_voyant)->update(['statut' => 0]);
 
                 $message = message::where('id_user',Auth::user()->id)->where('name_voyant',$request->name_voyant)->get();
                 $user = User::where('id',Auth::user()->id)->first();
                 $name_voyant = $request->name_voyant;
-                return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant]);
+                $to = $request->to;
+                return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant,'to'=>$to]);
             }
 
         }else{
 
-            $v2 = 'credit insuffisant';
+            $v2 = 'credit insuffisant ';
+                $Idc = message::where('id_user',Auth::user()->id)->where('id_send','!=',Auth::user()->id)->orderBy('created_at', 'desc')->first();
+                    if($Idc != null){
+                        if($Idc->id_send != null){
+
+                            $to = $Idc->id_send;
+                        }else{
+                            $to = 0;
+                        }
+                    }else{
+                        $to = 0;
+                    }
             $message = message::where('id_user',Auth::user()->id)->where('name_voyant',$request->name_voyant)->get();
                 $user = User::where('id',Auth::user()->id)->first();
                 $name_voyant = $request->name_voyant;
-                return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant,'v2'=>$v2]);
+                return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant,'v2'=>$v2,'to'=>$to]);
         }
      }
 }

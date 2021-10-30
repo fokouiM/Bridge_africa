@@ -37,7 +37,33 @@ window.Echo = new Echo({
     broadcaster: 'pusher',
     key: process.env.MIX_PUSHER_APP_KEY,
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-    // forceTLS: false,
-    wsHost: window.location.hostname,
-    wsPost: 6001
+    forceTLS: true,
+    encrypter:true,
 });
+
+// window.Echo.channel('messages')
+// .listen('NenMessage', (e) => {
+// console.log(e)
+// });
+// window.Echo = new Echo({
+//     broadcaster: "pusher",
+//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+//     encrypted: true,
+//     key: process.env.MIX_PUSHER_APP_KEY,
+//     authorizer: (channel, options) => {
+//         return {
+//             authorize: (socketId, callback) => {
+//                 axios.post('/broadcasting/auth', {
+//                     socket_id: socketId,
+//                     channel_name: channel.name
+//                 })
+//                 .then(response => {
+//                     callback(false, response.data);
+//                 })
+//                 .catch(error => {
+//                     callback(true, error);
+//                 });
+//             }
+//         };
+//     },
+// });

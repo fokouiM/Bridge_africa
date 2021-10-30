@@ -2,22 +2,40 @@
         <div>
             <div class="card-body note">
                 <!--begin::Scroll-->
-                <div class="scroll scroll-pull ps ps--active-y" data-mobile-height="350"
-                    style="height: 295px; overflow: hidden;">
+                <div class=" scroll-pull " data-mobile-height="350"
+                    style="height: auto; ">
                     <!--begin::Messages-->
-                    <div v-if="contact">
-                        <div v-for="note in messages.note" :key="note.id">
-                            <div class="messages">
-                                <!--begin::Message In-->
-                                <div class="d-flex flex-column mb-5 align-items-start">
-                                    <div class="d-flex align-items-center">
+                    <div v-if="messages.note">
+                        <div v-if="notess">
+                            <div v-for="note in notess.note" :key="note.id">
+                                <div class="messages">
+                                    <!--begin::Message In-->
+                                    <div class="d-flex flex-column mb-5 align-items-start">
+                                        <div class="d-flex align-items-center">
+                                        </div>
+                                        <div class="mt-2 rounded p-5 text-dark-50 font-weight-bold font-size-lg text-left max-w-400px bg-light-success" >
+                                            {{note.note}}<br>
+                                            <!-- <span class="text-muted font-size-sm">{{message.created_at}}</span> -->
+                                        </div>
                                     </div>
-                                    <div class="mt-2 rounded p-5 text-dark-50 font-weight-bold font-size-lg text-left max-w-400px bg-light-success" >
-                                        {{note.note}}<br>
-                                        <!-- <span class="text-muted font-size-sm">{{message.created_at}}</span> -->
-                                    </div>
+                                    <!--end::Message In-->
                                 </div>
-                                <!--end::Message In-->
+                            </div>
+                        </div>
+                        <div v-else >
+                            <div v-for="note in messages.note" :key="note.id" >
+                                <div class="messages">
+                                    <!--begin::Message In-->
+                                    <div class="d-flex flex-column mb-5 align-items-start">
+                                        <div class="d-flex align-items-center">
+                                        </div>
+                                        <div class="mt-2 rounded p-5 text-dark-50 font-weight-bold font-size-lg text-left max-w-400px bg-light-success" >
+                                            {{note.note}}<br>
+                                            <!-- <span class="text-muted font-size-sm">{{message.created_at}}</span> -->
+                                        </div>
+                                    </div>
+                                    <!--end::Message In-->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -32,15 +50,14 @@
                 <!--end::Scroll-->
             </div>
             <div class="card-footer align-items-center" style="display: flex; padding: 10px; margin-left: 10px;">
-            <form id="app" @submit.prevent="checkForm" action="conversation/send" method="post" class="flex" >
-                <!--begin::Compose-->
-                <textarea id="message" v-model="text"   class="form-control border-0 p-0" required  placeholder="Message......"></textarea>
-                <div class="d-flex align-items-center justify-content-between mt-5">
+            <form id="app" @submit="checkFormone" action="conversation/note" method="post" class="flex" >
+                <input  v-model="note"   class="form-control messagesend" @keydown.enter="send" required  placeholder="Note client......">
+                <div class="d-flex align-items-center justify-content-between ">
                     <div>
-                        <button type="button" class="btn btn-primary ">Enregistré</button>
+                        <button type="submit" class="btn btn-primary ">Enregistré</button>
                     </div>
                 </div>
-                </form>
+            </form>
                 <!--begin::Compose-->
             </div>
 
@@ -61,6 +78,10 @@
             type:Array,
             require: true
         },
+        notess:{
+            type:Array,
+            require: true
+        },
         user:{
             type:Object,
             require: true
@@ -74,30 +95,31 @@
             require: true
         }
     },
-    data(){
+    data(messages){
         return{
-            text:'',
-            id_user : message.user.id,
+            note:'',
+            id_user : messages.user,
 
         }
     },
     methods:{
 
-        checkForm(e) {
-            // e.preventDefault();
-            axios.post('/conversation/send',{
-                text: this.text,
-                id_user: this.id_user,
-            })
-            console.log(this.id_user)
+        checkFormone(e) {
+            e.preventDefault();
+            axios.post('/conversation/note',{
+                note: this.note,
+                id_user: this.messages.user.id,
+            }).then((response) => {
+                this.notess = response.data;
+                this.selectedContact = contact;
 
-        //     if(this.message ==''){
-        //         return;
-        //     }
+            });
+             if(this.note == ''){
+                return;
+            }
+            this.$emit('send', this.note)
+            this.note = '';
 
-        //     this.$emit('send', this.message);
-        //     this.message = '';
-        // }
 
         },
     },
@@ -108,7 +130,8 @@
 
     background: #fff;
    margin-left: 10px;
-   height: 68vh;
+   height: 80vh;
+overflow: auto;
 }
 </style>
 

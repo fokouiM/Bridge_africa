@@ -8,7 +8,7 @@
                 <!--end::Header-->
 
                 <!--begin::Body-->
-                <messagesFeed :contact="contact" :messages="messages" />
+                <messagesFeed :contact="contact" :messages="messages"  />
                 <!--end::Body-->
 
                 <!--begin::Footer-->
@@ -16,6 +16,7 @@
                 <!--end::Footer-->
 
             </div>
+
 
             <!--end::Card-->
         </div>
@@ -34,6 +35,10 @@
                 default: null
             },
             messages:{
+                type:Array,
+                default: []
+            },
+            users:{
                 type:Array,
                 default: []
             },

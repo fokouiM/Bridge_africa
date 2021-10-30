@@ -17,7 +17,7 @@ return [
     |            "memcached", "redis", "dynamodb", "array"
     |
     */
-
+    'domain' => '.domain.com',
     'driver' => env('SESSION_DRIVER', 'file'),
 
     /*

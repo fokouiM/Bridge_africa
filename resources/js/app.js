@@ -4,6 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+const { default: Echo } = require('laravel-echo');
+
 require('./bootstrap');
 
 window.Vue = require('vue').default;
@@ -36,3 +38,6 @@ Vue.component('container', require('./components/Agent.vue').default);
 const app = new Vue({
     el: '#app',
 });
+
+
+

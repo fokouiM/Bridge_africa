@@ -14,7 +14,7 @@
 
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -333,6 +333,12 @@
     <!--begin::Page Scripts(used by this page)-->
     <script src="assets/js/pages/custom/login/login-general.js"></script>
     <!--end::Page Scripts-->
+    <script src="{{ asset('js/app.js') }}" ></script>
+    <script>
+        window.Laravel = {
+            csrfToken: "{{ csrf_token() }}"
+        };
+    </script>
 </body>
 <!--end::Body-->
 

@@ -18,6 +18,7 @@ class CreateMessagesTable extends Migration
             $table->string('id_user')->nullable();
             $table->string('id_send')->nullable();
             $table->string('statut')->nullable();
+            $table->string('to')->nullable();
             $table->integer('chat_room_id')->nullable();
             $table->string('name_voyant')->nullable();
             $table->text('message')->nullable();

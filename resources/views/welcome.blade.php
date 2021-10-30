@@ -45,7 +45,7 @@
 
                     <!--begin::Desc-->
                     <p class="mb-7">
-                        je possède un don divin de voyance depuis ma naissance mais au fil du temps je l'ai développé afin d'apporter la stabilité sur le plan sentimental. Je suis connecté à la flamme d'amour, je vous aide à connaitre et même retrouver votre âme sœur.L'Amour surpasse tout
+                        Je possède un don divin de voyance depuis ma naissance mais au fil du temps je l'ai développé afin d'apporter la stabilité sur le plan sentimental. Je suis connecté à la flamme d'amour, je vous aide à connaitre et même retrouver votre âme sœur.L'Amour surpasse tout
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
                         <span class="text-dark-75 font-weight-bolder mr-2">Avis(90)</span>
@@ -98,7 +98,7 @@
 
                     <!--begin::Desc-->
                     <p class="mb-7">
-                        je suis connecté aux énergies et je fais usage des supports pour lire votre avenir financier et vous aider à retrouver votre plan initial de vie. L'argent est ma spécialité et pour cela je vous aide à l'attirer et à le capter comme un aimant.
+                        Je suis connecté aux énergies et je fais usage des supports pour lire votre avenir financier et vous aider à retrouver votre plan initial de vie. L'argent est ma spécialité et pour cela je vous aide à l'attirer et à le capter comme un aimant.
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
                         <span class="text-dark-75 font-weight-bolder mr-2">Avis(112)</span>
@@ -146,14 +146,14 @@
 
                     <!--begin::Desc-->
                     <p class="mb-7">
-                        Dotée d'un pouvoir surbaturel,je traite tout probléme de famille par la méthode de claivoyance et je vous aide à retrouver la stabilité dans votre foyer.
+                        Dotée d'un pouvoir surbaturel,clair voyance je traite tout probléme de famille par la méthode de claivoyance et je vous aide à retrouver la stabilité dans votre foyer.
 
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
                         <span class="text-dark-75 font-weight-bolder mr-2">Avis(20)</span>
                         <a href="" class="text-muted text-hover-primary">
-                           <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
-                             <i class="la la-star-half-alt text-warning mr-5"></i> 2.75</a>
+                            <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
+                             <i class="la la-star-half-alt text-warning mr-5"></i> 3.75</a>
                     </div>
                     <!--end::Desc-->
                             <a href="messageJ"  class="btn btn-block btn-sm btn-light-primary font-weight-bolder text-uppercase py-4" >Message</a>
@@ -194,7 +194,7 @@
 
                     <!--begin::Desc-->
                     <p class="mb-7">
-                        par le pouvoir de la communion télépathique, je guide plusieurs personnes à retrouver la voie du travail. ce don est inné et j'exerce depuis 30 ans avec succès.
+                        Par le pouvoir de la communion télépathique, je guide plusieurs personnes à retrouver la voie du travail. ce don est inné et j'exerce depuis 30 ans avec succès.
 
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">

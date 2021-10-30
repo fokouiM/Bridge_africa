@@ -1,6 +1,6 @@
 <template>
   <div class="containt">
-    <div class="content flex-column-fluid" id="kt_content" style="width: 100%">
+    <div class="content flex-column-fluid" id="kt_content" style="width: 100%; padding: 0;">
       <span v-if="messages.v2">
         <div class="alert alert-custom alert-success fade show" role="alert">
           <div class="alert-icon"><i class="flaticon-warning"></i></div>
@@ -24,12 +24,13 @@
 
         <div class="flex-row-fluid" id="kt_chat_content">
           <!--begin::Card-->
-          <div class="card card-custom">
+          <div class="card card-custom" style="    height: 70vh;">
             <!--begin::Header-->
             <div class="card-header align-items-center px-4 py-3">
+                <credit />
               <div class="text-center flex-grow-1">
                 <div class="text-dark-75 font-weight-bold font-size-h5">
-                  <strong>{{ messages.name_voyant }}</strong>
+                  <strong>{{ messages.name_voyant }} </strong>
                 </div>
                 <div>
                   <span class="label label-sm label-dot label-success"></span>
@@ -39,15 +40,15 @@
             <!--end::Header-->
 
             <!--begin::Body-->
-            <div class="card-body">
+            <div class="card-body" style="background: whitesmoke; overflow: auto;">
               <!--begin::Scroll-->
               <div
-                class="scroll scroll-pull ps ps--active-y"
+                class=" scroll-pull ps--active-y"
                 data-mobile-height="350"
-                style="height: 295px; overflow: hidden"
+
               >
                 <!--begin::Messages-->
-                <div class="messages">
+                <div class="messages messagew" >
                   <!--begin::Message welcom-->
                   <div class="d-flex flex-column mb-5 align-items-start">
                     <div
@@ -73,9 +74,27 @@
                   <div v-for="message in messages.message" :key="message.id">
                     <!--begin::Message In-->
                     <span v-if="message.id_send == messages.user.id">
-                      <div class="d-flex flex-column mb-1 align-items-start">
+                      <div class="d-flex flex-column mb-1 align-items-end " >
                         <div
-                          class="
+                          class=" new-style
+                            mt-2
+                            rounded
+                            p-2
+                            bg-light-primary
+                            text-dark-50
+                            font-weight-bold font-size-lg
+                            text-right
+                          "
+                          style="font-size: 0.9em"
+                        >
+                          {{ message.message }}
+                        </div>
+                      </div>
+                    </span>
+                    <span v-else>
+                      <div class="d-flex flex-column mb-1 align-items-start ">
+                        <div
+                          class=" new-style
                             mt-2
                             rounded
                             p-2
@@ -83,7 +102,6 @@
                             text-dark-50
                             font-weight-bold font-size-lg
                             text-left
-                            max-w-400px
                           "
                           style="font-size: 0.9em"
                         >
@@ -93,27 +111,26 @@
                         </div>
                       </div>
                     </span>
-                    <span v-else>
-                      <div class="d-flex flex-column mb-1 align-items-end">
-                        <div
-                          class="
+                    <!--end::Message In-->
+                  </div>
+                    <div class="d-flex flex-column mb-1 align-items-start">
+                            <div
+                          class=" new-style
                             mt-2
                             rounded
                             p-2
-                            bg-light-primary
+                            bg-light-success
                             text-dark-50
                             font-weight-bold font-size-lg
-                            text-right
-                            max-w-400px
+                            text-left
                           "
                           style="font-size: 0.9em"
                         >
-                          {{ message.message }}
+
+                          {{ nextmessage }}<br />
                         </div>
                       </div>
-                    </span>
-                    <!--end::Message In-->
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -122,7 +139,7 @@
           <!--end::Body-->
 
           <!--begin::Footer-->
-          <form
+          <form ref="feed"
             id="app"
             @submit="checkForm"
             method="post"
@@ -141,6 +158,7 @@
                   type="text"
                   v-model="text"
                   required
+                  @keydown.enter="send"
                   class="form-control"
                   placeholder="Texte"
                   style="width: 90%"
@@ -175,17 +193,28 @@
 </template>
 
 <script>
+
+    import credit from './credit';
+
 export default {
   props: {
     messages: {
       type: Array,
       require: true,
     },
-    user: {
+    nextmessage: {
+      type: Array,
+      require: true,
+    },
+    users: {
       type: Object,
       require: true,
     },
     v2: {
+      type: Object,
+      require: true,
+    },
+    to: {
       type: Object,
       require: true,
     },
@@ -194,46 +223,86 @@ export default {
       require: true,
     },
   },
+
+  created(){
+      Echo.channel(`messages${this.users.id}`)
+            .listen('NewMessage',  (e) => {
+                //  this.hanleIncoming(e.message);
+            // this.message = e.message;
+            this.nextmessage = e.message.message
+
+        });
+  },
   mounted() {
-    axios.get("/conversationuers").then((response) => {
-      this.messages = response.data;
-    });
-    console.log(this.messages);
-  },
-  data(messages) {
-    return {
-      text: "",
-      id_user: messages.user,
-      name_voyant: messages.name_voyant,
-    };
-  },
 
-  methods: {
-    checkForm(e) {
-      e.preventDefault();
-      axios
-        .post("/conversation/senduser", {
-          text: this.text,
-          id_user: this.messages.user.id,
-          name_voyant: this.messages.name_voyant,
-        })
-        .then((response) => {
+
+      axios.get("/conversationuers").then((response) => {
           this.messages = response.data;
-        }),
-        console.log(this.messages.name_voyant);
-    },
-    scrollToBottom() {
-      setTimeout(() => {
-        this.$refs.feed.scrollTop =
-          this.$refs.feed.scrollHeight - this.$refs.feed.clientHeight;
-      }, 50);
-    },
-  },
+    })
 
-  watch: {
-    messages(messages) {
-      this.scrollToBottom();
-    },
   },
-};
+  data(messages ){
+        return{
+            text:'',
+            id_user : messages.user,
+            name_voyant : messages.name_voyant,
+            to : messages.to
+
+        }
+    },
+
+  methods:{
+
+        checkForm(e) {
+            e.preventDefault();
+            axios.post('/conversation/senduser',{
+                text: this.text,
+                id_user: this.messages.user.id,
+                name_voyant: this.messages.name_voyant,
+                to: 2,
+            }).then((response) => {
+                this.messages = response.data;
+                this.nextmessage = '';
+            });
+            if(this.text == ''){
+                return;
+            }
+            this.$emit('send', this.text)
+            this.text = '';
+
+
+        },
+        // saveNewMessage(text){
+        //         this.messages.push(text);
+        //     },
+        scrollToBottom(){
+            setTimeout(()=>{
+
+                this.$refs.feed.scrollTop = this.$refs.feed.scrollHeight - this.$refs.feed.clientHeight;
+            },50);
+        },
+        hanleIncoming(message){
+
+                    this.messages.push(message);
+                    this.saveNewMessage(message);
+
+                alert(message.message);
+            }
+    },
+
+    watch:{
+        messages(messages){
+            this.scrollToBottom();
+        }
+
+    },
+        components : {credit}
+    };
 </script>
+<style>
+ .tex-credit{
+     text-align: center;
+    background: #fff;
+    padding: 8px 0;
+ }
+</style>

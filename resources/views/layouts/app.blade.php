@@ -8,7 +8,7 @@
     <title>Voyance Auracle</title>
     <meta name="description" content="User 4 columns listing" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="csrf-token" content="{{csrf_token()}}"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
@@ -200,6 +200,7 @@
                     </div>
                     <!--end::Container-->
                 </div>
+                
                 <!--end::Header-->
                 <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
                     <div class=" container ">
@@ -418,6 +419,11 @@
     <script src="assets/js/pages/custom/chat/chat.js"></script>
     <!--end::Page Scripts-->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        window.Laravel = {
+            csrfToken: "{{ csrf_token() }}"
+        };
+</script>
 
 
 </body>

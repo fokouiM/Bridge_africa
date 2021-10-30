@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_message')
 
 @section('content')
 
@@ -6,7 +6,7 @@
     <message></message>
 </div> --}}
 <div id="app">
-    <messageb ></messageb>
+    <messageb :users="{{auth()->user()}}"></messageb>
 </div>
 
 @endsection

@@ -15,7 +15,7 @@ export default {
                 type:Array,
                 require: true
             },
-            user:{
+            users:{
                 type:Object,
                 require: true
             },

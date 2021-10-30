@@ -1,7 +1,19 @@
 @extends('layouts.app')
 
+
 @section('content')
-    <div class="content flex-column-fluid" id="kt_content">
+<div class="content flex-column-fluid" id="kt_content">
+            @if (!empty($status) || Session::get('status'))
+                <div class="alert alert-custom alert-success fade show" role="alert">
+                    <div class="alert-icon"><i class="flaticon-warning"></i></div>
+                    <strong class="alert-text">{{ $status ?? Session::get('status')}}</strong>
+                    <div class="alert-close">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close" >
+                            <span aria-hidden="true"><i class="ki ki-close"></i></span>
+                        </button>
+                    </div>
+                </div>
+            @endif
         <!--begin::Card-->
         <div class="card card-custom gutter-b">
             <div class="card-header">
@@ -47,7 +59,11 @@
                             <!--begin::Content-->
                             <span class="font-size-h1 d-block d-block font-weight-boldest text-dark-75 py-2">4 <sup class="font-size-h3 font-weight-normal pl-1">€</sup></span>
                             <h4 class="font-size-h6 d-block d-block font-weight-bold mb-7 text-dark-50">5 credits</h4>
-                            <a href="#" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3"> payer</a>
+                            <form action="mollie-create-payment" method="POST">
+                                @csrf
+                                <input type="hidden" name="prix" value="4.00">
+                                <button type="submit" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3"> payer</button>
+                            </form>
                             <!--end::Content-->
                         </div>
                     </div>
@@ -85,7 +101,11 @@
                             <!--begin::Content-->
                             <span class="font-size-h1 d-block font-weight-boldest text-dark-75 py-2">12<sup class="font-size-h3 font-weight-normal pl-1">€</sup></span>
                             <h4 class="font-size-h6 d-block font-weight-bold mb-7 text-dark-50">15 credits + 2credits bonus</h4>
-                            <a href="#" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3">payer</a>
+                            <form action="mollie-create-payment" method="POST">
+                                @csrf
+                                <input type="hidden" name="prix" value="12.00">
+                                <button type="submit" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3"> payer</button>
+                            </form>
                             <!--end::Content-->
                         </div>
                     </div>
@@ -123,7 +143,11 @@
                             <!--begin::Content-->
                             <span class="font-size-h1 d-block font-weight-boldest text-dark-75 py-2"> 28 <sup class="font-size-h3 font-weight-normal pl-1">€</sup></span>
                             <h4 class="font-size-h6 d-block font-weight-bold mb-7 text-dark-50">30credits 4credits bonus</h4>
-                            <a href="#" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3">Payer</a>
+                            <form action="mollie-create-payment" method="POST">
+                                @csrf
+                                <input type="hidden" name="prix" value="28.00">
+                                <button type="submit" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3"> payer</button>
+                            </form>
                             <!--end::Content-->
                         </div>
                     </div>
@@ -172,8 +196,11 @@
                             <span class="font-size-h1 d-block font-weight-boldest text-dark-75 py-2">7<sup class="font-size-h3 font-weight-normal pl-1">€</sup></span>
                             <h4 class="font-size-h6 d-block font-weight-bold mb-7 text-dark-50">5 credits</h4>
                             <div class="d-flex justify-content-center">
-                                <button type="button"
-                                    class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3">Payer</button>
+                                    <form action="mollie-create-payment" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="prix" value="7.00">
+                                        <button type="submit" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3"> payer</button>
+                                    </form>
                             </div>
                         </div>
                     </div>
@@ -208,8 +235,11 @@
                             <span class="font-size-h1 d-block font-weight-boldest text-dark-75 py-2">21<sup class="font-size-h3 font-weight-normal pl-1">€</sup></span>
                             <h4 class="font-size-h6 d-block font-weight-bold mb-7 text-dark-50"> 15 credits + 3 crédits bonus</h4>
                             <div class="d-flex justify-content-center">
-                                <button type="button"
-                                    class="btn btn-success text-uppercase font-weight-bolder px-15 py-3">Payer</button>
+                                    <form action="mollie-create-payment" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="prix" value="21.00">
+                                        <button type="submit" class="btn btn-success text-uppercase font-weight-bolder px-15 py-3"> payer</button>
+                                    </form>
                             </div>
                         </div>
                     </div>
@@ -241,8 +271,11 @@
                             <span class="font-size-h1 d-block font-weight-boldest text-dark-75 py-2">42 <sup class="font-size-h3 font-weight-normal pl-1">€</sup></span>
                             <h4 class="font-size-h6 d-block font-weight-bold mb-7 text-dark-50"> 30 credits + 5crédits bonus</h4>
                             <div class="d-flex justify-content-center">
-                                <button type="button"
-                                    class="btn btn-warning text-uppercase font-weight-bolder px-15 py-3">Purchase</button>
+                                    <form action="mollie-create-payment" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="prix" value="42.00">
+                                        <button type="submit" class="btn btn-warning text-uppercase font-weight-bolder px-15 py-3"> payer</button>
+                                    </form>
                             </div>
                         </div>
                     </div>

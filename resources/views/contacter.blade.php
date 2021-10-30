@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="wizard wizard-1" id="kt_wizard_v1" data-wizard-state="first" data-wizard-clickable="false" style="width: 100%;">
+
         <!--begin::Wizard Body-->
         <div class="row justify-content-center my-10 px-8 my-lg-15 px-lg-10">
             <div class="col-xl-12 col-xxl-7">
@@ -17,7 +18,7 @@
                     </div>
                 @endif
                 <!--begin::Wizard Form-->
-                <form class="form " method="POST" action="sendContact" >
+                <form class="form " method="POST" action="send_mail" >
                     @csrf
                     <!--begin::Wizard Step 1-->
                     <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
@@ -35,11 +36,6 @@
                             <label>Email</label>
                             <input type="email" class="form-control form-control-solid form-control-lg" name="email" placeholder="Email" required>
                             <span class="form-text text-muted">Email.</span>
-                        </div>
-                        <div class="form-group">
-                            <label>Objet</label>
-                            <input type="text" class="form-control form-control-solid form-control-lg" name="objet" placeholder="Obejet" required>
-                            <span class="form-text text-muted">Obejet.</span>
                         </div>
                         <div class="form-group">
                             <label>Message</label>

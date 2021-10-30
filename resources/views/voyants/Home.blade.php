@@ -3,6 +3,6 @@
 @section('content_agent')
 
 <div id="app">
-    <container></container>
+    <container :users="{{auth()->user()}}"></container>
 </div>
 @endsection

@@ -242,7 +242,7 @@
                         <!--begin::Copyright-->
                         <div class="text-dark order-2 order-md-1">
                             <span class="text-muted font-weight-bold mr-2">2021&copy;</span>
-                            <a href="" target="_blank" class="text-white text-hover-primary">voyance auracle tous drois reserver</a>
+                            <a href="" target="_blank" class="text-white text-hover-primary">Voyance-auracle.fr tous droits réservés</a>
                         </div>
                         <div class="text-dark order-2 order-md-1">
                         </div>

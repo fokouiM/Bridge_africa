@@ -380,7 +380,7 @@
                         <!--begin::Copyright-->
                         <div class="text-dark order-2 order-md-1">
                             <span class="text-muted font-weight-bold mr-2">2021&copy;</span>
-                            <a href="home" target="_blank" class="text-white text-hover-primary">Voyance auracle tous droits reserver</a>
+                            <a href="home" target="_blank" class="text-white text-hover-primary">Voyance-auracle.fr tous droits réservés</a>
                         </div>
                         <!--end::Copyright-->
 
@@ -490,7 +490,7 @@
     <!--begin::Page Scripts(used by this page)-->
     <script src="assets/js/pages/crud/file-upload/image-input.js"></script>
     <!--end::Page Scripts-->
-    
+
     <!--begin::Page Vendors(used by this page)-->
     <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
     <!--end::Page Vendors-->

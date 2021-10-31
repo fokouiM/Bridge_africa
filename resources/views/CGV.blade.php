@@ -91,7 +91,7 @@
                         <span class="font-weight-bold mr-15">(i) Le catalogue et la description de ces Services (ci-après dénommés le  » Catalogue des services « ) est sur la page PACKS <br>
                                     Les utilisateurs sont informés par email des éventuelles modifications tarifaires (nouvelles formules forfaitaires, nouveaux services, offres promotionnelles). Dans le cadre de ses prestations de service, il est entendu que voyance-auracle est tenu à une obligation de moyen et non de résultat. Pour être au plus proche des attentes de ses clients et mettre en oeuvre tous les moyens pour les satisfaire, voyance-auracle.fr propose un Service Clients, dont les modalités d’accès sont précisés en article 6 et le lien à chaque bas de page du site.<br>
                                     (ii) Le prix définitif est fixé dans les conditions particulières de la commande, après application des réductions éventuelles, et comptabilisation de la taxes dues. La preuve du prix de la commande est consignée dans la facture dressée au moment de la commande et dont le client est mis en possession directement sur le Site. Le prix définitif ainsi défini est ferme et définitif.<br>
-                                    (iii) Le service est exclusivement fourni en ligne et toute intervention sur site fera l’objet d’un devis préalable. 
+                                    (iii) Le service est exclusivement fourni en ligne et toute intervention sur site fera l’objet d’un devis préalable.
 
 
                         </span>
@@ -110,12 +110,11 @@
 
 
                     <div class="d-flex justify-content-between font-size-lg">
-                        <span class="font-weight-bold mr-15">Pour le paiement sécurisé en ligne, le client est envoyé sur le serveur Cyberplus Paiement de la Banque Populaire.<br>
-                        La Banque Populaire assume la sécurité de la transaction dès lors que le client est envoyé sur le serveur.<br>
-                        La commande ne sera validée par Cyberworkers.com que lorsque le serveur bancaire aura donné son autorisation à la transaction. Afin d’assurer la sécurité des transactions sur Internet, La Banque Populaire utilise le système de cryptage en ligne SSL (Secure Socket Layer) qui permet de crypter, avec une clé de 40 bits ou 128 bits (suivant les possibilités du navigateur du client), les coordonnées bancaires saisies par le client.<br>
-                        Il est expressément convenu que la validation des présentes conditions équivaut à une autorisation de prélèvement.<br>
-                        Ceci pour faciliter le paiement, par exemple, lorsque le système de commerce électronique est indisponible, lorsque la carte bancaire du client est en expiration ou pour solder le compte du client dans le cas d’une annulation (cf. article 5, ci-après). Dans ce cas Cyberworkers.com effectue le prélèvement sur le compte bancaire selon le RIB fourni par le client à l’issue de sa commande.
- 
+                        <span class="font-weight-bold mr-15">Pour le paiement sécurisé en ligne, le client est envoyé sur le serveur Mollie situé dans les centres de données extrêmement protégés.
+                            Mollie assume la sécurité de la transaction dès lors que le client est envoyé sur le serveur.<br>
+                            Afin d’assurer la sécurité des transactions sur Internet, Mollie utilise le système 3D secure pour crypter les données bancaires des clients. Il est expressément convenu que la validation des présentes conditions équivaut à une autorisation de prélèvement.<br>
+                            Mollie dispose de la certification au niveau 1 de la norme PCI-DSS. Cela prouve le niveau de sécurité. Aussi Mollie est conforme aux normes établies par les autorités européennes en termes de sécurité des paiements en ligne
+
 
 
                         </span>
@@ -130,7 +129,7 @@
         <div class="col-md-12 border-top pt-14 pb-10 pb-md-18" >
             <div class="d-flex flex-column flex-md-row">
                 <div class="d-flex flex-column">
-                    <div class="font-weight-bold font-size-h6 mb-3"> <h4>ARTICLE 5. FRAIS DE RÉSILIATION</h4></div>
+                    <div class="font-weight-bold font-size-h6 mb-3"> <h4>ARTICLE 4. FRAIS DE RÉSILIATION</h4></div>
 
 
                     <div class="d-flex justify-content-between font-size-lg">
@@ -148,7 +147,7 @@
         <div class="col-md-12 border-top pt-14 pb-10 pb-md-18" >
             <div class="d-flex flex-column flex-md-row">
                 <div class="d-flex flex-column">
-                    <div class="font-weight-bold font-size-h6 mb-3"> <h4>ARTICLE 6. SERVICE CLIENTS</h4></div>
+                    <div class="font-weight-bold font-size-h6 mb-3"> <h4>ARTICLE 5. SERVICE CLIENTS</h4></div>
 
 
                     <div class="d-flex justify-content-between font-size-lg">
@@ -168,7 +167,7 @@
         <div class="col-md-12 border-top pt-14 pb-10 pb-md-18" >
             <div class="d-flex flex-column flex-md-row">
                 <div class="d-flex flex-column">
-                    <div class="font-weight-bold font-size-h6 mb-3"> <h4>ARTICLE 8. DIVISIBILITÉ</h4></div>
+                    <div class="font-weight-bold font-size-h6 mb-3"> <h4>ARTICLE 6. DIVISIBILITÉ</h4></div>
 
 
                     <div class="d-flex justify-content-between font-size-lg">
@@ -186,11 +185,11 @@
         <div class="col-md-12 border-top pt-14 pb-10 pb-md-18" >
             <div class="d-flex flex-column flex-md-row">
                 <div class="d-flex flex-column">
-                    <div class="font-weight-bold font-size-h6 mb-3"> <h4>ARTICLE 9. LITIGES</h4></div>
+                    <div class="font-weight-bold font-size-h6 mb-3"> <h4>ARTICLE 7. LITIGES</h4></div>
 
 
                     <div class="d-flex justify-content-between font-size-lg">
-                        <span class="font-weight-bold mr-15">Les parties au présent contrat s’engagent à tout faire pour essayer de régler à l’amiable tout litige qui pourrait éventuellement naître de l’exécution du présent contrat. Toutefois, si aucune issue n’était trouvée, le litige serait porté à la connaissance du tribunal de commerce de ??????.
+                        <span class="font-weight-bold mr-15">Les parties au présent contrat s’engagent à tout faire pour essayer de régler à l’amiable tout litige qui pourrait éventuellement naître de l’exécution du présent contrat. Toutefois, si aucune issue n’était trouvée, le litige serait porté à la connaissance du tribunal de Grand instance de Dijon.
 
                         </span>
                     </div>

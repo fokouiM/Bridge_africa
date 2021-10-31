@@ -74,8 +74,9 @@ class User_infoController extends Controller
         $User->save();
         $user_in = User::where('email',$name)->first();
         $Liste_tag = new Liste_tag;
-        $Liste_tag->id_user = $user_in->name;
-        $Liste_tag->time = "00";
+        $Liste_tag->id_user = $user_in->id;
+        $Liste_tag->time = "0";
+        $Liste_tag->tmessage = "0";
         $Liste_tag->save();
         $v2 = 'Agent a bien étè créer. nom l\'utilisateur : ' .$name. ' | mot de passe : '.$request->password;
 
@@ -83,22 +84,10 @@ class User_infoController extends Controller
     }
 
 
-    public function save_time(Request $request)
-    {
-        $id = $request->name;
-        $time = (int)$request->time;
-        $tag = Liste_tag::where('id_user',$id)->first();
-        $new_time = $time  + (int)$tag->time;
-            Liste_tag::where('id_user',$id)->update(['time' => $new_time,]);
-            // Liste_tag::where('id',$id)->update(['time' => 00,]);
-
-            return redirect()->route('home');
-    }
-
 
     public function finMoi($id)
     {
-            Liste_tag::where('id',$id)->update(['time' => 00,]);
+            Liste_tag::where('id',$id)->update(['time' => 0,'tmessage'=>0]);
 
             return redirect()->route('voyants');
     }
@@ -112,8 +101,7 @@ class User_infoController extends Controller
     }
 
     public function deleteClient($id)
-    {       $user = User::where('id',$id)->first();
-            Liste_tag::where('id',$user->name)->delete();
+    {
             User::where('id',$id)->delete();
 
             return redirect()->route('clients');

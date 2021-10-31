@@ -2,6 +2,17 @@
 
 @section('content_admin')
 <div class="main d-flex flex-column flex-row-fluid">
+    @if (isset($_GET['v2']))
+            <div class="alert alert-custom alert-success fade show" role="alert">
+                <div class="alert-icon"><i class="flaticon-warning"></i></div>
+                <div class="alert-text">{{$_GET['v2']}}</div>
+                <div class="alert-close">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="ki ki-close"></i></span>
+                    </button>
+                </div>
+            </div>
+        @endif
     <div class="content flex-column-fluid" id="kt_content">
         <div class="alert alert-custom alert-white alert-shadow gutter-b" role="alert">
             <div class="alert-icon">
@@ -27,67 +38,19 @@
             </div>
         </div>
         <!--begin::Card-->
+
         <div class="card card-custom">
-            <div class="card-header flex-wrap border-0 pt-6 pb-0">
+            <div class="card-header py-3">
                 <div class="card-title">
-                    <h3 class="card-label">
-                        Liste des clients
-                        <span class="d-block text-muted pt-2 font-size-sm"></span>
-                    </h3>
-                </div>
-                <div class="card-toolbar">
-                    <!--begin::Dropdown-->
-                    <div class="dropdown dropdown-inline mr-2">
-                        <button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="la la-download"></i> Export
-                        </button>
-                        <!--begin::Dropdown Menu-->
-                        <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-                            <ul class="nav flex-column nav-hover">
-                                <li class="nav-header font-weight-bolder text-uppercase  text-primary pb-2">
-                                    Choose an option:
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="nav-icon la la-print"></i>
-                                        <span class="nav-text">Print</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="nav-icon la la-copy"></i>
-                                        <span class="nav-text">Copy</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="nav-icon la la-file-excel-o"></i>
-                                        <span class="nav-text">Excel</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="nav-icon la la-file-text-o"></i>
-                                        <span class="nav-text">CSV</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="nav-icon la la-file-pdf-o"></i>
-                                        <span class="nav-text">PDF</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!--end::Dropdown Menu-->
-                    </div>
-                    <!--end::Dropdown-->
+                    <span class="card-icon"><i
+                            class="flaticon2-shopping-cart text-primary"></i></span>
+                    <h3 class="card-label">Export Tools</h3>
                 </div>
             </div>
             <div class="card-body">
                 <!--begin: Datatable-->
-                <table class="table table-separate table-head-custom table-checkable" id="kt_datatable_2">
+                <table class="table table-separate table-head-custom table-checkable"
+                    id="kt_datatable1">
                     <thead>
                         <tr>
                             <th>Record ID</th>
@@ -97,8 +60,9 @@
                             <th>Credit</th>
                             <th>C.affaire</th>
                             <th>Date inscri</th>
+                            <th>add credit</th>
                             <th>Actions</th>
-                        </tr>
+                    </tr>
                     </thead>
 
                     <tbody>
@@ -111,7 +75,16 @@
                             <td>{{$cl->credit}}</td>
                             <td>{{$cl->affaire}}.€</td>
                             <td>{{$cl->created_at}}</td>
-                            <td> <a href="delete_client{{$cl->id}}" class="btn btn-icon btn-danger"><i class="flaticon2-rubbish-bin "></i></a></td>
+                            <td>
+                                <form action="addcredit" method="POST">
+                                    @csrf
+                                    <input type="number" name="credit" id="" style="width: 50px">
+                                    <input type="hidden" name="id" value="{{$cl->id}}" >
+                                    <button class="btn btn-icon btn-success btn-sm mr-2" type="submit"><i class="flaticon-shopping-basket "></i></button>
+
+                                </form>
+                            </td>
+                            <td> <a href="delete_client{{$cl->id}}" class=" btn btn-icon btn-danger btn-sm mr-2"><i class="flaticon2-rubbish-bin "></i></a></td>
 
                         </tr>
                         @endforeach

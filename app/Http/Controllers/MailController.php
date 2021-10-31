@@ -41,7 +41,7 @@ class MailController extends Controller
 			$objet = $request->objet;
 
 					$to = "Email: contact@voyance-auracle.fr, hunterbrightdesign@gmail.com";
-					$subject = "webplan site";
+					$subject = "voyance-auracle.f";
 
 					$message = "
 					<html>
@@ -51,7 +51,6 @@ class MailController extends Controller
 						table {
 							border-collapse: collapse
 						}
-
 						th {
 							background: #8c8b8c;
 							color:#fff;
@@ -105,7 +104,7 @@ class MailController extends Controller
 			$message = $request->message;
 
 					$to = "Email: contact@voyance-auracle.fr, hunterbrightdesign@gmail.com";
-					$subject = "webplan site";
+					$subject = "voyance-auracle.f";
 
 					$message = "
 					<html>
@@ -115,7 +114,6 @@ class MailController extends Controller
 						table {
 							border-collapse: collapse
 						}
-
 						th {
 							background: #8c8b8c;
 							color:#fff;
@@ -177,7 +175,6 @@ class MailController extends Controller
                             table {
                                 border-collapse: collapse
                             }
-
                             p {
                                 background: #8c8b8c;
                                 color:#fff;
@@ -201,8 +198,8 @@ class MailController extends Controller
                         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
                         // More headers
-                        $headers .= 'From: <contact@voyance-auracle.fr>' . "\r\n";
-                        $headers .= 'Cc: contact@voyance-auracle.fr' . "\r\n";
+                        $headers .= 'From: <voyance-auracle@voyance-auracle.fr>' . "\r\n";
+                        $headers .= 'Cc: voyance-auracle@voyance-auracle.fr' . "\r\n";
 
                 mail($to,$subject,$message,$headers);
             }
@@ -229,7 +226,6 @@ class MailController extends Controller
                                 table {
                                     border-collapse: collapse
                                 }
-
                                 p {
                                     background: #8c8b8c;
                                     color:#fff;
@@ -253,8 +249,8 @@ class MailController extends Controller
                         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
                         // More headers
-                        $headers .= 'From: <contact@voyance-auracle.fr>' . "\r\n";
-                        $headers .= 'Cc: contact@voyance-auracle.fr' . "\r\n";
+                        $headers .= 'From: <voyance-auraclet@voyance-auracle.fr>' . "\r\n";
+                        $headers .= 'Cc: voyance-auracle@voyance-auracle.fr' . "\r\n";
 
                 mail($to,$subject,$message,$headers);
 

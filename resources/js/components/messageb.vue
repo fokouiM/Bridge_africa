@@ -53,14 +53,14 @@
                   <div class="d-flex flex-column mb-5 align-items-start">
                     <div
                       class="mt-2 rounded p-5 font-weight-bold text-left"
-                      style="background-color: #01e303d4; color: #fff"
+                      style="background: antiquewhite;color: #6c6b6bf2 "
                     >
                       Bonjour {{ messages.user.name }} et merci pour votre
                       inscription. Déjà vous devez savoir que vous ne payez pas
                       du temps sur le site mais des crédits. Ainsi, 1 message
                       que vous envoyez est égal à 1 crédit, alors nous vous
                       proposons une voyance exclusive à partir de
-                      <strong>0,80€(moins chère qu'un Sms). </strong> Vous
+                      <strong>1.25€(toute taxe comprise pour une voyance de qualité profesionnel ). </strong> Vous
                       pouvez donc oublier les voyances hors de prix.Sur
                       voyance-auracle.fr nous vous révélons votre avenir et les
                       solutions pour contourner les obstacles à votre bonheur,

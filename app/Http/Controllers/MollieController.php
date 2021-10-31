@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Mollie\Laravel\Facades\Mollie;
 use Illuminate\Support\Facades\Auth;
 use App\Models\user;
+use App\Models\paylist;
 
 class MollieController extends Controller
 {
@@ -40,7 +41,6 @@ class MollieController extends Controller
         }
 
         // Creating Payment
-        // dd($request->prix);
         $payment = Mollie::api()->customers->get($mollie_customer_id)->createPayment([
             "amount" => [
                "currency" => "EUR",
@@ -81,6 +81,10 @@ class MollieController extends Controller
 
         }
 
+        $paylist = new paylist;
+        $paylist->id_user = Auth::user()->id;
+        $paylist->value = $request->prix;
+        $paylist->save();
 
         // redirect customer to Mollie checkout page
         return redirect($payment->getCheckoutUrl(), 303);

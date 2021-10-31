@@ -26,63 +26,58 @@
                     Liste des voyants et detail.
                 </div>
             </div>
-            <!--begin::Card-->
             <div class="card card-custom">
-                <div class="card-header flex-wrap border-0 pt-6 pb-0">
+                <div class="card-header py-3">
                     <div class="card-title">
-                        <h3 class="card-label">
-                            Liste des clients
-                            <span class="d-block text-muted pt-2 font-size-sm"></span>
-                        </h3>
+                        <span class="card-icon"><i
+                                class="flaticon2-shopping-cart text-primary"></i></span>
+                        <h3 class="card-label">Export Tools</h3>
                     </div>
-                    <div class="card-toolbar">
-
-                        <!--begin::Button-->
-                        <a href="add_users" class="btn btn-primary font-weight-bolder"><i class="la la-plus"></i> Ajouter
-                            un voyants </a>
-                        <!--end::Button-->
-                    </div>
+                    <a href="add_users" class="btn btn-primary font-weight-bolder"><i class="la la-plus"></i> Ajouter
+                        un voyants </a>
                 </div>
-            </div><br><br>
-            <!--end::Card-->
-            <div class="card-body">
-                <!--begin: Datatable-->
-                <table class="table table-separate table-head-custom table-checkable" id="kt_datatable_2">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nom</th>
-                            <th>M_message</th>
-                            <th>Moyenne</th>
-                            <th>Date créer</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
+                <div class="card-body">
+                    <!--begin: Datatable-->
+                    <table class="table table-separate table-head-custom table-checkable"
+                        id="kt_datatable1">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>temps/minute</th>
+                                <th>M.message</th>
+                                <th>Date créer</th>
+                                <th>Date mise a jour</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        @foreach ($tag as $tg)
-                        @foreach ($liste_voyants as $lv)
-                        @if ($tg->id_user === $lv->name)
-                        <tr>
-                            <td>{{$lv->id}} </td>
-                            <td>{{$lv->name}}</td>
-                            <td>{{$tg->time}} </td>
-                            <td>{{$lv->affaire}} </td>
-                            <td>{{$tg->updated_at}}</td>
-                            <td>
-                            <a href="finMoi{{$tg->id}}" class="btn btn-icon btn-success"><i class="la la-box "></i></a>
-                            {{-- <a href="finMoi{{$tg->id}}" class="btn btn-icon btn-outline-success"> <i class="flaticon2-pie-chart"></i></a> --}}
-                            <a href="delete_Agent{{$lv->id}}" class="btn btn-icon btn-danger"><i class="flaticon2-rubbish-bin "></i></a>
-                            </td>
-                        </tr>
-                        @endif
-                        @endforeach
-                        @endforeach
+                        <tbody>
+                            @foreach ($tag as $tg)
+                            @foreach ($liste_voyants as $lv)
+                            @if ($tg->id_user == $lv->id)
+                            <tr>
+                                <td>{{$lv->id}} </td>
+                                <td>{{$lv->name}}</td>
+                                <td>{{$tg->time}} </td>
+                                <td>{{$tg->tmessage}} </td>
+                                <td>{{$lv->created_at}}</td>
+                                <td>{{$lv->updated_at}}</td>
+                                <td>{{$lv->statut}}</td>
+                                <td>
+                                <a href="finMoi{{$tg->id}}" class="btn btn-icon btn-success"><i class="la la-box "></i></a>
+                                <a href="delete_Agent{{$lv->id}}" class="btn btn-icon btn-danger"><i class="flaticon2-rubbish-bin "></i></a>
+                                </td>
+                            </tr>
+                            @endif
+                            @endforeach
+                            @endforeach
+                        </tbody>
 
-                    </tbody>
-
-                </table>
-                <!--end: Datatable-->
+                    </table>
+                    <!--end: Datatable-->
+                </div>
             </div>
         </div>
     </div>

@@ -9,7 +9,12 @@ use App\Models\message;
 use App\Models\User;
 use App\Models\Note_client;
 use App\Models\CounvClient;
+use Facade\FlareClient\Http\Client;
 use Illuminate\Support\Facades\Cookie;
+use Mollie\Laravel\Facades\Mollie;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
+use App\Models\Liste_tag;
 
 class MessagesController extends Controller
 {
@@ -220,10 +225,10 @@ class MessagesController extends Controller
     }
 
     public function send(Request $request){
-
         $CounvClient = CounvClient::where('id_user',$request->id_user)->where('name_voyant',$request->name_voyant)->first();
+        $timeMessage = message::where('id_user',$request->id_user)->where('name_voyant',$request->name_voyant)->where('id_send',$request->id_user)->orderBy('created_at', 'desc')->first();
+        $this->TimeMessage($timeMessage);
         if($CounvClient->statut == 0){
-
             $message = new message;
             $message->id_user = $request->id_user;
             $message->id_send = Auth::user()->id;
@@ -233,6 +238,7 @@ class MessagesController extends Controller
             $message->save();
             broadcast(new NewMessage($message));
             User::where('id',$request->id_user)->update(['name_agent' => Auth::user()->name,'statut_m'=>0]);
+
              CounvClient::where('id_user',$request->id_user)->where('name_voyant',$request->name_voyant)->update(['statut' => 1]);
              $voyants = CounvClient::where('id_user',$request->id_user)->where('statut',0)->get();
 
@@ -335,4 +341,18 @@ class MessagesController extends Controller
                 return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant,'v2'=>$v2,'to'=>$to]);
         }
      }
+
+     public function TimeMessage($timeMessage){
+
+         $newdate = strtotime($timeMessage->created_at);
+         $newdateone = strtotime(Date('Y-m-d H:i:s'));
+         $hello = abs( $newdateone - $newdate)/60;
+         $tag = Liste_tag::where('id_user', Auth::user()->id)->first();
+         $tmessage = $tag->tmessage +1;
+         $time = $tag->time + $hello;
+
+          Liste_tag::where('id_user',Auth::user()->id)->update(['time' => $time,'tmessage'=>$tmessage]);
+
+    }
+
 }

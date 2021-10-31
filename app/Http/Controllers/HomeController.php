@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Carbon;
+use App\Models\paylist;
 
 class HomeController extends Controller
 {
@@ -38,40 +39,42 @@ class HomeController extends Controller
                 return view('welcome');
 
             }elseif(Auth::user()->statut == 2){
-                $dateM = carbon::today()->subDays(30);
-                $dateS = carbon::today()->subDays(7);
-                $client = User::where('statut',0)->get();
-                $clientM = User::where('statut',0)->where('updated_at','>',$dateM)->get();
-                $clientS = User::where('statut',0)->where('updated_at','>',$dateS)->get();
-                $agent = User::where('statut',1)->get();
-                $venteM = 0;
-                $venteS = 0;
-                $vente = 0;
-                $clientT = 0;
-                $credit = 0;
-                $agentT = 0;
-                foreach($client as $cl){
+                $dateone = carbon::today()->subDays(30);
+            $dateM = date('Y-m-d H:i:s', strtotime($dateone));
+            $dateone = carbon::today()->subDays(7);
+            $dateS = date('Y-m-d H:i:s', strtotime($dateone));
+            $client = User::where('statut',0)->get();
+            $clientM = paylist::where('created_at','>',$dateM)->get();
+            $clientS = paylist::where('created_at','>',$dateS)->get();
+            $agent = User::where('statut',1)->get();
+            $venteM = 0;
+            $venteS = 0;
+            $vente = 0;
+            $clientT = 0;
+            $credit = 0;
+            $agentT = 0;
+            foreach($client as $cl){
 
-                    $vente += $cl->affaire;
-                    $clientT ++;
-                    $credit += $cl->credit;
+                $vente += $cl->affaire;
+                $clientT ++;
+                $credit += $cl->credit;
 
-                }
-                foreach($agent as $ag){
+            }
+            foreach($agent as $ag){
 
-                    $agentT ++;
+                $agentT ++;
 
-                }
-                foreach($clientM as $ag){
+            }
+            foreach($clientM as $ag){
 
-                    $venteM +=$cl->affaire;
+                $venteM +=$ag->value;
 
-                }
-                foreach($clientS as $ag){
+            }
+            foreach($clientS as $ag){
 
-                    $venteS +=$cl->affaire;
+                $venteS +=$ag->value;
 
-                }
+            }
                 return view('Admin.Home')->with(['vente'=> $vente,'clientT'=>$clientT,'credit'=>$credit,'agentT'=>$agentT,'venteM'=>$venteM,'venteS'=>$venteS]);
             }else {
                 return view('acces');

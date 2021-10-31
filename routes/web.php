@@ -11,7 +11,8 @@ use App\Models\blog;
 use App\Events\NewMessage;
 use PhpParser\Node\Stmt\Return_;
 use App\Http\Controllers\MollieController;
-
+use App\Http\Controllers\mailController;
+use App\Models\paylist;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,11 +37,13 @@ Route::get('/', function () {
 
         }elseif(Auth::user()->statut == 2){
 
-            $dateM = carbon::today()->subDays(30);
-            $dateS = carbon::today()->subDays(7);
+            $dateone = carbon::today()->subDays(30);
+            $dateM = date('Y-m-d H:i:s', strtotime($dateone));
+            $dateone = carbon::today()->subDays(7);
+            $dateS = date('Y-m-d H:i:s', strtotime($dateone));
             $client = User::where('statut',0)->get();
-            $clientM = User::where('statut',0)->where('updated_at','>',$dateM)->get();
-            $clientS = User::where('statut',0)->where('updated_at','>',$dateS)->get();
+            $clientM = paylist::where('created_at','>',$dateM)->get();
+            $clientS = paylist::where('created_at','>',$dateS)->get();
             $agent = User::where('statut',1)->get();
             $venteM = 0;
             $venteS = 0;
@@ -62,14 +65,15 @@ Route::get('/', function () {
             }
             foreach($clientM as $ag){
 
-                $venteM +=$cl->affaire;
+                $venteM +=$ag->value;
 
             }
             foreach($clientS as $ag){
 
-                $venteS +=$cl->affaire;
+                $venteS +=$ag->value;
 
             }
+
             return view('Admin.Home')->with(['vente'=> $vente,'clientT'=>$clientT,'credit'=>$credit,'agentT'=>$agentT,'venteM'=>$venteM,'venteS'=>$venteS]);
         }else{
             return view('acces');
@@ -166,8 +170,8 @@ Route::get('/voyants', [App\Http\Controllers\AdminController::class, 'voyants'])
 Auth::routes();
 
     // Route::get('/gmail', [App\Http\Controllers\AdminController::class, 'gmail'])->name('crm_client');
-    Route::post('/send_mail', [App\Http\Controllers\MailController::class, 'formRT'])->name('send_mail')->middleware('auth');
-    Route::post('/sendContact', [App\Http\Controllers\MailController::class, 'contact'])->name('sendContact')->middleware('auth');
+    Route::post('/send_mail', [App\Http\Controllers\MailController::class, 'formRT'])->name('send_mail');
+    Route::post('/sendContact', [App\Http\Controllers\MailController::class, 'contact'])->name('sendContact');
     Route::post('/oneclient', [App\Http\Controllers\MailController::class, 'one'])->name('oneclient')->middleware('auth');
     Route::post('/allclient', [App\Http\Controllers\MailController::class, 'all'])->name('allclient')->middleware('auth');
     Route::get('/contacts', [App\Http\Controllers\MessagesController::class, 'index'])->name('message')->middleware('auth');
@@ -189,6 +193,7 @@ Auth::routes();
     Route::post('/save_users', [App\Http\Controllers\User_infoController::class, 'store'])->name('save_users')->middleware('auth');
     Route::post('/save_time', [App\Http\Controllers\User_infoController::class, 'save_time'])->name('save_time')->middleware('auth');
     Route::post('/save_tag', [App\Http\Controllers\AdminController::class, 'store'])->name('save_tag')->middleware('auth');
+    Route::post('/addcredit', [App\Http\Controllers\AdminController::class, 'addcredit'])->name('addcredit')->middleware('auth');
     Route::post('/save_post', [App\Http\Controllers\AdminController::class, 'save_post'])->name('save_post')->middleware('auth');
     Route::get('/update{id}', [App\Http\Controllers\ProduitsController::class, 'show'])->name('update{id}')->middleware('auth');
     Route::get('/finMoi{id}', [App\Http\Controllers\User_infoController::class, 'finMoi'])->name('finMoi{id}')->middleware('auth');
@@ -198,10 +203,16 @@ Auth::routes();
     Route::post('/pakp', [App\Http\Controllers\PackController::class, 'index'])->name('pakp')->middleware('auth');
     Route::post('/pakc', [App\Http\Controllers\PackController::class, 'indexone'])->name('pakp')->middleware('auth');
 
+    Route::get('/rapportm', [App\Http\Controllers\AdminController::class, 'rapportm'])->name('rapportm')->middleware('auth');
+    Route::get('/rapports', [App\Http\Controllers\AdminController::class, 'rapports'])->name('rapports')->middleware('auth');
+    Route::get('/fmoi', [App\Http\Controllers\AdminController::class, 'fmoi'])->name('fmoi')->middleware('auth');
+
 
     Route::get('mollie-payment-success',[MollieController::class, 'paymentSuccess'])->name('mollie.payment.success')->middleware('auth');
     Route::post('mollie-create-payment',[MollieController::class,'createPayment'])->name('mollie.create.payment')->middleware('auth');
     Route::get('create-mollie-subscription',[MollieController::class,'createMollieSubscription'])->name('create.mollie.subscription')->middleware('auth');
+
+    Route::post('sendMail',[mailController::class,'foo'])->name('sendMail')->middleware('auth');
 
     Route::get('/event', function ($message) {
         return $event = event(new NewMessage($message));

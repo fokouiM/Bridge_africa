@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Liste_tag;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Models\paylist;
+use Illuminate\Support\Carbon;
 
 
 class AdminController extends Controller
@@ -32,6 +34,7 @@ class AdminController extends Controller
 
             $liste_voyants = User::where('statut',1)->orderBy('created_at', 'desc')->get();
             $tag = Liste_tag::orderBy('created_at', 'desc')->get();
+            // dd($tag);
              return view('Admin.voyants')->with(['liste_voyants'=> $liste_voyants,'tag'=>$tag]);
         }else { return view('acces'); }
     }
@@ -90,15 +93,6 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $liste_tag = new Liste_tag;
-        $liste_tag->name_tag = $request->name;
-        $liste_tag->save();
-        $v2 = 'Le tag a bien étè créer. nom l\'utilisateur : ' .$request->name;
-
-            return redirect()->route('add_voyants', ['v2' => $v2]);
-    }
 
     /**
      * Display the specified resource.
@@ -129,10 +123,50 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function addcredit(Request $request)
+    {   $credit = $request->credit;
+        $userone = User::where('id',$request->id)->first();
+        $newCredit = $credit + $userone->credit;
+        $user = User::where('id',$request->id)->update(['credit'=>$newCredit]);
+        $v2 = 'les credits('.$credit.') ont bien étè ajouter à '.$userone->name;
+
+            return redirect()->route('clients', ['v2' => $v2]);
     }
+
+    public function rapportm(Request $request)
+    {
+        $dateone = carbon::today()->subDays(30);
+
+        $dateM = date('Y-m-d H:i:s', strtotime($dateone));
+
+        $clientM = paylist::where('created_at','>',$dateM)->get();
+        $user = User::where('statut',0)->get();
+
+        return view('Admin.paylist')->with(['clientM'=> $clientM,'user'=>$user]);
+    }
+
+    public function rapports(Request $request)
+    {
+        $dateone = carbon::today()->subDays(7);
+
+        $dateM = date('Y-m-d H:i:s', strtotime($dateone));
+
+        $clientM = paylist::where('created_at','>',$dateM)->get();
+        $user = User::where('statut',0)->get();
+
+        return view('Admin.paylist')->with(['clientM'=> $clientM,'user'=>$user]);
+    }
+
+    public function fmoi(Request $request)
+    {
+        paylist::getQuery()->delete();
+
+        $v2 = 'Le moi a étè mise a zéro';
+
+        return redirect()->route('rapportm', ['v2' => $v2]);
+    }
+
+
 
     /**
      * Remove the specified resource from storage.

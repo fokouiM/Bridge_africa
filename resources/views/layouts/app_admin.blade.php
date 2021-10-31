@@ -278,6 +278,12 @@
                                             <li class="menu-item " aria-haspopup="true"><a href="gmail"
                                                 class="menu-link "><span class="menu-text">CMR Client</span><span
                                                     class="menu-desc"></span></a></li>
+                                            <li class="menu-item " aria-haspopup="true"><a href="rapportm"
+                                                class="menu-link "><span class="menu-text">Liste des paiement de la semaine</span><span
+                                                    class="menu-desc"></span></a></li>
+                                            <li class="menu-item " aria-haspopup="true"><a href="rapports"
+                                                class="menu-link "><span class="menu-text">Liste des paiement du mois</span><span
+                                                    class="menu-desc"></span></a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -483,6 +489,14 @@
 
     <!--begin::Page Scripts(used by this page)-->
     <script src="assets/js/pages/crud/file-upload/image-input.js"></script>
+    <!--end::Page Scripts-->
+    
+    <!--begin::Page Vendors(used by this page)-->
+    <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <!--end::Page Vendors-->
+
+    <!--begin::Page Scripts(used by this page)-->
+    <script src="assets/js/pages/crud/datatables/extensions/buttons.js"></script>
     <!--end::Page Scripts-->
 
 </body>

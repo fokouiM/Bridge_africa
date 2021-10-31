@@ -415,10 +415,10 @@
                                     <div class="flex-grow-1 card-spacer pb-0">
                                         <div class="d-flex justify-content-between align-items-center flex-wrap">
                                             <div class="mr-2">
-                                                <a href="#"
+                                                <a href="rapportm"
                                                     class="text-dark-75 text-hover-primary font-weight-bolder font-size-h2">
                                                     Rapports du mois</a>
-                                                <div class="text-muted font-size-lg font-weight-bold pt-2"> Finances du moi encoure</div>
+                                                <div class="text-muted font-size-lg font-weight-bold pt-2"> Finances du mois en cours</div>
                                             </div>
                                             <div class="font-weight-bolder font-size-h3 text-success">{{$venteM}}€</div>
                                         </div>
@@ -442,8 +442,8 @@
                                 style="height: 250px; background-image: url(assets/media/stock-600x400/img-28.jpg)">
                                 <!--begin::Body-->
                                 <div class="card-body">
-                                    <a href="#" class="text-dark-75 text-hover-primary font-weight-bolder font-size-h3">
-                                        Finances de la semaine encoure
+                                    <a href="rapports" class="text-dark-75 text-hover-primary font-weight-bolder font-size-h3">
+                                        Finances de la semaine en cours
                                     </a>
                                     <div class="text-dark-50 font-weight-bold font-size-lg pt-2">
                                         {{$venteS}}€

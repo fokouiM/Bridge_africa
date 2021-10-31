@@ -57,7 +57,7 @@
 
                     <form action="message" method="GET">
 
-                        <input type="hidden" name="name_agent" value="ISABELLE">
+                        <input type="hidden" name="name_voyant" value="ISABELLE">
                         <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4" data-toggle="modal" data-target="#kt_chat_modal">Message</button>
                     </form>
                 </div>
@@ -107,7 +107,11 @@
                               4</a>
                     </div>
                     <!--end::Desc-->
-                        <a href="messageS" class="btn btn-block btn-sm btn-light-danger font-weight-bolder text-uppercase py-4" >Message</a>
+                        <form action="messageS" method="GET">
+
+                            <input type="hidden" name="name_voyant" value="SUZANNE">
+                            <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4" data-toggle="modal" data-target="#kt_chat_modal">Message</button>
+                        </form>
                 </div>
                 <!--end::Body-->
             </div>
@@ -156,7 +160,11 @@
                              <i class="la la-star-half-alt text-warning mr-5"></i> 3.75</a>
                     </div>
                     <!--end::Desc-->
-                            <a href="messageJ"  class="btn btn-block btn-sm btn-light-primary font-weight-bolder text-uppercase py-4" >Message</a>
+                            <form action="messageJ" method="GET">
+
+                                <input type="hidden" name="name_voyant" value="JACQUEMIN">
+                                <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4" data-toggle="modal" data-target="#kt_chat_modal">Message</button>
+                            </form>
                 </div>
                 <!--end::Body-->
             </div>
@@ -204,7 +212,11 @@
                              <i class="la la-star-half-alt text-warning mr-5"></i> 3.75</a>
                     </div>
                     <!--end::Desc-->
-                        <a href="messageB"  class="btn btn-block btn-sm btn-light-success font-weight-bolder text-uppercase py-4" >Message</a>
+                        <form action="messageB" method="GET">
+
+                            <input type="hidden" name="name_voyant" value="SABINE">
+                            <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4" data-toggle="modal" data-target="#kt_chat_modal">Message</button>
+                        </form>
                 </div>
                 <!--end::Body-->
             </div>

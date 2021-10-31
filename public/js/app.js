@@ -48145,8 +48145,8 @@ var render = function() {
                                       staticClass:
                                         "mt-2 rounded p-5 font-weight-bold text-left",
                                       staticStyle: {
-                                        "background-color": "#01e303d4",
-                                        color: "#fff"
+                                        background: "antiquewhite",
+                                        color: "#6c6b6bf2"
                                       }
                                     },
                                     [
@@ -48156,7 +48156,9 @@ var render = function() {
                                           " et merci pour votre\n                    inscription. Déjà vous devez savoir que vous ne payez pas\n                    du temps sur le site mais des crédits. Ainsi, 1 message\n                    que vous envoyez est égal à 1 crédit, alors nous vous\n                    proposons une voyance exclusive à partir de\n                    "
                                       ),
                                       _c("strong", [
-                                        _vm._v("0,80€(moins chère qu'un Sms). ")
+                                        _vm._v(
+                                          "1.25€(toute taxe comprise pour une voyance de qualité profesionnel ). "
+                                        )
                                       ]),
                                       _vm._v(
                                         " Vous\n                    pouvez donc oublier les voyances hors de prix.Sur\n                    voyance-auracle.fr nous vous révélons votre avenir et les\n                    solutions pour contourner les obstacles à votre bonheur,\n                    et pour se faire, Vous avez d'ores et déjà\n                    "
@@ -48558,8 +48560,8 @@ var render = function() {
                                       staticClass:
                                         "mt-2 rounded p-5 font-weight-bold text-left",
                                       staticStyle: {
-                                        "background-color": "#01e303d4",
-                                        color: "#fff"
+                                        background: "antiquewhite",
+                                        color: "#6c6b6bf2"
                                       }
                                     },
                                     [
@@ -48569,7 +48571,9 @@ var render = function() {
                                           " et merci pour votre\n                    inscription. Déjà vous devez savoir que vous ne payez pas\n                    du temps sur le site mais des crédits. Ainsi, 1 message\n                    que vous envoyez est égal à 1 crédit, alors nous vous\n                    proposons une voyance exclusive à partir de\n                    "
                                       ),
                                       _c("strong", [
-                                        _vm._v("0,80€(moins chère qu'un Sms). ")
+                                        _vm._v(
+                                          "1.25€(toute taxe comprise pour une voyance de qualité profesionnel ). "
+                                        )
                                       ]),
                                       _vm._v(
                                         " Vous\n                    pouvez donc oublier les voyances hors de prix.Sur\n                    voyance-auracle.fr nous vous révélons votre avenir et les\n                    solutions pour contourner les obstacles à votre bonheur,\n                    et pour se faire, Vous avez d'ores et déjà\n                    "
@@ -48945,8 +48949,8 @@ var render = function() {
                                       staticClass:
                                         "mt-2 rounded p-5 font-weight-bold text-left",
                                       staticStyle: {
-                                        "background-color": "#01e303d4",
-                                        color: "#fff"
+                                        background: "antiquewhite",
+                                        color: "#6c6b6bf2"
                                       }
                                     },
                                     [
@@ -48956,7 +48960,9 @@ var render = function() {
                                           " et merci pour votre\n                    inscription. Déjà vous devez savoir que vous ne payez pas\n                    du temps sur le site mais des crédits. Ainsi, 1 message\n                    que vous envoyez est égal à 1 crédit, alors nous vous\n                    proposons une voyance exclusive à partir de\n                    "
                                       ),
                                       _c("strong", [
-                                        _vm._v("0,80€(moins chère qu'un Sms). ")
+                                        _vm._v(
+                                          "1.25€(toute taxe comprise pour une voyance de qualité profesionnel ). "
+                                        )
                                       ]),
                                       _vm._v(
                                         " Vous\n                    pouvez donc oublier les voyances hors de prix.Sur\n                    voyance-auracle.fr nous vous révélons votre avenir et les\n                    solutions pour contourner les obstacles à votre bonheur,\n                    et pour se faire, Vous avez d'ores et déjà\n                    "
@@ -49954,8 +49960,8 @@ var render = function() {
                                       staticClass:
                                         "mt-2 rounded p-5 font-weight-bold text-left",
                                       staticStyle: {
-                                        "background-color": "#01e303d4",
-                                        color: "#fff"
+                                        background: "antiquewhite",
+                                        color: "#6c6b6bf2"
                                       }
                                     },
                                     [
@@ -49965,7 +49971,9 @@ var render = function() {
                                           " et merci pour votre\n                    inscription. Déjà vous devez savoir que vous ne payez pas\n                    du temps sur le site mais des crédits. Ainsi, 1 message\n                    que vous envoyez est égal à 1 crédit, alors nous vous\n                    proposons une voyance exclusive à partir de\n                    "
                                       ),
                                       _c("strong", [
-                                        _vm._v("0,80€(moins chère qu'un Sms). ")
+                                        _vm._v(
+                                          "1.25€(toute taxe comprise pour une voyance de qualité profesionnel ). "
+                                        )
                                       ]),
                                       _vm._v(
                                         " Vous\n                    pouvez donc oublier les voyances hors de prix.Sur\n                    voyance-auracle.fr nous vous révélons votre avenir et les\n                    solutions pour contourner les obstacles à votre bonheur,\n                    et pour se faire, Vous avez d'ores et déjà\n                    "

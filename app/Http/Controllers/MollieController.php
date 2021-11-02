@@ -55,31 +55,7 @@ class MollieController extends Controller
 
          $nextuser = User::where('id',Auth::user()->id)->first();
          $affaire = $nextuser->affaire + $request->prix;
-        if($request->prix == 4.00){
-
-            User::where('id',Auth::user()->id)->update(['credit'=>5, 'affaire'=> $affaire, 'statut_client'=>1]);
-
-        }elseif($request->prix == 12.00){
-
-            User::where('id',Auth::user()->id)->update(['credit'=>17, 'affaire'=> $affaire, 'statut_client'=>1]);
-
-        }elseif($request->prix == 28.00){
-
-            User::where('id',Auth::user()->id)->update(['credit'=>34, 'affaire'=> $affaire, 'statut_client'=>1]);
-
-        }elseif($request->prix == 7.00){
-
-            User::where('id',Auth::user()->id)->update(['credit'=>5, 'affaire'=> $affaire, 'statut_client'=>2]);
-
-        }elseif($request->prix == 21.00){
-
-            User::where('id',Auth::user()->id)->update(['credit'=>18, 'affaire'=> $affaire, 'statut_client'=>2]);
-
-        }elseif($request->prix == 42.00){
-
-            User::where('id',Auth::user()->id)->update(['credit'=>35, 'affaire'=> $affaire, 'statut_client'=>2]);
-
-        }
+         User::where('id',Auth::user()->id)->update(['credit'=>$request->credit, 'affaire'=> $affaire, 'statut_client'=>$request->statut]);
 
         $paylist = new paylist;
         $paylist->id_user = Auth::user()->id;

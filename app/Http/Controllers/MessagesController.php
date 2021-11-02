@@ -346,7 +346,7 @@ class MessagesController extends Controller
 
          $newdate = strtotime($timeMessage->created_at);
          $newdateone = strtotime(Date('Y-m-d H:i:s'));
-         $hello = abs( $newdateone - $newdate)/60;
+         $hello = abs( $newdateone - $newdate)/120;
          $tag = Liste_tag::where('id_user', Auth::user()->id)->first();
          $tmessage = $tag->tmessage +1;
          $time = $tag->time + $hello;

@@ -62,7 +62,9 @@
                             <h4 class="font-size-h6 d-block d-block font-weight-bold mb-7 text-dark-50">5 credits</h4>
                             <form action="mollie-create-payment" method="POST">
                                 @csrf
-                                <input type="hidden" name="prix" value="5.00">
+                                        <input type="hidden" name="statut" value="1">
+                                        <input type="hidden" name="credit" value="5">
+                                        <input type="hidden" name="prix" value="5.00">
                                 <button type="submit" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3"> payer</button>
                             </form>
                             <!--end::Content-->
@@ -105,7 +107,9 @@
                             <h4 class="font-size-h6 d-block font-weight-bold mb-7 text-dark-50">15 credits + 2credits bonus</h4>
                             <form action="mollie-create-payment" method="POST">
                                 @csrf
-                                <input type="hidden" name="prix" value="13.00">
+                                        <input type="hidden" name="credit" value="17">
+                                        <input type="hidden" name="statut" value="1">
+                                        <input type="hidden" name="prix" value="13.00">
                                 <button type="submit" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3"> payer</button>
                             </form>
                             <!--end::Content-->
@@ -148,7 +152,9 @@
                             <h4 class="font-size-h6 d-block font-weight-bold mb-7 text-dark-50">30credits 4credits bonus</h4>
                             <form action="mollie-create-payment" method="POST">
                                 @csrf
-                                <input type="hidden" name="prix" value="30.00">
+                                        <input type="hidden" name="credit" value="34">
+                                        <input type="hidden" name="statut" value="1">
+                                        <input type="hidden" name="prix" value="30.00">
                                 <button type="submit" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3"> payer</button>
                             </form>
                             <!--end::Content-->
@@ -202,6 +208,8 @@
                             <div class="d-flex justify-content-center">
                                     <form action="mollie-create-payment" method="POST">
                                         @csrf
+                                        <input type="hidden" name="credit" value="5">
+                                        <input type="hidden" name="statut" value="2">
                                         <input type="hidden" name="prix" value="8.00">
                                         <button type="submit" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3"> payer</button>
                                     </form>
@@ -242,6 +250,8 @@
                             <div class="d-flex justify-content-center">
                                     <form action="mollie-create-payment" method="POST">
                                         @csrf
+                                        <input type="hidden" name="credit" value="18">
+                                        <input type="hidden" name="statut" value="2">
                                         <input type="hidden" name="prix" value="22.00">
                                         <button type="submit" class="btn btn-success text-uppercase font-weight-bolder px-15 py-3"> payer</button>
                                     </form>
@@ -280,6 +290,8 @@
                                     <form action="mollie-create-payment" method="POST">
                                         @csrf
                                         <input type="hidden" name="prix" value="43.00">
+                                        <input type="hidden" name="credit" value="35">
+                                        <input type="hidden" name="statut" value="2">
                                         <button type="submit" class="btn btn-warning text-uppercase font-weight-bolder px-15 py-3"> payer</button>
                                     </form>
                             </div>

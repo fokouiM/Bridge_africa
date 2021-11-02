@@ -150,7 +150,7 @@
 
                     <!--begin::Desc-->
                     <p class="mb-7">
-                        Dotée d'un pouvoir surbaturel,clair voyance je traite tout probléme de famille par la méthode de claivoyance et je vous aide à retrouver la stabilité dans votre foyer.
+                        Dotée d'un pouvoir surnaturel,clair voyance je traite tout probléme de famille par la méthode de claivoyance et je vous aide à retrouver la stabilité dans votre foyer.
 
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">

@@ -25,15 +25,17 @@
                     <!--end::Aside Mobile Toggle-->
 
                 </div>
-                <div class="text-center flex-grow-1">
-                    <div class="text-dark-75 font-weight-bold font-size-h5"> {{nextmessage}} <strong>{{messages.user.name}}</strong> | <strong>{{messages.user.affaire}}.€</strong> | credit : <strong>{{messages.user.credit}}</strong> </div>
-                    <div class="flex" id="allMessage">
-                        <div v-for="voyants in messages.voyants" :key="voyants.id" >
-                            <button  class="btn btn-light-primary btn-sm font-weight-bold mr-2" id="kt_dashboard_daterangepicker" data-toggle="tooltip" title=""
-                                data-placement="left" data-original-title="liste voyant" v-on:click=" Active = voyants.name_voyant"
-                                >
-                                <span class="opacity-60 font-weight-bold mr-2" id="kt_dashboard_daterangepicker_title">{{voyants.name_voyant}} </span>
-                            </button>
+                <div v-if="messages.user">
+                    <div class="text-center flex-grow-1">
+                        <div class="text-dark-75 font-weight-bold font-size-h5"> <strong>{{messages.user.name}}</strong> | <strong>{{messages.user.affaire}}.€</strong> | credit : <strong>{{messages.user.credit}}</strong> </div>
+                        <div class="flex" id="allMessage">
+                                <div v-for="voyants in messages.voyants" :key="voyants.id" >
+                                    <button  class="btn btn-light-primary btn-sm font-weight-bold mr-2" id="kt_dashboard_daterangepicker" data-toggle="tooltip" title=""
+                                        data-placement="left" data-original-title="liste voyant" v-on:click=" Active = voyants.name_voyant"
+                                        >
+                                        <span class="opacity-60 font-weight-bold mr-2" id="kt_dashboard_daterangepicker_title">{{voyants.name_voyant}} </span>
+                                    </button>
+                                </div>
                         </div>
                     </div>
                 </div>

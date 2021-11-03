@@ -3650,6 +3650,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     reponse: false,
@@ -8878,7 +8880,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.note{\n\n    background: #fff;\n   margin-left: 10px;\n   height: 80vh;\noverflow: auto;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.note{\n\n    background: #fff;\n   margin-left: 10px;\n   height: 80vh;\noverflow: auto;\n}\n@media screen and (max-width: 600px) {\n.mobile{\n        display: none !important;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -49300,59 +49302,64 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "text-center flex-grow-1" }, [
-        _c(
-          "div",
-          { staticClass: "text-dark-75 font-weight-bold font-size-h5" },
-          [
-            _vm._v(" " + _vm._s(_vm.nextmessage) + " "),
-            _c("strong", [_vm._v(_vm._s(_vm.messages.user.name))]),
-            _vm._v(" | "),
-            _c("strong", [_vm._v(_vm._s(_vm.messages.user.affaire) + ".€")]),
-            _vm._v(" | credit : "),
-            _c("strong", [_vm._v(_vm._s(_vm.messages.user.credit))])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "flex", attrs: { id: "allMessage" } },
-          _vm._l(_vm.messages.voyants, function(voyants) {
-            return _c("div", { key: voyants.id }, [
+      _vm.messages.user
+        ? _c("div", [
+            _c("div", { staticClass: "text-center flex-grow-1" }, [
               _c(
-                "button",
-                {
-                  staticClass:
-                    "btn btn-light-primary btn-sm font-weight-bold mr-2",
-                  attrs: {
-                    id: "kt_dashboard_daterangepicker",
-                    "data-toggle": "tooltip",
-                    title: "",
-                    "data-placement": "left",
-                    "data-original-title": "liste voyant"
-                  },
-                  on: {
-                    click: function($event) {
-                      _vm.Active = voyants.name_voyant
-                    }
-                  }
-                },
+                "div",
+                { staticClass: "text-dark-75 font-weight-bold font-size-h5" },
                 [
-                  _c(
-                    "span",
-                    {
-                      staticClass: "opacity-60 font-weight-bold mr-2",
-                      attrs: { id: "kt_dashboard_daterangepicker_title" }
-                    },
-                    [_vm._v(_vm._s(voyants.name_voyant) + " ")]
-                  )
+                  _c("strong", [_vm._v(_vm._s(_vm.messages.user.name))]),
+                  _vm._v(" | "),
+                  _c("strong", [
+                    _vm._v(_vm._s(_vm.messages.user.affaire) + ".€")
+                  ]),
+                  _vm._v(" | credit : "),
+                  _c("strong", [_vm._v(_vm._s(_vm.messages.user.credit))])
                 ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "flex", attrs: { id: "allMessage" } },
+                _vm._l(_vm.messages.voyants, function(voyants) {
+                  return _c("div", { key: voyants.id }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "btn btn-light-primary btn-sm font-weight-bold mr-2",
+                        attrs: {
+                          id: "kt_dashboard_daterangepicker",
+                          "data-toggle": "tooltip",
+                          title: "",
+                          "data-placement": "left",
+                          "data-original-title": "liste voyant"
+                        },
+                        on: {
+                          click: function($event) {
+                            _vm.Active = voyants.name_voyant
+                          }
+                        }
+                      },
+                      [
+                        _c(
+                          "span",
+                          {
+                            staticClass: "opacity-60 font-weight-bold mr-2",
+                            attrs: { id: "kt_dashboard_daterangepicker_title" }
+                          },
+                          [_vm._v(_vm._s(voyants.name_voyant) + " ")]
+                        )
+                      ]
+                    )
+                  ])
+                }),
+                0
               )
             ])
-          }),
-          0
-        )
-      ])
+          ])
+        : _vm._e()
     ]),
     _vm._v(" "),
     _c(
@@ -50248,7 +50255,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "card-body note" }, [
+    _c("div", { staticClass: "card-body note mobile " }, [
       _c(
         "div",
         {
@@ -50347,7 +50354,7 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "card-footer align-items-center",
+        staticClass: "card-footer align-items-center mobile",
         staticStyle: { display: "flex", padding: "10px", "margin-left": "10px" }
       },
       [

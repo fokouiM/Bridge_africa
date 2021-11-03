@@ -1,6 +1,6 @@
 <template>
         <div>
-            <div class="card-body note">
+            <div class="card-body note mobile ">
                 <!--begin::Scroll-->
                 <div class=" scroll-pull " data-mobile-height="350"
                     style="height: auto; ">
@@ -49,7 +49,7 @@
                 </div>
                 <!--end::Scroll-->
             </div>
-            <div class="card-footer align-items-center" style="display: flex; padding: 10px; margin-left: 10px;">
+            <div class="card-footer align-items-center mobile" style="display: flex; padding: 10px; margin-left: 10px;">
             <form id="app" @submit="checkFormone" action="conversation/note" method="post" class="flex" >
                 <input  v-model="note"   class="form-control messagesend" @keydown.enter="send" required  placeholder="Note client......">
                 <div class="d-flex align-items-center justify-content-between ">
@@ -132,6 +132,11 @@
    margin-left: 10px;
    height: 80vh;
 overflow: auto;
+}
+@media screen and (max-width: 600px) {
+    .mobile{
+        display: none !important;
+    }
 }
 </style>
 

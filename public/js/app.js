@@ -48138,7 +48138,7 @@ var render = function() {
                                 "div",
                                 {
                                   staticClass:
-                                    "d-flex flex-column mb-5 align-items-start"
+                                    "d-flex flex-column align-items-start"
                                 },
                                 [
                                   _c(
@@ -48159,11 +48159,17 @@ var render = function() {
                                       ),
                                       _c("strong", [
                                         _vm._v(
-                                          "1.25€(toute taxe comprise pour une voyance de qualité profesionnel ). "
+                                          "1.25€(toutes taxes comprises pour une voyance de qualité profesionnel ). "
                                         )
                                       ]),
                                       _vm._v(
-                                        " Vous\n                    pouvez donc oublier les voyances hors de prix.Sur\n                    voyance-auracle.fr nous vous révélons votre avenir et les\n                    solutions pour contourner les obstacles à votre bonheur,\n                    et pour se faire, Vous avez d'ores et déjà\n                    "
+                                        " Vous\n                    pouvez donc oublier les voyances hors de prix.Sur\n                    "
+                                      ),
+                                      _c("strong", [
+                                        _vm._v("voyance-auracle.fr")
+                                      ]),
+                                      _vm._v(
+                                        " nous vous révélons votre avenir et les\n                    solutions pour contourner les obstacles à votre bonheur,\n                    et pour se faire, Vous avez d'ores et déjà\n                    "
                                       ),
                                       _c("strong", [
                                         _vm._v("3 crédits offerts,")
@@ -48553,7 +48559,7 @@ var render = function() {
                                 "div",
                                 {
                                   staticClass:
-                                    "d-flex flex-column mb-5 align-items-start"
+                                    "d-flex flex-column mb-2 align-items-start"
                                 },
                                 [
                                   _c(
@@ -48574,11 +48580,17 @@ var render = function() {
                                       ),
                                       _c("strong", [
                                         _vm._v(
-                                          "1.25€(toute taxe comprise pour une voyance de qualité profesionnel ). "
+                                          "1.25€(toutes taxes comprises pour une voyance de qualité profesionnel ). "
                                         )
                                       ]),
                                       _vm._v(
-                                        " Vous\n                    pouvez donc oublier les voyances hors de prix.Sur\n                    voyance-auracle.fr nous vous révélons votre avenir et les\n                    solutions pour contourner les obstacles à votre bonheur,\n                    et pour se faire, Vous avez d'ores et déjà\n                    "
+                                        " Vous\n                    pouvez donc oublier les voyances hors de prix.Sur\n                    "
+                                      ),
+                                      _c("strong", [
+                                        _vm._v("voyance-auracle.fr")
+                                      ]),
+                                      _vm._v(
+                                        " nous vous révélons votre avenir et les\n                    solutions pour contourner les obstacles à votre bonheur,\n                    et pour se faire, Vous avez d'ores et déjà\n                    "
                                       ),
                                       _c("strong", [
                                         _vm._v("3 crédits offerts,")
@@ -48942,7 +48954,7 @@ var render = function() {
                                 "div",
                                 {
                                   staticClass:
-                                    "d-flex flex-column mb-5 align-items-start"
+                                    "d-flex flex-column  align-items-start"
                                 },
                                 [
                                   _c(
@@ -48963,11 +48975,17 @@ var render = function() {
                                       ),
                                       _c("strong", [
                                         _vm._v(
-                                          "1.25€(toute taxe comprise pour une voyance de qualité profesionnel ). "
+                                          "1.25€(toutes taxes comprises pour une voyance de qualité profesionnel ). "
                                         )
                                       ]),
                                       _vm._v(
-                                        " Vous\n                    pouvez donc oublier les voyances hors de prix.Sur\n                    voyance-auracle.fr nous vous révélons votre avenir et les\n                    solutions pour contourner les obstacles à votre bonheur,\n                    et pour se faire, Vous avez d'ores et déjà\n                    "
+                                        " Vous\n                    pouvez donc oublier les voyances hors de prix.Sur\n                     "
+                                      ),
+                                      _c("strong", [
+                                        _vm._v("voyance-auracle.fr")
+                                      ]),
+                                      _vm._v(
+                                        " nous vous révélons votre avenir et les\n                    solutions pour contourner les obstacles à votre bonheur,\n                    et pour se faire, Vous avez d'ores et déjà\n                    "
                                       ),
                                       _c("strong", [
                                         _vm._v("3 crédits offerts,")
@@ -49958,7 +49976,7 @@ var render = function() {
                                 "div",
                                 {
                                   staticClass:
-                                    "d-flex flex-column mb-5 align-items-start"
+                                    "d-flex flex-column  align-items-start"
                                 },
                                 [
                                   _c(
@@ -49979,11 +49997,17 @@ var render = function() {
                                       ),
                                       _c("strong", [
                                         _vm._v(
-                                          "1.25€(toute taxe comprise pour une voyance de qualité profesionnel ). "
+                                          "1.25€(toutes taxes comprises pour une voyance de qualité profesionnel ). "
                                         )
                                       ]),
                                       _vm._v(
-                                        " Vous\n                    pouvez donc oublier les voyances hors de prix.Sur\n                    voyance-auracle.fr nous vous révélons votre avenir et les\n                    solutions pour contourner les obstacles à votre bonheur,\n                    et pour se faire, Vous avez d'ores et déjà\n                    "
+                                        " Vous\n                    pouvez donc oublier les voyances hors de prix.Sur\n                    "
+                                      ),
+                                      _c("strong", [
+                                        _vm._v("voyance-auracle.fr")
+                                      ]),
+                                      _vm._v(
+                                        " nous vous révélons votre avenir et les\n                    solutions pour contourner les obstacles à votre bonheur,\n                    et pour se faire, Vous avez d'ores et déjà\n                    "
                                       ),
                                       _c("strong", [
                                         _vm._v("3 crédits offerts,")

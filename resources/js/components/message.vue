@@ -50,7 +50,7 @@
                 <!--begin::Messages-->
                 <div class="messages messagew" >
                   <!--begin::Message welcom-->
-                  <div class="d-flex flex-column mb-5 align-items-start">
+                  <div class="d-flex flex-column align-items-start">
                     <div
                       class="mt-2 rounded p-5 font-weight-bold text-left"
                       style="background: antiquewhite; color: #6c6b6bf2"
@@ -60,9 +60,9 @@
                       du temps sur le site mais des crédits. Ainsi, 1 message
                       que vous envoyez est égal à 1 crédit, alors nous vous
                       proposons une voyance exclusive à partir de
-                      <strong>1.25€(toute taxe comprise pour une voyance de qualité profesionnel ). </strong> Vous
+                      <strong>1.25€(toutes taxes comprises pour une voyance de qualité profesionnel ). </strong> Vous
                       pouvez donc oublier les voyances hors de prix.Sur
-                      voyance-auracle.fr nous vous révélons votre avenir et les
+                      <strong>voyance-auracle.fr</strong> nous vous révélons votre avenir et les
                       solutions pour contourner les obstacles à votre bonheur,
                       et pour se faire, Vous avez d'ores et déjà
                       <strong>3 crédits offerts,</strong> en quoi puis je vous

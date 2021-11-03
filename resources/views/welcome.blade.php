@@ -12,7 +12,7 @@
         </g>
     </svg><!--end::Svg Icon--></span>	</div>
         <div class="alert-text">
-            Une équipe de voyants expérimentés et ayant des dons naturels vous accompagnent au quotidien à travers une consultation tenue secrète et sécurisé. Au-delà de leur puissance divinatoire ils font usage de la cartomancie et de l'Astrologie
+            Une équipe de voyants expérimentés et ayant des dons naturels vous accompagnent au quotidien à travers une consultation tenue secrète et sécurisée. Au-delà de leur puissance divinatoire ils font usage de la cartomancie et de l'Astrologie
         </div>
     </div>
     <div class="row">
@@ -45,7 +45,7 @@
 
                     <!--begin::Desc-->
                     <p class="mb-7">
-                        Je possède un don divin de voyance depuis ma naissance mais au fil du temps je l'ai développé afin d'apporter la stabilité sur le plan sentimental. Je suis connecté à la flamme d'amour, je vous aide à connaitre et même retrouver votre âme sœur.L'Amour surpasse tout
+                        Je possède un don divin de voyance depuis ma naissance mais au fil du temps je l'ai développé afin d'apporter la stabilité sur le plan sentimental. Je suis connecté à la flamme d'amour, je vous aide à connaitre et même retrouver votre âme sœur.L'amour surpasse tout.
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
                         <span class="text-dark-75 font-weight-bolder mr-2">Avis(90)</span>
@@ -150,7 +150,7 @@
 
                     <!--begin::Desc-->
                     <p class="mb-7">
-                        Dotée d'un pouvoir surnaturel,clair voyance je traite tout probléme de famille par la méthode de claivoyance et je vous aide à retrouver la stabilité dans votre foyer.
+                        Doté d'un pouvoir surnaturel,je traite tout probléme de famille par la méthode de la claivoyance et je vous aide à retrouver la stabilité dans votre foyer.
 
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
@@ -202,7 +202,7 @@
 
                     <!--begin::Desc-->
                     <p class="mb-7">
-                        Par le pouvoir de la communion télépathique, je guide plusieurs personnes à retrouver la voie du travail. ce don est inné et j'exerce depuis 30 ans avec succès.
+                        Par le pouvoir de la communication télépathique, je guide plusieurs personnes à retrouver la voie du travail. Ce don est inné et j'exerce depuis 30 ans avec succès.
 
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">

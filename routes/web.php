@@ -212,7 +212,7 @@ Auth::routes();
     Route::post('mollie-create-payment',[MollieController::class,'createPayment'])->name('mollie.create.payment')->middleware('auth');
     Route::get('create-mollie-subscription',[MollieController::class,'createMollieSubscription'])->name('create.mollie.subscription')->middleware('auth');
 
-    Route::post('sendMail',[mailController::class,'foo'])->name('sendMail')->middleware('auth');
+    Route::post('sendMail',[mailController::class,'index'])->name('sendMail')->middleware('auth');
 
     Route::get('/event', function ($message) {
         return $event = event(new NewMessage($message));

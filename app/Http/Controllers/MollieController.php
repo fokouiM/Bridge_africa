@@ -55,7 +55,8 @@ class MollieController extends Controller
 
          $nextuser = User::where('id',Auth::user()->id)->first();
          $affaire = $nextuser->affaire + $request->prix;
-         User::where('id',Auth::user()->id)->update(['credit'=>$request->credit, 'affaire'=> $affaire, 'statut_client'=>$request->statut]);
+         $credit = $request->credit + $nextuser->credit;
+         User::where('id',Auth::user()->id)->update(['credit'=>$credit, 'affaire'=> $affaire, 'statut_client'=>$request->statut]);
 
         $paylist = new paylist;
         $paylist->id_user = Auth::user()->id;
@@ -97,6 +98,7 @@ class MollieController extends Controller
      */
     public function paymentSuccess()
     {
+        // dd($payment);
         return view('pack')->with('status','paiement reçu avec succès');
     }
 }

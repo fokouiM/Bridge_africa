@@ -43,6 +43,7 @@ return [
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
             'auth_mode' => null,
+            'custom_header' => 'My Custom Email Header',
         ],
 
         'ses' => [
@@ -91,10 +92,7 @@ return [
     |
     */
 
-    'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
-    ],
+    'from' => ['address' => 'contact@voyance-auracle.fr', 'name' => 'voyance-auracle.fr'],
 
     /*
     |--------------------------------------------------------------------------

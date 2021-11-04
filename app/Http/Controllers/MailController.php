@@ -5,17 +5,31 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Mail\sendmail;
+use Illuminate\Support\Facades\Mail;
 
-class MailController extends Controller
+class mailController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( Request $request)
     {
-        //
+        $details=[
+            'body'=>$request->message,
+            'subject'=> $request->subject
+        ];
+        Mail::to($request->email)->cc('contact@voyance-auracle.fr')->send(new sendmail($details));
+
+        // Mail::send('sendMail', $request, function ($message) {
+        //     $message->from('contact@voyance-auracle.fr', 'voyance-auracle');
+
+        //     $message->to('f.fokoui237@gamil.com')->cc('contact@voyance-auracle.fr');
+        // });
+
+        $v3 = "Mail bien envoyer ";
+        return redirect()->route('gmail',['v3'=>$v3]);
     }
 
     /**
@@ -165,44 +179,11 @@ class MailController extends Controller
             $user = User::where('statut',0)->get();
             foreach($user as $us){
 
-                $to = $us->email;
-                        $subject = $objet;
-
-                        $message = "
-                        <html>
-                        <head>
-                        <title>mail de contact</title>
-                        <style>
-                            table {
-                                border-collapse: collapse
-                            }
-                            p {
-                                background: #8c8b8c;
-                                color:#fff;
-                                border: 1px solid black;
-                                  padding: 10px;
-                            }
-                            td {
-                                border: 1px solid black;
-                                  padding: 10px;
-                            }
-                        </style>
-                        </head>
-                        <body>
-                        <p>Ce $message</p>
-                        </body>
-                        </html>
-                        ";
-
-                        // Always set content-type when sending HTML email
-                        $headers = "MIME-Version: 1.0" . "\r\n";
-                        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-                        // More headers
-                        $headers .= 'From: <voyance-auracle@voyance-auracle.fr>' . "\r\n";
-                        $headers .= 'Cc: voyance-auracle@voyance-auracle.fr' . "\r\n";
-
-                mail($to,$subject,$message,$headers);
+                $details=[
+                    'body'=>$request->message,
+                    'subject'=> $request->subject
+                ];
+                Mail::to($us->email)->cc('contact@voyance-auracle.fr')->send(new sendmail($details));
             }
 
                     $v2 = "Mail collectifs bien envoyer ";

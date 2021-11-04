@@ -12,15 +12,15 @@ use Illuminate\Http\Request;
 class sendmail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public $details;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($details)
     {
-        //
+        $this->details =  $details;
     }
 
     /**
@@ -28,10 +28,8 @@ class sendmail extends Mailable
      *
      * @return $this
      */
-    public function build(Request $request)
+    public function build(Request $request )
     {
-        return $this->from('contact@voyance-auracle.fr')
-        ->subject('hello')
-        ->view('emails.sendmail');
+        return $this->subject($request->subject)->view('emails.sendmail');
     }
 }

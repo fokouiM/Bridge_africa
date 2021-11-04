@@ -1,7 +1,7 @@
 @extends('layouts.app_admin')
 
 @section('content_admin')
-    <form class="form py-2 px-2" style="width: 100%;" method="POST" action="oneclient">
+    <form class="form py-2 px-2" style="width: 100%;" method="POST" action="sendMail">
         @csrf
         <div class="card-body">
         <div class="form-group form-group-last">
@@ -49,7 +49,7 @@
             </div>
             <div class="form-group">
                 <label>Objet</label>
-                <input type="text" class="form-control form-control-lg" name="objet" placeholder="Large input">
+                <input type="text" class="form-control form-control-lg" name="subject" placeholder="Large input">
             </div>
             <div class="form-group">
                 <label>Message</label>
@@ -98,7 +98,7 @@
                 @endif
             <div class="form-group " >
                 <label>Objet</label>
-                <input type="text" class="form-control form-control-lg" name="objet" placeholder="Large input">
+                <input type="text" class="form-control form-control-lg" name="subject" placeholder="Large input">
             </div>
             <div class="form-group">
                 <label>Message</label>

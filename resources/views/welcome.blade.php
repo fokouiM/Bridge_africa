@@ -11,7 +11,7 @@
             <path d="M12,10 C13.1045695,10 14,9.1045695 14,8 C14,6.8954305 13.1045695,6 12,6 C10.8954305,6 10,6.8954305 10,8 C10,9.1045695 10.8954305,10 12,10 Z M12,13 C9.23857625,13 7,10.7614237 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,10.7614237 14.7614237,13 12,13 Z" fill="#000000" fill-rule="nonzero"></path>
         </g>
     </svg><!--end::Svg Icon--></span>	</div>
-        <div class="alert-text ">
+        <div class="alert-text font-weight-bold newfont">
             Une équipe de voyants expérimentés et ayant des dons naturels vous accompagne au quotidien à travers une consultation tenue secrète et sécurisée. Au-delà de Leurs puissances divinatoires ils font usage de la cartomancie et de l'astrologie
         </div>
     </div>
@@ -38,18 +38,18 @@
                         <!--begin::Title-->
                         <div class="d-flex flex-column">
                             <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0"> Amour</a>
-                            <span class="text-muted font-weight-bold"style="color:#fff !important;">ISABELLE</span>
+                            <span class="text-muted font-weight-bold"style="color:#8950FC !important;">ISABELLE</span>
                         </div>
                     </div>
                     <!--end::User-->
 
                     <!--begin::Desc-->
-                    <p class="mb-7">
+                    <p class="mb-7 newfont">
                         Je possède un don divin de voyance depuis ma naissance mais au fil du temps je l'ai développé afin d'apporter la stabilité sur le plan sentimental. Je suis connectée à la flamme d'amour, je vous aide à connaitre et même retrouver votre âme sœur. L'amour surpasse tout.
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
                         <span class="text-dark-75 font-weight-bolder mr-2">Avis(90)</span>
-                        <a href="" class="text-muted text-hover-primary" style="color:#fff !important;">
+                        <a href="" class="text-muted text-hover-primary" style="color:#8950FC !important;">
                             <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
                              <i class="la la-star-half-alt text-warning mr-5" ></i> 4.75</a>
                     </div>
@@ -90,19 +90,19 @@
                         <!--begin::Title-->
                         <div class="d-flex flex-column">
                             <a  class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0">Travail</a>
-                            <span class="text-muted font-weight-bold" style="color:#fff !important;">SUZANNE</span>
+                            <span class="text-muted font-weight-bold" style="color:#8950FC !important;">SUZANNE</span>
                         </div>
                         <!--end::Title-->
                     </div>
                     <!--end::User-->
 
                     <!--begin::Desc-->
-                    <p class="mb-7">
+                    <p class="mb-7 newfont">
                         Je suis connectée aux énergies et je fais usage des supports pour lire votre avenir financier et vous aider à retrouver votre plan initial de vie. L'argent est ma spécialité et pour cela je vous aide à l'attirer et à le capter comme un aimant.
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
                         <span class="text-dark-75 font-weight-bolder mr-2">Avis(112)</span>
-                        <a href="" class="text-muted text-hover-primary" style="color:#fff !important;">
+                        <a href="" class="text-muted text-hover-primary" style="color:#8950FC !important;">
                             <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
                               4</a>
                     </div>
@@ -142,20 +142,20 @@
                         <!--begin::Title-->
                         <div class="d-flex flex-column">
                             <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0"> Argent</a>
-                            <span class="text-muted font-weight-bold"style="color:#fff !important;">JACQUEMIN</span>
+                            <span class="text-muted font-weight-bold"style="color:#8950FC !important;">JACQUEMIN</span>
                         </div>
                         <!--end::Title-->
                     </div>
                     <!--end::User-->
 
                     <!--begin::Desc-->
-                    <p class="mb-7">
+                    <p class="mb-7 newfont">
                         Doté d'un pouvoir surnaturel, je traite tout Problème de famille par la méthode de la Clairvoyance et je vous aide à retrouver la stabilité dans votre foyer.
 
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
                         <span class="text-dark-75 font-weight-bolder mr-2">Avis(20)</span>
-                        <a href="" class="text-muted text-hover-primary" style="color:#fff !important;">
+                        <a href="" class="text-muted text-hover-primary" style="color:#8950FC !important;">
                             <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
                              <i class="la la-star-half-alt text-warning mr-5"></i> 3.75</a>
                     </div>
@@ -194,20 +194,20 @@
                         <!--begin::Title-->
                         <div class="d-flex flex-column">
                             <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0"> Famille</a>
-                            <span class="text-muted font-weight-bold" style="color:#fff !important;" >SABINE</span>
+                            <span class="text-muted font-weight-bold" style="color:#8950FC !important;" >SABINE</span>
                         </div>
                         <!--end::Title-->
                     </div>
                     <!--end::User-->
 
                     <!--begin::Desc-->
-                    <p class="mb-7">
+                    <p class="mb-7 newfont">
                         Par le pouvoir de la communication télépathique, je guide plusieurs personnes à retrouver la voie du travail. Ce don est inné et j'exerce depuis 30 ans avec succès.
 
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
                         <span class="text-dark-75 font-weight-bolder mr-2">Avis(09)</span>
-                        <a href="" class="text-muted text-hover-primary" style="color:#fff !important;">
+                        <a href="" class="text-muted text-hover-primary" style="color:#8950FC !important;">
                             <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
                              <i class="la la-star-half-alt text-warning mr-5"></i> 3.75</a>
                     </div>
@@ -215,7 +215,7 @@
                         <form action="messageB" method="GET">
 
                             <input type="hidden" name="name_voyant" value="SABINE">
-                            <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4 hello-2" data-toggle="modal" data-target="#kt_chat_modal">Message</button>
+                            <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4 hello-3" data-toggle="modal" data-target="#kt_chat_modal">Message</button>
                         </form>
                 </div>
                 <!--end::Body-->

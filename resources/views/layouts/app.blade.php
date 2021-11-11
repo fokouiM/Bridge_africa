@@ -285,7 +285,7 @@
                                 <!--end::Details-->
 
                                 <!--begin::Toolbar-->
-                                <div class="d-flex align-items-center bghom">
+                                <div class="d-flex align-items-center">
 
                                     <!--begin::Button-->
                                     @if (isset(Auth::user()->id))

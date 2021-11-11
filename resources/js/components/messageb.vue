@@ -53,7 +53,7 @@
                   <div class="d-flex flex-column mb-2 align-items-start">
                     <div
                       class="mt-2 rounded p-5 font-weight-bold text-left"
-                      style="background: antiquewhite;color: #6c6b6bf2 "
+                      style="background: #8950FC;color: #fff "
                     >
                       Bonjour {{ messages.user.name }} et merci pour votre
                       inscription. Déjà vous devez savoir que vous ne payez pas
@@ -113,23 +113,6 @@
                     </span>
                     <!--end::Message In-->
                   </div>
-                    <div class="d-flex flex-column mb-1 align-items-start">
-                            <div
-                          class=" new-style
-                            mt-2
-                            rounded
-                            p-2
-                            bg-light-success
-                            text-dark-50
-                            font-weight-bold font-size-lg
-                            text-left
-                          "
-                          style="font-size: 0.9em"
-                        >
-
-                          {{ nextmessage }}<br />
-                        </div>
-                      </div>
 
                 </div>
               </div>
@@ -228,6 +211,8 @@ export default {
                 //  this.hanleIncoming(e.message);
             // this.message = e.message;
             this.nextmessage = e.message.message
+            this.messages.message.Push( this.e.message.message );
+
 
         });
   },

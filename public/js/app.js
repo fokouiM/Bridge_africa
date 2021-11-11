@@ -2706,6 +2706,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -2741,6 +2743,8 @@ __webpack_require__.r(__webpack_exports__);
       //  this.hanleIncoming(e.message);
       // this.message = e.message;
       _this.nextmessage = e.message.message;
+
+      _this.messages.message.Push(_this.e.message.message);
     });
   },
   mounted: function mounted() {
@@ -3067,23 +3071,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -3119,6 +3106,8 @@ __webpack_require__.r(__webpack_exports__);
       //  this.hanleIncoming(e.message);
       // this.message = e.message;
       _this.nextmessage = e.message.message;
+
+      _this.messages.message.Push(_this.e.message.message);
     });
   },
   mounted: function mounted() {
@@ -3378,23 +3367,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -3430,6 +3402,8 @@ __webpack_require__.r(__webpack_exports__);
       //  this.hanleIncoming(e.message);
       // this.message = e.message;
       _this.nextmessage = e.message.message;
+
+      _this.messages.message.Push(_this.e.message.message);
     });
   },
   mounted: function mounted() {
@@ -3928,23 +3902,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -3980,6 +3937,8 @@ __webpack_require__.r(__webpack_exports__);
       //  this.hanleIncoming(e.message);
       // this.message = e.message;
       _this.nextmessage = e.message.message;
+
+      _this.messages.message.Push(_this.e.message.message);
     });
   },
   mounted: function mounted() {
@@ -48147,8 +48106,8 @@ var render = function() {
                                       staticClass:
                                         "mt-2 rounded p-5 font-weight-bold text-left",
                                       staticStyle: {
-                                        background: "antiquewhite",
-                                        color: "#6c6b6bf2"
+                                        background: "#8950FC",
+                                        color: "#fff"
                                       }
                                     },
                                     [
@@ -48244,30 +48203,36 @@ var render = function() {
                                 ])
                               }),
                               _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "d-flex flex-column mb-1 align-items-start"
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        " new-style\n                          mt-2\n                          rounded\n                          p-2\n                          bg-light-success\n                          text-dark-50\n                          font-weight-bold font-size-lg\n                          text-left\n                        ",
-                                      staticStyle: { "font-size": "0.9em" }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n\n                        " +
-                                          _vm._s(_vm.nextmessage)
-                                      ),
-                                      _c("br")
-                                    ]
-                                  )
-                                ]
-                              )
+                              _vm.nextmessage != null
+                                ? _c("span", [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "d-flex flex-column mb-1 align-items-start"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              " new-style\n                          mt-2\n                          rounded\n                          p-2\n                          bg-light-success\n                          text-dark-50\n                          font-weight-bold font-size-lg\n                          text-left\n                        ",
+                                            staticStyle: {
+                                              "font-size": "0.9em"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n\n                        " +
+                                                _vm._s(_vm.nextmessage)
+                                            ),
+                                            _c("br")
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                : _vm._e()
                             ],
                             2
                           )
@@ -48568,8 +48533,8 @@ var render = function() {
                                       staticClass:
                                         "mt-2 rounded p-5 font-weight-bold text-left",
                                       staticStyle: {
-                                        background: "antiquewhite",
-                                        color: "#6c6b6bf2"
+                                        background: "#8950FC",
+                                        color: "#fff"
                                       }
                                     },
                                     [
@@ -48663,32 +48628,7 @@ var render = function() {
                                         )
                                       ])
                                 ])
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "d-flex flex-column mb-1 align-items-start"
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        " new-style\n                          mt-2\n                          rounded\n                          p-2\n                          bg-light-success\n                          text-dark-50\n                          font-weight-bold font-size-lg\n                          text-left\n                        ",
-                                      staticStyle: { "font-size": "0.9em" }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n\n                        " +
-                                          _vm._s(_vm.nextmessage)
-                                      ),
-                                      _c("br")
-                                    ]
-                                  )
-                                ]
-                              )
+                              })
                             ],
                             2
                           )
@@ -48963,8 +48903,8 @@ var render = function() {
                                       staticClass:
                                         "mt-2 rounded p-5 font-weight-bold text-left",
                                       staticStyle: {
-                                        background: "antiquewhite",
-                                        color: "#6c6b6bf2"
+                                        background: "#8950FC",
+                                        color: "#fff"
                                       }
                                     },
                                     [
@@ -49058,32 +48998,7 @@ var render = function() {
                                         )
                                       ])
                                 ])
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "d-flex flex-column mb-1 align-items-start"
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        " new-style\n                          mt-2\n                          rounded\n                          p-2\n                          bg-light-success\n                          text-dark-50\n                          font-weight-bold font-size-lg\n                          text-left\n                        ",
-                                      staticStyle: { "font-size": "0.9em" }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n\n                        " +
-                                          _vm._s(_vm.nextmessage)
-                                      ),
-                                      _c("br")
-                                    ]
-                                  )
-                                ]
-                              )
+                              })
                             ],
                             2
                           )
@@ -49985,8 +49900,8 @@ var render = function() {
                                       staticClass:
                                         "mt-2 rounded p-5 font-weight-bold text-left",
                                       staticStyle: {
-                                        background: "antiquewhite",
-                                        color: "#6c6b6bf2"
+                                        background: "#8950FC",
+                                        color: "#fff"
                                       }
                                     },
                                     [
@@ -50080,32 +49995,7 @@ var render = function() {
                                         )
                                       ])
                                 ])
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "d-flex flex-column mb-1 align-items-start "
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        " new-style\n                          mt-2\n                          rounded\n                          p-2\n                          bg-light-success\n                          text-dark-50\n                          font-weight-bold font-size-lg\n                          text-left\n                        ",
-                                      staticStyle: { "font-size": "0.9em" }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n\n                        " +
-                                          _vm._s(_vm.nextmessage)
-                                      ),
-                                      _c("br")
-                                    ]
-                                  )
-                                ]
-                              )
+                              })
                             ],
                             2
                           )

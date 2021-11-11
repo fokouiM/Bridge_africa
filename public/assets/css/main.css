@@ -10,10 +10,10 @@
 }
 
 .bghom{
-    background-image: url("./../bghom.jpg");
+    background-image:  url("./../bghom.jpg") ;
 }
 .bghom2{
-    background: #ffffffb8 !important;
+    background: #ffffffd2 !important;
     border: none;
     color: black;
 }
@@ -46,12 +46,15 @@
     background-color: #1BC5BD !important;
 }
 
-.hello-2 {
+.hello-3 {
     color: #8950FC !important;
     background-color: #EEE5FF !important;
     border-color: transparent !important;
 }
-.hello-2:hover {
+.hello-3:hover {
     color:  #EEE5FF !important;
     background-color: #8950FC !important;
+}
+.newfont{
+    font-size: 1.1em;
 }

@@ -95,7 +95,8 @@ Route::post('/send_message', function (Request $request ) {
 
 Route::get('/gmail', function ( ) {
     $client = User::where('statut',0)->get();
-    return view('Admin.gmail')->with('client',$client);
+    $agent = User::where('statut',1)->get();
+    return view('Admin.gmail')->with(['client'=>$client,'agent'=>$agent]);
 
 })->name('gmail');
 

@@ -366,7 +366,7 @@
                                 <!--end::Toolbar-->
                             </div>
                         </div>
-                        <div class="d-flex flex-row flex-column-fluid  container ">
+                        <div class=" flex-row flex-column-fluid  container ">
                             @yield('content_admin')
                         </div>
 
@@ -379,7 +379,7 @@
                     <div class=" container  d-flex flex-column flex-md-row align-items-center justify-content-between">
                         <!--begin::Copyright-->
                         <div class="text-dark order-2 order-md-1">
-                            <span class="text-muted font-weight-bold mr-2">2021&copy;</span>
+                            <span class="text-muted font-weight-bold mr-2">2015&copy;</span>
                             <a href="home" target="_blank" class="text-white text-hover-primary">Voyance-auracle.fr tous droits réservés</a>
                         </div>
                         <!--end::Copyright-->

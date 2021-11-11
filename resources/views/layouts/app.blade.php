@@ -226,7 +226,7 @@
                     </div>
                 </div>
                 <!--begin::Container-->
-                <div class="d-flex flex-row flex-column-fluid   ">
+                <div class="d-flex flex-row flex-column-fluid ">
                     <div class="main d-flex flex-column flex-row-fluid">
                         <!--begin::Subheader-->
                         <div class="subheader py-2 py-lg-4 " id="kt_subheader">
@@ -285,7 +285,7 @@
                                 <!--end::Details-->
 
                                 <!--begin::Toolbar-->
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-center bghom">
 
                                     <!--begin::Button-->
                                     @if (isset(Auth::user()->id))
@@ -297,7 +297,7 @@
                                 <!--end::Toolbar-->
                             </div>
                         </div>
-                        <div class="d-flex flex-row flex-column-fluid ">
+                        <div class="d-flex flex-row flex-column-fluid bghom">
                             @yield('content')
                         </div>
 
@@ -310,7 +310,7 @@
                     <div class=" container  d-flex flex-column flex-md-row align-items-center justify-content-between">
                         <!--begin::Copyright-->
                         <div class="text-dark order-2 order-md-1">
-                            <span class="text-muted font-weight-bold mr-2">2021&copy;</span>
+                            <span class="text-muted font-weight-bold mr-2">2015&copy;</span>
                             <a href=""  class="text-white text-hover-primary">Voyance-auracle.fr tous droits réservés </a>
                         </div>
                         <div class="text-dark order-2 order-md-1">

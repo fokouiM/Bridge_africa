@@ -38,7 +38,7 @@
                         <!--begin::Title-->
                         <div class="d-flex flex-column">
                             <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0"> Amour</a>
-                            <span class="text-muted font-weight-bold">ISABELLE</span>
+                            <span class="text-muted font-weight-bold"style="color:#fff !important;">ISABELLE</span>
                         </div>
                     </div>
                     <!--end::User-->
@@ -49,9 +49,9 @@
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
                         <span class="text-dark-75 font-weight-bolder mr-2">Avis(90)</span>
-                        <a href="" class="text-muted text-hover-primary">
+                        <a href="" class="text-muted text-hover-primary" style="color:#fff !important;">
                             <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
-                             <i class="la la-star-half-alt text-warning mr-5"></i> 4.75</a>
+                             <i class="la la-star-half-alt text-warning mr-5" ></i> 4.75</a>
                     </div>
                     <!--end::Desc-->
 
@@ -90,7 +90,7 @@
                         <!--begin::Title-->
                         <div class="d-flex flex-column">
                             <a  class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0">Travail</a>
-                            <span class="text-muted font-weight-bold">SUZANNE</span>
+                            <span class="text-muted font-weight-bold" style="color:#fff !important;">SUZANNE</span>
                         </div>
                         <!--end::Title-->
                     </div>
@@ -102,7 +102,7 @@
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
                         <span class="text-dark-75 font-weight-bolder mr-2">Avis(112)</span>
-                        <a href="" class="text-muted text-hover-primary">
+                        <a href="" class="text-muted text-hover-primary" style="color:#fff !important;">
                             <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
                               4</a>
                     </div>
@@ -142,7 +142,7 @@
                         <!--begin::Title-->
                         <div class="d-flex flex-column">
                             <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0"> Argent</a>
-                            <span class="text-muted font-weight-bold">JACQUEMIN</span>
+                            <span class="text-muted font-weight-bold"style="color:#fff !important;">JACQUEMIN</span>
                         </div>
                         <!--end::Title-->
                     </div>
@@ -155,7 +155,7 @@
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
                         <span class="text-dark-75 font-weight-bolder mr-2">Avis(20)</span>
-                        <a href="" class="text-muted text-hover-primary">
+                        <a href="" class="text-muted text-hover-primary" style="color:#fff !important;">
                             <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
                              <i class="la la-star-half-alt text-warning mr-5"></i> 3.75</a>
                     </div>
@@ -194,7 +194,7 @@
                         <!--begin::Title-->
                         <div class="d-flex flex-column">
                             <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0"> Famille</a>
-                            <span class="text-muted font-weight-bold">SABINE</span>
+                            <span class="text-muted font-weight-bold" style="color:#fff !important;" >SABINE</span>
                         </div>
                         <!--end::Title-->
                     </div>
@@ -207,7 +207,7 @@
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
                         <span class="text-dark-75 font-weight-bolder mr-2">Avis(09)</span>
-                        <a href="" class="text-muted text-hover-primary">
+                        <a href="" class="text-muted text-hover-primary" style="color:#fff !important;">
                             <i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i><i class="la la-star text-warning mr-5"></i>
                              <i class="la la-star-half-alt text-warning mr-5"></i> 3.75</a>
                     </div>

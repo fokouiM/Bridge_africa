@@ -1,4 +1,4 @@
-<template>
+ <template>
   <div class="containt">
     <div class="content flex-column-fluid" id="kt_content" style="width: 100%; padding: 0;">
       <span v-if="messages.v2">

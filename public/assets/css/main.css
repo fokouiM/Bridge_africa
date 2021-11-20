@@ -10,7 +10,7 @@
 }
 
 .bghom{
-    background-image:  url("./../bghom.jpg") ;
+    background-image:   url("./../bghom.jpg");
 }
 .bghom2{
     background: #ffffffd2 !important;
@@ -57,4 +57,58 @@
 }
 .newfont{
     font-size: 1.1em;
+}
+.anime{
+    position: fixed !important;
+    top: 10% !important;
+    right: 1% ;
+    width: 30%;
+    -webkit-animation:redBox 10s  !important;
+    -moz-animation: redBox 10s  !important;
+    animation: redBox 10s  !important;
+}
+@-webkit-keyframes redBox{
+    0%{
+        right: -10px;
+    }
+    50%{
+        right: 400px;
+    }
+    100%{
+        right: 10px;
+    }
+}
+@-moz-keyframes redBox{
+    0%{
+        right: -10px;
+    }
+    50%{
+        right: 400px;
+    }
+    100%{
+        right: 10px;
+    }
+}
+@keyframes redBox{
+    0%{
+        right: -800px;
+    }
+    50%{
+        right: 100px;
+    }
+    100%{
+        right: 10px;
+    }
+
+}
+@media only screen and (max-width:600px) {
+    .anime{
+        position: fixed !important;
+        top: 10% !important;
+        right: 1% ;
+        width: 100%;
+        -webkit-animation:redBox 10s  !important;
+        -moz-animation: redBox 10s  !important;
+        animation: redBox 10s  !important;
+    }
 }

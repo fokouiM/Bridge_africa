@@ -58,7 +58,7 @@
                     <form action="message" method="GET">
 
                         <input type="hidden" name="name_voyant" value="ISABELLE">
-                        <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4 hello"  data-toggle="modal" data-target="#kt_chat_modal">Message</button>
+                        <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4 hello"  data-toggle="modal" data-target="#kt_chat_modal">COMMENCEZ GRATUITEMENT ICI</button>
                     </form>
                 </div>
                 <!--end::Body-->
@@ -98,7 +98,8 @@
 
                     <!--begin::Desc-->
                     <p class="mb-7 newfont">
-                        Je suis connectée aux énergies et je fais usage des supports pour lire votre avenir financier et vous aider à retrouver votre plan initial de vie. L'argent est ma spécialité et pour cela je vous aide à l'attirer et à le capter comme un aimant.
+                        Par le pouvoir de la communication télépathique, je guide plusieurs personnes à retrouver la voie du travail. Ce don est inné et j'exerce depuis 30 ans avec succès.
+
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
                         <span class="text-dark-75 font-weight-bolder mr-2">Avis(112)</span>
@@ -110,7 +111,7 @@
                         <form action="messageS" method="GET">
 
                             <input type="hidden" name="name_voyant" value="SUZANNE">
-                            <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4 hello-1" data-toggle="modal" data-target="#kt_chat_modal">Message</button>
+                            <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4 hello-1" data-toggle="modal" data-target="#kt_chat_modal">COMMENCEZ GRATUITEMENT ICI</button>
                         </form>
                 </div>
                 <!--end::Body-->
@@ -150,7 +151,7 @@
 
                     <!--begin::Desc-->
                     <p class="mb-7 newfont">
-                        Doté d'un pouvoir surnaturel, je traite tout Problème de famille par la méthode de la Clairvoyance et je vous aide à retrouver la stabilité dans votre foyer.
+                        Je suis connectée aux énergies et je fais usage des supports pour lire votre avenir financier et vous aider à retrouver votre plan initial de vie. L'argent est ma spécialité et pour cela je vous aide à l'attirer et à le capter comme un aimant.
 
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
@@ -163,7 +164,7 @@
                             <form action="messageJ" method="GET">
 
                                 <input type="hidden" name="name_voyant" value="JACQUEMIN">
-                                <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4 hello-2" data-toggle="modal" data-target="#kt_chat_modal">Message</button>
+                                <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4 hello-2" data-toggle="modal" data-target="#kt_chat_modal">COMMENCEZ GRATUITEMENT ICI</button>
                             </form>
                 </div>
                 <!--end::Body-->
@@ -202,7 +203,7 @@
 
                     <!--begin::Desc-->
                     <p class="mb-7 newfont">
-                        Par le pouvoir de la communication télépathique, je guide plusieurs personnes à retrouver la voie du travail. Ce don est inné et j'exerce depuis 30 ans avec succès.
+                        Doté d'un pouvoir surnaturel, je traite tout Problème de famille par la méthode de la Clairvoyance et je vous aide à retrouver la stabilité dans votre foyer.
 
                     </p>
                     <div class="d-flex justify-content-between align-items-cente my-1">
@@ -215,7 +216,7 @@
                         <form action="messageB" method="GET">
 
                             <input type="hidden" name="name_voyant" value="SABINE">
-                            <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4 hello-3" data-toggle="modal" data-target="#kt_chat_modal">Message</button>
+                            <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4 hello-3" data-toggle="modal" data-target="#kt_chat_modal">COMMENCEZ GRATUITEMENT ICI</button>
                         </form>
                 </div>
                 <!--end::Body-->
@@ -225,4 +226,32 @@
         <!--end::Col-->
     </div>
 </div>
+@if (isset( Auth::user()->pub) )
+    @if (Auth::user()->pub == null )
+        <div class="anime">
+            <div class="alert alert-custom alert-notice alert-light-success fade show mb-5" role="alert">
+                <div class="alert-icon"><i class="flaticon-warning"></i></div>
+                <div class="alert-text"> <strong>OBTENEZ 7 CREDITS GRATUITS</strong><hr>vous aviez reçu 7 crédit bonus pour votre incription</div>
+                <div class="alert-close">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="ki ki-close"></i></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    @else
+    @endif
+@else
+<div class="anime">
+    <div class="alert alert-custom alert-notice alert-light-success fade show mb-5" role="alert">
+        <div class="alert-icon"><i class="flaticon-warning"></i></div>
+        <div class="alert-text"> <strong>OBTENEZ 7 CREDITS GRATUITS</strong><hr>obonnez vous maintenant et obtenez 7 crédits supplémentaire sur votre compte </div>
+        <div class="alert-close">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true"><i class="ki ki-close"></i></span>
+            </button>
+        </div>
+    </div>
+</div>
+@endif
 @endsection

@@ -310,10 +310,10 @@ class MessagesController extends Controller
                 $message->message = $request->text;
                 $message->save();
                 $credit = Auth::user()->credit -1;
-                
+
                 broadcast(new NewMessage($message));
 
-                User::where('id',Auth::user()->id)->update(['credit' => $credit,'statut_m'=> 1]);
+                User::where('id',Auth::user()->id)->update(['credit' => $credit,'statut_m'=> 1,'pub'=> 1]);
                 $counv_clients = CounvClient::where('id_user',Auth::user()->id)->where('name_voyant',$request->name_voyant)->update(['statut' => 0]);
 
                 $message = message::where('id_user',Auth::user()->id)->where('name_voyant',$request->name_voyant)->get();

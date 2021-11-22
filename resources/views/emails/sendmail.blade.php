@@ -45,7 +45,7 @@
                 border-radius: 5px;text-align: center;
                 margin-left: auto;
                 margin-right: auto;
-    ">Cliquer ici</a>
+    ">connectez vous</a>
 </div><br><br>
 <p >2021&copy; Voyance-auracle.fr tous droits réservés</p>
 </body>

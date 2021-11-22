@@ -231,7 +231,7 @@
         <div class="anime">
             <div class="alert alert-custom alert-notice alert-light-success fade show mb-5" role="alert">
                 <div class="alert-icon"><i class="flaticon-warning"></i></div>
-                <div class="alert-text"> <strong>OBTENEZ 7 CREDITS GRATUITS</strong><hr>vous aviez reçu 7 crédit bonus pour votre incription</div>
+                <div class="alert-text"> <strong>ABTENEZ 7 CREDITS GRATUITS</strong><hr>vous aviez reçu 7 crédit bonus pour votre incription</div>
                 <div class="alert-close">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true"><i class="ki ki-close"></i></span>
@@ -245,7 +245,7 @@
 <div class="anime">
     <div class="alert alert-custom alert-notice alert-light-success fade show mb-5" role="alert">
         <div class="alert-icon"><i class="flaticon-warning"></i></div>
-        <div class="alert-text"> <strong>OBTENEZ 7 CREDITS GRATUITS</strong><hr>obonnez vous maintenant et obtenez 7 crédits supplémentaire sur votre compte </div>
+        <div class="alert-text"> <strong>ABTENEZ 7 CREDITS GRATUITS</strong><hr>obonnez vous maintenant et obtenez 7 crédits supplémentaire sur votre compte </div>
         <div class="alert-close">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true"><i class="ki ki-close"></i></span>

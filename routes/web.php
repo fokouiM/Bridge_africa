@@ -209,7 +209,7 @@ Auth::routes();
     Route::get('/fmoi', [App\Http\Controllers\AdminController::class, 'fmoi'])->name('fmoi')->middleware('auth');
 
 
-    Route::get('mollie-payment-success',[MollieController::class, 'paymentSuccess'])->name('mollie.payment.success')->middleware('auth');
+    Route::get('mollie-payment-success',[MollieController::class, 'paymentSuccess'])->name('mollieent.success.paym')->middleware('auth');
     Route::post('mollie-create-payment',[MollieController::class,'createPayment'])->name('mollie.create.payment')->middleware('auth');
     Route::get('create-mollie-subscription',[MollieController::class,'createMollieSubscription'])->name('create.mollie.subscription')->middleware('auth');
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\curentPay;
 use Illuminate\Http\Request;
 use Mollie\Laravel\Facades\Mollie;
 use Illuminate\Support\Facades\Auth;
@@ -56,12 +57,13 @@ class MollieController extends Controller
          $nextuser = User::where('id',Auth::user()->id)->first();
          $affaire = $nextuser->affaire + $request->prix;
          $credit = $request->credit + $nextuser->credit;
-         User::where('id',Auth::user()->id)->update(['credit'=>$credit, 'affaire'=> $affaire, 'statut_client'=>$request->statut]);
-
-        $paylist = new paylist;
-        $paylist->id_user = Auth::user()->id;
-        $paylist->value = $request->prix;
-        $paylist->save();
+            $curentPay = new curentPay;
+            $curentPay->id_user = Auth::user()->id;
+            $curentPay->affaire = $affaire;
+            $curentPay->credit = $credit;
+            $curentPay->statut = $request->statut;
+            $curentPay->prix = $request->prix;
+            $curentPay->save();
 
         // redirect customer to Mollie checkout page
         return redirect($payment->getCheckoutUrl(), 303);
@@ -98,7 +100,13 @@ class MollieController extends Controller
      */
     public function paymentSuccess()
     {
-        // dd($payment);
+        $curretPay = curentPay::where('id_user',auth()->user()->id)->first();
+        User::where('id',Auth::user()->id)->update(['credit'=>$curretPay->credit, 'affaire'=> $curretPay->affaire, 'statut_client'=>$curretPay->statut]);
+
+        $paylist = new paylist;
+        $paylist->id_user = Auth::user()->id;
+        $paylist->value = $curretPay->prix;
+        $paylist->save();
         return view('pack')->with('status','paiement reçu avec succès');
     }
 }

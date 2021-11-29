@@ -25,7 +25,7 @@ use App\Models\paylist;
 */
 
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
 
     if(isset(Auth::user()->id)){
         if(Auth::user()->statut == 1){
@@ -83,6 +83,10 @@ Route::get('/', function () {
 
         return view('welcome');
     }
+});
+
+Route::get('/', function () {
+    return view('home');
 });
 
 Route::post('/send_message', function (Request $request ) {
@@ -209,7 +213,7 @@ Auth::routes();
     Route::get('/fmoi', [App\Http\Controllers\AdminController::class, 'fmoi'])->name('fmoi')->middleware('auth');
 
 
-    Route::get('mollie-payment-success',[MollieController::class, 'paymentSuccess'])->name('mollieent.success.paym')->middleware('auth');
+    Route::get('mollie-payment-success',[MollieController::class, 'paymentSuccess'])->name('mollie.payment.success')->middleware('auth');
     Route::post('mollie-create-payment',[MollieController::class,'createPayment'])->name('mollie.create.payment')->middleware('auth');
     Route::get('create-mollie-subscription',[MollieController::class,'createMollieSubscription'])->name('create.mollie.subscription')->middleware('auth');
 

@@ -1,20 +1,17 @@
 <template>
   <div class="containt">
     <div class="content flex-column-fluid" id="kt_content" style="width: 100%; padding: 0;">
-      <span v-if="messages.v2">
-        <div class="alert alert-custom alert-success fade show" role="alert">
-          <div class="alert-icon"><i class="flaticon-warning"></i></div>
-          <div class="alert-text">{{ messages.v2 }}</div>
-          <div class="alert-close">
-            <button
-              type="button"
-              class="close"
-              data-dismiss="alert"
-              aria-label="Close"
-            >
-              <span aria-hidden="true"><i class="ki ki-close"></i></span>
-            </button>
-          </div>
+        <span v-if="messages.v2">
+        <div class="anime">
+            <div class="alert alert-custom alert-notice alert-light-success fade show mb-5" role="alert">
+                <div class="alert-icon"><i class="flaticon-warning"></i></div>
+                <div class="alert-text"> {{ messages.v2 }} <a href="pack">cliquer icI</a> pour recharger votre compte</div>
+                <div class="alert-close">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="ki ki-close"></i></span>
+                    </button>
+                </div>
+            </div>
         </div>
       </span>
 
@@ -88,6 +85,8 @@
                           style="font-size: 0.9em"
                         >
                           {{ message.message }}
+                          <span class="text-muted font-size-sm" style="margin-left: 2em; float: right;">{{message.created_at}}</span>
+
                         </div>
                       </div>
                     </span>
@@ -105,9 +104,9 @@
                           "
                           style="font-size: 0.9em"
                         >
-                          {{ message.message }}<br />
-                          <!-- <span> {{ moment(message.created_at).format("DD/MM/YYYY") }} </span> -->
-                          <!-- <span class="text-muted font-size-sm">{{message.created_at}}</span> -->
+                          {{ message.message }}
+                          <span class="text-muted font-size-sm" style="margin-left: 2em; float: right;">{{message.created_at}}</span>
+
                         </div>
                       </div>
                     </span>

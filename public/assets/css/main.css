@@ -66,6 +66,8 @@
     -webkit-animation:redBox 10s  !important;
     -moz-animation: redBox 10s  !important;
     animation: redBox 10s  !important;
+    z-index: 99999;
+
 }
 @-webkit-keyframes redBox{
     0%{
@@ -110,5 +112,6 @@
         -webkit-animation:redBox 10s  !important;
         -moz-animation: redBox 10s  !important;
         animation: redBox 10s  !important;
+        z-index: 99999;
     }
 }

@@ -53,6 +53,8 @@
                                             <div class="d-flex flex-column mb-1 " :class="message.id_send == contact.id ? 'align-items-start' : 'align-items-end ' ">
                                                 <div class="mt-2 rounded p-2 text-dark-50 font-weight-bold font-size-lg text-right max-w-400px new-style" :class="message.id_send == contact.id ? 'bg-light-primary text-right ' : ' bg-light-success text-left' " style="font-size:0.9em; ">
                                                     {{message.message}}
+                                             <span class="text-muted font-size-sm" style="margin-left: 2em; float: right;">{{message.created_at}}</span>
+
                                                 </div>
                                             </div>
                                     </span>

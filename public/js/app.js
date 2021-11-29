@@ -2705,9 +2705,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -2894,7 +2891,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _credit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./credit */ "./resources/js/components/credit.vue");
-//
 //
 //
 //
@@ -3366,7 +3362,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -3626,6 +3621,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     reponse: false,
@@ -3725,8 +3722,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _credit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./credit */ "./resources/js/components/credit.vue");
-//
-//
 //
 //
 //
@@ -48015,22 +48010,29 @@ var render = function() {
       [
         _vm.messages.v2
           ? _c("span", [
-              _c(
-                "div",
-                {
-                  staticClass: "alert alert-custom alert-success fade show",
-                  attrs: { role: "alert" }
-                },
-                [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "alert-text" }, [
-                    _vm._v(_vm._s(_vm.messages.v2))
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(1)
-                ]
-              )
+              _c("div", { staticClass: "anime" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "alert alert-custom alert-notice alert-light-success fade show mb-5",
+                    attrs: { role: "alert" }
+                  },
+                  [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "alert-text" }, [
+                      _vm._v(" " + _vm._s(_vm.messages.v2) + " "),
+                      _c("a", { attrs: { href: "pack" } }, [
+                        _vm._v("cliquer icI")
+                      ]),
+                      _vm._v(" pour recharger votre compte")
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(1)
+                  ]
+                )
+              ])
             ])
           : _vm._e(),
         _vm._v(" "),
@@ -48165,7 +48167,23 @@ var render = function() {
                                                 _vm._v(
                                                   "\n                        " +
                                                     _vm._s(message.message) +
-                                                    "\n                      "
+                                                    "\n                        "
+                                                ),
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticClass:
+                                                      "text-muted font-size-sm",
+                                                    staticStyle: {
+                                                      "margin-left": "2em",
+                                                      float: "right"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(message.created_at)
+                                                    )
+                                                  ]
                                                 )
                                               ]
                                             )
@@ -48192,9 +48210,25 @@ var render = function() {
                                               [
                                                 _vm._v(
                                                   "\n                        " +
-                                                    _vm._s(message.message)
+                                                    _vm._s(message.message) +
+                                                    "\n                        "
                                                 ),
-                                                _c("br")
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticClass:
+                                                      "text-muted font-size-sm",
+                                                    staticStyle: {
+                                                      "margin-left": "2em",
+                                                      float: "right"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(message.created_at)
+                                                    )
+                                                  ]
+                                                )
                                               ]
                                             )
                                           ]
@@ -48441,22 +48475,29 @@ var render = function() {
       [
         _vm.messages.v2
           ? _c("span", [
-              _c(
-                "div",
-                {
-                  staticClass: "alert alert-custom alert-success fade show",
-                  attrs: { role: "alert" }
-                },
-                [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "alert-text" }, [
-                    _vm._v(_vm._s(_vm.messages.v2))
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(1)
-                ]
-              )
+              _c("div", { staticClass: "anime" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "alert alert-custom alert-notice alert-light-success fade show mb-5",
+                    attrs: { role: "alert" }
+                  },
+                  [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "alert-text" }, [
+                      _vm._v(" " + _vm._s(_vm.messages.v2) + " "),
+                      _c("a", { attrs: { href: "pack" } }, [
+                        _vm._v("cliquer icI")
+                      ]),
+                      _vm._v(" pour recharger votre compte")
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(1)
+                  ]
+                )
+              ])
             ])
           : _vm._e(),
         _vm._v(" "),
@@ -48592,7 +48633,23 @@ var render = function() {
                                                 _vm._v(
                                                   "\n                        " +
                                                     _vm._s(message.message) +
-                                                    "\n                      "
+                                                    "\n                        "
+                                                ),
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticClass:
+                                                      "text-muted font-size-sm",
+                                                    staticStyle: {
+                                                      "margin-left": "2em",
+                                                      float: "right"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(message.created_at)
+                                                    )
+                                                  ]
                                                 )
                                               ]
                                             )
@@ -48619,9 +48676,25 @@ var render = function() {
                                               [
                                                 _vm._v(
                                                   "\n                        " +
-                                                    _vm._s(message.message)
+                                                    _vm._s(message.message) +
+                                                    "\n                        "
                                                 ),
-                                                _c("br")
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticClass:
+                                                      "text-muted font-size-sm",
+                                                    staticStyle: {
+                                                      "margin-left": "2em",
+                                                      float: "right"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(message.created_at)
+                                                    )
+                                                  ]
+                                                )
                                               ]
                                             )
                                           ]
@@ -48812,22 +48885,29 @@ var render = function() {
       [
         _vm.messages.v2
           ? _c("span", [
-              _c(
-                "div",
-                {
-                  staticClass: "alert alert-custom alert-success fade show",
-                  attrs: { role: "alert" }
-                },
-                [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "alert-text" }, [
-                    _vm._v(_vm._s(_vm.messages.v2))
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(1)
-                ]
-              )
+              _c("div", { staticClass: "anime" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "alert alert-custom alert-notice alert-light-success fade show mb-5",
+                    attrs: { role: "alert" }
+                  },
+                  [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "alert-text" }, [
+                      _vm._v(" " + _vm._s(_vm.messages.v2) + " "),
+                      _c("a", { attrs: { href: "pack" } }, [
+                        _vm._v("cliquer icI")
+                      ]),
+                      _vm._v(" pour recharger votre compte")
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(1)
+                  ]
+                )
+              ])
             ])
           : _vm._e(),
         _vm._v(" "),
@@ -48962,7 +49042,23 @@ var render = function() {
                                                 _vm._v(
                                                   "\n                        " +
                                                     _vm._s(message.message) +
-                                                    "\n                      "
+                                                    "\n                        "
+                                                ),
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticClass:
+                                                      "text-muted font-size-sm",
+                                                    staticStyle: {
+                                                      "margin-left": "2em",
+                                                      float: "right"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(message.created_at)
+                                                    )
+                                                  ]
                                                 )
                                               ]
                                             )
@@ -48989,9 +49085,25 @@ var render = function() {
                                               [
                                                 _vm._v(
                                                   "\n                        " +
-                                                    _vm._s(message.message)
+                                                    _vm._s(message.message) +
+                                                    "\n                        "
                                                 ),
-                                                _c("br")
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticClass:
+                                                      "text-muted font-size-sm",
+                                                    staticStyle: {
+                                                      "margin-left": "2em",
+                                                      float: "right"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(message.created_at)
+                                                    )
+                                                  ]
+                                                )
                                               ]
                                             )
                                           ]
@@ -49345,7 +49457,19 @@ var render = function() {
                                       _vm._v(
                                         "\n                                                " +
                                           _vm._s(message.message) +
-                                          "\n                                            "
+                                          "\n                                         "
+                                      ),
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass:
+                                            "text-muted font-size-sm",
+                                          staticStyle: {
+                                            "margin-left": "2em",
+                                            float: "right"
+                                          }
+                                        },
+                                        [_vm._v(_vm._s(message.created_at))]
                                       )
                                     ]
                                   )
@@ -49809,22 +49933,29 @@ var render = function() {
       [
         _vm.messages.v2
           ? _c("span", [
-              _c(
-                "div",
-                {
-                  staticClass: "alert alert-custom alert-success fade show",
-                  attrs: { role: "alert" }
-                },
-                [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "alert-text" }, [
-                    _vm._v(_vm._s(_vm.messages.v2))
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(1)
-                ]
-              )
+              _c("div", { staticClass: "anime" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "alert alert-custom alert-notice alert-light-success fade show mb-5",
+                    attrs: { role: "alert" }
+                  },
+                  [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "alert-text" }, [
+                      _vm._v(" " + _vm._s(_vm.messages.v2) + " "),
+                      _c("a", { attrs: { href: "pack" } }, [
+                        _vm._v("cliquer icI")
+                      ]),
+                      _vm._v(" pour recharger votre compte")
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(1)
+                  ]
+                )
+              ])
             ])
           : _vm._e(),
         _vm._v(" "),
@@ -49959,7 +50090,23 @@ var render = function() {
                                                 _vm._v(
                                                   "\n                        " +
                                                     _vm._s(message.message) +
-                                                    "\n                      "
+                                                    "\n                        "
+                                                ),
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticClass:
+                                                      "text-muted font-size-sm",
+                                                    staticStyle: {
+                                                      "margin-left": "2em",
+                                                      float: "right"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(message.created_at)
+                                                    )
+                                                  ]
                                                 )
                                               ]
                                             )
@@ -49986,9 +50133,25 @@ var render = function() {
                                               [
                                                 _vm._v(
                                                   "\n                        " +
-                                                    _vm._s(message.message)
+                                                    _vm._s(message.message) +
+                                                    "\n                        "
                                                 ),
-                                                _c("br")
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticClass:
+                                                      "text-muted font-size-sm",
+                                                    staticStyle: {
+                                                      "margin-left": "2em",
+                                                      float: "right"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(message.created_at)
+                                                    )
+                                                  ]
+                                                )
                                               ]
                                             )
                                           ]

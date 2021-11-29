@@ -28,8 +28,8 @@ class mailController extends Controller
         //     $message->to('f.fokoui237@gamil.com')->cc('contact@voyance-auracle.fr');
         // });
 
-        $v3 = "Mail bien envoyer ";
-        return redirect()->route('gmail',['v3'=>$v3]);
+        $v2 = "Mail bien envoyer ";
+        return redirect()->route('gmail',['v2'=>$v2]);
     }
 
     /**
@@ -236,8 +236,8 @@ class mailController extends Controller
 
                 mail($to,$subject,$message,$headers);
 
-                    $v3 = "Mail bien envoyer ";
-            return redirect()->route('gmail',['v3'=>$v3]);
+                    $v2 = "Mail bien envoyer ";
+            return redirect()->route('gmail',['v2'=>$v2]);
     }
 
     /**

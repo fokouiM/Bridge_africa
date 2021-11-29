@@ -199,7 +199,7 @@
         </header>
         <!--Header ends-->
         <!--Hero section starts-->
-        <div class="hero v2 section-padding" style="background-image: url(assetsone/25602986_s.jpg)">
+        <div class="hero v2 section-padding" style="background-image: url(assetsone/25602986_s.jpg); height: 600px;">
         </div>
         <!--Hero section ends-->
         <!--Popular City starts-->
@@ -258,7 +258,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12">
                         <div class="promo-desc">
-                            <div class="section-title v2 " style="text-align: center;">
+                            <div class="section-title  " style="text-align: center;">
                                 {{-- <p>Lorem ipsum dolor sit.</p> --}}
                                 <h2 >Pourquoi nous choisir</h2>
                             </div>
@@ -269,7 +269,7 @@
                                 <div class="col-sm-4 col-12">
                                     <div class="counter-text v2">
                                         <i class="lnr lnr-apartment"></i>
-                                        <h6 class="counter-value" data-from="0" data-to="10" data-speed="1500">10</h6>
+                                        <h6 class="counter-value" data-from="0" data-to="06" data-speed="1500">06</h6>
                                         <p>années d'expérience</p>
                                     </div>
                                 </div>
@@ -283,11 +283,118 @@
                                 <div class="col-sm-4 col-12">
                                     <div class="counter-text v2">
                                         <i class="lnr lnr-user"></i>
-                                        <h6 class="counter-value" data-from="0" data-to="252" data-speed="1500">252</h6>
+                                        <h6 class="counter-value" data-from="0" data-to="238" data-speed="1500">238</h6>
                                         <p>visite par jour</p>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-client-section mt-140 pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2 text-center">
+                        <div class="section-title v1">
+                            <h2>Témoignage</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-70">
+                        <div class="testimonial-wrapper swiper-container swiper-container-fade swiper-container-horizontal">
+                            <div class="swiper-wrapper" style="transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="2" style="width: 930px; transition-duration: 0ms; opacity: 1; transform: translate3d(0px, 0px, 0px);">
+                                    <div class="single-testimonial-item">
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <div class="testimonial-video" style="background-image: url(assetsone/25602986_s.jpg)">
+                                                    <div class="overlay op-3"></div>
+                                                    <div class="testimonial-btn">
+                                                        {{-- <a href="https://www.youtube.com/watch?v=EFB33r7u4tY" class="property-yt hvr-ripple-out"><i class="fas fa-play"></i></a> --}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial-quote">
+                                                <h4>Client anonyme</h4>
+                                                <p>Cela m'a pris environ trois moi pour retrouver mon âme sœur grâce aux thérapies et conseils que Isabelle m'a donné. J'avoue que je n'ai pas commencé directement à mettre cela en pratique dès nos premières échanges. mais le temps passé, j'ai essayé et j'ai vu des indices comme elle me le disait durant nos séances cela m'a galvanisé et redonné espoir jusqu'au jour où je l'ai tenu dans mes bras. Nous sommes heureux actuellement. je vous remercie encore</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 930px; transition-duration: 0ms; opacity: 1; transform: translate3d(-930px, 0px, 0px);">
+                                    <div class="single-testimonial-item">
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <div class="testimonial-video" style="background-image: url(assetsone/25602986_s.jpg)">
+                                                    <div class="overlay op-2"></div>
+                                                    <div class="testimonial-btn">
+                                                        {{-- <a href="https://www.youtube.com/watch?v=EFB33r7u4tY" class="property-yt hvr-ripple-out"><i class="fas fa-play"></i></a> --}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial-quote">
+                                                <h4>Client Anonyme</h4>
+                                                <p> Lorsque j'ai commencé mes séances de consultation je n'étais pas rassurée du résultat final. Je me disais que je causais juste avec une personne comme moi. Mais au fil du temps et des révélations au quotidien j'ai compris que les prédictions étaient vraies. J'ai manqué deux opportunités d'emploi qui m'avait été dit. Mais en prenant cela au sérieux j'ai décroché un poste dont j'avais des doutes. Je suis actuellement chef de projet grâce aux prédictions de JACQUEMIN</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="1" style="width: 930px; transition-duration: 0ms; opacity: 0; transform: translate3d(-1860px, 0px, 0px);">
+                                    <div class="single-testimonial-item">
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <div class="testimonial-video" style="background-image: url(assetsone/25602986_s.jpg)">
+                                                </div>
+                                            </div>
+                                            <div class="testimonial-quote">
+                                                <h4>Client Anonyme </h4>
+                                                <p>Mon couple battait de l'aile je ne savais plus à quel sein se vouer. Mais en mettant en pratique une thérapie en quelques mois nous sommes heureux</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide swiper-slide-duplicate-prev" data-swiper-slide-index="2" style="width: 930px; transition-duration: 0ms; opacity: 0; transform: translate3d(-2790px, 0px, 0px);">
+                                    <div class="single-testimonial-item">
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <div class="testimonial-video" style="background-image: url(assetsone/25602986_s.jpg)">
+                                                    <div class="overlay op-3"></div>
+                                                    <div class="testimonial-btn">
+                                                        {{-- <a href="https://www.youtube.com/watch?v=EFB33r7u4tY" class="property-yt hvr-ripple-out"><i class="fas fa-play"></i></a> --}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial-quote">
+                                                <h4>Client Anonyme</h4>
+                                                <p>Je n'arrivait pas à réaliser quoi que ce soit avec l'argent que je gagne. tout disparaissait au point où je pensais à une malédiction mais avec l'aide de Suzanne et Sabine je me suis retrouvé à réaliser et atteindre mes objectifs</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="0" style="width: 930px; transition-duration: 0ms; opacity: 0; transform: translate3d(-3720px, 0px, 0px);">
+                                    <div class="single-testimonial-item">
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <div class="testimonial-video" style="background-image: url(assetsone/25602986_s.jpg)">
+                                                    <div class="overlay op-2"></div>
+                                                    <div class="testimonial-btn">
+                                                        {{-- <a href="https://www.youtube.com/watch?v=EFB33r7u4tY" class="property-yt hvr-ripple-out"><i class="fas fa-play"></i></a> --}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial-quote">
+                                                <h4>Client Anonyme</h4>
+                                                <p>Je n'ai pas de mots pour exprimer ma gratitude. je suis heureuse en ce moment</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div></div>
+                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                        <!-- Add Arrows -->
+                        <div class="client-btn-wrap">
+                            <div class="client-prev" tabindex="0" role="button" aria-label="Previous slide"><i class="lnr lnr-arrow-left"></i></div>
+                            <div class="client-next" tabindex="0" role="button" aria-label="Next slide"><i class="lnr lnr-arrow-right"></i></div>
                         </div>
                     </div>
                 </div>

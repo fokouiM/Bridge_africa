@@ -39,10 +39,10 @@
                                 <a class="navbar-brand" href="#"><img src="assets/media/logos/logo-default.png" style="width: 2em" alt="logo" class=""></a>
                             </div>
                             <div class="col-lg-6 col-md-1 col-1  order-2 order-lg-1 pl-xs-0">
-                                {{-- <nav class="site-navigation text-right">
+                                <nav class="site-navigation text-right">
                                     <div class="container">
                                         <ul class="site-menu js-clone-nav d-none d-lg-block">
-                                            <li class="has-children">
+                                            {{-- <li class="has-children">
                                                 <a class="active" href="#">Home</a>
                                                 <ul class="dropdown">
                                                     <li><a href="home-v1.html">Home Hero</a></li>
@@ -163,12 +163,12 @@
                                                     <li><a href="single-news-two.html">Single News two</a></li>
                                                     <li><a href="single-news-three.html">Single News three</a></li>
                                                 </ul>
-                                            </li>
-                                            <li class="d-lg-none"><a class="btn v3" href="add-listing.html"><i class="lnr lnr-home"></i>Add Listing </a>
+                                            </li> --}}
+                                            <li class="d-lg-none"><a class="btn v3"  style="font-size: 1em;" href="welcome"><i class="lnr lnr-home"></i>COMMENCEZ GRATUITEMENT ICI</a>
                                             </li>
                                         </ul>
                                     </div>
-                                </nav> --}}
+                                </nav>
                                 <div class="d-lg-none sm-right">
                                     <a href="#" class="mobile-bar js-menu-toggle">
                                         <span class="lnr lnr-menu"></span>
@@ -187,7 +187,7 @@
                             <div class="col-lg-4 col-md-5 col-4 order-1 order-lg-2 text-right pr-xs-0">
                                 <div class="menu-btn">
                                     <div class="add-list">
-                                        <a class="btn v1" href="welcome"><i class="lnr lnr-home"></i>COMMENCEZ GRATUITEMENT ICI</a>
+                                        <a class="btn v1" href="welcome" style="font-size: 1em;"><i class="lnr lnr-home"></i>COMMENCEZ GRATUITEMENT ICI</a>
                                     </div>
                                 </div>
                             </div>

@@ -20,6 +20,7 @@ class CreateCurentPaysTable extends Migration
             $table->string('affaire')->nullable();
             $table->string('statut')->nullable();
             $table->string('prix')->nullable();
+            $table->string('codepay')->nullable();
             $table->timestamps();
         });
     }

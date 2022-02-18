@@ -17,6 +17,7 @@ class CreatePaylistsTable extends Migration
             $table->id();
             $table->string('id_user')->nullable();
             $table->string('value')->nullable();
+            $table->string('codepay')->nullable();
             $table->timestamps();
         });
     }

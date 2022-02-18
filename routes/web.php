@@ -12,6 +12,7 @@ use App\Events\NewMessage;
 use PhpParser\Node\Stmt\Return_;
 use App\Http\Controllers\MollieController;
 use App\Http\Controllers\mailController;
+use App\Http\Controllers\FbpayementController;
 use App\Models\paylist;
 /*
 |--------------------------------------------------------------------------
@@ -216,6 +217,10 @@ Auth::routes();
     Route::get('mollie-payment-success',[MollieController::class, 'paymentSuccess'])->name('mollie.payment.success')->middleware('auth');
     Route::post('mollie-create-payment',[MollieController::class,'createPayment'])->name('mollie.create.payment')->middleware('auth');
     Route::get('create-mollie-subscription',[MollieController::class,'createMollieSubscription'])->name('create.mollie.subscription')->middleware('auth');
+
+    Route::get('facebook-mollie-payment-success',[FbpayementController::class, 'paymentSuccess'])->name('facebook.mollie.payment.success');
+    Route::get('facebook-mollie-create-paymen{prix}',[FbpayementController::class,'createPayment'])->name('facebook.mollie.create.payment');
+    Route::get('facebook-create-mollie-subscription',[FbpayementController::class,'createMollieSubscription'])->name('facebook.create.mollie.subscription');
 
     Route::post('sendMail',[mailController::class,'index'])->name('sendMail')->middleware('auth');
 

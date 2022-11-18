@@ -17,7 +17,9 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('pub')->default('0');
             $table->string('statut')->default('0');
+            $table->string('statut_m')->default('0');
             $table->string('credit')->default('3');
             $table->string('chiffre')->default('0');
             $table->string('img_profil')->default('logo-default.png');

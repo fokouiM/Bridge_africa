@@ -15,7 +15,8 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "mollie/laravel-mollie": "^2.15",
-        "pusher/pusher-php-server": "^5.0"
+        "pusher/pusher-php-server": "^5.0",
+        "predis/predis": "^2.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

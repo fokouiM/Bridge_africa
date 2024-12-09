@@ -1,27 +1,28 @@
-# Étape 1: Utiliser une image PHP officielle
-FROM php:8.1-cli
+# Utiliser une image PHP avec Apache
+FROM php:8.1-apache
 
-# Étape 2: Installer des dépendances système
+# Installer les extensions requises et git
 RUN apt-get update && apt-get install -y \
-    git \
-    curl \
-    unzip \
     libzip-dev \
-    && docker-php-ext-install pdo_mysql zip
+    zlib1g-dev \
+    git \
+    unzip \
+ && docker-php-ext-configure zip \
+ && docker-php-ext-install zip \
+ && docker-php-ext-install pdo pdo_mysql
 
-# Étape 3: Définir le répertoire de travail
-WORKDIR /app
+# Copier les fichiers de l'application dans le conteneur
+COPY . /var/www/html
 
-# Étape 4: Copier les fichiers nécessaires à Composer en premier
-COPY . /app
+# Configurer le répertoire de travail
+WORKDIR /var/www/html
 
-# Étape 5: Installer Composer
-COPY --from=composer:2.5 /usr/bin/composer /usr/bin/composer
-RUN composer install --no-dev --optimize-autoloader --no-interaction
+# Installer Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Étape 6: Copier le reste des fichiers de l'application
-# COPY . /app/
+# Installer les dépendances de Composer
+RUN composer install
+RUN php artisan migrate --force
 
-# Étape 7: Exposer le port et définir la commande de démarrage
-EXPOSE 8000
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+# Exposer le port 80
+EXPOSE 80

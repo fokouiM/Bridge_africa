@@ -380,7 +380,7 @@
                         <!--begin::Copyright-->
                         <div class="text-dark order-2 order-md-1">
                             <span class="text-muted font-weight-bold mr-2">2015&copy;</span>
-                            <a href="home" target="_blank" class="text-white text-hover-primary">Voyance-auracle.fr tous droits réservés</a>
+                            <a href="home" target="_blank" class="text-white text-hover-primary">unevoyante-fr.fr tous droits réservés</a>
                         </div>
                         <!--end::Copyright-->
 

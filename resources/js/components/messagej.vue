@@ -59,7 +59,7 @@
                       proposons une voyance exclusive à partir de
                       <strong>1.25€(toutes taxes comprises pour une voyance de qualité profesionnel ). </strong> Vous
                       pouvez donc oublier les voyances hors de prix.Sur
-                       <strong>voyance-auracle.fr</strong> nous vous révélons votre avenir et les
+                       <strong>unevoyante-fr.fr</strong> nous vous révélons votre avenir et les
                       solutions pour contourner les obstacles à votre bonheur,
                       et pour se faire, Vous avez d'ores et déjà
                       <strong>3 crédits offerts,</strong> en quoi puis je vous

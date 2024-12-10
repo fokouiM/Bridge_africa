@@ -31,9 +31,9 @@
                         <span class=" svg-logo-white">GERANT DU SERVICE </span>  </a>
                     <!--end::Logo-->
                     <span class="d-flex flex-column font-size-h5 font-weight-bold text-white">
-                        <span><strong> GERANT DU SERVICE : </strong> Le site voyance-auracle.fr est géré par la société SK BUSINESS 4 <br> rue des retisseys 21240 Talant</span>
+                        <span><strong> GERANT DU SERVICE : </strong> Le site unevoyante-fr.fr est géré par la société SK BUSINESS 4 <br> rue des retisseys 21240 Talant</span>
                         <span> <strong>Siret : </strong>898 185 392 00013</span>
-                        <span> <strong>Email du support : </strong>voyance-auracle.fr</span>
+                        <span> <strong>Email du support : </strong>unevoyante-fr.fr</span>
                     </span>
                 </div>
                 <h1 class="display-3 font-weight-boldest text-white order-1 order-md-2">Mentions légales</h1>

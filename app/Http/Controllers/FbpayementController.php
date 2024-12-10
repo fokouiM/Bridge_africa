@@ -37,7 +37,7 @@ class FbpayementController extends Controller
             //API to create customer
             $customer = Mollie::api()->customers->create([
                 "name" => "facebookpay",
-                "email" => "contact@voyance-auracle.fr",
+                "email" => "support@unevoyante-fr.fr",
             ]);
 
             $mollie_customer_id = $customer->id;

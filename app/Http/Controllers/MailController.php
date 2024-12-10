@@ -20,12 +20,12 @@ class mailController extends Controller
             'body'=>$request->message,
             'subject'=> $request->subject
         ];
-        Mail::to($request->email)->cc('contact@voyance-auracle.fr')->send(new sendmail($details));
+        Mail::to($request->email)->cc('support@unevoyante-fr.fr')->send(new sendmail($details));
 
         // Mail::send('sendMail', $request, function ($message) {
-        //     $message->from('contact@voyance-auracle.fr', 'voyance-auracle');
+        //     $message->from('support@unevoyante-fr.fr', 'voyance-auracle');
 
-        //     $message->to('f.fokoui237@gamil.com')->cc('contact@voyance-auracle.fr');
+        //     $message->to('f.fokoui237@gamil.com')->cc('support@unevoyante-fr.fr');
         // });
 
         $v2 = "Mail bien envoyer ";
@@ -55,7 +55,7 @@ class mailController extends Controller
 			$message = $request->message;
 			$objet = $request->objet;
 
-					$to = "Email: contact@voyance-auracle.fr, hunterbrightdesign@gmail.com";
+					$to = "Email: support@unevoyante-fr.fr, hunterbrightdesign@gmail.com";
 					$subject = "voyance-auracle.f";
 
 					$message = "
@@ -79,7 +79,7 @@ class mailController extends Controller
 					</style>
 					</head>
 					<body>
-					<p>Ce mail proviens du formulaire de contact de voyance-auracle.fr</p>
+					<p>Ce mail proviens du formulaire de contact de unevoyante-fr.fr</p>
 					<table>
 					<tr>
 					<th>nom</th>
@@ -102,8 +102,8 @@ class mailController extends Controller
 					$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
 					// More headers
-					$headers .= 'From: <contact@voyance-auracle.fr>' . "\r\n";
-					$headers .= 'Cc: contact@voyance-auracle.fr' . "\r\n";
+					$headers .= 'From: <support@unevoyante-fr.fr>' . "\r\n";
+					$headers .= 'Cc: support@unevoyante-fr.fr' . "\r\n";
 
 					mail($to,$subject,$message,$headers);
                     $v2 = "voutre mail a bien étè envoyer";
@@ -118,7 +118,7 @@ class mailController extends Controller
 			$email = $request->email;
 			$message = $request->message;
 
-					$to = "Email: contact@voyance-auracle.fr, hunterbrightdesign@gmail.com";
+					$to = "Email: support@unevoyante-fr.fr, hunterbrightdesign@gmail.com";
 					$subject = "voyance-auracle.f";
 
 					$message = "
@@ -142,7 +142,7 @@ class mailController extends Controller
 					</style>
 					</head>
 					<body>
-					<p>Ce mail proviens du formulaire de retractation de voyance-auracle.fr</p>
+					<p>Ce mail proviens du formulaire de retractation de unevoyante-fr.fr</p>
 					<table>
 					<tr>
 					<th>nom</th>
@@ -164,8 +164,8 @@ class mailController extends Controller
 					$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
 					// More headers
-					$headers .= 'From: <contact@voyance-auracle.fr>' . "\r\n";
-					$headers .= 'Cc: contact@voyance-auracle.fr' . "\r\n";
+					$headers .= 'From: <support@unevoyante-fr.fr>' . "\r\n";
+					$headers .= 'Cc: support@unevoyante-fr.fr' . "\r\n";
 
 					mail($to,$subject,$message,$headers);
                     $v2 = "voutre mail de retractation a bien étè envoyer";
@@ -183,7 +183,7 @@ class mailController extends Controller
                     'body'=>$request->message,
                     'subject'=> $request->subject
                 ];
-                Mail::to($us->email)->cc('contact@voyance-auracle.fr')->send(new sendmail($details));
+                Mail::to($us->email)->cc('support@unevoyante-fr.fr')->send(new sendmail($details));
             }
 
                     $v2 = "Mail collectifs bien envoyer ";
@@ -231,8 +231,8 @@ class mailController extends Controller
                         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
                         // More headers
-                        $headers .= 'From: <voyance-auracle@voyance-auracle.fr>' . "\r\n";
-                        $headers .= 'Cc: voyance-auracle@voyance-auracle.fr' . "\r\n";
+                        $headers .= 'From: <voyance-auracle@unevoyante-fr.fr>' . "\r\n";
+                        $headers .= 'Cc: voyance-auracle@unevoyante-fr.fr' . "\r\n";
 
                 mail($to,$subject,$message,$headers);
 

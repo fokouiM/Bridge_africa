@@ -8,7 +8,7 @@
     <link href="assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
-    <title>Voyance Auracle</title>
+    <title>Une voyante fr</title>
     <style type="text/css">
         @media screen and (max-width: 600px) {
             body {
@@ -77,7 +77,7 @@
                                     </a>
                                     <h1 class="top-header"
                                         style="font-size: 22px; font-weight:500;text-align: center; Margin-bottom: 0;color: #000000">
-                                        Voyance Auracle
+                                        Une voyante fr
                                     </h1>
                                     <hr>
                                 </td>
@@ -188,7 +188,7 @@
             <tr>
                 <td style="padding:0;text-align: center;">
                     <p style="margin: 0; margin-bottom: 10px; margin-top: 30px; font-weight:200; color: #000000">
-                        Copyright &copy; | 2021 | Voyance auracle | tous droits réservés
+                        Copyright &copy; | 2021 | Une voyante fr | tous droits réservés
                     </p>
                     <!-- <p style="font-weight: bold; color: #000000"> -->
                         Our mailing address is:

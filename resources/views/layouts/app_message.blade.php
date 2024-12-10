@@ -5,7 +5,7 @@
 <head>
     <base href="../../../">
     <meta charset="utf-8" />
-    <title>Voyance Auracle</title>
+    <title>Une voyante fr</title>
     <meta name="description" content="User 4 columns listing" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -46,7 +46,7 @@
                     <!--begin::Logo-->
                     <a href="home">
                         <img alt="Logo" src="assets/media/logos/logo-default.png" class="max-h-40px" />
-                        <h6 style="float: right; margin-top: 5vh; color:#ffff;">Voyance Auracle</h6>
+                        <h6 style="float: right; margin-top: 5vh; color:#ffff;">Une voyante fr</h6>
                     </a>
                     <!--end::Logo-->
 
@@ -89,7 +89,7 @@
                             <a href="home" class="mr-20" style="display: flex">
                                 <img alt="Logo" src="assets/media/logos/logo-default.png"
                                     class="logo-default max-h-40px" />
-                                    <h6 style="margin-top: auto; color:#fff;">Voyance Auracle</h6>
+                                    <h6 style="margin-top: auto; color:#fff;">Une voyante fr</h6>
                             </a>
                             <!--end::Logo-->
                         </div>

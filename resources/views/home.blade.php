@@ -17,7 +17,7 @@
     <!-- style CSS -->
     <link href="assetsone/css/style.css" rel="stylesheet" />
     <!-- Document Title -->
-    <title>Voyance Auracle</title>
+    <title>Une voyante fr</title>
 </head>
 
 <body>

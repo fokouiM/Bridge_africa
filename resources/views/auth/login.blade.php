@@ -5,7 +5,7 @@
 <head>
     <base href="../../../../">
     <meta charset="utf-8" />
-    <title>Voyance auracle</title>
+    <title>Une voyante fr</title>
     <meta name="description" content="Login page example" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -243,7 +243,7 @@
                 <!--begin::Content body-->
                 <div class="d-flex flex-column-fluid flex-lg-center">
                     <div class="d-flex flex-column justify-content-center">
-                        <h3 class="display-3 font-weight-bold my-7 text-white">Bienvenue sur Voyance Auracle !</h3>
+                        <h3 class="display-3 font-weight-bold my-7 text-white">Bienvenue sur Une voyante fr !</h3>
                     </div>
                 </div>
                 <!--end::Content body-->

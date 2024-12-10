@@ -414,7 +414,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-8 offset-md-2">
                         <p>
-                            2015©Voyance-auracle.fr tous droits réservés </p>
+                            2015©unevoyante-fr.fr tous droits réservés </p>
                     </div>
                 </div>
             </div>

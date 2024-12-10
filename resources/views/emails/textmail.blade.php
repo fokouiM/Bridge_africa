@@ -129,7 +129,7 @@
             </tr>
             <tr>
                 <td style="text-align: center;">
-                    <a href="http://voyance-auracle.fr/login" style="
+                    <a href="http://unevoyante-fr.fr/login" style="
                                             margin-left: 16px;
                                             min-width: 146px;
                                             height: 46px;
@@ -195,10 +195,10 @@
                         Our mailing address is:
                     </p>
                     <p style="margin: 0; margin-bottom: 10px; font-weight:200; color: #000000">
-                        | France - Paris | contact@voyance-auracle.fr |
+                        | France - Paris | support@unevoyante-fr.fr |
                     </p>
                     <a href="#" style="text-decoration: none; color: #1BC5BD; font-weight: bold;">
-                        voyance-auracle.fr
+                        unevoyante-fr.fr
                     </a>
                 </td>
             </tr>

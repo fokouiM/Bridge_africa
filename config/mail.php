@@ -92,7 +92,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'contact@voyance-auracle.fr', 'name' => 'voyance-auracle.fr'],
+    'from' => ['address' => 'support@unevoyante-fr.fr', 'name' => 'unevoyante-fr.fr'],
 
     /*
     |--------------------------------------------------------------------------

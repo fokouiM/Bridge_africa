@@ -31,9 +31,9 @@
                         <span class=" svg-logo-white">GERANT DU SERVICE </span>  </a>
                     <!--end::Logo-->
                     <span class="d-flex flex-column font-size-h5 font-weight-bold text-white">
-                        <span><strong> GERANT DU SERVICE : </strong> Le site voyance-auracle.fr est géré par la société SK BUSINESS 4 <br> rue des retisseys 21240 Talant</span>
+                        <span><strong> GERANT DU SERVICE : </strong> Le site unevoyante-fr.fr est géré par la société SK BUSINESS 4 <br> rue des retisseys 21240 Talant</span>
                         <span> <strong>Siret : </strong>898 185 392 00013</span>
-                        <span> <strong>Email du support : </strong>voyance-auracle.fr</span>
+                        <span> <strong>Email du support : </strong>unevoyante-fr.fr</span>
                     </span>
                 </div>
                 <h1 class="display-3 font-weight-boldest text-white order-1 order-md-2">CGV.</h1>
@@ -48,8 +48,8 @@
                 <div class="d-flex flex-column">
                     <div class="font-weight-bold font-size-h6 mb-3"> <h4>PRÉAMBULE </h4></div>
                     <div class="d-flex justify-content-between font-size-lg">
-                        <span class="font-weight-bold mr-15">Les présentes conditions régissent les relations contractuelles entre voyance-auracle.fr et son « client » (personne physique intervenant exclusivement de manière individuelle dans le cadre d’un système de vente à distance, les deux parties les acceptant sans réserve.<br>
-                            voyance-auracle.fr  met en ligne les services payant de voyance, développement personnel en proposant une gamme de services (ci-après dénommés collectivement le ou les  » Service(s) « ) sur son site Internet voyance-auracle.fr (ci-après dénommés le  » Site « ).<br>
+                        <span class="font-weight-bold mr-15">Les présentes conditions régissent les relations contractuelles entre unevoyante-fr.fr et son « client » (personne physique intervenant exclusivement de manière individuelle dans le cadre d’un système de vente à distance, les deux parties les acceptant sans réserve.<br>
+                            unevoyante-fr.fr  met en ligne les services payant de voyance, développement personnel en proposant une gamme de services (ci-après dénommés collectivement le ou les  » Service(s) « ) sur son site Internet unevoyante-fr.fr (ci-après dénommés le  » Site « ).<br>
                             Le client déclare avoir pris connaissance des dispositions suivantes avant de passer commande des Services. <br>
                             En choisissant d’acheter les Services, le client accepte expressément et irrévocablement les termes ci-après énoncés.<br>
                             Le client déclare avoir la capacité de conclure le présent contrat, dont les conditions générales de vente sont présentées ci-après, c’est-à-dire avoir la majorité légale et ne pas être sous tutelle ou curatelle.
@@ -69,8 +69,8 @@
 
 
                     <div class="d-flex justify-content-between font-size-lg">
-                        <span class="font-weight-bold mr-15">Afin de permettre au client de revenir sur sa commande avant de la valider définitivement, voyance-auracle.fr a créé un système de validation de commande en deux étapes. Un premier écran permet au client de visualiser son panier de commande (les Services commandés) ; un second écran lui permet de saisir ses coordonnées pour le bon établissement de sa facture et de contrôler que les Services commandés et les coordonnées saisies sont conformes et qu’il donne son accord aux présentes conditions générales de vente. A l’issue de ces deux étapes, un Email de confirmation de commande est automatiquement établie par voyance-auracle.fr, preuve de la commande du client.<br>
-                        La commande est considérée ferme à compter de la réception par voyance-auracle.fr du paiement. La prestation est individualisée et commence à réception du paiement de la commande. Le client en validant les présentes conditions renonce à tout droit de rétraction et ne peut prétendre à aucun remboursement, si ce n’est résilier son contrat conformément aux conditions décrites dans l’article 5 des présentes.
+                        <span class="font-weight-bold mr-15">Afin de permettre au client de revenir sur sa commande avant de la valider définitivement, unevoyante-fr.fr a créé un système de validation de commande en deux étapes. Un premier écran permet au client de visualiser son panier de commande (les Services commandés) ; un second écran lui permet de saisir ses coordonnées pour le bon établissement de sa facture et de contrôler que les Services commandés et les coordonnées saisies sont conformes et qu’il donne son accord aux présentes conditions générales de vente. A l’issue de ces deux étapes, un Email de confirmation de commande est automatiquement établie par unevoyante-fr.fr, preuve de la commande du client.<br>
+                        La commande est considérée ferme à compter de la réception par unevoyante-fr.fr du paiement. La prestation est individualisée et commence à réception du paiement de la commande. Le client en validant les présentes conditions renonce à tout droit de rétraction et ne peut prétendre à aucun remboursement, si ce n’est résilier son contrat conformément aux conditions décrites dans l’article 5 des présentes.
 
                         </span>
                     </div>
@@ -89,7 +89,7 @@
 
                     <div class="d-flex justify-content-between font-size-lg">
                         <span class="font-weight-bold mr-15">(i) Le catalogue et la description de ces Services (ci-après dénommés le  » Catalogue des services « ) est sur la page PACKS <br>
-                                    Les utilisateurs sont informés par email des éventuelles modifications tarifaires (nouvelles formules forfaitaires, nouveaux services, offres promotionnelles). Dans le cadre de ses prestations de service, il est entendu que voyance-auracle est tenu à une obligation de moyen et non de résultat. Pour être au plus proche des attentes de ses clients et mettre en oeuvre tous les moyens pour les satisfaire, voyance-auracle.fr propose un Service Clients, dont les modalités d’accès sont précisés en article 6 et le lien à chaque bas de page du site.<br>
+                                    Les utilisateurs sont informés par email des éventuelles modifications tarifaires (nouvelles formules forfaitaires, nouveaux services, offres promotionnelles). Dans le cadre de ses prestations de service, il est entendu que voyance-auracle est tenu à une obligation de moyen et non de résultat. Pour être au plus proche des attentes de ses clients et mettre en oeuvre tous les moyens pour les satisfaire, unevoyante-fr.fr propose un Service Clients, dont les modalités d’accès sont précisés en article 6 et le lien à chaque bas de page du site.<br>
                                     (ii) Le prix définitif est fixé dans les conditions particulières de la commande, après application des réductions éventuelles, et comptabilisation de la taxes dues. La preuve du prix de la commande est consignée dans la facture dressée au moment de la commande et dont le client est mis en possession directement sur le Site. Le prix définitif ainsi défini est ferme et définitif.<br>
                                     (iii) Le service est exclusivement fourni en ligne et toute intervention sur site fera l’objet d’un devis préalable.
 
@@ -151,8 +151,8 @@
 
 
                     <div class="d-flex justify-content-between font-size-lg">
-                        <span class="font-weight-bold mr-15">Le client est informé que voyance-auracle.fr  met à sa disposition sur son Site, un Service clients pour lui permettre de résoudre les problèmes éventuels liés à l’achat des Services.<br>
-                        Ce service est uniquement accessible via le lien www.voyance-auracle.fr/contact <br>
+                        <span class="font-weight-bold mr-15">Le client est informé que unevoyante-fr.fr  met à sa disposition sur son Site, un Service clients pour lui permettre de résoudre les problèmes éventuels liés à l’achat des Services.<br>
+                        Ce service est uniquement accessible via le lien www.unevoyante-fr.fr/contact <br>
                         Le délai de réponse est en général de deux heures ouvrées (horaire bureau France) et peut varier selon la complexité de la réponse à fournir.
 
                         </span>

@@ -30,6 +30,12 @@ class HomeController extends Controller
     public function index()
     {
         if(isset(Auth::user()->id)){
+            // var_dump(Auth::user()->statut);
+            // User::findOrFail(Auth::user()->id)->update([
+            //     'statut' => 1,
+    
+            // ]);
+            // dd(Auth::user()->statut);
             if(Auth::user()->statut == 1){
                 $message = message::where('statut',1)->get();
                 return view('voyants.Home')->with('message', $message);

@@ -55,9 +55,9 @@
                     </div>
                     <!--end::Desc-->
 
-                    <form action="message" method="GET">
+                    <form action="message/ISABELLE" method="GET">
 
-                        <input type="hidden" name="name_voyant" value="ISABELLE">
+                        <!-- <input type="hidden" name="name_voyant" value="ISABELLE"> -->
                         <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4 hello"  data-toggle="modal" data-target="#kt_chat_modal">COMMENCEZ GRATUITEMENT ICI</button>
                     </form>
                 </div>
@@ -108,9 +108,9 @@
                               4</a>
                     </div>
                     <!--end::Desc-->
-                        <form action="messageS" method="GET">
+                        <form action="message/SUZANNE" method="GET">
 
-                            <input type="hidden" name="name_voyant" value="SUZANNE">
+                            <!-- <input type="hidden" name="name_voyant" value="SUZANNE"> -->
                             <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4 hello-1" data-toggle="modal" data-target="#kt_chat_modal">COMMENCEZ GRATUITEMENT ICI</button>
                         </form>
                 </div>
@@ -161,9 +161,9 @@
                              <i class="la la-star-half-alt text-warning mr-5"></i> 3.75</a>
                     </div>
                     <!--end::Desc-->
-                            <form action="messageJ" method="GET">
+                            <form action="message/JACQUEMIN" method="GET">
 
-                                <input type="hidden" name="name_voyant" value="JACQUEMIN">
+                                <!-- <input type="hidden" name="name_voyant" value="JACQUEMIN"> -->
                                 <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4 hello-2" data-toggle="modal" data-target="#kt_chat_modal">COMMENCEZ GRATUITEMENT ICI</button>
                             </form>
                 </div>
@@ -213,9 +213,9 @@
                              <i class="la la-star-half-alt text-warning mr-5"></i> 3.75</a>
                     </div>
                     <!--end::Desc-->
-                        <form action="messageB" method="GET">
+                        <form action="message/SABINE" method="GET">
 
-                            <input type="hidden" name="name_voyant" value="SABINE">
+                            <!-- <input type="hidden" name="name_voyant" value="SABINE"> -->
                             <button class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4 hello-3" data-toggle="modal" data-target="#kt_chat_modal">COMMENCEZ GRATUITEMENT ICI</button>
                         </form>
                 </div>

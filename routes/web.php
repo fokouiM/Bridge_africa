@@ -25,71 +25,72 @@ use App\Models\paylist;
 |
 */
 
+// Route::get('/welcome', function () {
 
-Route::get('/welcome', function () {
+//     if(isset(Auth::user()->id)){
+//         if(Auth::user()->statut == 1){
+//             $message = message::where('statut',1)->get();
+//             return view('voyants.Home')->with('message', $message);
 
-    if(isset(Auth::user()->id)){
-        if(Auth::user()->statut == 1){
-            $message = message::where('statut',1)->get();
-            return view('voyants.Home')->with('message', $message);
+//         }elseif(Auth::user()->statut == 0){
+//             return view('welcome');
 
-        }elseif(Auth::user()->statut == 0){
-            return view('welcome');
+//         }elseif(Auth::user()->statut == 2){
 
-        }elseif(Auth::user()->statut == 2){
+//             $dateone = carbon::today()->subDays(30);
+//             $dateM = date('Y-m-d H:i:s', strtotime($dateone));
+//             $dateone = carbon::today()->subDays(7);
+//             $dateS = date('Y-m-d H:i:s', strtotime($dateone));
+//             $client = User::where('statut',0)->get();
+//             $clientM = paylist::where('created_at','>',$dateM)->get();
+//             $clientS = paylist::where('created_at','>',$dateS)->get();
+//             $agent = User::where('statut',1)->get();
+//             $venteM = 0;
+//             $venteS = 0;
+//             $vente = 0;
+//             $clientT = 0;
+//             $credit = 0;
+//             $agentT = 0;
+//             foreach($client as $cl){
 
-            $dateone = carbon::today()->subDays(30);
-            $dateM = date('Y-m-d H:i:s', strtotime($dateone));
-            $dateone = carbon::today()->subDays(7);
-            $dateS = date('Y-m-d H:i:s', strtotime($dateone));
-            $client = User::where('statut',0)->get();
-            $clientM = paylist::where('created_at','>',$dateM)->get();
-            $clientS = paylist::where('created_at','>',$dateS)->get();
-            $agent = User::where('statut',1)->get();
-            $venteM = 0;
-            $venteS = 0;
-            $vente = 0;
-            $clientT = 0;
-            $credit = 0;
-            $agentT = 0;
-            foreach($client as $cl){
+//                 $vente += $cl->affaire;
+//                 $clientT ++;
+//                 $credit += $cl->credit;
 
-                $vente += $cl->affaire;
-                $clientT ++;
-                $credit += $cl->credit;
+//             }
+//             foreach($agent as $ag){
 
-            }
-            foreach($agent as $ag){
+//                 $agentT ++;
 
-                $agentT ++;
+//             }
+//             foreach($clientM as $ag){
 
-            }
-            foreach($clientM as $ag){
+//                 $venteM +=$ag->value;
 
-                $venteM +=$ag->value;
+//             }
+//             foreach($clientS as $ag){
 
-            }
-            foreach($clientS as $ag){
+//                 $venteS +=$ag->value;
 
-                $venteS +=$ag->value;
+//             }
 
-            }
+//             return view('Admin.Home')->with(['vente'=> $vente,'clientT'=>$clientT,'credit'=>$credit,'agentT'=>$agentT,'venteM'=>$venteM,'venteS'=>$venteS]);
+//         }else{
+//             return view('acces');
+//         }
 
-            return view('Admin.Home')->with(['vente'=> $vente,'clientT'=>$clientT,'credit'=>$credit,'agentT'=>$agentT,'venteM'=>$venteM,'venteS'=>$venteS]);
-        }else{
-            return view('acces');
-        }
+//     }else{
 
-    }else{
-
-        return view('welcome');
-    }
-});
+//         return view('welcome');
+//     }
+// });
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
-
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 Route::post('/send_message', function (Request $request ) {
 
         event( new Message(
@@ -109,18 +110,18 @@ Route::get('/messageS', function ( ) {
 
     return view('messageS');
 
-})->name('messageS')->middleware('auth');
+})->name('messageS')->middleware('auth')->middleware('simpleUsers');
 
 Route::get('/messageJ', function ( ) {
 
     return view('messageJ');
 
-})->name('messageJ')->middleware('auth');
+})->name('messageJ')->middleware('auth')->middleware('simpleUsers');
 
 Route::get('/messageB', function ( ) {
     return view('messageB');
 
-})->name('messageB')->middleware('auth');
+})->name('messageB')->middleware('auth')->middleware('simpleUsers');
 
 Route::get('/CGV', function ( ) {
 
@@ -181,13 +182,15 @@ Auth::routes();
     Route::post('/oneclient', [App\Http\Controllers\MailController::class, 'one'])->name('oneclient')->middleware('auth');
     Route::post('/allclient', [App\Http\Controllers\MailController::class, 'all'])->name('allclient')->middleware('auth');
     Route::get('/contacts', [App\Http\Controllers\MessagesController::class, 'index'])->name('message')->middleware('auth');
-    Route::get('/message', [App\Http\Controllers\MessagesController::class, 'index'])->name('message')->middleware('auth');
+    Route::get('/message/{voyant}', [App\Http\Controllers\MessagesController::class, 'index'])->name('message')->middleware('auth')->middleware('simpleUsers');
     Route::get('/conversation/{id}/{voyant}', [App\Http\Controllers\MessagesController::class, 'getMessage'])->name('conversation')->middleware('auth');
     Route::get('/note/{id}', [App\Http\Controllers\MessagesController::class, 'getnote'])->name('note')->middleware('auth');
-    Route::get('/conversationuers', [App\Http\Controllers\MessagesController::class, 'getoneMessage'])->name('conversationuers')->middleware('auth');
+    
+    Route::get('/conversationuers/{voyant}', [App\Http\Controllers\MessagesController::class, 'getoneMessage'])->name('conversationuers')->middleware('auth');
     Route::get('/conversationuerssi', [App\Http\Controllers\MessagesController::class, 'getoneMessagesi'])->name('conversationuerssi')->middleware('auth');
     Route::get('/conversationuersj', [App\Http\Controllers\MessagesController::class, 'getoneMessagej'])->name('conversationuersj')->middleware('auth');
     Route::get('/conversationuersb', [App\Http\Controllers\MessagesController::class, 'getoneMessageb'])->name('conversationuersb')->middleware('auth');
+
     Route::post('/conversation/send', [App\Http\Controllers\MessagesController::class, 'send'])->name('conversation/send')->middleware('auth');
     Route::post('/conversation/note', [App\Http\Controllers\MessagesController::class, 'note'])->name('conversation/note')->middleware('auth');
     Route::post('/conversation/senduser', [App\Http\Controllers\MessagesController::class, 'senduser'])->name('conversation/senduser')->middleware('auth');

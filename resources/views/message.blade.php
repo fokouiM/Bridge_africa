@@ -2,11 +2,8 @@
 
 @section('content')
 
-{{-- <div id="app">
-    <message></message>
-</div> --}}
 <div id="app">
-    <message :users="{{auth()->user()}}"></message>
+    <message :users="{{auth()->user()}}" :name_voyant="{{$name_agent}}"></message>
 </div>
 
 @endsection

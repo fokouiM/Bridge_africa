@@ -34,16 +34,16 @@ class MessagesController extends Controller
      * * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index($voyant)
     {
         if(isset(Auth::user()->id)) {
             if(Auth::user()->statut == 0 ){
-
-                $name_agent = $request->name_agent;
-            $message = message::where('id_user',Auth::user()->id)->where('name_voyant',$request->name_agent)->orderBy('created_at')->get();
-            $date = date('Y n j');
-
-            return view('message')->with( ['message'=> $message,'name_agent'=>$name_agent,'date'=>$date]);
+                $name_agent = $voyant;
+                $message = message::where('id_user',Auth::user()->id)->where('name_voyant',$name_agent)->orderBy('created_at')->get();
+                $date = date('Y n j');
+                
+                // dd($date);
+                return view('message')->with( ['message'=> $message,'name_agent'=>$name_agent,'date'=>$date]);
 
             }elseif(Auth::user()->statut == 1 ){
 
@@ -131,51 +131,57 @@ class MessagesController extends Controller
 
     }
 
-    public function getoneMessage(Request $request){
-
-        $counv_clients = CounvClient::where('id_user',Auth::user()->id)->where('name_voyant','ISABELLE')->first();
-        if($counv_clients == null){
-            $counv_clients = new CounvClient;
-            $counv_clients->id_user = Auth::user()->id;
-            $counv_clients->name_voyant = 'ISABELLE';
-            $counv_clients->statut = 1;
-            $counv_clients->save();
-        }
-        $message = message::where('id_user',Auth::user()->id)->where('name_voyant','ISABELLE')->get()
-        ->map(function ($item, $key) {
-            $str = date('d/m/y', strtotime(Carbon::now()));
-            $dateshare = date('d/m/y', strtotime($item->created_at));
-            if($str == $dateshare){
-
-                $time =  $item->created_at->format('H:i:s');
-            }else{
-                $time = date('d M y', strtotime($item->created_at));
+    public function getoneMessage($voyant){
+        $listVoyante = ["ISABELLE","SUZANNE","JACQUEMIN","SABINE"];
+        if ($listVoyante.includes($voyant)){
+            $counv_clients = CounvClient::where('id_user',Auth::user()->id)->where('name_voyant',$voyant)->first();
+            if($counv_clients == null){
+                $counv_clients = new CounvClient;
+                $counv_clients->id_user = Auth::user()->id;
+                $counv_clients->name_voyant = $voyant;
+                $counv_clients->statut = 1;
+                $counv_clients->save();
             }
-            $data = [
-                'id_user' => $item->id_user,
-                'id_send' => $item->id_send,
-                'statut' => $item->statut,
-                'to' => $item->to,
-                'name_voyant' => $item->name_voyant,
-                'message' => $item->message,
-                'created_at' => $time,
-            ];
-            return $data;
-        });
-                $Idc = message::where('id_user',Auth::user()->id)->where('id_send','!=',Auth::user()->id)->orderBy('created_at', 'desc')->first();
-        if($Idc != null){
-            if($Idc->id_send != null){
-
-                $to = $Idc->id_send;
+            $message = message::where('id_user',Auth::user()->id)->where('name_voyant',$voyant)->orderBy('created_at', 'desc')->limit(30)->get()
+            ->map(function ($item, $key) {
+                $str = date('d/m/y', strtotime(Carbon::now()));
+                $dateshare = date('d/m/y', strtotime($item->created_at));
+                if($str == $dateshare){
+    
+                    $time =  $item->created_at->format('H:i:s');
+                }else{
+                    $time = date('d M y', strtotime($item->created_at));
+                }
+                $data = [
+                    'id_user' => $item->id_user,
+                    'id_send' => $item->id_send,
+                    'statut' => $item->statut,
+                    'to' => $item->to,
+                    'name_voyant' => $item->name_voyant,
+                    'message' => $item->message,
+                    'created_at' => $time,
+                ];
+                return $data;
+            });
+                    $Idc = message::where('id_user',Auth::user()->id)->where('id_send','!=',Auth::user()->id)->orderBy('created_at', 'desc')->first();
+            if($Idc != null){
+                if($Idc->id_send != null){
+    
+                    $to = $Idc->id_send;
+                }else{
+                    $to = 0;
+                }
             }else{
                 $to = 0;
             }
+            $user = User::where('id',Auth::user()->id)->first();
+            $name_voyant = $voyant;
+            return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant, 'to'=>$to]);
         }else{
-            $to = 0;
+            $user = User::where('id',Auth::user()->id)->first();
+            return response()->json(['message'=>[],'user'=>$user,'name_voyant'=>"non existant", 'to'=>0]);
         }
-        $user = User::where('id',Auth::user()->id)->first();
-        $name_voyant = 'ISABELLE';
-        return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant, 'to'=>$to]);
+
 
     }
 

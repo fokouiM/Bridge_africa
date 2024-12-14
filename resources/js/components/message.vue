@@ -218,7 +218,7 @@ export default {
       require: true,
     },
     name_voyant: {
-      type: Object,
+      type: string,
       require: true,
     },
   },
@@ -234,9 +234,8 @@ export default {
         });
   },
   mounted() {
-
-
-      axios.get("/conversationuers").then((response) => {
+      console.log("hunter debug : ",this.$route.params.name_voyant)
+      axios.get(`/conversationuers/${this.name_voyant}`).then((response) => {
           this.messages = response.data;
     })
 

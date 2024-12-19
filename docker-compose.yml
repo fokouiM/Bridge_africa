@@ -19,7 +19,7 @@ services:
             REDIS_PORT:
             CACHE_DRIVER:
             SESSION_DRIVER:
-            QUEUE_CONNECTION: 
+            QUEUE_CONNECTION:
             LOG_CHANNEL:
             LOG_LEVEL:
             DB_CONNECTION:
@@ -77,8 +77,8 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: database-1
-            MYSQL_USER: root
-            MYSQL_PASSWORD: root
+            MYSQL_USER:
+            MYSQL_PASSWORD:
         volumes:
             - db_data:/var/lib/mysql
         networks:

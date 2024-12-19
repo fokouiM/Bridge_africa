@@ -37,12 +37,12 @@
                         <div v-for="(contact,index) in contacts" :key="contact.id" @click="selectContact(index,contact)" :class="{'selected':index == selected}">
                             <span v-if="!contact.statut_client">
                                 <button class="d-flex align-items-center justify-content-between mb-2" style="border: none; background: none;width: 100%;">
-                                    <div class="d-flex align-items-center" style="width: 100%; background: #ffc4c7; padding: 10px; border-radius: 5px;">
+                                    <div class="d-flex align-items-center" style="width: 100%; background: #ffc4c7; padding: 10px; border-radius: 5px; overflow: hidden;">
                                         <div class="d-flex flex-column">
-                                            <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg new-style" >{{contact.name }} |
+                                            <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg new-style" >{{contact.name }}
                                                 <!-- <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span> -->
 
-                                                <span class="text-muted font-weight-bold font-size-sm new-style">{{contact.name_agent}}</span>
+                                                <span class="text-muted truncate font-weight-bold font-size-sm new-style">{{contact.name_agent}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -50,7 +50,7 @@
                             </span>
                             <span v-if="contact.statut_client == 0">
                                 <button class="d-flex align-items-center justify-content-between mb-2" style="border: none; background: none;width: 100%;">
-                                    <div class="d-flex align-items-center" style="width: 100%; background: #ffc4c7; padding: 10px; border-radius: 5px;">
+                                    <div class="d-flex align-items-center" style="width: 100%; background: #ffc4c7; padding: 10px; border-radius: 5px; overflow: hidden;">
                                         <div class="d-flex flex-column">
                                             <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg new-style" >{{contact.name }}|
                                                 <!-- <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span> -->
@@ -63,7 +63,7 @@
                             </span>
                             <span v-else-if="contact.statut_client == 1">
                                 <button class="d-flex align-items-center justify-content-between mb-2" style="border: none; background: none;width: 100%;">
-                                        <div class="d-flex align-items-center" style="width: 100%; background: #ffedc4; padding: 10px; border-radius: 5px;">
+                                        <div class="d-flex align-items-center" style="width: 100%; background: #ffedc4; padding: 10px; border-radius: 5px; overflow: hidden;">
                                         <div class="d-flex flex-column">
                                             <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg new-style" >{{contact.name }} |
                                                 <!-- <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span> -->
@@ -75,7 +75,7 @@
                             </span>
                             <span v-else-if="contact.statut_client == 2">
                                 <button class="d-flex align-items-center justify-content-between mb-2" style="border: none; background: none;width: 100%;" >
-                                        <div class="d-flex align-items-center" style="width: 100%; background: #c4ffc6; padding: 10px; border-radius: 5px;">
+                                        <div class="d-flex align-items-center" style="width: 100%; background: #c4ffc6; padding: 10px; border-radius: 5px; overflow: hidden;">
                                         <div class="d-flex flex-column">
                                             <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg new-style" >{{contact.name }}|
                                                 <span class="text-muted font-weight-bold font-size-sm new-style">{{contact.name_agent}}</span>
@@ -116,7 +116,7 @@
             };
         },
         created(){
-            console.log("hunter debug : ",this.contacts)
+            // console.log("hunter debug : ",this.contacts)
         },
         methods:{
             selectContact(index,contact){

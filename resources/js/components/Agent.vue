@@ -47,9 +47,8 @@
     },
     created(){
         Echo.channel(`messages.${this.users.id}`)
-            .listen('NewMessage',  (e) => {
-                //  this.hanleIncoming(e.message);
-            // this.message = e.message;
+            .listen('message:new',  (e) => {
+            console.log("hunter debug : ",e)
             this.messages = e.message.message
 
         });

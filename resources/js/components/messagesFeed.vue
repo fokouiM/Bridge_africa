@@ -29,11 +29,11 @@
                     <div class="text-center flex-grow-1">
                         <div class="text-dark-75 font-weight-bold font-size-h5"> <strong>{{messages.user.name}}</strong> | <strong>{{messages.user.affaire}}.€</strong> | credit : <strong>{{messages.user.credit}}</strong> </div>
                         <div class="flex" id="allMessage">
-                                <div v-for="voyants in messages.voyants" :key="voyants.id" >
+                                <div v-for="(ms, voyants) in messages.voyants" :key="voyants.id">
                                     <button  class="btn btn-light-primary btn-sm font-weight-bold mr-2" id="kt_dashboard_daterangepicker" data-toggle="tooltip" title=""
-                                        data-placement="left" data-original-title="liste voyant" @click=" selectVoyant(voyants.name_voyant)"
+                                        data-placement="left" data-original-title="liste voyant" @click="selectVoyant(voyants)"
                                         >
-                                        <span class="opacity-60 font-weight-bold mr-2" id="kt_dashboard_daterangepicker_title">{{voyants.name_voyant}} </span>
+                                        <span class="opacity-60 font-weight-bold mr-2" id="kt_dashboard_daterangepicker_title">{{voyants}} </span>
                                     </button>
                                 </div>
                         </div>
@@ -47,7 +47,7 @@
                     <!--begin::Messages-->
                     <div v-if="contact">
                             <div class="messages">
-                                <div v-for="message in messages.message" :key="message.id">
+                                <div v-for="message in messages.voyants[Active]" :key="message.id">
                                 <!--begin::Message In-->
                                     <span v-if="message.name_voyant == Active && message.name_voyant != null">
                                             <div class="d-flex flex-column mb-1 " :class="message.id_send == contact.id ? 'align-items-start' : 'align-items-end ' ">
@@ -205,10 +205,23 @@ export default {
                 id_user: this.messages.user.id,
                 name_voyant: this.Active
             }).then((response) => {
-                this.messages = response.data;
-                this.selectedContact = contact;
-            }),
-            this.$emit('send', this.text)
+                // let voyant  = this.messages.voyants
+
+                // delete voyant[this.Active]
+                // this.messages.voyants = voyant
+                // if(this.messages.voyants.length == 0 || !this.messages.voyants){
+                //     this.messages = {};
+                // }
+            })
+
+            let voyant = this.messages.voyants
+            delete voyant[this.Active]
+            this.messages.voyants = voyant
+            if(this.messages.voyants.length == 0 || !this.messages.voyants){
+                this.messages = null;
+                this.messages.user = null;
+            }
+
             this.text = '';
 
         },

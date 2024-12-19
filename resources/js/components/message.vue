@@ -47,7 +47,7 @@
               >
                 <!--begin::Messages-->
                   <!--begin::Message welcom-->
-                  <div v-if="messages && (messages.message.length < 1 || messages.message.length == 0)" class="d-flex flex-column align-items-start">
+                  <div v-if="messages && messages.message && (messages.message.length < 1 || messages.message.length == 0)" class="d-flex flex-column align-items-start">
                     <div
                       class="mt-2 rounded p-5 font-weight-bold text-left"
                       style="background: #8950FC; color: #fff"
@@ -195,16 +195,17 @@ export default {
 
   created(){
     this.credit = this.users.credit
-      Echo.channel(`messages.${this.users.id}`)
-            .listen('NewMessage',  (e) => {
-                //  this.hanleIncoming(e.message);
-            // this.message = e.message;
-            this.messages.message.Push( this.e.message.message );
-
-        });
+    Echo.channel(`messages.${this.users.id}`).listen('message:new',(e) => {
+        this.getcrefit();
+        console.log("hunter debug : ",e);
+        const messageData = JSON.parse(e.data);
+        const message = messageData.message.message;
+        this.messages.message.push(message);
+        this.messages.message = [];
+    });
     setTimeout(() => {
         this.scrollToBottom()
-        }, 1000);
+    }, 2000);
   },
   mounted() {
     this.name_voyant = this.name_voyants
@@ -230,22 +231,26 @@ export default {
 
         checkForm(e) {
             e.preventDefault();
-            axios.post('/conversation/senduser',{
-                text: this.text,
-                id_user: this.messages.user.id,
-                name_voyant: this.name_voyant,
-                to: 2,
-            }).then((response) => {
-                this.messages = response.data;
-                this.getcrefit()
-                this.scrollToBottom()
-
-            });
             if(this.text == ''){
                 return;
+            }else{
+                axios.post('/conversation/senduser',{
+                    text: this.text,
+                    id_user: this.messages.user.id,
+                    name_voyant: this.name_voyant,
+                    to: 2,
+                }).then((response) => {
+                    if(response.data.message){
+                        this.messages.message.push(response.data.message)
+                    }
+                });
+                setTimeout(() => {
+
+                    this.getcrefit()
+                    this.scrollToBottom()
+                    this.text = '';
+                }, 1000);
             }
-            this.$emit('send', this.text)
-            this.text = '';
 
 
         },
@@ -255,17 +260,16 @@ export default {
                 this.credit = response.data.user; })
         },
         scrollToBottom() {
-            const scrollableBlock = this.$refs.cardBody;
-            console.log("hunter debug : ",scrollableBlock)
-            scrollableBlock.scrollTop = scrollableBlock.scrollHeight + 50;
+            try {
+                const scrollableBlock = this.$refs.cardBody;
+                scrollableBlock.scrollTop = scrollableBlock.scrollHeight;
+            } catch (error) {
+                setTimeout(() => {
+                    const scrollableBlock = this.$refs.cardBody;
+                    scrollableBlock.scrollTop = scrollableBlock.scrollHeight;
+                }, 20000);
+            }
         },
-        hanleIncoming(message){
-
-                this.messages.push(message);
-                this.saveNewMessage(message);
-
-            alert(message.message);
-        }
     },
     };
 </script>

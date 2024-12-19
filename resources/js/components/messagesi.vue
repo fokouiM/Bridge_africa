@@ -205,7 +205,7 @@ export default {
   },
 
   created(){
-      Echo.channel(`messages${this.users.id}`)
+      Echo.channel(`messages.${this.users.id}`)
             .listen('NewMessage',  (e) => {
                 //  this.hanleIncoming(e.message);
             // this.message = e.message;
@@ -288,10 +288,11 @@ export default {
         max-height: 41vh;
     }
     .new-style{
-     font-size: 0.9em !important;
-    max-width: 80% !important;
-    width: auto;
     text-align: left !important;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px !important; /* Taille du texte utilisée généralement dans WhatsApp */
+    line-height: 1.5; /* Espacement pour une meilleure lisibilité */
+    color: #111b21;
  }
 
 </style>

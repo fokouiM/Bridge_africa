@@ -37,13 +37,15 @@ export default {
     data(){
         return{
             text:'',
-            id_user : message.user.id,
+            id_user : null,
             name_voyant : '',
 
         }
     },
     methods:{
-
+        created(){
+            this.id_user = this.messages.user
+        },
         checkForm(e) {
             // e.preventDefault();
             axios.post('/conversation/send',{

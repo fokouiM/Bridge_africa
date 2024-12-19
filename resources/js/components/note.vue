@@ -13,7 +13,7 @@
                                     <div class="d-flex flex-column mb-5 align-items-start">
                                         <div class="d-flex align-items-center">
                                         </div>
-                                        <div class="mt-2 rounded p-5 text-dark-50 font-weight-bold font-size-lg text-left max-w-400px bg-light-success" >
+                                        <div class="mt-2 rounded p-3 text-dark-50 font-weight-bold text-left max-w-400px bg-light-success new-style" >
                                             {{note.note}}<br>
                                             <!-- <span class="text-muted font-size-sm">{{message.created_at}}</span> -->
                                         </div>
@@ -29,7 +29,7 @@
                                     <div class="d-flex flex-column mb-5 align-items-start">
                                         <div class="d-flex align-items-center">
                                         </div>
-                                        <div class="mt-2 rounded p-5 text-dark-50 font-weight-bold font-size-lg text-left max-w-400px bg-light-success" >
+                                        <div class="mt-2 rounded p-3 text-dark-50 font-weight-bold text-left max-w-400px bg-light-success new-style" >
                                             {{note.note}}<br>
                                             <!-- <span class="text-muted font-size-sm">{{message.created_at}}</span> -->
                                         </div>

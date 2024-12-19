@@ -39,5 +39,10 @@ const app = new Vue({
     el: '#app',
 });
 
+// Echo.channel('channel-name')
+//     .listen('MessagePushed', (e) => {
+//         alert('Message Pushed!');
+//     });
+
 
 

@@ -11,9 +11,10 @@ use App\Models\blog;
 use App\Events\NewMessage;
 use PhpParser\Node\Stmt\Return_;
 use App\Http\Controllers\MollieController;
-use App\Http\Controllers\mailController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\FbpayementController;
 use App\Models\paylist;
+use App\Events\MessagePushed;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -85,9 +86,9 @@ use App\Models\paylist;
 //     }
 // });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', function () {return view('welcome');});
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
@@ -177,66 +178,65 @@ Route::get('/voyants', [App\Http\Controllers\AdminController::class, 'voyants'])
 Auth::routes();
 
     // Route::get('/gmail', [App\Http\Controllers\AdminController::class, 'gmail'])->name('crm_client');
-    Route::post('/send_mail', [App\Http\Controllers\MailController::class, 'formRT'])->name('send_mail');
-    Route::post('/sendContact', [App\Http\Controllers\MailController::class, 'contact'])->name('sendContact');
-    Route::post('/oneclient', [App\Http\Controllers\MailController::class, 'one'])->name('oneclient')->middleware('auth');
-    Route::post('/allclient', [App\Http\Controllers\MailController::class, 'all'])->name('allclient')->middleware('auth');
-    Route::get('/contacts', [App\Http\Controllers\MessagesController::class, 'index'])->name('message')->middleware('auth');
-    Route::get('/message/{voyant}', [App\Http\Controllers\MessagesController::class, 'index'])->name('message')->middleware('auth')->middleware('simpleUsers');
-    Route::get('/conversation/{id}/{voyant}', [App\Http\Controllers\MessagesController::class, 'getMessage'])->name('conversation')->middleware('auth');
-    Route::get('/note/{id}', [App\Http\Controllers\MessagesController::class, 'getnote'])->name('note')->middleware('auth');
-    
-    Route::get('/conversationuers/{voyant}', [App\Http\Controllers\MessagesController::class, 'getoneMessage'])->name('conversationuers')->middleware('auth');
-    Route::get('/conversationuerssi', [App\Http\Controllers\MessagesController::class, 'getoneMessagesi'])->name('conversationuerssi')->middleware('auth');
-    Route::get('/conversationuersj', [App\Http\Controllers\MessagesController::class, 'getoneMessagej'])->name('conversationuersj')->middleware('auth');
-    Route::get('/conversationuersb', [App\Http\Controllers\MessagesController::class, 'getoneMessageb'])->name('conversationuersb')->middleware('auth');
+Route::post('/send_mail', [App\Http\Controllers\MailController::class, 'formRT'])->name('send_mail');
+Route::post('/sendContact', [App\Http\Controllers\MailController::class, 'contact'])->name('sendContact');
+Route::post('/oneclient', [App\Http\Controllers\MailController::class, 'one'])->name('oneclient')->middleware('auth');
+Route::post('/allclient', [App\Http\Controllers\MailController::class, 'all'])->name('allclient')->middleware('auth');
+Route::get('/contacts', [App\Http\Controllers\MessagesController::class, 'indexOne'])->name('message')->middleware('auth');
+Route::get('/message/{voyant}', [App\Http\Controllers\MessagesController::class, 'index'])->name('message')->middleware('auth')->middleware('simpleUsers');
+Route::get('/conversation/{id}/{voyant}', [App\Http\Controllers\MessagesController::class, 'getMessage'])->name('conversation')->middleware('auth');
+Route::get('/note/{id}', [App\Http\Controllers\MessagesController::class, 'getnote'])->name('note')->middleware('auth');
 
-    Route::post('/conversation/send', [App\Http\Controllers\MessagesController::class, 'send'])->name('conversation/send')->middleware('auth');
-    Route::post('/conversation/note', [App\Http\Controllers\MessagesController::class, 'note'])->name('conversation/note')->middleware('auth');
-    Route::post('/conversation/senduser', [App\Http\Controllers\MessagesController::class, 'senduser'])->name('conversation/senduser')->middleware('auth');
-    // Route::post('/message', [App\Http\Controllers\MessagesController::class, 'index'])->name('message');
-    Route::post('/save_message', [App\Http\Controllers\MessagesController::class, 'store'])->name('save_message')->middleware('auth');
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/profile', [App\Http\Controllers\User_infoController::class, 'index'])->name('profile')->middleware('auth');
-    Route::post('/up_profile{id}', [App\Http\Controllers\User_infoController::class, 'update'])->name('up_profile{id}')->middleware('auth');
-    Route::post('/save_users', [App\Http\Controllers\User_infoController::class, 'store'])->name('save_users')->middleware('auth');
-    Route::post('/save_time', [App\Http\Controllers\User_infoController::class, 'save_time'])->name('save_time')->middleware('auth');
-    Route::post('/save_tag', [App\Http\Controllers\AdminController::class, 'store'])->name('save_tag')->middleware('auth');
-    Route::post('/addcredit', [App\Http\Controllers\AdminController::class, 'addcredit'])->name('addcredit')->middleware('auth');
-    Route::post('/save_post', [App\Http\Controllers\AdminController::class, 'save_post'])->name('save_post')->middleware('auth');
-    Route::get('/update{id}', [App\Http\Controllers\ProduitsController::class, 'show'])->name('update{id}')->middleware('auth');
-    Route::get('/finMoi{id}', [App\Http\Controllers\User_infoController::class, 'finMoi'])->name('finMoi{id}')->middleware('auth');
-    Route::get('/delete_Agent{id}', [App\Http\Controllers\User_infoController::class, 'deleteAgent'])->name('delete_Agent{id}')->middleware('auth');
-    Route::get('/delete_poste{id}', [App\Http\Controllers\User_infoController::class, 'deletePoste'])->name('delete_poste{id}')->middleware('auth');
-    Route::get('/delete_client{id}', [App\Http\Controllers\User_infoController::class, 'deleteClient'])->name('delete_client{id}')->middleware('auth');
-    Route::post('/pakp', [App\Http\Controllers\PackController::class, 'index'])->name('pakp')->middleware('auth');
-    Route::post('/pakc', [App\Http\Controllers\PackController::class, 'indexone'])->name('pakp')->middleware('auth');
+Route::get('/conversationuers/{voyant}', [App\Http\Controllers\MessagesController::class, 'getoneMessage'])->name('conversationuers')->middleware('auth');
+Route::get('/conversationuerssi', [App\Http\Controllers\MessagesController::class, 'getoneMessagesi'])->name('conversationuerssi')->middleware('auth');
+Route::get('/conversationuersj', [App\Http\Controllers\MessagesController::class, 'getoneMessagej'])->name('conversationuersj')->middleware('auth');
+Route::get('/conversationuersb', [App\Http\Controllers\MessagesController::class, 'getoneMessageb'])->name('conversationuersb')->middleware('auth');
 
-    Route::get('/rapportm', [App\Http\Controllers\AdminController::class, 'rapportm'])->name('rapportm')->middleware('auth');
-    Route::get('/rapports', [App\Http\Controllers\AdminController::class, 'rapports'])->name('rapports')->middleware('auth');
-    Route::get('/fmoi', [App\Http\Controllers\AdminController::class, 'fmoi'])->name('fmoi')->middleware('auth');
+Route::post('/conversation/send', [App\Http\Controllers\MessagesController::class, 'send'])->name('conversation/send')->middleware('auth');
+Route::post('/conversation/note', [App\Http\Controllers\MessagesController::class, 'note'])->name('conversation/note')->middleware('auth');
+Route::post('/conversation/senduser', [App\Http\Controllers\MessagesController::class, 'senduser'])->name('conversation/senduser')->middleware('auth');
+// Route::post('/message', [App\Http\Controllers\MessagesController::class, 'index'])->name('message');
+Route::post('/save_message', [App\Http\Controllers\MessagesController::class, 'store'])->name('save_message')->middleware('auth');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/profile', [App\Http\Controllers\User_infoController::class, 'index'])->name('profile')->middleware('auth');
+Route::post('/up_profile{id}', [App\Http\Controllers\User_infoController::class, 'update'])->name('up_profile{id}')->middleware('auth');
+Route::post('/save_users', [App\Http\Controllers\User_infoController::class, 'store'])->name('save_users')->middleware('auth');
+Route::post('/save_time', [App\Http\Controllers\User_infoController::class, 'save_time'])->name('save_time')->middleware('auth');
+Route::post('/save_tag', [App\Http\Controllers\AdminController::class, 'store'])->name('save_tag')->middleware('auth');
+Route::post('/addcredit', [App\Http\Controllers\AdminController::class, 'addcredit'])->name('addcredit')->middleware('auth');
+Route::post('/save_post', [App\Http\Controllers\AdminController::class, 'save_post'])->name('save_post')->middleware('auth');
+// Route::get('/update{id}', [App\Http\Controllers\ProduitsController::class, 'show'])->name('update{id}')->middleware('auth');
+Route::get('/finMoi{id}', [App\Http\Controllers\User_infoController::class, 'finMoi'])->name('finMoi{id}')->middleware('auth');
+Route::get('/delete_Agent{id}', [App\Http\Controllers\User_infoController::class, 'deleteAgent'])->name('delete_Agent{id}')->middleware('auth');
+Route::get('/delete_poste{id}', [App\Http\Controllers\User_infoController::class, 'deletePoste'])->name('delete_poste{id}')->middleware('auth');
+Route::get('/delete_client{id}', [App\Http\Controllers\User_infoController::class, 'deleteClient'])->name('delete_client{id}')->middleware('auth');
+Route::post('/pakp', [App\Http\Controllers\PackController::class, 'index'])->name('pakp')->middleware('auth');
+Route::post('/pakc', [App\Http\Controllers\PackController::class, 'indexone'])->name('pakp')->middleware('auth');
+
+Route::get('/rapportm', [App\Http\Controllers\AdminController::class, 'rapportm'])->name('rapportm')->middleware('auth');
+Route::get('/rapports', [App\Http\Controllers\AdminController::class, 'rapports'])->name('rapports')->middleware('auth');
+Route::get('/fmoi', [App\Http\Controllers\AdminController::class, 'fmoi'])->name('fmoi')->middleware('auth');
 
 
-    Route::get('mollie-payment-success',[MollieController::class, 'paymentSuccess'])->name('mollie.payment.success')->middleware('auth');
-    Route::post('mollie-create-payment',[MollieController::class,'createPayment'])->name('mollie.create.payment')->middleware('auth');
-    Route::get('create-mollie-subscription',[MollieController::class,'createMollieSubscription'])->name('create.mollie.subscription')->middleware('auth');
+Route::get('mollie-payment-success',[MollieController::class, 'paymentSuccess'])->name('mollie.payment.success')->middleware('auth');
+Route::post('mollie-create-payment',[MollieController::class,'createPayment'])->name('mollie.create.payment')->middleware('auth');
+Route::get('create-mollie-subscription',[MollieController::class,'createMollieSubscription'])->name('create.mollie.subscription')->middleware('auth');
 
-    Route::get('facebook-mollie-payment-success',[FbpayementController::class, 'paymentSuccess'])->name('facebook.mollie.payment.success');
-    Route::get('facebook-mollie-create-paymen{prix}',[FbpayementController::class,'createPayment'])->name('facebook.mollie.create.payment');
-    Route::get('facebook-create-mollie-subscription',[FbpayementController::class,'createMollieSubscription'])->name('facebook.create.mollie.subscription');
+Route::get('facebook-mollie-payment-success',[FbpayementController::class, 'paymentSuccess'])->name('facebook.mollie.payment.success');
+Route::get('facebook-mollie-create-paymen{prix}',[FbpayementController::class,'createPayment'])->name('facebook.mollie.create.payment');
+Route::get('facebook-create-mollie-subscription',[FbpayementController::class,'createMollieSubscription'])->name('facebook.create.mollie.subscription');
 
-    Route::post('sendMail',[mailController::class,'index'])->name('sendMail')->middleware('auth');
+Route::post('sendMail',[MailController::class,'index'])->name('sendMail')->middleware('auth');
 
-    Route::get('/event', function ($message) {
-        return $event = event(new NewMessage($message));
-        event($event);
-    });
-    Route::get('/listen', function () {
-        return view('listen');
-    });
-    Route::get('newMessage{id}', function ($id) {
+Route::get('/event', function ($message) {
+    return $event = event(new NewMessage($message));
+    event($event);
+});
+Route::get('/listen', function () {
+    return view('listen');
+});
 
-    });
+
 
 
 

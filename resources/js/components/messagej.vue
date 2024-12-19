@@ -205,7 +205,7 @@ export default {
     },
   },
   created(){
-      Echo.channel(`messages${this.users.id}`)
+      Echo.channel(`messages.${this.users.id}`)
             .listen('NewMessage',  (e) => {
                 //  this.hanleIncoming(e.message);
             // this.message = e.message;

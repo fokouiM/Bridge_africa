@@ -1,7 +1,7 @@
 <template>
-    <div class="flex-row-auto offcanvas-mobile w-200px w-xl-250px" id="kt_chat_aside">
+    <div class="flex-row-auto offcanvas-mobile" id="kt_chat_aside">
         <!--begin::Card-->
-        <div class="card card-custom">
+        <div class="card card-custom" :style="isMobile == false ? 'height: 85vh;' : 'height: 100vh;'">
             <!--begin::Body-->
             <div class="card-body list" style="height: auto;">
                 <!--begin:Search-->
@@ -35,14 +35,27 @@
 
                     <!--begin:User-->
                         <div v-for="(contact,index) in contacts" :key="contact.id" @click="selectContact(index,contact)" :class="{'selected':index == selected}">
+                            <span v-if="!contact.statut_client">
+                                <button class="d-flex align-items-center justify-content-between mb-2" style="border: none; background: none;width: 100%;">
+                                    <div class="d-flex align-items-center" style="width: 100%; background: #ffc4c7; padding: 10px; border-radius: 5px;">
+                                        <div class="d-flex flex-column">
+                                            <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg new-style" >{{contact.name }} |
+                                                <!-- <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span> -->
+
+                                                <span class="text-muted font-weight-bold font-size-sm new-style">{{contact.name_agent}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
+                            </span>
                             <span v-if="contact.statut_client == 0">
                                 <button class="d-flex align-items-center justify-content-between mb-2" style="border: none; background: none;width: 100%;">
                                     <div class="d-flex align-items-center" style="width: 100%; background: #ffc4c7; padding: 10px; border-radius: 5px;">
                                         <div class="d-flex flex-column">
-                                            <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg" style="font-size: 0.8em;">{{contact.name }}|
+                                            <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg new-style" >{{contact.name }}|
                                                 <!-- <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span> -->
 
-                                                <span class="text-muted font-weight-bold font-size-sm">{{contact.name_agent}}</span>
+                                                <span class="text-muted font-weight-bold font-size-sm new-style">{{contact.name_agent}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -50,11 +63,11 @@
                             </span>
                             <span v-else-if="contact.statut_client == 1">
                                 <button class="d-flex align-items-center justify-content-between mb-2" style="border: none; background: none;width: 100%;">
-                                        <div class= "d-flex align-items-center" style="width: 100%; background: #ffedc4; padding: 10px; border-radius: 5px;">
+                                        <div class="d-flex align-items-center" style="width: 100%; background: #ffedc4; padding: 10px; border-radius: 5px;">
                                         <div class="d-flex flex-column">
-                                            <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg" style="font-size: 0.8em;">{{contact.name }} |
+                                            <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg new-style" >{{contact.name }} |
                                                 <!-- <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span> -->
-                                                <span class="text-muted font-weight-bold font-size-sm">{{contact.name_agent}}</span>
+                                                <span class="text-muted font-weight-bold font-size-sm new-style">{{contact.name_agent}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -62,10 +75,10 @@
                             </span>
                             <span v-else-if="contact.statut_client == 2">
                                 <button class="d-flex align-items-center justify-content-between mb-2" style="border: none; background: none;width: 100%;" >
-                                        <div class= "d-flex align-items-center" style="width: 100%; background: #c4ffc6; padding: 10px; border-radius: 5px;">
+                                        <div class="d-flex align-items-center" style="width: 100%; background: #c4ffc6; padding: 10px; border-radius: 5px;">
                                         <div class="d-flex flex-column">
-                                            <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg" style="font-size: 0.8em;">{{contact.name }}|
-                                                <span class="text-muted font-weight-bold font-size-sm">{{contact.name_agent}}</span>
+                                            <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg new-style" >{{contact.name }}|
+                                                <span class="text-muted font-weight-bold font-size-sm new-style">{{contact.name_agent}}</span>
                                                 <!-- <span class="font-weight-bold" id="kt_dashboard_daterangepicker_date"><time>00:00:00</time> </span> -->
 
 
@@ -78,13 +91,6 @@
                         </div>
                     <!--end:User-->
 
-
-                    <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
-                        <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
-                    </div>
-                    <div class="ps__rail-y" style="top: 0px; height: 413px; right: -2px;">
-                        <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 164px;"></div>
-                    </div>
                 </div>
                 <!--end:Users-->
             </div>
@@ -105,16 +111,32 @@
 
         data() {
             return {
-
-                selected : 0
+                selected : 0,
+                isMobile: false,
             };
+        },
+        created(){
+            console.log("hunter debug : ",this.contacts)
         },
         methods:{
             selectContact(index,contact){
                 this.selected = index;
                 this.$emit('selected',contact);
+            },
+            checkIfMobile() {
+                this.isMobile = window.matchMedia("(max-width: 768px)").matches;
             }
-        }
+        },
+        mounted() {
+            this.checkIfMobile(); // Vérification initiale
+
+            // Ajoutez un écouteur pour les redimensionnements
+            window.addEventListener("resize", this.checkIfMobile);
+        },
+        beforeDestroy() {
+            // Supprimez l'écouteur pour éviter les fuites de mémoire
+            window.removeEventListener("resize", this.checkIfMobile);
+        },
 
     }
 

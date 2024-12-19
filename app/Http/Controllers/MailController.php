@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Mail\sendmail;
 use Illuminate\Support\Facades\Mail;
 
-class mailController extends Controller
+class MailController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -1,59 +1,93 @@
 version: '3.8'
 
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: voyace-app
-    container_name: voyace-app
-    ports:
-      - "8080:80"
-    restart: always
-    env_file:
-      - .env  # Référence à votre fichier .env
-    environment:
-        APP_ENV:
-        APP_DEBUG:
-        APP_KEY:
-        DB_HOST:
-        REDIS_HOST: redis
-        REDIS_PASSWORD:
-        REDIS_PORT:
-        CACHE_DRIVER: redis
-        SESSION_DRIVER: redis
-        QUEUE_CONNECTION: redis
-        LOG_CHANNEL:
-        LOG_LEVEL:
-        DB_CONNECTION:
-        DB_PORT:
-        DB_DATABASE:
-        DB_USERNAME:
-        DB_PASSWORD:
-        BROADCAST_DRIVER:
-        FILESYSTEM_DRIVER:
-        SESSION_LIFETIME:
-        mMEMCACHED_HOST:
-        MAIL_MAILER:
-        MAIL_HOST:
-        MAIL_PORT:
-        MAIL_USERNAME:
-        MAIL_PASSWORD:
-        MAIL_ENCRYPTION:
-        MAIL_FROM_ADDRESS:
-        MAIL_FROM_NAME:
-        AWS_ACCESS_KEY_ID:
-        AWS_SECRET_ACCESS_KEY:
-        AWS_DEFAULT_REGION:
-        AWS_BUCKET:
-        AWS_USE_PATH_STYLE_ENDPOINT:
-        PUSHER_APP_ID:
-        PUSHER_APP_KEY:
-        PUSHER_APP_SECRET:
-        PUSHER_APP_CLUSTER:
-        MIX_PUSHER_APP_KEY:
-        MIX_PUSHER_APP_CLUSTER:
+    app:
+        build: .
+        # command: service nginx restart
+        ports:
+            - "8000:80"
+        restart: always
+        env_file:
+            - .env  # Référence à votre fichier .env
+        environment:
+            APP_ENV:
+            APP_DEBUG:
+            APP_KEY:
+            DB_HOST:
+            REDIS_HOST:
+            REDIS_PASSWORD:
+            REDIS_PORT:
+            CACHE_DRIVER:
+            SESSION_DRIVER:
+            QUEUE_CONNECTION: 
+            LOG_CHANNEL:
+            LOG_LEVEL:
+            DB_CONNECTION:
+            DB_PORT:
+            DB_DATABASE:
+            DB_USERNAME:
+            DB_PASSWORD:
+            BROADCAST_DRIVER:
+            FILESYSTEM_DRIVER:
+            SESSION_LIFETIME:
+            mMEMCACHED_HOST:
+            MAIL_MAILER:
+            MAIL_HOST:
+            MAIL_PORT:
+            MAIL_USERNAME:
+            MAIL_PASSWORD:
+            MAIL_ENCRYPTION:
+            MAIL_FROM_ADDRESS:
+            MAIL_FROM_NAME:
+            AWS_ACCESS_KEY_ID:
+            AWS_SECRET_ACCESS_KEY:
+            AWS_DEFAULT_REGION:
+            AWS_BUCKET:
+            AWS_USE_PATH_STYLE_ENDPOINT:
+            PUSHER_APP_ID:
+            PUSHER_APP_KEY:
+            PUSHER_APP_SECRET:
+            PUSHER_APP_CLUSTER:
+            MIX_PUSHER_APP_KEY:
+            MIX_PUSHER_APP_CLUSTER:
+        depends_on:
+            - redis
+            - db
+        links:
+            - redis
+            - db
+        networks:
+            - app
+        volumes:
+            - .:/var/www/html
 
-    volumes:
-      - .:/var/www/html
+    redis:
+        image: redis
+        container_name: redis-container
+        ports:
+            - "6379:6379"
+        command: redis-server --requirepass "admin_admin"
+        networks:
+            - app
+    db:
+        image: mysql:8.0
+        container_name: mysql_db
+        ports:
+            - "3306:3306" # Mappe le port 3306 pour accéder à MySQL depuis l'hôte
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: database-1
+            MYSQL_USER: root
+            MYSQL_PASSWORD: root
+        volumes:
+            - db_data:/var/lib/mysql
+        networks:
+        - app
+
+volumes:
+  redis_data:
+  db_data:
+networks:
+  app:
+
 

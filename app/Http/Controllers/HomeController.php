@@ -33,7 +33,7 @@ class HomeController extends Controller
             // var_dump(Auth::user()->statut);
             // User::findOrFail(Auth::user()->id)->update([
             //     'statut' => 1,
-    
+
             // ]);
             // dd(Auth::user()->statut);
             if(Auth::user()->statut == 1){

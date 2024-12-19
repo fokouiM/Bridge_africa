@@ -10,6 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\message;
+use Illuminate\Support\Facades\Log;
 
 class NewMessage implements ShouldBroadcast
 {
@@ -25,7 +26,6 @@ class NewMessage implements ShouldBroadcast
     public function __construct(message $message)
     {
         $this->message = $message;
-
         // $this->username = $username;
     }
 
@@ -36,12 +36,14 @@ class NewMessage implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('messages'.$this->message->to);
+        Log::info('NewMessage event emitted', ['message' => $this->message->to]);
+        return new Channel('messages.'.$this->message->to);
 
     }
 
     public function bradacastWith()
     {
+        Log::info('NewMessage event emitted', ['message' => $this->message->to]);
         return[ "message" => $this->message];
     }
 

@@ -80,7 +80,7 @@
                 <!--end::Header Mobile-->
 
                 <!--begin::Header-->
-                <div id="kt_header" class="header  header-fixed h-60px px-4">
+                <div id="kt_header" class="header  header-fixed  px-4">
                     <!--begin::Container-->
                     <div class=" container ">
                         <!--begin::Left-->

@@ -236,7 +236,7 @@
                     </div>
                 </div>
                 <!--begin::Footer-->
-                <div class="footer py-4 d-flex flex-lg-column " id="kt_footer" style="    background: black;">
+                {{-- <div class="footer py-4 d-flex flex-lg-column " id="kt_footer" style="    background: black;">
                     <!--begin::Container-->
                     <div class=" container  d-flex flex-column flex-md-row align-items-center justify-content-between">
                         <!--begin::Copyright-->
@@ -263,7 +263,7 @@
 
                     </div>
                     <!--end::Container-->
-                </div>
+                </div> --}}
                 <!--end::Footer-->
             </div>
             <!--end::Wrapper-->

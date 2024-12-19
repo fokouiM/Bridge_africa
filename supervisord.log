@@ -1,0 +1,24 @@
+2024-12-19 01:32:44,106 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2024-12-19 01:32:44,110 INFO supervisord started with pid 1
+2024-12-19 01:32:45,113 INFO spawned: 'nginx' with pid 7
+2024-12-19 01:32:45,116 INFO spawnerr: can't find command 'docker-php-entrypoint'
+2024-12-19 01:32:46,134 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-12-19 01:32:46,136 INFO spawnerr: can't find command 'docker-php-entrypoint'
+2024-12-19 01:32:48,144 INFO spawnerr: can't find command 'docker-php-entrypoint'
+2024-12-19 01:32:51,152 INFO spawnerr: can't find command 'docker-php-entrypoint'
+2024-12-19 01:32:51,156 INFO gave up: php-fpm entered FATAL state, too many start retries too quickly
+2024-12-19 01:33:54,574 WARN received SIGTERM indicating exit request
+2024-12-19 01:33:54,586 INFO waiting for nginx to die
+2024-12-19 01:33:56,819 INFO stopped: nginx (exit status 0)
+2024-12-19 01:34:08,437 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2024-12-19 01:34:08,443 INFO supervisord started with pid 1
+2024-12-19 01:34:09,447 INFO spawned: 'nginx' with pid 7
+2024-12-19 01:34:09,453 INFO spawnerr: can't find command 'docker-php-entrypoint'
+2024-12-19 01:34:10,668 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-12-19 01:34:10,671 INFO spawnerr: can't find command 'docker-php-entrypoint'
+2024-12-19 01:34:12,678 INFO spawnerr: can't find command 'docker-php-entrypoint'
+2024-12-19 01:34:15,687 INFO spawnerr: can't find command 'docker-php-entrypoint'
+2024-12-19 01:34:15,688 INFO gave up: php-fpm entered FATAL state, too many start retries too quickly
+2024-12-19 01:40:03,096 WARN received SIGTERM indicating exit request
+2024-12-19 01:40:03,107 INFO waiting for nginx to die
+2024-12-19 01:40:04,132 INFO stopped: nginx (exit status 0)

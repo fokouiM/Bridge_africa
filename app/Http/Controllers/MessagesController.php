@@ -41,11 +41,26 @@ class MessagesController extends Controller
                 $name_agent = $voyant;
                 $message = message::where('id_user',Auth::user()->id)->where('name_voyant',$name_agent)->orderBy('created_at')->get();
                 $date = date('Y n j');
-                
+
                 // dd($date);
                 return view('message')->with( ['message'=> $message,'name_agent'=>$name_agent,'date'=>$date]);
 
             }elseif(Auth::user()->statut == 1 ){
+
+                dd($voyant);
+                $contacts = User::where('statut_m',1)->where('statut',0)->get();
+                return response()->json($contacts);
+            }else{
+                return view('acces');
+            }
+        }
+
+    }
+
+    public function indexOne()
+    {
+        if(isset(Auth::user()->id)) {
+            if(Auth::user()->statut == 1 ){
 
                 $contacts = User::where('statut_m',1)->where('statut',0)->get();
                 return response()->json($contacts);
@@ -101,7 +116,7 @@ class MessagesController extends Controller
     }
 
     public function getMessage($id){
-        $message = message::where('id_user',$id)->get()
+        $message = message::where('id_user',$id)->limit(30)->get()
         ->map(function ($item, $key) {
             $str = date('d/m/y', strtotime(Carbon::now()));
             $dateshare = date('d/m/y', strtotime($item->created_at));
@@ -133,7 +148,7 @@ class MessagesController extends Controller
 
     public function getoneMessage($voyant){
         $listVoyante = ["ISABELLE","SUZANNE","JACQUEMIN","SABINE"];
-        if ($listVoyante.includes($voyant)){
+        if (in_array($voyant, $listVoyante)){
             $counv_clients = CounvClient::where('id_user',Auth::user()->id)->where('name_voyant',$voyant)->first();
             if($counv_clients == null){
                 $counv_clients = new CounvClient;
@@ -142,12 +157,12 @@ class MessagesController extends Controller
                 $counv_clients->statut = 1;
                 $counv_clients->save();
             }
-            $message = message::where('id_user',Auth::user()->id)->where('name_voyant',$voyant)->orderBy('created_at', 'desc')->limit(30)->get()
+            $message = message::where('id_user',Auth::user()->id)->where('name_voyant',$voyant)->limit(30)->get()
             ->map(function ($item, $key) {
                 $str = date('d/m/y', strtotime(Carbon::now()));
                 $dateshare = date('d/m/y', strtotime($item->created_at));
                 if($str == $dateshare){
-    
+
                     $time =  $item->created_at->format('H:i:s');
                 }else{
                     $time = date('d M y', strtotime($item->created_at));
@@ -163,10 +178,10 @@ class MessagesController extends Controller
                 ];
                 return $data;
             });
-                    $Idc = message::where('id_user',Auth::user()->id)->where('id_send','!=',Auth::user()->id)->orderBy('created_at', 'desc')->first();
+            $Idc = message::where('id_user',Auth::user()->id)->where('id_send','!=',Auth::user()->id)->orderBy('created_at', 'desc')->first();
             if($Idc != null){
                 if($Idc->id_send != null){
-    
+
                     $to = $Idc->id_send;
                 }else{
                     $to = 0;
@@ -342,7 +357,8 @@ class MessagesController extends Controller
             $message->name_voyant = $request->name_voyant;
             $message->message = $request->text;
             $message->save();
-            broadcast(new NewMessage($message));
+            $testb = broadcast(new NewMessage($message));
+            // dd($testb);
             User::where('id',$request->id_user)->update(['name_agent' => Auth::user()->name,'statut_m'=>0]);
 
              CounvClient::where('id_user',$request->id_user)->where('name_voyant',$request->name_voyant)->update(['statut' => 1]);
@@ -408,8 +424,9 @@ class MessagesController extends Controller
         $counv_clients = CounvClient::where('id_user',Auth::user()->id)->where('name_voyant',$request->name_voyant)->first();
         if(Auth::user()->credit >= 1){
             if($counv_clients->statut == 0){
+            // if($counv_clients->statut){
 
-                $v2 = "Vieille patiente qu\'ont repond a votre message";
+                $v2 = "Vieille patiente qu'ont repond a votre message";
                 $message = message::where('id_user',Auth::user()->id)->where('name_voyant',$request->name_voyant)->get()
                 ->map(function ($item, $key) {
                     $str = date('d/m/y', strtotime(Carbon::now()));
@@ -456,7 +473,8 @@ class MessagesController extends Controller
                 $message->save();
                 $credit = Auth::user()->credit -1;
 
-                broadcast(new NewMessage($message));
+                $testb = broadcast(new NewMessage($message));
+                // dd($testb);
 
                 User::where('id',Auth::user()->id)->update(['credit' => $credit,'statut_m'=> 1,'pub'=> 1]);
                 $counv_clients = CounvClient::where('id_user',Auth::user()->id)->where('name_voyant',$request->name_voyant)->update(['statut' => 0]);

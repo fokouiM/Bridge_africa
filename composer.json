@@ -6,17 +6,18 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
-        "beyondcode/laravel-websockets": "^1.12",
+        "beyondcode/laravel-websockets": "^1.14",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "guzzlehttp/psr7": "^1.5",
         "laravel/framework": "^8.54",
+        "laravel/horizon": "^5.0",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "mollie/laravel-mollie": "^2.15",
-        "pusher/pusher-php-server": "^5.0",
-        "predis/predis": "^2.0"
+        "predis/predis": "^2.3",
+        "pusher/pusher-php-server": "^7.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

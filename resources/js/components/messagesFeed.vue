@@ -1,6 +1,6 @@
 <template>
     <div>
-            <div class="card-header align-items-center px-4 py-3">
+            <div class="card-header align-items-center px-4 py-4" >
                 <div class="text-left flex-grow-1">
                     <!--begin::Aside Mobile Toggle-->
                     <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-md d-lg-none"
@@ -31,7 +31,7 @@
                         <div class="flex" id="allMessage">
                                 <div v-for="voyants in messages.voyants" :key="voyants.id" >
                                     <button  class="btn btn-light-primary btn-sm font-weight-bold mr-2" id="kt_dashboard_daterangepicker" data-toggle="tooltip" title=""
-                                        data-placement="left" data-original-title="liste voyant" v-on:click=" Active = voyants.name_voyant"
+                                        data-placement="left" data-original-title="liste voyant" @click=" selectVoyant(voyants.name_voyant)"
                                         >
                                         <span class="opacity-60 font-weight-bold mr-2" id="kt_dashboard_daterangepicker_title">{{voyants.name_voyant}} </span>
                                     </button>
@@ -40,10 +40,10 @@
                     </div>
                 </div>
             </div>
-            <div class="card-body" style="height:68vh;  overflow-x: auto;">
+            <div ref="card_body" class="card-body" :style="isMobile==false ? 'height: 69vh;  overflow-x: auto;' : 'height: 67vh;  overflow-x: auto;'">
                 <!--begin::Scroll-->
                 <div id="scroll" class=" scroll-pull ps--active-y" data-mobile-height="350"
-                    style="max-height: 62vh; height: auto;  " >
+                    style="max-height: 58vh; height: auto;  " >
                     <!--begin::Messages-->
                     <div v-if="contact">
                             <div class="messages">
@@ -51,7 +51,7 @@
                                 <!--begin::Message In-->
                                     <span v-if="message.name_voyant == Active && message.name_voyant != null">
                                             <div class="d-flex flex-column mb-1 " :class="message.id_send == contact.id ? 'align-items-start' : 'align-items-end ' ">
-                                                <div class="mt-2 rounded p-2 text-dark-50 font-weight-bold font-size-lg text-right max-w-400px new-style" :class="message.id_send == contact.id ? 'bg-light-primary text-right ' : ' bg-light-success text-left' " style="font-size:0.9em; ">
+                                                <div class="mt-2 rounded p-2 text-dark-50 font-weight-bold font-size-lg text-right max-w-400px new-style" :class="message.id_send == contact.id ? 'bg-light-primary text-right ' : ' bg-light-success text-left' " >
                                                     {{message.message}}
                                              <span class="text-muted font-size-sm" style="margin-left: 2em; float: right;">{{message.created_at}}</span>
 
@@ -63,16 +63,16 @@
                         </div>
                     </div>
                     <!--end::Messages-->
-                    <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                    <!-- <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
                         <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
                     </div>
                     <div class="ps__rail-y" style="top: 0px; height: 271px; right: -2px;">
                         <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 75px;"></div>
-                    </div>
+                    </div> -->
                 </div>
                 <!--end::Scroll-->
             </div>
-            <div class="card-footer align-items-center" style="display: flex; padding: 10px;" ref="feed">
+            <div class="card-footer align-items-center" style="display: flex; padding: 10px; position: absolute; width: 100%; bottom: 0;" ref="feed">
             <!-- <div>{{message.user.name}}</div> -->
             <form id="app" @submit="checkForm" action="conversation/send" method="post" class="flex" >
                 <div class="d-flex align-items-center justify-content-between ">
@@ -181,16 +181,23 @@ export default {
         },
 
 
-        data(messages ){
+        data(){
         return{
             text:'',
-            id_user : messages.user,
-            name_voyant : Active,
+            id_user : null,
+            name_voyant : false,
+            isMobile: false,
 
         }
     },
+    created(){
+        this.name_voyant = this.Active
+        this.id_user = this.messages.user
+    },
     methods:{
-
+        checkIfMobile() {
+            this.isMobile = window.matchMedia("(max-width: 768px)").matches;
+        },
         checkForm(e) {
             e.preventDefault();
             axios.post('/conversation/send',{
@@ -207,10 +214,25 @@ export default {
         },
         scrollToBottom(){
             setTimeout(()=>{
-
+                let scrollableBlock = this.$refs.card_body
                 this.$refs.feed.scrollTop = this.$refs.feed.scrollHeight - this.$refs.feed.clientHeight;
+                scrollableBlock.scrollTop = scrollableBlock.scrollHeight + 20;
             },50);
+        },
+        selectVoyant(name_voyant){
+            this.Active = name_voyant
+            this.scrollToBottom()
         }
+    },
+    mounted() {
+        this.checkIfMobile(); // Vérification initiale
+
+        // Ajoutez un écouteur pour les redimensionnements
+        window.addEventListener("resize", this.checkIfMobile);
+    },
+    beforeDestroy() {
+        // Supprimez l'écouteur pour éviter les fuites de mémoire
+        window.removeEventListener("resize", this.checkIfMobile);
     },
 
     watch:{

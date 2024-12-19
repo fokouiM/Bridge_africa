@@ -1,6 +1,6 @@
 <template>
   <div class="containt">
-    <div class="content flex-column-fluid" id="kt_content" style="width: 100%; padding: 0;">
+    <div class="content flex-column-fluid" id="kt_content" style="width: 100%; padding: 0; background: #000824;">
       <span v-if="messages.v2">
         <div class="anime">
             <div class="alert alert-custom alert-notice alert-light-success fade show mb-5" role="alert">
@@ -16,18 +16,20 @@
       </span>
 
       <!--begin::Chat-->
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-row user-chat-content">
         <!--begin::Content-->
 
         <div class="flex-row-fluid" id="kt_chat_content">
           <!--begin::Card-->
-          <div class="card card-custom" style="    height: 70vh;">
+          <div class="card card-custom" style="height: 78vh;">
             <!--begin::Header-->
-            <div class="card-header align-items-center px-4 py-3">
-                <credit />
+            <div class="flex justify-between w-full align-items-center px-4 py-3" style="width: 100%;">
+                <div class="tex-credit">
+                    <a href="pack" class="btn btn-light-primary font-weight-bold btn-sm px-5 font-size-base ml-2"> Credit : {{credit}} </a>
+                </div>
               <div class="text-center flex-grow-1">
                 <div class="text-dark-75 font-weight-bold font-size-h5">
-                  <strong>{{ messages.name_voyant }} </strong>
+                  <strong>{{ name_voyant }} </strong>
                 </div>
                 <div>
                   <span class="label label-sm label-dot label-success"></span>
@@ -37,17 +39,15 @@
             <!--end::Header-->
 
             <!--begin::Body-->
-            <div class="card-body" style="background: whitesmoke; overflow: auto;">
+            <div ref="cardBody" class="card-body body-user-chat" style=" overflow: auto;">
               <!--begin::Scroll-->
               <div
                 class=" scroll-pull ps--active-y"
-                data-mobile-height="350"
 
               >
                 <!--begin::Messages-->
-                <div class="messages messagew" >
                   <!--begin::Message welcom-->
-                  <div class="d-flex flex-column align-items-start">
+                  <div v-if="messages && (messages.message.length < 1 || messages.message.length == 0)" class="d-flex flex-column align-items-start">
                     <div
                       class="mt-2 rounded p-5 font-weight-bold text-left"
                       style="background: #8950FC; color: #fff"
@@ -110,27 +110,6 @@
                     </span>
                     <!--end::Message In-->
                   </div>
-                          <span v-if="nextmessage != null ">
-                    <div class="d-flex flex-column mb-1 align-items-start">
-                            <div
-                          class=" new-style
-                            mt-2
-                            rounded
-                            p-2
-                            bg-light-success
-                            text-dark-50
-                            font-weight-bold font-size-lg
-                            text-left
-                          "
-                          style="font-size: 0.9em"
-                        >
-
-                          {{ nextmessage }}<br />
-                        </div>
-                      </div>
-                        </span>
-
-                </div>
               </div>
             </div>
             <!--end::Scroll-->
@@ -141,12 +120,10 @@
           <form ref="feed"
             id="app"
             @submit="checkForm"
-            method="post"
-            action="conversation/senduser"
           >
             <div
               class="card-footer align-items-center"
-              style="display: flex; padding: 10px"
+              style="display: flex; padding: 10px; height: 10vh;"
             >
               <!--begin::Compose-->
               <div
@@ -193,60 +170,59 @@
 
 <script>
 
-    import credit from './credit';
-
 export default {
   props: {
-    messages: {
-      type: Array,
-      require: true,
-    },
-    nextmessage: {
-      type: Array,
-      require: true,
-    },
     users: {
       type: Object,
       require: true,
     },
+    name_voyants: {
+      type: String,
+      require: true,
+      default: '',
+    },
     v2: {
       type: Object,
-      require: true,
+      require: false,
+      default: () => ({}),
     },
     to: {
       type: Object,
-      require: true,
-    },
-    name_voyant: {
-      type: string,
-      require: true,
+      require: false,
+      default: () => ({}),
     },
   },
 
   created(){
-      Echo.channel(`messages${this.users.id}`)
+    this.credit = this.users.credit
+      Echo.channel(`messages.${this.users.id}`)
             .listen('NewMessage',  (e) => {
                 //  this.hanleIncoming(e.message);
             // this.message = e.message;
-            this.nextmessage = e.message.message
             this.messages.message.Push( this.e.message.message );
 
         });
+    setTimeout(() => {
+        this.scrollToBottom()
+        }, 1000);
   },
   mounted() {
-      console.log("hunter debug : ",this.$route.params.name_voyant)
-      axios.get(`/conversationuers/${this.name_voyant}`).then((response) => {
+    this.name_voyant = this.name_voyants
+      axios.get(`/conversationuers/${this.name_voyants}`).then((response) => {
           this.messages = response.data;
+          this.to = messages.to
+          this.id_user = messages.user
     })
 
   },
-  data(messages ){
+  data(){
         return{
             text:'',
-            id_user : messages.user,
-            name_voyant : messages.name_voyant,
-            to : messages.to
-
+            id_user :"",
+            name_voyant : "",
+            messages : [],
+            credit : 0,
+            to : 0
         }
     },
 
@@ -257,11 +233,13 @@ export default {
             axios.post('/conversation/senduser',{
                 text: this.text,
                 id_user: this.messages.user.id,
-                name_voyant: this.messages.name_voyant,
+                name_voyant: this.name_voyant,
                 to: 2,
             }).then((response) => {
                 this.messages = response.data;
-                this.nextmessage = '';
+                this.getcrefit()
+                this.scrollToBottom()
+
             });
             if(this.text == ''){
                 return;
@@ -271,37 +249,55 @@ export default {
 
 
         },
-        // saveNewMessage(text){
-        //         this.messages.push(text);
-        //     },
-        scrollToBottom(){
-            setTimeout(()=>{
 
-                this.$refs.feed.scrollTop = this.$refs.feed.scrollHeight - this.$refs.feed.clientHeight;
-            },50);
+        getcrefit(){
+            axios.get("/getcredit").then((response) => {
+                this.credit = response.data.user; })
+        },
+        scrollToBottom() {
+            const scrollableBlock = this.$refs.cardBody;
+            console.log("hunter debug : ",scrollableBlock)
+            scrollableBlock.scrollTop = scrollableBlock.scrollHeight + 50;
         },
         hanleIncoming(message){
 
-                    this.messages.push(message);
-                    this.saveNewMessage(message);
+                this.messages.push(message);
+                this.saveNewMessage(message);
 
-                alert(message.message);
-            }
-    },
-
-    watch:{
-        messages(messages){
-            this.scrollToBottom();
+            alert(message.message);
         }
-
     },
-        components : {credit}
     };
 </script>
 <style>
  .tex-credit{
      text-align: center;
-    background: #fff;
     padding: 8px 0;
  }
+ .body-user-chat{
+    background-image: url('../../../public/assets/media/bg/bg-whatsapp.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+ }
+ .user-chat-content{
+    width: 50%;
+    margin: auto;
+ }
+ @media (max-width: 768px) {
+    .card-custom {
+        height: 83vh !important;
+    }
+    .user-chat-content{
+        width: 100%;
+     }
+  }
+  @media (max-width: 480px) {
+    .card-custom {
+        height: 83vh !important;
+    }
+    .user-chat-content{
+        width: 100%;
+     }
+  }
 </style>

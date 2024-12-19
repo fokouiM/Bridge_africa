@@ -10,7 +10,8 @@
 }
 
 .bghom{
-    background-image:   url("./../bghom.jpg");
+    background: #000824;
+    /* background-image:   url("./../bghom.jpg"); */
 }
 .bghom2{
     background: #ffffffd2 !important;

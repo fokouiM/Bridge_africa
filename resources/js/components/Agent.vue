@@ -10,10 +10,15 @@
                 <!--begin::Chat-->
                 <div class="d-flex flex-row">
                     <!--begin::Aside-->
-
-                    <contactslist :contacts="contacts" @selected="startconversationWith"  />
-                    <conversation :contact="selectedContact" :messages="messages" @new="saveNewMessage"/>
-                    <listenote :contact="selectedContact" :messages="messages" @new="saveNewMessage"/>
+                    <div :style="isMobile == false ? 'width: 20%;' : 'width: 0%;'">
+                        <contactslist :contacts="contacts" @selected="startconversationWith"  />
+                    </div>
+                    <div :style="isMobile == false ? 'width: 60%;' : 'width: 100%;'">
+                        <conversation :contact="selectedContact" :messages="messages" @new="saveNewMessage"/>
+                    </div>
+                    <div :style="isMobile == false ? 'width: 20%;' : 'width: 0%;'">
+                        <listenote :contact="selectedContact" :messages="messages" @new="saveNewMessage"/>
+                    </div>
                     <!--end::Aside-->
 
                 </div>
@@ -34,60 +39,60 @@
 
     export default {
 
-        props: {
-    messages: {
-      type: Array,
-      require: true,
-    },
-    users: {
-      type: Object,
-      require: true,
-    },
-    v2: {
-      type: Object,
-      require: true,
-    },
-    to: {
-      type: Object,
-      require: true,
-    },
-    nextmessage: {
-        type: Array,
+    props: {
+        users: {
+        type: Object,
         require: true,
         },
-    name_voyant: {
-      type: Object,
-      require: true,
     },
-  },
-  created(){
-      Echo.channel(`messages${this.users.id}`)
+    created(){
+        Echo.channel(`messages.${this.users.id}`)
             .listen('NewMessage',  (e) => {
                 //  this.hanleIncoming(e.message);
             // this.message = e.message;
-            this.nextmessage = e.message.message
+            this.messages = e.message.message
 
         });
-  },
+    },
 
-        data(){
-            return{
-                selectedContact : null,
-                messages:[],
-                contacts:[]
-            };
+    data(){
+        return{
+            selectedContact : null,
+            messages:[],
+            contacts:[],
+            isMobile: false,
+            Active : false
+        };
+    },
+    created() {
+        setInterval(() => {
+            axios.get('/contacts')
+            .then((response) =>{
+                this.contacts = response.data;
+            })
+
+        }, 4000);
+        axios.get('/sanctum/csrf-cookie').then(response => {
+            this.user = response.data;
+        });
+    },
+
+    methods:{
+        startconversationWith(contact) {
+            axios.get(`/conversation/${contact.id}/${contact.name_voyant}`)
+            .then((response) =>{
+                this.messages = response.data;
+                this.selectedContact = contact;
+            });
         },
-        mounted() {
-            setInterval(() => {
+        saveNewMessage(text){
+            this.messages.push(text);
+        },
 
-                axios.get('/contacts')
-                    .then((response) =>{
-                        this.contacts = response.data;
-                    })
-                    axios.get('/sanctum/csrf-cookie').then(response => {
-                        this.user = response.data;
-                    });
-            }, 2000);
+        hanleIncoming(message){
+                this.messages.push(message);
+                this.saveNewMessage(message);
+            alert(message.message);
         },
         checkForm(e) {
             e.preventDefault();
@@ -104,27 +109,25 @@
                     this.contacts = response.data;
                 });
 
-
         },
-
-        methods:{
-            startconversationWith(contact) {
-                axios.get(`/conversation/${contact.id}/${contact.name_voyant}`)
-                .then((response) =>{
-                    this.messages = response.data;
-                    this.selectedContact = contact;
-                });
-            },
-            saveNewMessage(text){
-                this.messages.push(text);
-            },
-
-            hanleIncoming(message){
-                    this.messages.push(message);
-                    this.saveNewMessage(message);
-                alert(message.message);
-            }
+        updateContacts(newValue) {
+            this.contacts = newValue; // Met à jour la donnée dans le parent
         },
+        checkIfMobile() {
+            this.isMobile = window.matchMedia("(max-width: 768px)").matches;
+        }
+    },
+    mounted() {
+        this.checkIfMobile(); // Vérification initiale
+
+        // Ajoutez un écouteur pour les redimensionnements
+        window.addEventListener("resize", this.checkIfMobile);
+    },
+    beforeDestroy() {
+        // Supprimez l'écouteur pour éviter les fuites de mémoire
+        window.removeEventListener("resize", this.checkIfMobile);
+    },
+
         components : {contactslist,conversation,listenote}
     }
 </script>

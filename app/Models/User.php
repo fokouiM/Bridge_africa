@@ -24,6 +24,9 @@ class User extends Authenticatable
         'credit',
         'img_profil',
         'password',
+        'name_agent',
+        'statut_client',
+        'affaire',
     ];
 
     /**

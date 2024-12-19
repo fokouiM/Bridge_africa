@@ -18,7 +18,7 @@ export default {
 
           setInterval(() => {
 
-                axios.get("/getcredit").then((response) => {
+        axios.get("/getcredit").then((response) => {
           this.credit = response.data; })
             }, 2000);
     },
@@ -28,7 +28,6 @@ export default {
 <style>
  .tex-credit{
      text-align: center;
-    background: #fff;
     padding: 8px 0;
  }
 </style>

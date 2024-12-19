@@ -22,25 +22,22 @@
                     @csrf
                     <!--begin::Wizard Step 1-->
                     <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
-                        <h3 class="mb-10 font-weight-bold text-dark">Entre vos information</h3>
+                        <h3 class="mb-10 font-weight-bold text-light">Entre vos information</h3>
                         <!--begin::Input-->
                         <div class="form-group fv-plugins-icon-container">
-                            <label>Nom prenom</label>
+                            <label class="text-light">Nom prenom</label>
                             <input type="text" class="form-control form-control-solid form-control-lg" name="name" placeholder="Nom prenom" required>
-                            <span class="form-text text-muted">Nom prenom.</span>
                         <div class="fv-plugins-message-container"></div></div>
                         <!--end::Input-->
 
                         <!--begin::Input-->
                         <div class="form-group">
-                            <label>Email</label>
+                            <label class="text-light">Email</label>
                             <input type="email" class="form-control form-control-solid form-control-lg" name="email" placeholder="Email" required>
-                            <span class="form-text text-muted">Email.</span>
                         </div>
                         <div class="form-group">
-                            <label>Message</label>
+                            <label class="text-light">Message</label>
                             <input type="text" class="form-control form-control-solid form-control-lg" name="message" placeholder="Message" required>
-                            <span class="form-text text-muted">Message.</span>
                         </div>
                         <!--end::Input-->
                     </div>

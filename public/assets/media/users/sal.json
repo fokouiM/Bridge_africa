@@ -1,0 +1,151 @@
+{
+  "title": "sal",
+  "selectorAttribute": "data-value",
+  "steps": [
+    {
+      "type": "setViewport",
+      "width": 956,
+      "height": 928,
+      "deviceScaleFactor": 2,
+      "isMobile": false,
+      "hasTouch": false,
+      "isLandscape": true
+    },
+    {
+      "type": "navigate",
+      "url": "https://login.salesforce.com/",
+      "assertedEvents": [
+        {
+          "type": "navigation",
+          "url": "https://login.salesforce.com/",
+          "title": "Login | Salesforce"
+        }
+      ]
+    },
+    {
+      "type": "click",
+      "value": null,
+      "timestamp": 1734368499309,
+      "assertedEvents": [
+        {
+          "type": "click",
+          "url": "https://login.salesforce.com/",
+          "title": "Login | Salesforce"
+        }
+      ],
+      "target": "input",
+      "selectors": [
+        "#username",
+        ".input",
+        ".r4",
+        ".wide",
+        ".mb16",
+        ".mt8",
+        ".username",
+        "input"
+      ],
+      "offsetY": 25.5,
+      "offsetX": 266
+    },
+    {
+      "type": "click",
+      "value": null,
+      "timestamp": 1734368502561,
+      "assertedEvents": [
+        {
+          "type": "click",
+          "url": "https://login.salesforce.com/",
+          "title": "Login | Salesforce"
+        }
+      ],
+      "target": "input",
+      "selectors": [
+        "#password",
+        ".input",
+        ".r4",
+        ".wide",
+        ".mb16",
+        ".mt8",
+        ".password",
+        "input"
+      ],
+      "offsetY": 14,
+      "offsetX": 55
+    },
+    {
+      "type": "change",
+      "value": "demo@quikly.dev",
+      "timestamp": 1734368506105,
+      "assertedEvents": [
+        {
+          "type": "change",
+          "url": "https://login.salesforce.com/",
+          "title": "Login | Salesforce"
+        }
+      ],
+      "target": "input",
+      "selectors": [
+        "#username",
+        ".input",
+        ".r4",
+        ".wide",
+        ".mb16",
+        ".mt8",
+        ".username",
+        ".interacted",
+        "input"
+      ],
+      "offsetY": null,
+      "offsetX": null
+    },
+    {
+      "type": "change",
+      "value": "Wring123.",
+      "timestamp": 1734368506108,
+      "assertedEvents": [
+        {
+          "type": "change",
+          "url": "https://login.salesforce.com/",
+          "title": "Login | Salesforce"
+        }
+      ],
+      "target": "input",
+      "selectors": [
+        "#password",
+        ".input",
+        ".r4",
+        ".wide",
+        ".mb16",
+        ".mt8",
+        ".password",
+        ".interacted",
+        "input"
+      ],
+      "offsetY": null,
+      "offsetX": null
+    },
+    {
+      "type": "click",
+      "value": null,
+      "timestamp": 1734368509426,
+      "assertedEvents": [
+        {
+          "type": "click",
+          "url": "https://login.salesforce.com/",
+          "title": "Login | Salesforce"
+        }
+      ],
+      "target": "input",
+      "selectors": [
+        "#Login",
+        ".button",
+        ".r4",
+        ".wide",
+        ".primary",
+        "input"
+      ],
+      "offsetY": 26,
+      "offsetX": 271
+    }
+  ]
+}

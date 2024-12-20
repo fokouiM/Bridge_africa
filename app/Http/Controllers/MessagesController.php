@@ -614,12 +614,12 @@ class MessagesController extends Controller
         $newdateone = strtotime(Date('Y-m-d H:i:s'));
         $hello = abs( $newdateone - $newdate)/120;
         $tag = Liste_tag::where('id_user', Auth::user()->id)->first();
-        $settmessage = null;
-        dd($tag);
-        if(empty($tag->tmessage)){
-            $settmessage = 0;
-        }else{
-            $settmessage = $tag->tmessage;
+        if(empty($tag)){
+            $tag = new Liste_tag;
+            $tag->id_user = Auth::user()->id;
+            $tag->time = "0";
+            $tag->tmessage = "0";
+            $tag->save();
         }
         $tmessage = $tag->tmessage +1;
         $time = $tag->time + $hello;

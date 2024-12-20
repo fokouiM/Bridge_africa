@@ -9,7 +9,7 @@ l
             <!--begin::Aside-->
             <div class="flex-row-auto offcanvas-mobile w-250px w-xxl-350px" id="kt_profile_aside">
                 <!--begin::Profile Card-->
-                <div class="card card-custom card-stretch">
+                <div class="card card-stretch">
                     <!--begin::Body-->
                     <div class="card-body pt-4">
                         <!--begin::Toolbar-->
@@ -53,7 +53,7 @@ l
             <!--begin::Content-->
             <div class="flex-row-fluid ml-lg-8">
                 <!--begin::Card-->
-                <div class="card card-custom card-stretch">
+                <div class="card card-stretch">
                     <!--begin::Header-->
                     <div class="card-header py-3">
                         <div class="card-title align-items-start flex-column">

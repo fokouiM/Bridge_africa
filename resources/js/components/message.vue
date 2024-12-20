@@ -272,7 +272,7 @@ export default {
     },
     };
 </script>
-<style>
+<style scoped>
  .tex-credit{
      text-align: center;
     padding: 8px 0;

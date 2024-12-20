@@ -5,7 +5,7 @@
 
 <div class="content flex-column-fluid" id="kt_content">
 							<!--begin::Invoice-->
-<div class="card card-custom position-relative overflow-hidden">
+<div class="card position-relative overflow-hidden">
     <!--begin::Shape-->
     <div class="position-absolute opacity-30"><span class="svg-icon svg-icon-10x svg-logo-white"><!--begin::Svg Icon | path:assets/media/svg/shapes/abstract-8.svg--><svg xmlns="http://www.w3.org/2000/svg" width="176" height="165" viewBox="0 0 176 165" fill="none">
             <g clip-path="url(#clip0)">

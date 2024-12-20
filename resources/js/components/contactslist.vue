@@ -141,7 +141,7 @@
     }
 
 </script>
-<style >
+<style scoped>
 
 .list{
     height: 68vh;

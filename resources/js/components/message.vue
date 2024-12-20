@@ -195,14 +195,13 @@ export default {
 
   created(){
     this.credit = this.users.credit
-    Echo.channel(`messages.${this.users.id}`).listen('message:new',(e) => {
-        this.getcrefit();
-        console.log("hunter debug : ",e);
-        const messageData = JSON.parse(e.data);
-        const message = messageData.message.message;
-        this.messages.message.push(message);
-        this.messages.message = [];
-    });
+    Echo.channel(`messages${this.users.id}`)
+            .listen('NewMessage',  (e) => {
+            console.log("hunter debug : ",e)
+            this.nextmessage = e.message.message
+            this.messages.message.Push( this.e.message.message );
+
+        });
     setTimeout(() => {
         this.scrollToBottom()
     }, 2000);

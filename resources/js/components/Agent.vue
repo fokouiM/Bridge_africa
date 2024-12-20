@@ -46,8 +46,8 @@
         },
     },
     created(){
-        Echo.channel(`messages.${this.users.id}`)
-            .listen('message:new',  (e) => {
+        Echo.channel(`messages${this.users.id}`)
+            .listen('NewMessage',  (e) => {
             console.log("hunter debug : ",e)
             this.messages = e.message.message
 

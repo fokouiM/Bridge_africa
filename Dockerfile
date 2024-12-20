@@ -49,11 +49,12 @@ RUN apache2ctl configtest
 RUN rm composer.lock
 RUN composer install --no-dev --optimize-autoloader
 RUN php artisan config:cache
+RUN php artisan config:clear
 RUN php artisan view:cache
 # RUN php artisan websockets:serve
 # RUN yarn install
 # RUN yarn production
-# RUN php artisan migrate --force
+RUN php artisan migrate --force
 
 # Exposer le port 80
 EXPOSE 80

@@ -639,7 +639,7 @@ class MessagesController extends Controller
             $data['message'] = $message;
 
             // Envoyer l'événement
-            $pusher->trigger('messages.'.$message->to, 'message:new', $data);
+            $pusher->trigger('messages'.$message->to, 'NewMessage', $data);
         } catch (\Throwable $th) {
             //throw $th;
         }

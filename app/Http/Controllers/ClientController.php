@@ -29,8 +29,7 @@ class ClientController extends Controller
         if(Auth::user()->statut == 2){
 
             $clients = User::where('statut',0)->get();
-            dd($clients );
-            return view('Admin.clients')->with(['clients', $clients]);
+            return view('Admin.clients')->with(['clients' => $clients]);
         }else { return view('acces'); }
     }
 

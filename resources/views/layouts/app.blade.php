@@ -33,6 +33,7 @@
             background-color: #8856efd6 !important;
             padding: 5px 10px !important;
             border-radius: 5px !important;
+            text-align: center;
         }
         .amour{
             background-color: #f64e60 !important;
@@ -40,7 +41,8 @@
             border-radius: 5px !important;
             margin-bottom: 5px !important;
             color: #fff !important;
-            font-size: 1.2em !important;
+            font-size: 1.1em !important;
+            text-align: center;
         }
 
         .travail{
@@ -49,7 +51,8 @@
             border-radius: 5px !important;
             margin-bottom: 5px !important;
             color: #fff !important;
-            font-size: 1.2em !important;
+            font-size: 1.1em !important;
+            text-align: center;
         }
 
         .argent{
@@ -58,7 +61,8 @@
             border-radius: 5px !important;
             margin-bottom: 5px !important;
             color: #fff !important;
-            font-size: 1.2em !important;
+            font-size: 1.1em !important;
+            text-align: center;
         }
 
         .argent{
@@ -67,7 +71,8 @@
             border-radius: 5px !important;
             margin-bottom: 5px !important;
             color: #fff !important;
-            font-size: 1.2em !important;
+            font-size: 1.1em !important;
+            text-align: center;
         }
 
         .famille{
@@ -76,7 +81,8 @@
             border-radius: 5px !important;
             margin-bottom: 5px !important;
             color: #fff !important;
-            font-size: 1.2em !important;
+            font-size: 1.1em !important;
+            text-align: center;
         }
 
     </style>

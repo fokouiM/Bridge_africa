@@ -27,6 +27,59 @@
     <!--end::Layout Themes-->
 
     <link rel="shortcut icon" href="assets/media/logos/favicon.png" />
+    <style>
+        .name-style{
+            color: #fff !important;
+            background-color: #8856efd6 !important;
+            padding: 5px 10px !important;
+            border-radius: 5px !important;
+        }
+        .amour{
+            background-color: #f64e60 !important;
+            padding: 5px 10px !important;
+            border-radius: 5px !important;
+            margin-bottom: 5px !important;
+            color: #fff !important;
+            font-size: 1.2em !important;
+        }
+
+        .travail{
+            background-color: #ffa900 !important;
+            padding: 5px 10px !important;
+            border-radius: 5px !important;
+            margin-bottom: 5px !important;
+            color: #fff !important;
+            font-size: 1.2em !important;
+        }
+
+        .argent{
+            background-color: #1ec5bd !important;
+            padding: 5px 10px !important;
+            border-radius: 5px !important;
+            margin-bottom: 5px !important;
+            color: #fff !important;
+            font-size: 1.2em !important;
+        }
+
+        .argent{
+            background-color: #1ec5bd !important;
+            padding: 5px 10px !important;
+            border-radius: 5px !important;
+            margin-bottom: 5px !important;
+            color: #fff !important;
+            font-size: 1.2em !important;
+        }
+
+        .famille{
+            background-color: #5fb4ff  !important;
+            padding: 5px 10px !important;
+            border-radius: 5px !important;
+            margin-bottom: 5px !important;
+            color: #fff !important;
+            font-size: 1.2em !important;
+        }
+
+    </style>
 
 </head>
 <!--end::Head-->

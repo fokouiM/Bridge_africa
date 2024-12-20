@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="containt" style="margin: 0 20px 0 20px;"><br>
+<div class="containt" style="margin: auto;  width: 80%;"><br>
     <div class="alert alert-custom alert-white alert-shadow gutter-b bghom2" role="alert">
         <div class="alert-icon">
             <span class="svg-icon svg-icon-primary svg-icon-xl"><!--begin::Svg Icon | path:assets/media/svg/icons/Tools/Compass.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -27,18 +27,18 @@
                         <!--begin::Pic-->
                         <div class="flex-shrink-0 mr-4 mt-lg-0 mt-3">
                             <div class="symbol symbol-lg-75 d-none">
-                                <img alt="Pic" src="assets/media/users/default.jpg">
+                                <img alt="Pic" src="assets/media/users/voyante-1.avif">
                             </div>
                             <div class="symbol symbol-lg-75 symbol-primary">
-                                <span class="symbol-label font-size-h3 font-weight-boldest">IS</span>
+                                 <img class="symbol-label font-size-h3 font-weight-boldest" style="border-radius: 50%;" alt="Pic" src="assets/media/users/voyante-1.avif">
                             </div>
                         </div>
                         <!--end::Pic-->
 
                         <!--begin::Title-->
                         <div class="d-flex flex-column">
-                            <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0"> Amour</a>
-                            <span class="text-muted font-weight-bold"style="color:#8950FC !important;">ISABELLE</span>
+                            <a href="#" class="font-weight-bold amour"> Amour</a>
+                            <span class="text-muted font-weight-bold name-style">ISABELLE</span>
                         </div>
                     </div>
                     <!--end::User-->
@@ -82,15 +82,15 @@
                                 <img alt="Pic" src="assets/media/users/default.jpg">
                             </div>
                             <div class="symbol symbol-lg-75 symbol-primary">
-                                <span class="symbol-label font-size-h3 font-weight-boldest">SU</span>
+                                <img class="symbol-label font-size-h3 font-weight-boldest" style="border-radius: 50%;" alt="Pic" src="assets/media/users/voyante-3.avif">
                             </div>
                         </div>
                         <!--end::Pic-->
 
                         <!--begin::Title-->
                         <div class="d-flex flex-column">
-                            <a  class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0">Travail</a>
-                            <span class="text-muted font-weight-bold" style="color:#8950FC !important;">SUZANNE</span>
+                            <a  class="font-weight-bold travail">Travail</a>
+                            <span class="text-muted font-weight-bold name-style" >SUZANNE</span>
                         </div>
                         <!--end::Title-->
                     </div>
@@ -135,15 +135,15 @@
                                 <img alt="Pic" src="assets/media/users/300_10.jpg">
                             </div>
                             <div class="symbol symbol-lg-75 symbol-primary">
-                                <span class="symbol-label font-size-h3 font-weight-boldest">JA</span>
+                                <img class="symbol-label font-size-h3 font-weight-boldest" style="border-radius: 50%;" alt="Pic" src="assets/media/users/voyant-2.avif">
                             </div>
                         </div>
                         <!--end::Pic-->
 
                         <!--begin::Title-->
                         <div class="d-flex flex-column">
-                            <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0"> Argent</a>
-                            <span class="text-muted font-weight-bold"style="color:#8950FC !important;">JACQUEMIN</span>
+                            <a href="#" class="font-weight-bold argent"> Argent</a>
+                            <span class="text-muted font-weight-bold name-style">JACQUEMIN</span>
                         </div>
                         <!--end::Title-->
                     </div>
@@ -186,16 +186,16 @@
                             <div class="symbol symbol-lg-75 d-none">
                                 <img alt="Pic" src="assets/media/users/300_10.jpg">
                             </div>
-                            <div class="symbol symbol-lg-75 symbol-primary">
-                                <span class="symbol-label font-size-h3 font-weight-boldest">SA</span>
+                            <div class="symbol symbol-lg-75 symbol-primary" style="border-radius: 50%;">
+                                <img class="symbol-label font-size-h3 font-weight-boldest" style="border-radius: 50%;" alt="Pic" src="assets/media/users/voyante-4.avif">
                             </div>
                         </div>
                         <!--end::Pic-->
 
                         <!--begin::Title-->
                         <div class="d-flex flex-column">
-                            <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4 mb-0"> Famille</a>
-                            <span class="text-muted font-weight-bold" style="color:#8950FC !important;" >SABINE</span>
+                            <a href="#" class="font-weight-bold famille"> Famille</a>
+                            <span class="text-muted font-weight-bold name-style"  >SABINE</span>
                         </div>
                         <!--end::Title-->
                     </div>

@@ -615,6 +615,7 @@ class MessagesController extends Controller
         $hello = abs( $newdateone - $newdate)/120;
         $tag = Liste_tag::where('id_user', Auth::user()->id)->first();
         $settmessage = null;
+        dd($tag);
         if(empty($tag->tmessage)){
             $settmessage = 0;
         }else{

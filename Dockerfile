@@ -54,7 +54,7 @@ RUN php artisan view:cache
 # RUN php artisan websockets:serve
 # RUN yarn install
 # RUN yarn production
-RUN php artisan migrate --force
+# RUN php artisan migrate --force
 
 # Exposer le port 80
 EXPOSE 80

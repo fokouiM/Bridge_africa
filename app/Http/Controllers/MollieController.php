@@ -8,6 +8,7 @@ use Mollie\Laravel\Facades\Mollie;
 use Illuminate\Support\Facades\Auth;
 use App\Models\user;
 use App\Models\paylist;
+use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
 class MollieController extends Controller
 {
@@ -24,49 +25,85 @@ class MollieController extends Controller
      */
     public function createPayment(Request $request)
     {
+         // Configuration PayPal
+        //  dd(config('paypal'));
+        $provider = new PayPalClient;
+        $provider->setApiCredentials(config('paypal'));
+        $provider->getAccessToken();
+        $provider->setCurrency('EUR');
+        // dd($provider);
 
-        // check if customer already created or not
-        $mollie_customer_id = User::where('id',Auth::user()->id)->pluck('mollie_customer_id')->first();
+        $nextuser = User::where('id',Auth::user()->id)->first();
+        $affaire = $nextuser->affaire + $request->prix;
+        $credit = $request->credit + $nextuser->credit;
+        $curentPay = new curentPay;
+        $curentPay->id_user = Auth::user()->id;
+        $curentPay->affaire = $affaire;
+        $curentPay->credit = $credit;
+        $curentPay->statut = $request->statut;
+        $curentPay->prix = $request->prix;
+        $curentPay->status_pay = "PENDING";
+        $curentPay->save();
 
-        if (empty($mollie_customer_id)  ) {
-
-            //API to create customer
-            $customer = Mollie::api()->customers->create([
-                "name" => Auth::user()->name,
-                "email" => Auth::user()->email,
-            ]);
-
-            $mollie_customer_id = $customer->id;
-
-            User::where('id',Auth::user()->id)->update(['mollie_customer_id'=>$mollie_customer_id]);
+        // Création de l'ordre PayPal
+        $response = $provider->createOrder([
+            "intent" => "CAPTURE",
+            "purchase_units" => [
+                [
+                    "reference_id" => $curentPay->id,
+                    "amount" => [
+                        "currency_code" => "EUR",
+                        "value" => $request->prix,
+                    ],
+                ],
+            ],
+            "application_context" => [
+                "return_url" => route('paypal.capture'), // URL après paiement réussi
+                "cancel_url" => route('paypal.cancel'),  // URL après annulation
+                "user_action" => "PAY_NOW", // Afficher directement le bouton de paiement
+                "landing_page" => "BILLING", // Diriger vers la saisie de carte
+            ],
+        ]);
+        // dd($response);
+        if (isset($response['id'])) {
+            // Rediriger vers PayPal
+            return redirect($response['links'][1]['href']);
+        } else {
+            return redirect()->back()->with(['status' =>'Erreur lors de la création du paiement.', 'type' => 'danger']);
         }
 
-        // Creating Payment
-        $payment = Mollie::api()->customers->get($mollie_customer_id)->createPayment([
-            "amount" => [
-               "currency" => "EUR",
-               "value" => $request->prix,
-            ],
-            "description" => "CodeHunger Software",
-            "sequenceType" => "first",
-            "redirectUrl" => route('mollie.payment.success'), // after the payment completion where you to redirect
-        ]);
+        // check if customer already created or not
+        // $mollie_customer_id = User::where('id',Auth::user()->id)->pluck('mollie_customer_id')->first();
 
-        $payment = Mollie::api()->payments()->get($payment->id);
+        // if (empty($mollie_customer_id)  ) {
 
-         $nextuser = User::where('id',Auth::user()->id)->first();
-         $affaire = $nextuser->affaire + $request->prix;
-         $credit = $request->credit + $nextuser->credit;
-            $curentPay = new curentPay;
-            $curentPay->id_user = Auth::user()->id;
-            $curentPay->affaire = $affaire;
-            $curentPay->credit = $credit;
-            $curentPay->statut = $request->statut;
-            $curentPay->prix = $request->prix;
-            $curentPay->save();
+        //     //API to create customer
+        //     $customer = Mollie::api()->customers->create([
+        //         "name" => Auth::user()->name,
+        //         "email" => Auth::user()->email,
+        //     ]);
 
-        // redirect customer to Mollie checkout page
-        return redirect($payment->getCheckoutUrl(), 303);
+        //     $mollie_customer_id = $customer->id;
+
+        //     User::where('id',Auth::user()->id)->update(['mollie_customer_id'=>$mollie_customer_id]);
+        // }
+
+        // // Creating Payment
+        // $payment = Mollie::api()->customers->get($mollie_customer_id)->createPayment([
+        //     "amount" => [
+        //        "currency" => "EUR",
+        //        "value" => $request->prix,
+        //     ],
+        //     "description" => "CodeHunger Software",
+        //     "sequenceType" => "first",
+        //     "redirectUrl" => route('mollie.payment.success'), // after the payment completion where you to redirect
+        // ]);
+
+        // $payment = Mollie::api()->payments()->get($payment->id);
+
+
+        // // redirect customer to Mollie checkout page
+        // return redirect($payment->getCheckoutUrl(), 303);
 
     }
 
@@ -93,6 +130,43 @@ class MollieController extends Controller
         dd($subscription);
     }
 
+    public function capturePayment(Request $request)
+    {
+        $provider = new PayPalClient;
+        $provider->setApiCredentials(config('paypal'));
+        $accessToken = $provider->getAccessToken();
+        $provider->setAccessToken($accessToken);
+        $response = $provider->capturePaymentOrder($request->query('token'));
+
+        if (isset($response['status']) && $response['status'] == 'COMPLETED') {
+            $transaction = curentPay::where('id', $response['purchase_units'][0]['reference_id'])->first();
+            $user_id = null;
+            if(isset(Auth::user()->id)){
+                $user_id = Auth::user()->id;
+            }else{
+                $user_id = $transaction->id_user;
+
+            }
+            User::where('id',$user_id)->update(['credit'=>$transaction->credit, 'affaire'=> $transaction->affaire, 'statut_client'=>$transaction->statut]);
+            $paylist = new paylist;
+            $paylist->id_user = $user_id;
+            $paylist->value = $transaction->prix;
+            $paylist->save();
+            if ($transaction) {
+                $transaction->update([
+                    'status_pay' => 'COMPLETED',
+                    'payer_email' => $response['payer']['email_address'] ?? null,
+                    'payer_name' => $response['payer']['name']['given_name'] ?? null,
+                ]);
+            }
+
+            return view('pack')->with('status','Paiement réussi.');
+
+        } else {
+            return view('pack')->with(['status' =>'Paiement échoué ou annulé.', 'type' => 'danger']);
+        }
+    }
+
     /**
      * Page redirection after the successfull payment
      *
@@ -108,5 +182,10 @@ class MollieController extends Controller
         $paylist->value = $curretPay->prix;
         $paylist->save();
         return view('pack')->with('status','paiement reçu avec succès');
+    }
+
+    public function failed()
+    {
+        return view('pack')->with(['status' =>'Paiement échoué ou annulé.', 'type' => 'danger']);
     }
 }

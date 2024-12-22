@@ -17,7 +17,7 @@ RUN apt-get install -y libffi-dev && docker-php-ext-install pcntl
 # Ajouter le répertoire sécurisé pour Git
 RUN git config --global --add safe.directory /var/www/html
 # Installer et activer l'extension Redis
-RUN pecl install redis && docker-php-ext-enable redis
+# RUN pecl install redis && docker-php-ext-enable redis
 
 # Installer Node.js et Yarn
 RUN apt-get update && apt-get install -y curl gnupg
@@ -50,7 +50,8 @@ RUN rm composer.lock
 RUN composer install --no-dev --optimize-autoloader
 RUN php artisan config:cache
 RUN php artisan config:clear
-RUN php artisan view:cache
+RUN php artisan cache:clear
+# RUN php artisan view:cache
 # RUN php artisan websockets:serve
 # RUN yarn install
 # RUN yarn production

@@ -1,10 +1,9 @@
 @extends('layouts.app')
 
-
 @section('content')
 <div class="content flex-column-fluid" id="kt_content">
             @if (!empty($status) || Session::get('status'))
-                <div class="alert alert-custom alert-success fade show" role="alert">
+                <div class="alert alert-custom {{ !empty($type) && $type == 'danger' ? 'alert-danger' : 'alert-success' }} fade show" role="alert">
                     <div class="alert-icon"><i class="flaticon-warning"></i></div>
                     <strong class="alert-text">{{ $status ?? Session::get('status')}}</strong>
                     <div class="alert-close">
@@ -15,7 +14,7 @@
                 </div>
             @endif
         <!--begin::Card-->
-        <div class="card card-custom gutter-b">
+        <div class="card gutter-b">
             <div class="card-header">
                 <div class="card-title">
                     <span class="card-icon"><i class="flaticon2-chart text-primary"></i></span>
@@ -167,7 +166,7 @@
         <!--end::Card-->
 
         <!--begin::Card-->
-        <div class="card card-custom">
+        <div class="card ">
             <div class="card-header">
                 <div class="card-title">
                     <span class="card-icon"><i class="flaticon2-box-1 text-success"></i></span>

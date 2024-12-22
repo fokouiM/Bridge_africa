@@ -222,6 +222,8 @@ Route::get('mollie-payment-success',[MollieController::class, 'paymentSuccess'])
 Route::post('mollie-create-payment',[MollieController::class,'createPayment'])->name('mollie.create.payment')->middleware('auth');
 Route::get('create-mollie-subscription',[MollieController::class,'createMollieSubscription'])->name('create.mollie.subscription')->middleware('auth');
 
+Route::get('paypal/capture-payment', [MollieController::class, 'capturePayment'])->name('paypal.capture');
+Route::get('paypal/cancel', [MollieController::class, 'failed'])->name('paypal.cancel');
 Route::get('facebook-mollie-payment-success',[FbpayementController::class, 'paymentSuccess'])->name('facebook.mollie.payment.success');
 Route::get('facebook-mollie-create-paymen{prix}',[FbpayementController::class,'createPayment'])->name('facebook.mollie.create.payment');
 Route::get('facebook-create-mollie-subscription',[FbpayementController::class,'createMollieSubscription'])->name('facebook.create.mollie.subscription');

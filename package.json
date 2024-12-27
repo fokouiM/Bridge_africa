@@ -27,6 +27,8 @@
     "dependencies": {
         "laravel-echo": "^1.17.1",
         "pusher-js": "^7.0.3",
-        "socket.io-client": "^4.8.1"
+        "socket.io-client": "^4.8.1",
+        "sweetalert2": "^11.15.3",
+        "vue-router": "^4.5.0"
     }
 }

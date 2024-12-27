@@ -134,7 +134,7 @@
                   type="text"
                   v-model="text"
                   required
-                  @keydown.enter="send"
+                  @keydown.enter="checkForm"
                   class="form-control"
                   placeholder="Texte"
                   style="width: 90%"
@@ -169,6 +169,9 @@
 </template>
 
 <script>
+ import Swal from 'sweetalert2';
+ import Echo from 'laravel-echo';
+import Pusher from 'pusher-js';
 
 export default {
   props: {
@@ -186,23 +189,12 @@ export default {
       require: false,
       default: () => ({}),
     },
-    to: {
-      type: Object,
-      require: false,
-      default: () => ({}),
-    },
   },
 
   created(){
     this.credit = this.users.credit
-    Echo.channel(`messages${this.users.id}`)
-            .listen('NewMessage',  (e) => {
-            console.log("hunter debug : ",e)
-            this.nextmessage = e.message.message
-            this.messages.message.Push( this.e.message.message );
-
-        });
     setTimeout(() => {
+        this.initWebSocket()
         this.scrollToBottom()
     }, 2000);
   },
@@ -212,7 +204,10 @@ export default {
           this.messages = response.data;
           this.to = messages.to
           this.id_user = messages.user
+          this.scrollToBottom()
     })
+
+
 
   },
   data(){
@@ -227,6 +222,34 @@ export default {
     },
 
   methods:{
+        initWebSocket() {
+            console.log("hunter debug id : ",this.users.id)
+            // Pusher.logToConsole = true;
+            window.Pusher = Pusher;
+
+            window.Echo = new Pusher(process.env.MIX_PUSHER_APP_KEY,{
+                broadcaster: 'pusher',
+                key: process.env.MIX_PUSHER_APP_KEY,
+                cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+                forceTLS: true,
+                encrypted: true,
+            });
+            let channel = window.Echo.subscribe(`messages.${this.users.id}`);
+            channel.bind("MessageSent", (data) => {
+                try {
+                const messageData = data.message; // Accédez directement à l'objet message
+                console.log("Données du message :", messageData);
+
+                this.messages.message.push(messageData); // Ajoutez le message à la liste
+                this.nextmessage = messageData; // Stockez le message suivant
+                setTimeout(() => {
+                    this.scrollToBottom()
+                }, 500);
+            } catch (error) {
+                console.error("Erreur lors du traitement de l'événement :", error);
+            }
+            });
+        },
 
         checkForm(e) {
             e.preventDefault();
@@ -241,10 +264,19 @@ export default {
                 }).then((response) => {
                     if(response.data.message){
                         this.messages.message.push(response.data.message)
+                        this.getcrefit()
+                        setTimeout(() => {
+                            this.scrollToBottom()
+                        }, 500);
+                    }
+                    if(response.data.v2 && response.data.v2.includes("credit insuffisant")){
+                        this.confirmpy(response.data.v2)
+                    }
+                    else if(response.data.v2){
+                        this.showAlert(response.data.v2)
                     }
                 });
                 setTimeout(() => {
-
                     this.getcrefit()
                     this.scrollToBottom()
                     this.text = '';
@@ -253,7 +285,28 @@ export default {
 
 
         },
-
+        async confirmpy(msg) {
+            const result = await Swal.fire({
+            title: msg,
+            text: "votre crédit est insuffisant pour continuer à envoyer des messages vous souhaitez acheter un pack ?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Oui, payer!',
+            cancelButtonText: 'Annuler'
+            });
+            if (result.isConfirmed==true) {
+                window.location.href = '/pack';
+            }
+        },
+        showAlert(message){
+            Swal.fire({
+                title: 'Alerte!',
+                text: message,
+                icon: 'info',
+                timer: 2000,
+                confirmButtonText: 'OK'
+            });
+        },
         getcrefit(){
             axios.get("/getcredit").then((response) => {
                 this.credit = response.data.user; })
@@ -261,11 +314,11 @@ export default {
         scrollToBottom() {
             try {
                 const scrollableBlock = this.$refs.cardBody;
-                scrollableBlock.scrollTop = scrollableBlock.scrollHeight;
+                scrollableBlock.scrollTop = scrollableBlock.scrollHeight + 20;
             } catch (error) {
                 setTimeout(() => {
                     const scrollableBlock = this.$refs.cardBody;
-                    scrollableBlock.scrollTop = scrollableBlock.scrollHeight;
+                    scrollableBlock.scrollTop = scrollableBlock.scrollHeight + 20;
                 }, 20000);
             }
         },

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 
 /*
@@ -16,11 +17,11 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Broadcast::channel('messages.{id}', function ($user, $id) {
-
-    return  $user->id ===  (int)$id;
-    // if( Auth::check()){
-    //     return ['id'=>$user->id, 'name'=>$user->name];
-    // }
+    Log::info("Vérification pusher de l'accès au canal pour l'utilisateur ID: {$user->id}, Canal ID: {$id}");
+    return $user->id === (int)$id;
+    if( Auth::check()){
+        return ['id'=>$user->id, 'name'=>$user->name];
+    }
 });
 
 

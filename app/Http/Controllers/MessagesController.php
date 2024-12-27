@@ -439,9 +439,26 @@ class MessagesController extends Controller
             $message->name_voyant = $request->name_voyant;
             $message->message = $request->text;
             $message->save();
-            // $testb = broadcast(new NewMessage($message));
+            // broadcast(new NewMessage($message));
             // dd($testb);
-            $this->PushMessage($message);
+            $str = date('d/m/y', strtotime(Carbon::now()));
+            $dateshare = date('d/m/y', strtotime($message->created_at));
+            if($str == $dateshare){
+
+                $time =  $message->created_at->format('H:i:s');
+            }else{
+                $time = date('d M y', strtotime($message->created_at));
+            }
+            $data = [
+                'id_user' => $message->id_user,
+                'id_send' => $message->id_send,
+                'statut' => $message->statut,
+                'to' => $message->to,
+                'name_voyant' => $message->name_voyant,
+                'message' => $message->message,
+                'created_at' => $time,
+            ];
+            $this->PushMessage($data);
             User::where('id',$request->id_user)->update(['name_agent' => Auth::user()->name,'statut_m'=>0]);
 
              CounvClient::where('id_user',$request->id_user)->where('name_voyant',$request->name_voyant)->update(['statut' => 1]);
@@ -537,8 +554,7 @@ class MessagesController extends Controller
                 $message->save();
                 $credit = Auth::user()->credit -1;
 
-                // $testb = broadcast(new NewMessage($message));
-                $this->PushMessage($message);
+                // broadcast(new NewMessage($message));
                 // dd($testb);
 
                 User::where('id',Auth::user()->id)->update(['credit' => $credit,'statut_m'=> 1,'pub'=> 1]);
@@ -561,6 +577,7 @@ class MessagesController extends Controller
                     'message' => $message->message,
                     'created_at' => $time,
                 ];
+                $this->PushMessage($data);
                 $user = User::where('id',Auth::user()->id)->first();
                 $name_voyant = $request->name_voyant;
                 $to = $request->to;
@@ -569,42 +586,22 @@ class MessagesController extends Controller
 
         }else{
 
-            $v2 = 'credit insuffisant ';
-                $Idc = message::where('id_user',Auth::user()->id)->where('id_send','!=',Auth::user()->id)->orderBy('created_at', 'desc')->first();
-                    if($Idc != null){
-                        if($Idc->id_send != null){
+            $v2 = 'credit insuffisant';
+            $Idc = message::where('id_user',Auth::user()->id)->where('id_send','!=',Auth::user()->id)->orderBy('created_at', 'desc')->first();
+            if($Idc != null){
+                if($Idc->id_send != null){
 
-                            $to = $Idc->id_send;
-                        }else{
-                            $to = 0;
-                        }
-                    }else{
-                        $to = 0;
-                    }
-            $message = message::where('id_user',Auth::user()->id)->where('name_voyant',$request->name_voyant)->get()
-            ->map(function ($item, $key) {
-                $str = date('d/m/y', strtotime(Carbon::now()));
-                $dateshare = date('d/m/y', strtotime($item->created_at));
-                if($str == $dateshare){
-
-                    $time =  $item->created_at->format('H:i:s');
+                    $to = $Idc->id_send;
                 }else{
-                    $time = date('d M y', strtotime($item->created_at));
+                    $to = 0;
                 }
-                $data = [
-                    'id_user' => $item->id_user,
-                    'id_send' => $item->id_send,
-                    'statut' => $item->statut,
-                    'to' => $item->to,
-                    'name_voyant' => $item->name_voyant,
-                    'message' => $item->message,
-                    'created_at' => $time,
-                ];
-                return $data;
-            });
-                $user = User::where('id',Auth::user()->id)->first();
-                $name_voyant = $request->name_voyant;
-                return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant,'v2'=>$v2,'to'=>$to]);
+            }else{
+                $to = 0;
+            }
+            $message = null;
+            $user = User::where('id',Auth::user()->id)->first();
+            $name_voyant = $request->name_voyant;
+            return response()->json(['message'=>$message,'user'=>$user,'name_voyant'=>$name_voyant,'v2'=>$v2,'to'=>$to]);
         }
     }
 
@@ -644,9 +641,10 @@ class MessagesController extends Controller
 
             // Données à envoyer
             $data['message'] = $message;
+            $channel = 'messages.' . $message["to"];
 
             // Envoyer l'événement
-            $pusher->trigger('messages'.$message->to, 'NewMessage', $data);
+            $pusher->trigger($channel, 'MessageSent', $data);
         } catch (\Throwable $th) {
             //throw $th;
         }

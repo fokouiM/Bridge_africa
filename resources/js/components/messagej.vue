@@ -205,15 +205,7 @@ export default {
     },
   },
   created(){
-      Echo.channel(`messages.${this.users.id}`)
-            .listen('NewMessage',  (e) => {
-                //  this.hanleIncoming(e.message);
-            // this.message = e.message;
-            this.nextmessage = e.message.message
-            this.messages.message.Push( this.e.message.message );
-
-
-        });
+      this.initWebSocket()
   },
   mounted() {
     axios.get("/conversationuersj").then((response) => {
@@ -233,6 +225,16 @@ export default {
     },
 
   methods:{
+        initWebSocket() {
+            console.log("hunter debug : ",this.users.id)
+            Echo.channel(`messages${this.users.id}`)
+                .listen('NewMessage',  (e) => {
+                console.log("hunter debug : ",e)
+                this.nextmessage = e.message.message
+                this.messages.message.Push( this.e.message.message );
+
+            });
+        },
 
         checkForm(e) {
             e.preventDefault();

@@ -175,6 +175,7 @@
 
 <script>
     import credit from './credit';
+    import Swal from 'sweetalert2';
 
 export default {
   props: {
@@ -205,19 +206,9 @@ export default {
   },
 
   created(){
-      Echo.channel(`messages.${this.users.id}`)
-            .listen('NewMessage',  (e) => {
-                //  this.hanleIncoming(e.message);
-            // this.message = e.message;
-            this.nextmessage = e.message.message
-            this.messages.message.Push( this.e.message.message );
-
-
-        });
+      this.initWebSocket()
   },
   mounted() {
-
-
       axios.get("/conversationuerssi").then((response) => {
           this.messages = response.data;
     })
@@ -234,8 +225,30 @@ export default {
     },
 
   methods:{
+        initWebSocket() {
+            window.Echo.connector.pusher.connection.bind('connected', function() {
+                console.log('Connecté à Pusher');
+            });
+
+            window.Echo.connector.pusher.connection.bind('disconnected', function() {
+                console.log('Déconnecté de Pusher');
+            });
+
+            window.Echo.connector.pusher.connection.bind('error', function(err) {
+                console.error('Erreur de connexion Pusher:', err);
+            });
+            console.log("hunter debug : ",this.users.id)
+            Echo.channel(`messages${this.users.id}`)
+                .listen('NewMessage',  (e) => {
+                console.log("hunter debug : ",e)
+                this.nextmessage = e.message.message
+                this.messages.message.Push( this.e.message.message );
+
+            });
+        },
 
         checkForm(e) {
+            console.log("hunter debug : ",e)
             e.preventDefault();
             axios.post('/conversation/senduser',{
                 text: this.text,
@@ -245,6 +258,7 @@ export default {
             }).then((response) => {
                 this.messages = response.data;
                 this.nextmessage = '';
+                console.log("hunter debug : ",response.data)
             });
             if(this.text == ''){
                 return;
@@ -253,6 +267,14 @@ export default {
             this.text = '';
 
 
+        },
+        showAlert(message){
+            Swal.fire({
+                title: 'Alerte!',
+                text: message,
+                icon: 'info',
+                confirmButtonText: 'OK'
+            });
         },
         saveNewMessage(text){
                 this.messages.push(text);

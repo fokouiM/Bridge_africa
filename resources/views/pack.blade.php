@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="content flex-column-fluid" id="kt_content">
-            @if (!empty($status) || Session::get('status'))
-                <div class="alert alert-custom {{ !empty($type) && $type == 'danger' ? 'alert-danger' : 'alert-success' }} fade show" role="alert">
-                    <div class="alert-icon"><i class="flaticon-warning"></i></div>
-                    <strong class="alert-text">{{ $status ?? Session::get('status')}}</strong>
-                    <div class="alert-close">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close" >
-                            <span aria-hidden="true"><i class="ki ki-close"></i></span>
-                        </button>
-                    </div>
+    <div class="flex-column-fluid" id="kt_content" style="padding: 10px; width: 100%;">
+        @if (!empty($status) || Session::get('status'))
+            <div class="alert alert-custom {{ !empty($type) && $type == 'danger' ? 'alert-danger' : 'alert-success' }} fade show" role="alert">
+                <div class="alert-icon"><i class="flaticon-warning"></i></div>
+                <strong class="alert-text">{{ $status ?? Session::get('status')}}</strong>
+                <div class="alert-close">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" >
+                        <span aria-hidden="true"><i class="ki ki-close"></i></span>
+                    </button>
                 </div>
-            @endif
+            </div>
+        @endif
         <!--begin::Card-->
         <div class="card gutter-b">
             <div class="card-header">
@@ -301,5 +301,5 @@
             </div>
         </div>
         <!--end::Card-->
-        </div>
-    @endsection
+    </div>
+@endsection

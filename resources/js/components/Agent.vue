@@ -46,12 +46,8 @@
         },
     },
     created(){
-        Echo.channel(`messages${this.users.id}`)
-            .listen('NewMessage',  (e) => {
-            console.log("hunter debug : ",e)
-            this.messages = e.message.message
+        this.initWebSocket()
 
-        });
     },
 
     data(){
@@ -77,6 +73,16 @@
     },
 
     methods:{
+        initWebSocket() {
+            console.log("hunter debug : ",this.users.id)
+            Echo.channel(`messages${this.users.id}`)
+                .listen('NewMessage',  (e) => {
+                console.log("hunter debug : ",e)
+                this.nextmessage = e.message.message
+                this.messages.message.Push( this.e.message.message );
+
+            });
+        },
         startconversationWith(contact) {
             axios.get(`/conversation/${contact.id}/${contact.name_voyant}`)
             .then((response) =>{

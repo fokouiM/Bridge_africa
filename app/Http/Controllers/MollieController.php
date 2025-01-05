@@ -57,7 +57,6 @@ class MollieController extends Controller
 
         if ($response->successful()) {
             $orderDetails = $response->json();
-            dd($orderDetails['status']);
             // Vérifier si le paiement est approuvé
             if ($orderDetails['status'] === 'COMPLETED') {
                 $transaction = curentPay::where('id', $curentPay->id)->first();

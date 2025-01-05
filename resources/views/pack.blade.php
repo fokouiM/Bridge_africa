@@ -372,7 +372,6 @@
                     });
 
                 // Rendre un nouveau bouton PayPal
-                console.log("login",login)
                 if(login){
                     document.getElementById('payer-btn').innerHTML = "";
                     document.getElementById('modal-payer').style.display = "block";

@@ -65,7 +65,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Envoyer un lien de Réinitialiser a votre adress email') }}
+                                    {{ __('Envoyez un lien de réinitialisation à votre adresse mail') }}
                                 </button>
                             </div>
                         </div>

@@ -86,6 +86,13 @@ use App\Events\MessagePushed;
 //     }
 // });
 
+Route::get('/user/api', function (Request $request) {
+    if (!$request->user()) { // Vérifiez si l'utilisateur n'est pas connecté
+        return response()->json(['error' => 'Unauthorized'], 401);
+    }
+
+    return $request->user(); // Renvoie l'utilisateur authentifié
+});
 
 Route::get('/', function () {return view('welcome');});
 
@@ -174,6 +181,8 @@ Route::get('/add_post', function () { if(Auth::user()->statut == 2){ return view
 Route::get('/voyants/login', function () { return view('auth.login'); })->name('voyants');
 Route::get('/clients', [App\Http\Controllers\ClientController::class, 'index'])->name('clients')->middleware('auth');
 Route::get('/voyants', [App\Http\Controllers\AdminController::class, 'voyants'])->name('voyants')->middleware('auth');
+Route::post('/paypal/verify/pay', [MollieController::class, 'verifyTransaction'])->name('verify.paypal')->middleware('auth');
+
 
 Auth::routes();
 
@@ -189,7 +198,7 @@ Route::get('/note/{id}', [App\Http\Controllers\MessagesController::class, 'getno
 
 Route::get('/conversationuers/{voyant}', [App\Http\Controllers\MessagesController::class, 'getoneMessage'])->name('conversationuers')->middleware('auth');
 Route::get('/conversationuerssi', [App\Http\Controllers\MessagesController::class, 'getoneMessagesi'])->name('conversationuerssi')->middleware('auth');
-Route::get('/conversationuersj', [App\Http\Controllers\MessagesController::class, 'getoneMessagej'])->name('conversationuersj')->middleware('auth');
+Route::post('/conversationuersj', [App\Http\Controllers\MessagesController::class, 'getoneMessagej'])->name('conversationuersj')->middleware('auth');
 Route::get('/conversationuersb', [App\Http\Controllers\MessagesController::class, 'getoneMessageb'])->name('conversationuersb')->middleware('auth');
 
 Route::post('/conversation/send', [App\Http\Controllers\MessagesController::class, 'send'])->name('conversation/send')->middleware('auth');

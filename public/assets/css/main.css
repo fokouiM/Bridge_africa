@@ -117,3 +117,70 @@
     }
 }
 
+/* styles.css */
+
+/* Style général pour masquer le modal par défaut */
+.modal-payer {
+    display: none; /* Masquer par défaut */
+    position: fixed; /* Rester en place lors du défilement */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    z-index: 1000; /* Toujours au-dessus */
+}
+
+/* Contenu du modal */
+.modal-content-payer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-height: 95vh;
+    overflow-y: auto;
+}
+
+/* Bouton de fermeture */
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-modal:hover {
+    color: #ff0000;
+}
+
+.modal-payer {
+    transition: opacity 0.3s ease;
+}
+
+.modal-content-payer {
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translate(-50%, -60%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+#payer-alert{
+    display: none ;
+}

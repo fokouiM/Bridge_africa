@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\user;
 use App\Models\paylist;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
+use Illuminate\Support\Facades\Http;
 
 class MollieController extends Controller
 {
@@ -16,6 +17,78 @@ class MollieController extends Controller
     public function  __construct()
     {
         Mollie::api()->setApiKey('live_E43MG8fMqdTG9t9Qw6M8k9dwJEmhkT');
+    }
+
+    /**
+     * Create Mollie Payment
+     *
+     * @return Response
+     */
+    public function verifyTransaction(Request $request)
+    {
+        $orderId = $request->body["orderID"]; // ID de la commande envoyé depuis le frontend
+
+        $nextuser = User::where('id',Auth::user()->id)->first();
+        $affaire = $nextuser->affaire + $request->body["prix"];
+        $credit = $request->body["credit"] + $nextuser->credit;
+        $curentPay = new curentPay;
+        $curentPay->id_user = Auth::user()->id;
+        $curentPay->affaire = $affaire;
+        $curentPay->credit = $credit;
+        $curentPay->statut = $request->body["statut"];
+        $curentPay->prix = $request->body["prix"];
+        $curentPay->status_pay = "PENDING";
+        $curentPay->codepay = $orderId;
+        $curentPay->save();
+
+        sleep(180);
+        // Obtenir un jeton d'accès OAuth2
+        $response = Http::withBasicAuth(env('PAYPAL_CLIENT_ID'), env('PAYPAL_SECRET'))
+            ->asForm()
+            ->post('https://api.' . (env('PAYPAL_MODE') === 'live' ? '' : 'sandbox.') . 'paypal.com/v1/oauth2/token', [
+                'grant_type' => 'client_credentials',
+            ]);
+
+        $accessToken = $response->json()['access_token'];
+
+        // Vérifier la transaction
+        $response = Http::withToken($accessToken)
+            ->get('https://api.' . (env('PAYPAL_MODE') === 'live' ? '' : 'sandbox.') . 'paypal.com/v2/checkout/orders/' . $orderId);
+
+        if ($response->successful()) {
+            $orderDetails = $response->json();
+            dd($orderDetails['status']);
+            // Vérifier si le paiement est approuvé
+            if ($orderDetails['status'] === 'COMPLETED') {
+                $transaction = curentPay::where('id', $curentPay->id)->first();
+                $user_id = null;
+                if(isset(Auth::user()->id)){
+                    $user_id = Auth::user()->id;
+                }else{
+                    $user_id = $transaction->id_user;
+
+                }
+                User::where('id',$user_id)->update(['credit'=>$transaction->credit, 'affaire'=> $transaction->affaire, 'statut_client'=>$transaction->statut]);
+                $paylist = new paylist;
+                $paylist->id_user = $user_id;
+                $paylist->value = $transaction->prix;
+                $paylist->save();
+                if ($transaction) {
+                    $transaction->update([
+                        'status_pay' => 'COMPLETED',
+                        'payer_email' => $response['payer']['email_address'] ?? null,
+                        'payer_name' => $response['payer']['name']['given_name'] ?? null,
+                    ]);
+                }
+
+                // Effectuer une action, comme sauvegarder dans la base de données
+                return response()->json(['message' => 'Transaction validée et complétée.'], 200);
+            }
+
+            return response()->json(['message' => 'Transaction non complétée.'], 400);
+        }
+
+        return response()->json(['message' => 'Échec de la vérification de la transaction.'], 500);
     }
 
     /**

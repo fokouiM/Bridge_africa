@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+    <div>
+        <script src="https://www.paypal.com/sdk/js?client-id={{ config('paypal.client_id') }}&currency={{config('paypal.currency')}}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </div>
     <div class="flex-column-fluid" id="kt_content" style="padding: 10px; width: 100%;">
         @if (!empty($status) || Session::get('status'))
             <div class="alert alert-custom {{ !empty($type) && $type == 'danger' ? 'alert-danger' : 'alert-success' }} fade show" role="alert">
@@ -14,6 +18,25 @@
             </div>
         @endif
         <!--begin::Card-->
+        <div id="modal-payer" class="modal-payer modal">
+            <div class="modal-content-payer">
+                <span id="close-modal" class="close-modal" >&times;</span>
+                <div id="payer-alert" class="payer-alert alert alert-custom  fade show" role="alert">
+                    <div class="alert-icon"><i class="flaticon-warning"></i></div>
+                    <strong id="payer-alert-text" class="alert-text"> </strong>
+                    <div class="alert-close">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close" >
+                            <span aria-hidden="true"><i class="ki ki-close"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <h2 id="header-modal">Modal Titre</h2>
+                <p class="alert alert-custom alert-success mt-4">Votre paiement est totalement sécurisé </p>
+                <div id="payer-btn">
+                </div>
+            </div>
+
+        </div>
         <div class="card gutter-b">
             <div class="card-header">
                 <div class="card-title">
@@ -59,13 +82,13 @@
                             <h4 class="font-size-h6 d-block d-block font-weight-bold mb-7 text-dark-50">Pack découverte</h4>
                             <span class="font-size-h1 d-block d-block font-weight-boldest text-dark-75 py-2">5 <sup class="font-size-h3 font-weight-normal pl-1">€</sup></span>
                             <h4 class="font-size-h6 d-block d-block font-weight-bold mb-7 text-dark-50">5 credits</h4>
-                            <form action="mollie-create-payment" method="POST">
+                            <form >
                                 @csrf
-                                        <input type="hidden" name="statut" value="1">
-                                        <input type="hidden" name="credit" value="5">
-                                        <input type="hidden" name="prix" value="5.00">
-                                <button type="submit" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3"> payer</button>
+                                <input type="hidden" name="statut" value="1">
+                                <input type="hidden" name="credit" value="5">
+                                <input type="hidden" name="prix" value="5.00">
                             </form>
+                            <button id="payer-base-5" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3" onclick="showPayPalButton('5.00', '5','1')"> payer</button>
                             <!--end::Content-->
                         </div>
                     </div>
@@ -104,13 +127,13 @@
                             <h4 class="font-size-h6 d-block d-block font-weight-bold mb-7 text-dark-50">Pack Croissance</h4>
                             <span class="font-size-h1 d-block font-weight-boldest text-dark-75 py-2">13<sup class="font-size-h3 font-weight-normal pl-1">€</sup></span>
                             <h4 class="font-size-h6 d-block font-weight-bold mb-7 text-dark-50">15 credits + 2credits bonus</h4>
-                            <form action="mollie-create-payment" method="POST">
+                            <form >
                                 @csrf
-                                        <input type="hidden" name="credit" value="17">
-                                        <input type="hidden" name="statut" value="1">
-                                        <input type="hidden" name="prix" value="13.00">
-                                <button type="submit" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3"> payer</button>
+                                <input type="hidden" name="credit" value="17">
+                                <input type="hidden" name="statut" value="1">
+                                <input type="hidden" name="prix" value="13.00">
                             </form>
+                            <button id="payer-base-13" class="btn btn-primary text-uppercase font-weight-bolder px-15 pyx-3" onclick="showPayPalButton('13.00', '17','1')"> payer</button>
                             <!--end::Content-->
                         </div>
                     </div>
@@ -149,13 +172,13 @@
                             <h4 class="font-size-h6 d-block d-block font-weight-bold mb-7 text-dark-50">Pack Evei</h4>
                             <span class="font-size-h1 d-block font-weight-boldest text-dark-75 py-2"> 30 <sup class="font-size-h3 font-weight-normal pl-1">€</sup></span>
                             <h4 class="font-size-h6 d-block font-weight-bold mb-7 text-dark-50">30credits 4credits bonus</h4>
-                            <form action="mollie-create-payment" method="POST">
+                            <form>
                                 @csrf
-                                        <input type="hidden" name="credit" value="34">
-                                        <input type="hidden" name="statut" value="1">
-                                        <input type="hidden" name="prix" value="30.00">
-                                <button type="submit" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3"> payer</button>
+                                <input type="hidden" name="credit" value="34">
+                                <input type="hidden" name="statut" value="1">
+                                <input type="hidden" name="prix" value="30.00">
                             </form>
+                            <button class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3" onclick="showPayPalButton('30.00', '34','1')"> payer</button>
                             <!--end::Content-->
                         </div>
                     </div>
@@ -205,13 +228,13 @@
                             <span class="font-size-h1 d-block font-weight-boldest text-dark-75 py-2">8<sup class="font-size-h3 font-weight-normal pl-1">€</sup></span>
                             <h4 class="font-size-h6 d-block font-weight-bold mb-7 text-dark-50">5 credits</h4>
                             <div class="d-flex justify-content-center">
-                                    <form action="mollie-create-payment" method="POST">
+                                    <form>
                                         @csrf
                                         <input type="hidden" name="credit" value="5">
                                         <input type="hidden" name="statut" value="2">
                                         <input type="hidden" name="prix" value="8.00">
-                                        <button type="submit" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3"> payer</button>
                                     </form>
+                                    <button class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3" onclick="showPayPalButton('8.00', '5','2')"> payer</button>
                             </div>
                         </div>
                     </div>
@@ -247,13 +270,13 @@
                             <span class="font-size-h1 d-block font-weight-boldest text-dark-75 py-2">22<sup class="font-size-h3 font-weight-normal pl-1">€</sup></span>
                             <h4 class="font-size-h6 d-block font-weight-bold mb-7 text-dark-50"> 15 credits + 3 crédits bonus</h4>
                             <div class="d-flex justify-content-center">
-                                    <form action="mollie-create-payment" method="POST">
+                                    <form>
                                         @csrf
                                         <input type="hidden" name="credit" value="18">
                                         <input type="hidden" name="statut" value="2">
                                         <input type="hidden" name="prix" value="22.00">
-                                        <button type="submit" class="btn btn-success text-uppercase font-weight-bolder px-15 py-3"> payer</button>
                                     </form>
+                                    <button class="btn btn-success text-uppercase font-weight-bolder px-15 py-3" onclick="showPayPalButton('22.00', '18','2')"> payer</button>
                             </div>
                         </div>
                     </div>
@@ -286,13 +309,13 @@
                             <span class="font-size-h1 d-block font-weight-boldest text-dark-75 py-2">43 <sup class="font-size-h3 font-weight-normal pl-1">€</sup></span>
                             <h4 class="font-size-h6 d-block font-weight-bold mb-7 text-dark-50"> 30 credits + 5crédits bonus</h4>
                             <div class="d-flex justify-content-center">
-                                    <form action="mollie-create-payment" method="POST">
+                                    <form>
                                         @csrf
                                         <input type="hidden" name="prix" value="43.00">
                                         <input type="hidden" name="credit" value="35">
                                         <input type="hidden" name="statut" value="2">
-                                        <button type="submit" class="btn btn-warning text-uppercase font-weight-bolder px-15 py-3"> payer</button>
                                     </form>
+                                    <button class="btn btn-warning text-uppercase font-weight-bolder px-15 py-3" onclick="showPayPalButton('43.00', '35','2')"> payer</button>
                             </div>
                         </div>
                     </div>
@@ -301,5 +324,158 @@
             </div>
         </div>
         <!--end::Card-->
+        <script>
+            const baseUrl = "{{config('app.url')}}"
+            // script.js
+
+            // Sélection des éléments
+            const modal = document.getElementById("modal-payer");
+            const closeModalBtn = document.getElementById("close-modal");
+
+
+            // Fermer le modal en cliquant sur le bouton "X"
+            closeModalBtn.addEventListener("click", () => {
+                modal.style.display = "none";
+            });
+
+            // Fermer le modal en cliquant à l'extérieur du contenu
+            window.addEventListener("click", (event) => {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+            function getCsrfToken() {
+                const cookies = document.cookie.split('; ');
+                const csrfToken = cookies.find(row => row.startsWith('XSRF-TOKEN='));
+                return csrfToken ? decodeURIComponent(csrfToken.split('=')[1]) : null;
+            }
+            async function  showPayPalButton(amount, credit, statut) {
+                // Supprime les boutons PayPal précédents
+                let login = await fetch(baseUrl+'/user/api', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json();
+                        } else if (response.status === 401) {
+                            window.location.href = baseUrl+'/login'; // Redirection si l'utilisateur n'est pas connecté
+                        }
+                    })
+                    .then(data => {
+                        return data;
+                    })
+                    .catch(error => {
+                        console.error('Erreur lors de la requête sécurisée:', error);
+                    });
+
+                // Rendre un nouveau bouton PayPal
+                console.log("login",login)
+                if(login){
+                    document.getElementById('payer-btn').innerHTML = "";
+                    document.getElementById('modal-payer').style.display = "block";
+                    document.getElementById('header-modal').textContent = `Paiement de ${amount} € pour ${credit} crédits`
+                    paypal.Buttons({
+                        createOrder: function(data, actions) {
+                            return actions.order.create({
+                                purchase_units: [{
+                                    amount: {
+                                        value: amount, // Montant
+                                        currency_code: "{{config('paypal.currency')}}"
+                                    }
+                                }]
+                            });
+                        },
+                        onApprove: function(data, actions) {
+                            return actions.order.capture().then(function(details) {
+                                let alert = document.getElementById('payer-alert')
+                                alert.style.display = "flex";
+                                alert.classList.add('alert-success');
+                                document.getElementById('payer-alert-text').textContent = 'Transaction effectuée avec succès par ' + details.payer.name.given_name;
+
+                                axios.post(baseUrl+'/paypal/verify/pay', {
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'X-CSRF-TOKEN': getCsrfToken()
+                                    },
+                                    body: {
+                                        credit: credit,
+                                        statut: statut,
+                                        prix: amount,
+                                        orderID: data.orderID
+                                    }
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data.message) {
+                                        window.location.reload();
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Erreur lors de la vérification de la transaction :', error);
+                                });
+                            });
+                        },
+                        onCancel: function(data) {
+                            let alert = document.getElementById('payer-alert')
+                            alert.style.display = "flex";
+                            alert.classList.add('alert-danger');
+                            document.getElementById('payer-alert-text').textContent = `Transaction annulée. orderID : ${data.orderID}`;
+                            axios.post(baseUrl+'/paypal/verify/pay', {
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'X-CSRF-TOKEN': getCsrfToken()
+                                },
+                                body: {
+                                    credit: credit,
+                                    statut: statut,
+                                    prix: amount,
+                                    orderID: data.orderID
+                                }
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.message) {
+                                    window.location.reload();
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Erreur lors de la vérification de la transaction :', error);
+                            });
+                        },
+                        onError: function(err) {
+                            let alert = document.getElementById('payer-alert')
+                            alert.style.display = "flex";
+                            alert.classList.add('alert-danger');
+                            document.getElementById('payer-alert-text').textContent = `Erreur PayPal : ${err}`;
+                            console.error('Erreur PayPal:', err);
+                            axios.post(baseUrl+'/paypal/verify/pay', {
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'X-CSRF-TOKEN': getCsrfToken()
+                                },
+                                body: {
+                                    credit: credit,
+                                    statut: statut,
+                                    prix: amount,
+                                    orderID: data.orderID
+                                }
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.message) {
+                                    window.location.reload();
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Erreur lors de la vérification de la transaction :', error);
+                            });
+                        }
+                    }).render('#payer-btn');
+                }
+            }
+        </script>
     </div>
 @endsection
